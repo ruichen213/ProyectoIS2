@@ -2,11 +2,11 @@ package pruebaisi2.vista;
 
 import javax.swing.JOptionPane;
 
-public class Clientes_RegistrarRreserva extends javax.swing.JFrame {
+public class Cliente_RegistrarReserva extends javax.swing.JFrame {
 
     //Declaración de variables
     
-    public Clientes_RegistrarRreserva() {
+    public Cliente_RegistrarReserva() {
         initComponents();
     }
 
