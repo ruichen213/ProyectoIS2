@@ -5,17 +5,17 @@
 package pruebaisi2.controlador;
 
 import pruebaisi2.modelo.modelo;
-import pruebaisi2.vista.VentanaIni;
+import pruebaisi2.vista.Cliente_Reserva;
 
 /**
  *
  * @author cuent
  */
 public class Controlador {
-    private VentanaIni v;
+    private Cliente_Reserva v;
     private modelo m;
     
-    public Controlador(VentanaIni v, modelo m){
+    public Controlador(Cliente_Reserva v, modelo m){
         this.v = v;
         this.m = m;
         //....

@@ -42,9 +42,9 @@ public class RegistroReservasParcela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("fecha inicio");
+        jLabel1.setText("Fecha entrada");
 
-        jLabel4.setText("fecha fin");
+        jLabel4.setText("Fecha salida");
 
         jLabel5.setText("Numero de Parcelas");
 
@@ -58,6 +58,11 @@ public class RegistroReservasParcela extends javax.swing.JFrame {
         jButton1.setText("Cancelar");
 
         jButton2.setText("Aceptar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -135,6 +140,13 @@ public class RegistroReservasParcela extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        InfoParcela info = new InfoParcela();
+        info.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
