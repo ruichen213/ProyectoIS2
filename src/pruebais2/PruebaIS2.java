@@ -11,6 +11,6 @@ public class PruebaIS2 {
      */
     public static void main(String[] args) {
         int x, y;
-        String hola;
+        String hola, buenos;
     }   
 }
