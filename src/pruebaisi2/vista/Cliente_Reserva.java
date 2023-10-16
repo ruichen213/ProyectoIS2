@@ -84,9 +84,7 @@ public class Cliente_Reserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSinReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSinReservaActionPerformed
-//        consultarVuelosEmpleado = new ConsultarVuelosEmpleado(ok);
-//        this.setVisible(false);
-//        consultarVuelosEmpleado.setVisible(true);
+        
     }//GEN-LAST:event_buttonSinReservaActionPerformed
 
     private void buttonConReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConReservaActionPerformed
