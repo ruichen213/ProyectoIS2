@@ -4,6 +4,8 @@
  */
 package pruebaisi2.vista;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author ruiji
@@ -205,4 +207,8 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    public void setActionListener (ActionListener ae){
+
+    }
 }

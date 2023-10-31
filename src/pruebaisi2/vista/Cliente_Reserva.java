@@ -1,5 +1,6 @@
 package pruebaisi2.vista;
 
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 public class Cliente_Reserva extends javax.swing.JFrame {
@@ -102,4 +103,8 @@ public class Cliente_Reserva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+
+    public void setActionListener (ActionListener ae){
+
+    }
 }

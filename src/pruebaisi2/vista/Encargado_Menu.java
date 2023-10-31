@@ -1,5 +1,7 @@
 package pruebaisi2.vista;
 
+import java.awt.event.ActionListener;
+
 public class Encargado_Menu extends javax.swing.JFrame {
 
     /**
@@ -225,4 +227,8 @@ public class Encargado_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+    public void setActionListener (ActionListener ae){
+
+    }
 }

@@ -1,5 +1,7 @@
 package pruebaisi2.vista;
 
+import java.awt.event.ActionListener;
+
 public class Encargado_ComprobarActividad extends javax.swing.JFrame {
 
     /**
@@ -182,4 +184,8 @@ public class Encargado_ComprobarActividad extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    public void setActionListener (ActionListener ae){
+
+    }
 }

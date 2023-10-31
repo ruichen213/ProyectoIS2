@@ -1,5 +1,7 @@
 package pruebaisi2.vista;
 
+import java.awt.event.ActionListener;
+
 public class Cliente_Disponibilidad extends javax.swing.JFrame {
 
     public Cliente_Disponibilidad() {
@@ -180,4 +182,8 @@ public class Cliente_Disponibilidad extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
     // End of variables declaration//GEN-END:variables
+
+    public void setActionListener (ActionListener ae){
+
+    }
 }

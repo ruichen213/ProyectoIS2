@@ -1,5 +1,7 @@
 package pruebaisi2.vista;
 
+import java.awt.event.ActionListener;
+
 public class InfoParcela extends javax.swing.JFrame {
 
     /**
@@ -239,4 +241,8 @@ public class InfoParcela extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane5;
     private javax.swing.JTextPane jTextPane6;
     // End of variables declaration//GEN-END:variables
+
+    public void setActionListener (ActionListener ae){
+
+    }
 }
