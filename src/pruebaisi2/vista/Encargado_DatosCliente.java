@@ -40,9 +40,9 @@ public class Encargado_DatosCliente extends javax.swing.JFrame {
 
         jLabel2.setText("ID Parcela:");
 
-        jLabel3.setText("Fecha entrada:");
+        jLabel3.setText("Fecha entrada (XX/XX/XXXX):");
 
-        jLabel4.setText("Fecha salida:");
+        jLabel4.setText("Fecha salida (XX/XX/XXXX):");
 
         jLabel5.setText("Precio a pagar:");
 
@@ -90,7 +90,7 @@ public class Encargado_DatosCliente extends javax.swing.JFrame {
                                                 .addGap(1, 1, 1)
                                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 1, Short.MAX_VALUE))))))
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addComponent(jButton1))
