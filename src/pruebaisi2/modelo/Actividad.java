@@ -4,51 +4,42 @@
  */
 package pruebaisi2.modelo;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  *
  * @author Oscar
  */
 public class Actividad {
-    private String nombre;                      //Nombre de la actividad
-    private ArrayList<Integer> participantes;   //Vector con los id de los clientes que participan
-    private String fecha;                       //Fecha de la actividad
-    private int hora;                           //Hora de la actividad
+    private String fecha, tipoActividad, usuario, hora;        
+    private int id;                          
     
-    public Actividad (){
-        
+    public Actividad (String tipoActividad, String fecha, String usuario,
+            int id, String hora){
+        this.tipoActividad = tipoActividad;
     }
     
-    public void setNombre (String nombre_){
-        nombre = nombre_;
+    public void setUsuario (String nombre_){
+        usuario = nombre_;
     }
     
     public void setFecha (String fecha_){
         fecha = fecha_;
     }
     
-    public void setParticipantes(int participante_){
-        participantes.add(participante_);
-    }
-    
-    public void setHora (int hora_){
+    public void setHora (String hora_){
         hora = hora_;
     }
     
-    public String getNombre (){
-        return nombre;
+    public String getUsuario (){
+        return usuario;
     }
-    
-    public ArrayList<Integer> getParticipantes(){
-        return participantes;
-    }
-    
+       
     public String getFecha (){
         return fecha;
     }
     
-    public int getHora (){
+    public String getHora (){
         return hora;
     }
 }
