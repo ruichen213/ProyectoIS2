@@ -1,13 +1,15 @@
 package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
+import pruebaisi2.modelo.Camping;
 
 public class Cliente_SinReserva extends javax.swing.JFrame {
-
+    private Camping c;
     /**
      * Creates new form Encargado_SinReserva
      */
-    public Cliente_SinReserva() {
+    public Cliente_SinReserva(Camping c) {
+        this.c = c;
         initComponents();
     }
 
@@ -97,7 +99,7 @@ public class Cliente_SinReserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Cliente_Menu v = new Cliente_Menu();
+        Cliente_Menu v = new Cliente_Menu(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

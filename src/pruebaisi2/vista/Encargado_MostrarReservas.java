@@ -5,17 +5,19 @@
 package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
+import pruebaisi2.modelo.Camping;
 
 /**
  *
  * @author ruiji
  */
 public class Encargado_MostrarReservas extends javax.swing.JFrame {
-
+    private Camping c;
     /**
      * Creates new form Encargado_MostrarReservas
      */
-    public Encargado_MostrarReservas() {
+    public Encargado_MostrarReservas(Camping c) {   
+        this.c = c;
         initComponents();
     }
 
@@ -150,13 +152,13 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Encargado_Menu v = new Encargado_Menu();
+        Encargado_Menu v = new Encargado_Menu(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Encargado_EditarJuego v = new Encargado_EditarJuego();
+        Encargado_EditarJuego v = new Encargado_EditarJuego(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

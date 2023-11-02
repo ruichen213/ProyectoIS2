@@ -14,7 +14,7 @@ import pruebaisi2.vista.LoginPrincipal;
  * @author Alejandro Jorges
  */
 public class GestorCamping {
-    private Camping c;
+    private static Camping c;
     
     public GestorCamping(){
        this.c = new Camping();
@@ -24,8 +24,9 @@ public class GestorCamping {
     
     public static void main(String args[]){
         GestorCamping gestor = new GestorCamping();
-        LoginPrincipal lp = new LoginPrincipal();
+        LoginPrincipal lp = new LoginPrincipal(c);
         lp.setVisible(true);
-        System.out.println("Aplicación de inicio de sesión en ejecución...");
+        System.out.println("Aplicación de inicio de sesión en ejecución... " 
+                + c.getLastId());
     }
 }

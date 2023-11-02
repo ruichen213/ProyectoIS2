@@ -2,12 +2,14 @@ package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import pruebaisi2.modelo.Camping;
 
 public class Cliente_RegistrarReserva extends javax.swing.JFrame {
-
+    private Camping c;
     //Declaración de variables
     
-    public Cliente_RegistrarReserva() {
+    public Cliente_RegistrarReserva(Camping c) {
+        this.c = c;
         initComponents();
     }
 
@@ -151,7 +153,7 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cliente_Menu v = new Cliente_Menu();
+        Cliente_Menu v = new Cliente_Menu(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

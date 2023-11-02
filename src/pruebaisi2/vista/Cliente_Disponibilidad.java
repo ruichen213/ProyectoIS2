@@ -1,10 +1,13 @@
 package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
+import pruebaisi2.modelo.Camping;
 
 public class Cliente_Disponibilidad extends javax.swing.JFrame {
-
-    public Cliente_Disponibilidad() {
+    private Camping c;
+    
+    public Cliente_Disponibilidad(Camping c) {
+        this.c = c;
         initComponents();
     }
 
@@ -125,7 +128,7 @@ public class Cliente_Disponibilidad extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cliente_SinReserva v = new Cliente_SinReserva();
+        Cliente_SinReserva v = new Cliente_SinReserva(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

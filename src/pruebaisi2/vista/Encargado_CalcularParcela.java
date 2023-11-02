@@ -1,16 +1,19 @@
 package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
+import pruebaisi2.modelo.Camping;
 
 public class Encargado_CalcularParcela extends javax.swing.JFrame {
-
+    private Camping c;
     /**
      * Creates new form Encargado_CalcularParcela
      */
-    public Encargado_CalcularParcela() {
+    public Encargado_CalcularParcela(Camping c) {
+        this.c = c;
         initComponents();
     }
 
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,7 +117,7 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Encargado_RegistrarSalida v = new Encargado_RegistrarSalida();
+        Encargado_RegistrarSalida v = new Encargado_RegistrarSalida(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

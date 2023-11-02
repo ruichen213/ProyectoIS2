@@ -1,14 +1,17 @@
 package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
+import pruebaisi2.modelo.Actividad;
+import pruebaisi2.modelo.Camping;
 
 public class Cliente_ReservarActividades extends javax.swing.JFrame {
-
+    private Camping c;
     /**
      * Creates new form Encargado_CrearActividades
      */
-    public Cliente_ReservarActividades() {
+    public Cliente_ReservarActividades(Camping c) {
         initComponents();
+        this.c = c;
     }
 
     /**
@@ -36,7 +39,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
 
         jLabel1.setText("Crear actividades");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Picina", "Fronton", "Juegos Soiales" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -60,6 +63,18 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
             }
         });
 
@@ -150,19 +165,40 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Cliente_Menu v = new Cliente_Menu();
+        Cliente_Menu v = new Cliente_Menu(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String dia = jTextField2.getText();
+        String hora = jTextField1.getText();
+        String usuario = jTextField3.getText();
+        String tipoActividad = jComboBox1.getName();
+        int id = c.getLastId();
+        Actividad actividad = new Actividad(tipoActividad, dia, usuario,
+        id, hora);
+        c.anyadirActividad(actividad);
         
+        Cliente_Menu cm = new Cliente_Menu(c);
+        cm.setVisible(true);
+        this.dispose();
+        
+        System.out.println("\n\nESTO ES UNA PRUEBA, EL ID -> " + id);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here: NOMBRE
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

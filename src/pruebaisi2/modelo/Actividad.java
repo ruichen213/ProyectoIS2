@@ -31,6 +31,10 @@ public class Actividad {
         hora = hora_;
     }
     
+    public int getId(){
+        return id;
+    }
+    
     public String getUsuario (){
         return usuario;
     }

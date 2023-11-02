@@ -1,13 +1,16 @@
 package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
+import pruebaisi2.modelo.Camping;
 
 public class Encargado_Menu extends javax.swing.JFrame {
+    private Camping c;
 
     /**
      * Creates new form MenuEncargado
      */
-    public Encargado_Menu() {
+    public Encargado_Menu(Camping c) {
+        this.c = c;
         initComponents();
     }
 
@@ -140,20 +143,20 @@ public class Encargado_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Encargado_DatosCliente v = new Encargado_DatosCliente();
+        Encargado_DatosCliente v = new Encargado_DatosCliente(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Encargado_RegistrarEntrada v = new Encargado_RegistrarEntrada();
+        Encargado_RegistrarEntrada v = new Encargado_RegistrarEntrada(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Encargado_RegistrarSalida v = new Encargado_RegistrarSalida();
+        Encargado_RegistrarSalida v = new Encargado_RegistrarSalida(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -163,19 +166,19 @@ public class Encargado_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Cliente_Disponibilidad v = new Cliente_Disponibilidad();
+        Cliente_Disponibilidad v = new Cliente_Disponibilidad(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Encargado_DatoTiendas v = new Encargado_DatoTiendas();
+        Encargado_DatoTiendas v = new Encargado_DatoTiendas(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Encargado_ComprobarActividad v = new Encargado_ComprobarActividad();
+        Encargado_ComprobarActividad v = new Encargado_ComprobarActividad(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed

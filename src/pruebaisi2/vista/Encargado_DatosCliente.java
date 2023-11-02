@@ -4,13 +4,15 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import pruebaisi2.modelo.Camping;
 
 public class Encargado_DatosCliente extends javax.swing.JFrame {
-
+    private Camping c;
     /**
      * Creates new form Encargado_DatosCliente
      */
-    public Encargado_DatosCliente() {
+    public Encargado_DatosCliente(Camping c) {
+        this.c = c;
         initComponents();
         
         //No se puede editar el descuento a 
@@ -248,13 +250,13 @@ public class Encargado_DatosCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Encargado_Menu v = new Encargado_Menu();
+        Encargado_Menu v = new Encargado_Menu(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Encargado_BuscarCliente v = new Encargado_BuscarCliente();
+        Encargado_BuscarCliente v = new Encargado_BuscarCliente(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
