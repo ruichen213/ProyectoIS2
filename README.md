@@ -7,4 +7,6 @@ Party”`, que se dedica a `alquilar parcelas de camping` en la costa de levante
 se hará mediante una aplicación de escritorio, de forma que los `clientes` también puedan
 tener acceso a ella para `hacer sus reservas` (de todo tipo).
 
+
+
 ![Untitled](/static/2.png)
