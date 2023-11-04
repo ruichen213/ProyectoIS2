@@ -13,8 +13,10 @@ public class Reserva {
     private String fechaInicio;
     private String fechaFin;
     
-    public Reserva (){
-        
+    public Reserva (int id, String fechaInicio, String fechaFin){
+        this.id = id;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
     
     public int getId() {

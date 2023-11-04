@@ -4,7 +4,6 @@
  */
 package pruebaisi2.modelo;
 
-import java.util.*;
 
 /**
  *

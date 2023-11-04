@@ -11,10 +11,9 @@ import java.util.ArrayList;
  * @author Oscar
  */
 public class Cliente {
-    private int id;                                  //Identificador del cliente
-    private int nParcelas;                           //Cantidad de parcelas que tiene reservadas
+    private int id;                                  //Identificador del cliente                         
     private ArrayList<String> actividadesReservadas; //Actividades que tiene reservadas el cliente
-    
+    private ArrayList<String> parcelasReservadas; //Parcelas que tiene reversadas o ha reservado alguna vez
     public Cliente (){
         
     }
@@ -23,8 +22,8 @@ public class Cliente {
     /*COMPLETAR*/
     }
     
-    public void setCantidadParcelas (int Parcelas){
-        nParcelas = Parcelas;
+    public void setReservadas (ArrayList<String> Reservadas){
+        parcelasReservadas = Reservadas;
     }
     
     public void setActividad(String actividad){
@@ -35,8 +34,8 @@ public class Cliente {
         return id;
     }
     
-    public int getParcelas(){
-        return nParcelas;
+    public ArrayList<String> getParcelas(){
+        return parcelasReservadas;
     }
     
     public ArrayList<String> getActividades(){

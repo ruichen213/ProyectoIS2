@@ -3,6 +3,7 @@ package pruebaisi2.vista;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import pruebaisi2.modelo.Camping;
+import pruebaisi2.modelo.Reserva;
 
 public class Cliente_RegistrarReserva extends javax.swing.JFrame {
     private Camping c;
@@ -142,6 +143,12 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String fechainicio = jTextField1.getText();
+        String fechafin = jTextField2.getText();
+        int id = jComboBox1.getSelectedIndex();
+        
+        Reserva reserva = new Reserva(id, fechainicio, fechafin);
+        c.anyadirReserva(reserva);
         // TODO add your handling code here:
         InfoParcela info = new InfoParcela();
         info.setVisible(true);

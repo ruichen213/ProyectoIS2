@@ -2,12 +2,14 @@ package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import pruebaisi2.modelo.Camping;
 
 public class Cliente_Reserva extends javax.swing.JFrame {
-
     //Declaración de variables
+    private Camping c;
     
-    public Cliente_Reserva() {
+    public Cliente_Reserva(Camping c) {
+        this.c = c;
         initComponents();
     }
 
@@ -85,7 +87,9 @@ public class Cliente_Reserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSinReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSinReservaActionPerformed
-        
+        Cliente_Menu v = new Cliente_Menu(c);
+        v.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_buttonSinReservaActionPerformed
 
     private void buttonConReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConReservaActionPerformed
