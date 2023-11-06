@@ -9,10 +9,6 @@ import java.io.IOException;
 import pruebaisi2.vista.Cliente_ReservarActividades;
 import pruebaisi2.vista.LoginPrincipal;
 
-/**
- *
- * @author Alejandro Jorges
- */
 public class GestorCamping {
     private static Camping c;
     

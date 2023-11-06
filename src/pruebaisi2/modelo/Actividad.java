@@ -4,8 +4,7 @@ public class Actividad {
     private String fecha, tipoActividad, usuario, hora;        
     private int id;                          
     
-    public Actividad (String tipoActividad, String fecha, String usuario,
-            int id, String hora){
+    public Actividad (String tipoActividad, String fecha, int id, String hora){
         this.tipoActividad = tipoActividad;
     }
     

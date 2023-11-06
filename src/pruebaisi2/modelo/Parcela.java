@@ -9,7 +9,8 @@ public class Parcela {
     private int id;
     private boolean disponible; // Si la parcela esta disponible o no
     private static ArrayList <Parcela> lista = new ArrayList<>();
-
+    private Camping c = new Camping();
+    
     public Parcela(int id, float precio, boolean luz, float superficie, boolean disp) {
         this.superficie = superficie;
         this.precio = precio;
@@ -47,14 +48,6 @@ public class Parcela {
         this.disponible = true;
     }
 
-    public static void anyadirParcela(Parcela parcela) {
-        lista.add(parcela);
-    }
-    
-    public static ArrayList<Parcela> obtenerParcelas() {
-        return lista;
-    }
-
     public static Parcela buscarParcelaPorId(int id) {
         for (Parcela parcela: lista) {
             if (parcela.getId() == id) {
@@ -62,9 +55,5 @@ public class Parcela {
             }
         }
         return null;
-    }
-    static {
-        anyadirParcela(new Parcela(1, 33, true, 23, true));
-        anyadirParcela(new Parcela(2, 32, true, 43, true));
     }
 }

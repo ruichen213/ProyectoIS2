@@ -8,7 +8,7 @@ public class Reserva {
     private String fechaInicio;
     private String fechaFin;
     private boolean reserva;
- 
+    public Object getIdCliente;
     
     public Reserva (int id, int iC, String fechaInicio, String fechaFin, boolean reserva){
         this.id = id;
@@ -48,6 +48,10 @@ public class Reserva {
 
     public boolean isReserva() {
         return reserva;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
     }
 
     public void setReserva(boolean reserva) {
