@@ -29,9 +29,6 @@ public class Camping {
         2, "11:30");
         Actividad actividad3 = new Actividad("Club social","8/10/2023", "Marta",
         3, "10:30");
-        Parcela p = new Parcela(2,2, true, 2);
-        
-        parcelas.add(p);
         actividades.add(actividad1);
         actividades.add(actividad2);
         actividades.add(actividad3);

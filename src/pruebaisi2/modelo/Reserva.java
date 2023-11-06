@@ -1,26 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pruebaisi2.modelo;
 
-/**
- *
- * @author Oscar
- */
+import java.util.ArrayList;
+
 public class Reserva {
-    private int id = 0;
+    private int id;
+    private int idCliente;
     private String fechaInicio;
     private String fechaFin;
-    private boolean reserva = false;
+    private boolean reserva;
+ 
     
-    public Reserva (int id, String fechaInicio, String fechaFin, boolean reserva){
+    public Reserva (int id, int iC, String fechaInicio, String fechaFin, boolean reserva){
         this.id = id;
+        this.idCliente = iC;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.reserva = reserva;
     }
-    
+    static {
+        
+    }
+           
     public int getId() {
         return id;
     }

@@ -17,12 +17,12 @@ public class InfoParcela extends javax.swing.JFrame {
         r = ce.getLastRes();
         p = ce.getLastPar();
         initComponents();
+        ID_Parcela.setText(Integer.toString(r.getId()));
         Superficie.setText(p.getSuperficie()+"");
-        idParcela.setText(Integer.toString(r.getId()));
-        luz.setText(Boolean.toString(p.getLuz()));
-        precio.setText(p.getPrecio()+ "");
-        fechaent.setText(r.getFechaInicio());
-        fechasal.setText(r.getFechaFin());
+        Luz.setText(Boolean.toString(p.getLuz()));
+        Precio.setText(p.getPrecio()+ "");
+        Entrada.setText(r.getFechaInicio());
+        Salida.setText(r.getFechaFin());
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -42,11 +42,11 @@ public class InfoParcela extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Superficie = new javax.swing.JTextField();
-        luz = new javax.swing.JTextField();
-        idParcela = new javax.swing.JTextField();
-        precio = new javax.swing.JTextField();
-        fechaent = new javax.swing.JTextField();
-        fechasal = new javax.swing.JTextField();
+        Luz = new javax.swing.JTextField();
+        ID_Parcela = new javax.swing.JTextField();
+        Precio = new javax.swing.JTextField();
+        Entrada = new javax.swing.JTextField();
+        Salida = new javax.swing.JTextField();
         botonac1 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
@@ -82,45 +82,39 @@ public class InfoParcela extends javax.swing.JFrame {
 
         jLabel7.setText("Fecha salida");
 
-        Superficie.setText("jTextField1");
         Superficie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SuperficieActionPerformed(evt);
             }
         });
 
-        luz.setText("jTextField1");
-        luz.addActionListener(new java.awt.event.ActionListener() {
+        Luz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                luzActionPerformed(evt);
+                LuzActionPerformed(evt);
             }
         });
 
-        idParcela.setText("jTextField1");
-        idParcela.addActionListener(new java.awt.event.ActionListener() {
+        ID_Parcela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idParcelaActionPerformed(evt);
+                ID_ParcelaActionPerformed(evt);
             }
         });
 
-        precio.setText("jTextField1");
-        precio.addActionListener(new java.awt.event.ActionListener() {
+        Precio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precioActionPerformed(evt);
+                PrecioActionPerformed(evt);
             }
         });
 
-        fechaent.setText("jTextField1");
-        fechaent.addActionListener(new java.awt.event.ActionListener() {
+        Entrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaentActionPerformed(evt);
+                EntradaActionPerformed(evt);
             }
         });
 
-        fechasal.setText("jTextField1");
-        fechasal.addActionListener(new java.awt.event.ActionListener() {
+        Salida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechasalActionPerformed(evt);
+                SalidaActionPerformed(evt);
             }
         });
 
@@ -153,16 +147,16 @@ public class InfoParcela extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fechasal, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Salida, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(luz, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Luz, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Superficie, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(idParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ID_Parcela, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(fechaent, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Entrada, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(24, 24, 24))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(170, 170, 170)
@@ -192,9 +186,9 @@ public class InfoParcela extends javax.swing.JFrame {
                                 .addGap(29, 29, 29)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fechaent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Entrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(idParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ID_Parcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -202,14 +196,14 @@ public class InfoParcela extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(luz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(Luz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fechasal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Salida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonac)
@@ -231,26 +225,26 @@ public class InfoParcela extends javax.swing.JFrame {
         
     }//GEN-LAST:event_SuperficieActionPerformed
 
-    private void idParcelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idParcelaActionPerformed
+    private void ID_ParcelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ParcelaActionPerformed
         
         
-    }//GEN-LAST:event_idParcelaActionPerformed
+    }//GEN-LAST:event_ID_ParcelaActionPerformed
 
-    private void luzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_luzActionPerformed
+    private void LuzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LuzActionPerformed
        
-    }//GEN-LAST:event_luzActionPerformed
+    }//GEN-LAST:event_LuzActionPerformed
 
-    private void precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioActionPerformed
+    private void PrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioActionPerformed
         
-    }//GEN-LAST:event_precioActionPerformed
+    }//GEN-LAST:event_PrecioActionPerformed
 
-    private void fechaentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaentActionPerformed
+    private void EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaActionPerformed
         
-    }//GEN-LAST:event_fechaentActionPerformed
+    }//GEN-LAST:event_EntradaActionPerformed
 
-    private void fechasalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechasalActionPerformed
+    private void SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaActionPerformed
         
-    }//GEN-LAST:event_fechasalActionPerformed
+    }//GEN-LAST:event_SalidaActionPerformed
 
     private void botonac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonac1ActionPerformed
         Cliente_BuscarReserva v = new Cliente_BuscarReserva(ce);
@@ -263,12 +257,14 @@ public class InfoParcela extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Entrada;
+    private javax.swing.JTextField ID_Parcela;
+    private javax.swing.JTextField Luz;
+    private javax.swing.JTextField Precio;
+    private javax.swing.JTextField Salida;
     private javax.swing.JTextField Superficie;
     private javax.swing.JButton botonac;
     private javax.swing.JButton botonac1;
-    private javax.swing.JTextField fechaent;
-    private javax.swing.JTextField fechasal;
-    private javax.swing.JTextField idParcela;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -282,8 +278,6 @@ public class InfoParcela extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextPane jTextPane7;
-    private javax.swing.JTextField luz;
-    private javax.swing.JTextField precio;
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
