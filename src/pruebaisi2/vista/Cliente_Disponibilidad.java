@@ -122,7 +122,7 @@ public class Cliente_Disponibilidad extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        InfoParcela v = new InfoParcela();
+        InfoParcela v = new InfoParcela(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed

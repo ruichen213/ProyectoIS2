@@ -87,7 +87,7 @@ public class Cliente_BuscarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        InfoParcela v = new InfoParcela();
+        InfoParcela v = new InfoParcela(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

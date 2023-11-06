@@ -13,10 +13,15 @@ public class Parcela {
     private float precio;       //Precio de la parcela
     private boolean luz;        //Si la parcela tiene o no luz
     private int id;
-    
-    public Parcela (){
-        
+
+    public Parcela(float superficie, float precio, boolean luz, int id) {
+        this.superficie = superficie;
+        this.precio = precio;
+        this.luz = luz;
+        this.id = id;
     }
+    
+   
     
     public void setSuperficie(float superficie_){
         superficie = superficie_;

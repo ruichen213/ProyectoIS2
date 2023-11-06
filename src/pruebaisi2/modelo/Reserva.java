@@ -9,14 +9,16 @@ package pruebaisi2.modelo;
  * @author Oscar
  */
 public class Reserva {
-    private int id;
+    private int id = 0;
     private String fechaInicio;
     private String fechaFin;
+    private boolean reserva = false;
     
-    public Reserva (int id, String fechaInicio, String fechaFin){
+    public Reserva (int id, String fechaInicio, String fechaFin, boolean reserva){
         this.id = id;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.reserva = reserva;
     }
     
     public int getId() {
@@ -42,6 +44,14 @@ public class Reserva {
 
     public void setFechaFin(String fechaFin_) {
         fechaFin = fechaFin_;
+    }
+
+    public boolean isReserva() {
+        return reserva;
+    }
+
+    public void setReserva(boolean reserva) {
+        this.reserva = reserva;
     }
     
     
