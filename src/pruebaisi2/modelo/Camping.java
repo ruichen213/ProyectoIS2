@@ -29,6 +29,9 @@ public class Camping {
         2, "11:30");
         Actividad actividad3 = new Actividad("Club social","8/10/2023", "Marta",
         3, "10:30");
+        Parcela p = new Parcela(2,2, true, 2);
+        
+        parcelas.add(p);
         actividades.add(actividad1);
         actividades.add(actividad2);
         actividades.add(actividad3);
@@ -40,6 +43,24 @@ public class Camping {
     
     public void anyadirReserva(Reserva e){
         reservas.add(e);
+    }
+    
+    public ArrayList<Reserva> getReserva(){
+        return reservas;
+    }
+    
+    public ArrayList<Parcela> getParcela(){
+        return parcelas;
+    }
+     
+    public Parcela getLastPar()
+    {
+        return parcelas.get(parcelas.size()-1);     
+    }
+
+    public Reserva getLastRes()
+    {
+        return reservas.get(reservas.size()-1);
     }
     
     public int getLastId(){

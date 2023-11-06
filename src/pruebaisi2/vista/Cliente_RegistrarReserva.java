@@ -147,10 +147,10 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
         String fechafin = jTextField2.getText();
         int id = jComboBox1.getSelectedIndex();
         
-        Reserva reserva = new Reserva(id, fechainicio, fechafin);
+        Reserva reserva = new Reserva(id, fechainicio, fechafin, false);
         c.anyadirReserva(reserva);
         // TODO add your handling code here:
-        InfoParcela info = new InfoParcela();
+        InfoParcela info = new InfoParcela(c);
         info.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
