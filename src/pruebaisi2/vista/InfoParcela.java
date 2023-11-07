@@ -215,7 +215,7 @@ public class InfoParcela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonacActionPerformed
-        Cliente_BuscarReserva v = new Cliente_BuscarReserva(ce);
+        Cliente_Menu v = new Cliente_Menu(ce);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonacActionPerformed
@@ -247,7 +247,7 @@ public class InfoParcela extends javax.swing.JFrame {
     }//GEN-LAST:event_SalidaActionPerformed
 
     private void botonac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonac1ActionPerformed
-        Cliente_BuscarReserva v = new Cliente_BuscarReserva(ce);
+        Cliente_Menu v = new Cliente_Menu(ce);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonac1ActionPerformed
