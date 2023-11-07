@@ -110,19 +110,18 @@ public class Cliente_Checkout extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(Integer.toString(r.getId())== jTextField1.getText())
-       {
-           r.setReserva(false);
-           Cliente_Menu v = new Cliente_Menu(c);
-           v.setVisible(true);
-           this.dispose();
-           
-       }
-       else
-       {
-           System.out.println("Id erronea");
-                   
-       }
+    if(Integer.toString(r.getId())== jTextField1.getText())
+    {
+        r.setReserva(false);
+        Cliente_Menu v = new Cliente_Menu(c);
+        v.setVisible(true);
+        this.dispose();
+    }
+    else
+    {
+        System.out.println("Id erronea");
+
+    }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -37,7 +37,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Crear actividades");
+        jLabel1.setText("Reservar actividades");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Picina", "Fronton", "Juegos Soiales" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Usuario:");
+        jLabel5.setText("ID Usuario");
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,16 +118,18 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(43, 43, 43))
+                                        .addGap(41, 41, 41))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(34, 34, 34)))
+                                        .addGap(19, 19, 19)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jTextField1)
-                                        .addGap(9, 9, 9))
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(94, Short.MAX_VALUE))
+                                        .addGap(9, 9, 9)))))))
+                .addGap(94, 94, 94))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,8 +179,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
         String usuario = jTextField3.getText();
         String tipoActividad = jComboBox1.getName();
         int id = c.getLastId();
-        Actividad actividad = new Actividad(tipoActividad, dia, usuario,
-        id, hora);
+        Actividad actividad = new Actividad(tipoActividad, dia, id, hora);
         c.anyadirActividad(actividad);
         
         Cliente_Menu cm = new Cliente_Menu(c);

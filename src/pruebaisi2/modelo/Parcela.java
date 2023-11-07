@@ -1,57 +1,59 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pruebaisi2.modelo;
 
-/**
- *
- * @author Oscar
- */
+import java.util.ArrayList;
+
 public class Parcela {
     private float superficie;   //Superficie de la parcela
     private float precio;       //Precio de la parcela
     private boolean luz;        //Si la parcela tiene o no luz
     private int id;
-
-    public Parcela(float superficie, float precio, boolean luz, int id) {
+    private boolean disponible; // Si la parcela esta disponible o no
+    private static ArrayList <Parcela> lista = new ArrayList<>();
+    private Camping c = new Camping();
+    
+    public Parcela(int id, float precio, boolean luz, float superficie, boolean disp) {
         this.superficie = superficie;
         this.precio = precio;
         this.luz = luz;
         this.id = id;
+        this.disponible = disp;
     }
-    
-   
-    
-    public void setSuperficie(float superficie_){
-        superficie = superficie_;
-    }
-    
-    public void setPrecio(float precio_){
-        precio = precio_;
-    }
-    
-    public void setLuz (boolean luz_){
-        luz = luz_;
-    }
-    
-    public void setId (int id_){
-        id = id_;
-    }
-    
-    public float getSuperficie (){
+
+    public float getSuperficie() {
         return superficie;
     }
-    
-    public float getPrecio (){
+
+    public float getPrecio() {
         return precio;
     }
-    
-    public boolean getLuz(){
+
+    public boolean getLuz() {
         return luz;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
     }
     
     public int getId (){
         return id;
+    }
+    
+    public void reservar(){
+        if (disponible)
+            this.disponible = false;
+    }
+    
+    public void liberar(){
+        this.disponible = true;
+    }
+
+    public static Parcela buscarParcelaPorId(int id) {
+        for (Parcela parcela: lista) {
+            if (parcela.getId() == id) {
+                return parcela;
+            }
+        }
+        return null;
     }
 }

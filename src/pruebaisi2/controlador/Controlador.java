@@ -19,7 +19,7 @@ import pruebaisi2.vista.Cliente_ReservarActividades;
 import pruebaisi2.vista.Cliente_SinReserva;
 import pruebaisi2.vista.Encargado_BuscarCliente;
 import pruebaisi2.vista.Encargado_CalcularParcela;
-import pruebaisi2.vista.Encargado_ComprobarActividad;
+import pruebaisi2.vista.Encargado_CrearActividad;
 import pruebaisi2.vista.Encargado_DatoTiendas;
 import pruebaisi2.vista.Encargado_DatosCliente;
 import pruebaisi2.vista.Encargado_EditarJuego;
@@ -46,7 +46,7 @@ public class Controlador {
     private Cliente_SinReserva csr;
     private Encargado_BuscarCliente ebc;
     private Encargado_CalcularParcela ecp;
-    private Encargado_ComprobarActividad eca;
+    private Encargado_CrearActividad eca;
     private Encargado_DatoTiendas edt;
     private Encargado_DatosCliente edc;
     private Encargado_EditarJuego eej;
@@ -61,7 +61,7 @@ public class Controlador {
     
     public Controlador(Cliente_BuscarReserva cbr, Cliente_DatosReserva cdr, Cliente_Disponibilidad cd, Cliente_Menu cm, 
             Cliente_RegistrarReserva crr, Cliente_Reserva cr, Cliente_ReservarActividades cra, Cliente_SinReserva csr, Encargado_BuscarCliente ebc, 
-            Encargado_CalcularParcela ecp, Encargado_ComprobarActividad eca, Encargado_DatoTiendas edt, Encargado_DatosCliente edc, 
+            Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, Encargado_DatosCliente edc, 
             Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, Encargado_MostrarReservas emr, Encargado_RegistrarEntrada ere, Encargado_RegistrarSalida ers,
             InfoParcela ip, LoginPrincipal lp, modelo m){
         this.cbr = cbr;
