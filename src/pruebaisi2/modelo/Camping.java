@@ -36,8 +36,8 @@ public class Camping {
         actividad1.setId(actividades.indexOf(actividad1)+1);
         actividad2.setId(actividades.indexOf(actividad2)+1);
         
-        Reserva reserva1 = new Reserva( "12/12/2020", "20/12/2020", true);
-        Reserva reserva2 = new Reserva( "07/06/2012", "07/07/2012", true);
+        Reserva reserva1 = new Reserva(1, "12/12/2020", "20/12/2020", true);
+        Reserva reserva2 = new Reserva(2, "07/06/2012", "07/07/2012", true);
         reservas.add(reserva1);
         reservas.add(reserva2);
         
@@ -51,7 +51,7 @@ public class Camping {
         tiendas.add(t2);
         
         Parcela parcela1 = new Parcela (1,100,true,20,true);
-        Parcela parcela2 = new Parcela (2,50,true,15,true);
+        Parcela parcela2 = new Parcela (2,50,true,15,false);
         Parcela parcela3 = new Parcela (3,20,true,10,true);
         parcelas.add(parcela1);
         parcelas.add(parcela2);
@@ -71,7 +71,16 @@ public class Camping {
         
         
     }
+    /*
+        Para quitar
+    */
+    public void retirarParcela(int id_){
+        
+    }
     
+    /*
+        Para anyadir
+    */
     public void anyadirActividad(Actividad a){
         actividades.add(a);
     }
@@ -84,12 +93,27 @@ public class Camping {
         parcelas.add(e);
     }
     
-    public ArrayList<Reserva> getReserva(){
+    /*
+        Getters
+    */
+    public ArrayList<Reserva> getReservas(){
         return reservas;
     }
     
-    public ArrayList<Parcela> getParcela(){
+    public ArrayList<Parcela> getParcelas(){
         return parcelas;
+    }
+    
+    public Parcela getParcela(int index){
+        return parcelas.get(index);
+    }
+    
+    public ArrayList<Tienda> getTiendas(){
+        return tiendas;
+    }
+    
+    public Tienda getTienda(int indice){
+        return tiendas.get(indice);
     }
      
     public Parcela getLastPar()
@@ -100,6 +124,18 @@ public class Camping {
     public Reserva getLastRes()
     {
         return reservas.get(reservas.size()-1);
+    }
+    
+    public int getNumTiendas(){
+        return tiendas.size();
+    }
+    
+    public int getLastIdParcela(){
+        return parcelas.get(parcelas.size()-1).getId();
+    }
+    
+    public int getNumParcelas(){
+        return parcelas.size();
     }
     
     public int getLastId(){

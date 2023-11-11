@@ -43,7 +43,7 @@ public class Parcela {
     
     /*
         setters
-    */
+    */    
     public void setSuperficie (float superficie_){
         superficie = superficie_;
     }
