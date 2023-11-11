@@ -25,17 +25,26 @@ public class Camping {
     public void cargarDatos(){
         Actividad actividad1 = new Actividad("Piscina", "10/10/2023", 1, "12:30");
         Actividad actividad2 = new Actividad("Fronton", "9/11/2023", 2, "11:30");
-        Actividad actividad3 = new Actividad("Club social","8/10/2023", 3, "10:30");
         actividades.add(actividad1);
         actividades.add(actividad2);
-        actividades.add(actividad3);
-        Reserva reserva1 = new Reserva(1, 3, "fechaFin1", "fechaFin1", true);
-        Reserva reserva2 = new Reserva(2, 2, "fechaFin1", "fechaFin1", false);
-        Reserva reserva3 = new Reserva(3, 1, "fechaFin1", "fechaFin1", true);
-
+        
+        Reserva reserva1 = new Reserva(1, 1, "12/12/2020", "20/12/2020", true);
+        Reserva reserva2 = new Reserva(2, 2, "07/06/2012", "07/07/2012", true);
         reservas.add(reserva1);
         reservas.add(reserva2);
-        reservas.add(reserva3);
+        
+        Parcela parcela1 = new Parcela (1,100,true,20,true);
+        Parcela parcela2 = new Parcela (2,50,true,15,true);
+        Parcela parcela3 = new Parcela (3,20,true,10,true);
+        
+        Cliente cliente1 = new Cliente(1,actividad1,parcela1);
+        Cliente cliente2 = new Cliente(2,actividad2,parcela2);
+        Cliente cliente3 = new Cliente(3,parcela3);
+        clientes.add(cliente1);
+        clientes.add(cliente2);
+        clientes.add(cliente3);
+        
+        
     }
     
     public void anyadirActividad(Actividad a){
@@ -43,15 +52,9 @@ public class Camping {
     }
     
     public void anyadirReserva(Reserva e){
-        Reserva reserva1 = new Reserva(1, 3, "fechaFin1", "fechaFin1", true);
-        Reserva reserva2 = new Reserva(2, 2, "fechaFin1", "fechaFin1", false);
-        Reserva reserva3 = new Reserva(3, 1, "fechaFin1", "fechaFin1", true);
-
-        reservas.add(reserva1);
-        reservas.add(reserva2);
-        reservas.add(reserva3);
         reservas.add(e);
     }
+
     public void anyadirParcela(Parcela e){
         parcelas.add(e);
     }
