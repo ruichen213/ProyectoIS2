@@ -6,10 +6,8 @@ public class Parcela {
     private float superficie;   //Superficie de la parcela
     private float precio;       //Precio de la parcela
     private boolean luz;        //Si la parcela tiene o no luz
-    private int id;
+    private int id;             //Identificador de la parcela
     private boolean disponible; // Si la parcela esta disponible o no
-    private static ArrayList <Parcela> lista = new ArrayList<>();
-    private Camping c = new Camping();
     
     public Parcela(int id, float precio, boolean luz, float superficie, boolean disp) {
         this.superficie = superficie;
@@ -19,6 +17,9 @@ public class Parcela {
         this.disponible = disp;
     }
 
+    /*
+        Getters
+    */
     public float getSuperficie() {
         return superficie;
     }
@@ -30,14 +31,18 @@ public class Parcela {
     public boolean getLuz() {
         return luz;
     }
+    
+    public int getId (){
+        return id;
+    }
 
     public boolean isDisponible() {
         return disponible;
     }
     
-    public int getId (){
-        return id;
-    }
+    /*
+        Crear setters
+    */
     
     public void reservar(){
         if (disponible)
@@ -46,14 +51,5 @@ public class Parcela {
     
     public void liberar(){
         this.disponible = true;
-    }
-
-    public static Parcela buscarParcelaPorId(int id) {
-        for (Parcela parcela: lista) {
-            if (parcela.getId() == id) {
-                return parcela;
-            }
-        }
-        return null;
     }
 }
