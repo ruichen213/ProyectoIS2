@@ -132,7 +132,7 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
         String hora = Hora.getText();
         String actividad = (String)Actividades.getSelectedItem();
         int id = Integer.parseInt(ID_Usuario.getText());
-        Actividad a = new Actividad(actividad, dia,id, hora);
+        Actividad a = new Actividad(actividad, dia, hora);
 
         c.anyadirActividad(a);
     }//GEN-LAST:event_jButton1ActionPerformed

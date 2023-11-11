@@ -44,7 +44,6 @@ public class Cliente_Checkout extends javax.swing.JFrame {
 
         jLabel2.setText("Id");
 
-        jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);

@@ -179,7 +179,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
         String usuario = jTextField3.getText();
         String tipoActividad = jComboBox1.getName();
         int id = c.getLastId();
-        Actividad actividad = new Actividad(tipoActividad, dia, id, hora);
+        Actividad actividad = new Actividad(tipoActividad, dia, hora);
         c.anyadirActividad(actividad);
         
         Cliente_Menu cm = new Cliente_Menu(c);

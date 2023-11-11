@@ -22,7 +22,6 @@ public class GestorCamping {
         GestorCamping gestor = new GestorCamping();
         LoginPrincipal lp = new LoginPrincipal(c);
         lp.setVisible(true);
-        System.out.println("Aplicación de inicio de sesión en ejecución... " 
-                + c.getLastId());
+        System.out.println("Aplicación de inicio de sesión en ejecución... " );
     }
 }

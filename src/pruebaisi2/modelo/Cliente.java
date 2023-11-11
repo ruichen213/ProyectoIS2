@@ -11,45 +11,52 @@ import java.util.ArrayList;
  * @author Oscar
  */
 public class Cliente {
+    private String nombre;      //Nombre del cliente (para poder buscarlo a la hora de hacer el checkout)              
     private int id;                                     //Identificador del cliente                         
-    private ArrayList<Actividad> actividadesReservadas; //Actividades que tiene reservadas el cliente
-    private ArrayList<Parcela> parcelasReservadas;      //Parcelas que tiene reversadas o ha reservado alguna vez
+    private ArrayList<Actividad> actividadesReservadas = new ArrayList<>(); //Actividades que tiene reservadas el cliente
+    private ArrayList<Parcela> parcelasReservadas = new ArrayList<>();      //Parcelas que tiene reversadas o ha reservado alguna vez
     
-    public Cliente (int id_){
-        id = id_;
+    /*
+        Constructores con distintos parametros
+    */
+    public Cliente (String nombre_){
+        nombre = nombre_;
     }
     
-    public Cliente (int id_, Actividad a){
-        id = id_;
+    public Cliente (String nombre_, Actividad a){
+        nombre = nombre_;
         actividadesReservadas.add(a);
     }
     
-    public Cliente (int id_, Parcela p){
-        id = id_;
+    public Cliente (String nombre_, Parcela p){
+        nombre = nombre_;
         parcelasReservadas.add(p);
     }
     
-    public Cliente (int id_, Actividad a, Parcela p){
-        id = id_;
+    public Cliente (String nombre_, Actividad a, Parcela p){
+        nombre = nombre_;
         actividadesReservadas.add(a);
         parcelasReservadas.add(p);
-    }
-    
-    public void setId (){
-    /*COMPLETAR*/
     }
     
     /*
-    public void setReservadas (ArrayList<String> Reservadas){
-        parcelasReservadas = Reservadas;
+        Setters
+    */
+    public void setId (int id_){
+        id = id_;
     }
-*/
-/*
-    public void setActividad(String actividad){
-        actividadesReservadas.add(actividad);
-    }
-*/
     
+    public void addActividad(Actividad a){
+        actividadesReservadas.add(a);
+    }
+    
+    public void addParcela(Parcela p){
+        parcelasReservadas.add(p);
+    }
+    
+    /*
+        Getters
+    */
     public int getId (){
         return id;
     }
@@ -66,6 +73,16 @@ public class Cliente {
     */
     public ArrayList<Actividad> getActividades(){
         return actividadesReservadas;
+    }
+    
+    //Quita una actividad de la lista de actividades
+    public void quitarActividad(Actividad a){
+        actividadesReservadas.remove(a);
+    }
+    
+    //Quita una parcela de la lista de parcelas
+    public void quitarParcela(Parcela p){
+        parcelasReservadas.remove(p);
     }
 }
 

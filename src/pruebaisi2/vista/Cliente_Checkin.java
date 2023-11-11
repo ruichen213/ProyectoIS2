@@ -45,7 +45,6 @@ public class Cliente_Checkin extends javax.swing.JFrame {
 
         jLabel1.setText("Id Reserva");
 
-        jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);

@@ -3,55 +3,59 @@ package pruebaisi2.modelo;
 import java.util.ArrayList;
 
 public class Reserva {
-    private int id;
-    private int idCliente;
-    private String fechaInicio;
-    private String fechaFin;
-    private boolean reserva;
-    public Object getIdCliente;
+    private int id;                 //Identificador de la reserva
+    private int idCliente;          //Identificador del cliente al que pertenece la reserva
+    private String fechaInicio;     //Fecha de inicio de la reserva
+    private String fechaFin;        //Fecha de fin de la reserva
+    private boolean reserva;        //No se lo q es, puede ser si la reserva sigue activa o no
     
-    public Reserva (int id, int iC, String fechaInicio, String fechaFin, boolean reserva){
-        this.id = id;
-        this.idCliente = iC;
+    public Reserva (String fechaInicio, String fechaFin, boolean reserva){
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.reserva = reserva;
     }
-    static {
-        
-    }
            
+    /*
+        Getters
+    */
     public int getId() {
         return id;
     }
+    
+    public int getIdCliente() {
+        return idCliente;
+    }
+    
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+    
+    public String getFechaFin() {
+        return fechaFin;
+    }
+    
+    public boolean isReserva() {
+        return reserva;
+    }
+    
+    /*
+        Setters
+    */
 
     public void setId(int id_) {
         id = id_;
     }
-
-    public String getFechaInicio() {
-        return fechaInicio;
+    
+    public void setIdCliente (int idCliente_){
+        idCliente = idCliente_;
     }
 
     public void setFechaInicio(String fechaInicio_) {
         fechaInicio = fechaInicio_;
     }
 
-    // Getter y Setter para fechaFin
-    public String getFechaFin() {
-        return fechaFin;
-    }
-
     public void setFechaFin(String fechaFin_) {
         fechaFin = fechaFin_;
-    }
-
-    public boolean isReserva() {
-        return reserva;
-    }
-
-    public int getIdCliente() {
-        return idCliente;
     }
 
     public void setReserva(boolean reserva) {
