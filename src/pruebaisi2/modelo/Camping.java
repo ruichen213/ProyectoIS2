@@ -36,8 +36,8 @@ public class Camping {
         actividad1.setId(actividades.indexOf(actividad1)+1);
         actividad2.setId(actividades.indexOf(actividad2)+1);
         
-        Reserva reserva1 = new Reserva(1, "12/12/2020", "20/12/2020", true);
-        Reserva reserva2 = new Reserva(2, "07/06/2012", "07/07/2012", true);
+        Reserva reserva1 = new Reserva(1,1, "12/12/2020", "20/12/2020", true);
+        Reserva reserva2 = new Reserva(2,2, "07/06/2012", "07/07/2012", true);
         reservas.add(reserva1);
         reservas.add(reserva2);
         
@@ -134,10 +134,39 @@ public class Camping {
         return parcelas.get(parcelas.size()-1).getId();
     }
     
+    public int getLastIdCliente(){
+        return clientes.get(clientes.size()-1).getId();
+    }
+    
     public int getNumParcelas(){
         return parcelas.size();
     }
     
+    public int getIdCliente(String nombre){
+        int id = 0;
+        
+        for (int i = 0; i < clientes.size(); i++){
+            if(clientes.get(i).getNombre().equalsIgnoreCase(nombre)){
+                id = clientes.get(i).getId();
+            }
+        }
+        
+        return id;
+    }
+    
+    
+    public String getFechaEntrada (int idCliente){
+        String fechaEntrada = "";
+        
+        for (int i = 0; i < reservas.size(); i++){
+            if (reservas.get(i).getIdCliente() == idCliente){
+                fechaEntrada = reservas.get(i).getFechaInicio();
+            }
+        }
+        
+        return fechaEntrada;
+    }
+            
     public int getLastId(){
         int size = actividades.size();
         if (size > 0) {

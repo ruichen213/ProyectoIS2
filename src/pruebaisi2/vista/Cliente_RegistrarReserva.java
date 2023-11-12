@@ -172,7 +172,7 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
         int id = jComboBox1.getSelectedIndex();
         int cliente = Integer.parseInt(ID_Cliente.getText());
         
-        Reserva reserva = new Reserva(c.getLastIdParcela()+1,fechainicio, fechafin, true);
+        Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,fechainicio, fechafin, true);
         c.anyadirReserva(reserva);
         // TODO add your handling code here:
         InfoParcela info = new InfoParcela(c);

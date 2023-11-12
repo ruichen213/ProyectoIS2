@@ -16,10 +16,12 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
         
         jComboBox1.removeAllItems();
         
-        if (c.getNumParcelas() > 0){
-            for(int i = 0;i <= c.getNumParcelas();i++){
+        if (c.getNumParcelas() > 0 ){
+            for(int i = 0;i < c.getNumParcelas();i++){
                 if (c.getParcela(i).isDisponible() == true)
-                    jComboBox1.addItem(Integer.toString((c.getParcela(i).getId())));
+                    jComboBox1.addItem(String.valueOf(c.getParcela(i).getId()));
+                    //jComboBox1.addItem(Integer.toString((c.getParcela(i).getId())));
+                
                 }
         }else{
             JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
@@ -134,21 +136,26 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
 jButton1.setActionCommand("Fecha de entrada confirmada");
         String fechaInicio = jTextField2.getText();
         String fechaFin = jTextField3.getText();
+        int contador = 0;   //Contador para saber las parcelas que se anyaden al jComboBox
         
         //Reserva reserva = new Reserva(c.getLastIdParcela()+1,fechaInicio, fechaFin, true);
-        Reserva reserva = new Reserva(Integer.parseInt(String.valueOf(jComboBox1.getSelectedItem())),fechaInicio, fechaFin, true);
+        Reserva reserva = new Reserva(Integer.parseInt(String.valueOf(jComboBox1.getSelectedItem())),c.getLastIdCliente()+1, fechaInicio, fechaFin, true);
+        System.out.println("Parcela seleccionada numero: " + Integer.valueOf(String.valueOf(jComboBox1.getSelectedItem())));
         c.anyadirReserva(reserva);
-        c.getParcela(Integer.parseInt(String.valueOf(jComboBox1.getSelectedItem()))+1).setDisponible(false);
+        c.getParcela(Integer.parseInt(String.valueOf(jComboBox1.getSelectedItem()))-1).setDisponible(false);
         
         JOptionPane.showMessageDialog(null, "Reserva confirmada");
         
         jComboBox1.removeAllItems();
         if (c.getNumParcelas() > 0){
-            for(int i = 0;i <= c.getNumParcelas();i++){
-                if (c.getParcela(i).isDisponible() == true)
-                    jComboBox1.addItem(Integer.toString((c.getParcela(i).getId())));
+            for(int i = 0;i < c.getNumParcelas();i++){
+                if (c.getParcela(i).isDisponible() == true){
+                    jComboBox1.addItem(String.valueOf(c.getParcela(i).getId()));
+                    contador ++;
                 }
-        }else{
+            }
+        }
+        if (contador == 0){
             JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
         }
 

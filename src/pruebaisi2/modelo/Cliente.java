@@ -61,6 +61,10 @@ public class Cliente {
         return id;
     }
     
+    public String getNombre(){
+        return nombre;
+    }
+    
     /*
         Devuelve una lista con las parcelas que tiene el cliente
     */
