@@ -17,6 +17,7 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
         
         jTextField4.setEditable(false);
         jTextField5.setEditable(false);
+        jTextField7.setEditable(false);
         jTextField8.setEditable(false);
     }
     
@@ -257,6 +258,7 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
         jTextField5.setText(fechaInicio);
         
         if(descuento){
+            jTextField7.setEditable(true);
             jTextField4.setText("El cliente ha estado mas de 15 dias, tiene derecho a descuento.");
         }else{
             jTextField4.setText("El cliente no ha estado mas de 15 dias, no tiene derecho a descuento.");
