@@ -10,6 +10,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import pruebaisi2.modelo.modelo;
 import pruebaisi2.vista.Cliente_BuscarReserva;
+import pruebaisi2.vista.Cliente_ConsultarActividades;
 import pruebaisi2.vista.Cliente_DatosReserva;
 import pruebaisi2.vista.Cliente_Disponibilidad;
 import pruebaisi2.vista.Cliente_Menu;
@@ -58,12 +59,13 @@ public class Controlador {
     private InfoParcela ip;
     private LoginPrincipal lp;
     private modelo m;
+    private Cliente_ConsultarActividades cca;
     
     public Controlador(Cliente_BuscarReserva cbr, Cliente_DatosReserva cdr, Cliente_Disponibilidad cd, Cliente_Menu cm, 
             Cliente_RegistrarReserva crr, Cliente_Reserva cr, Cliente_ReservarActividades cra, Cliente_SinReserva csr, Encargado_BuscarCliente ebc, 
             Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, Encargado_DatosCliente edc, 
             Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, Encargado_MostrarReservas emr, Encargado_RegistrarEntrada ere, Encargado_RegistrarSalida ers,
-            InfoParcela ip, LoginPrincipal lp, modelo m){
+            InfoParcela ip, LoginPrincipal lp, modelo m, Cliente_ConsultarActividades cca){
         this.cbr = cbr;
         this.cdr = cdr;
         this.cd = cd;
@@ -86,6 +88,7 @@ public class Controlador {
         this.ip = ip;
         this.lp = lp;
         this.m = m;
+        this.cca = cca;
         
         cbr.setActionListener(new ControladorActionListener());
         cbr.addWindowListener(new ControladorWindowListener());
@@ -98,6 +101,9 @@ public class Controlador {
         
         cm.setActionListener(new ControladorActionListener());
         cm.addWindowListener(new ControladorWindowListener());
+        
+        cca.setActionListener(new ControladorActionListener());
+        cca.addWindowListener(new ControladorWindowListener());
 
         crr.setActionListener(new ControladorActionListener());
         crr.addWindowListener(new ControladorWindowListener());

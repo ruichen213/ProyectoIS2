@@ -4,11 +4,16 @@ public class Actividad {
     private String fecha;
     private String tipoActividad;
     private String usuario;
-    private String hora;        
+    private String hora;
+    private String estado;
     private int id;                          
     
-    public Actividad (String tipoActividad, String fecha, String hora){
+    public Actividad (String tipoActividad, String fecha, String hora, 
+            String estado){
         this.tipoActividad = tipoActividad;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.estado = estado;
     }
     
     /*
@@ -16,6 +21,22 @@ public class Actividad {
     */
     public void setFecha (String fecha_){
         fecha = fecha_;
+    }
+    
+    public void setOcupada(){
+        estado = "ocupada";
+    }
+    
+    public String getEstado(){
+        return estado;
+    }
+    
+    public String getTipoActividad(){
+        return tipoActividad;
+    } 
+    
+    public String getDia(){
+        return fecha;
     }
     
     public void setTipoActividad(String tipoActividad_){
@@ -38,11 +59,7 @@ public class Actividad {
         Getters
     */
     public String getFecha (){
-        return fecha;
-    }
-    
-    public String getTipoActividad (){
-        return tipoActividad;
+        return hora;
     }
     
     public String getUsuario (){

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author Oscar
  */
 public class Cliente {
-    private String nombre;      //Nombre del cliente (para poder buscarlo a la hora de hacer el checkout)              
+    private String nombre, contrasenya;      //Nombre del cliente (para poder buscarlo a la hora de hacer el checkout)              
     private int id;                                     //Identificador del cliente                         
     private ArrayList<Actividad> actividadesReservadas = new ArrayList<>(); //Actividades que tiene reservadas el cliente
     private ArrayList<Parcela> parcelasReservadas = new ArrayList<>();      //Parcelas que tiene reversadas o ha reservado alguna vez
@@ -19,31 +19,69 @@ public class Cliente {
     /*
         Constructores con distintos parametros
     */
-    public Cliente (String nombre_){
-        nombre = nombre_;
-    }
+//    public Cliente (String nombre_){
+//        nombre = nombre_;
+//    }
     
-    public Cliente (String nombre_, Actividad a){
-        nombre = nombre_;
-        actividadesReservadas.add(a);
-    }
+//    public Cliente (String nombre_, Actividad a){
+//        nombre = nombre_;
+//        actividadesReservadas.add(a);
+//    }
     
-    public Cliente (String nombre_, Parcela p){
-        nombre = nombre_;
-        parcelasReservadas.add(p);
-    }
+//    public Cliente (String nombre_, String contrasenya, Parcela p){
+//        this.nombre = nombre_;
+//        parcelasReservadas.add(p);
+//    }
     
-    public Cliente (String nombre_, Actividad a, Parcela p){
-        nombre = nombre_;
-        actividadesReservadas.add(a);
-        parcelasReservadas.add(p);
+    public Cliente (String nombre_, String contrasenya){
+        this.nombre = nombre_;
+        this.contrasenya = contrasenya;
+//        actividadesReservadas.add(a);
+//        parcelasReservadas.add(p);
     }
     
     /*
         Setters
     */
+    public int getIdActividad(String[] partes){
+        int k = 0;
+        
+        for (int i = 0; i < actividadesReservadas.size(); i++){
+            Actividad a1 = actividadesReservadas.get(i);
+            String dia = a1.getDia();
+            String hora = a1.getHora();
+            String tipoActividad = a1.getTipoActividad();
+            
+            if (dia.equalsIgnoreCase(partes[1])) {
+//                System.out.println("Hora: |" + hora + "|");
+//                System.out.println("Hora de la actividad: |" + c.getFechaActividad(i) + "|");
+                if (hora.equalsIgnoreCase(partes[2])) {
+//                    System.out.println("Tipo de actividad: |" + tipoActividad + "|");
+//                    System.out.println("Tipo de actividad de la actividad: |" + c.getTipoActividad(i) + "|");
+                    if (tipoActividad.equalsIgnoreCase(partes[0])) {
+                            k = i;
+                    }
+                }
+            }
+        }
+        
+        return k;
+    }
+    
+    public int getNumActividades(){
+        return actividadesReservadas.size();
+    }
+    
     public void setId (int id_){
         id = id_;
+    }
+    
+    public String getUsuario(){
+        return nombre;
+    }
+    
+    public String getContrasenya(){
+        return contrasenya;
     }
     
     public void addActividad(Actividad a){

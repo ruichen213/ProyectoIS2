@@ -6,6 +6,7 @@ import pruebaisi2.modelo.Camping;
 
 public class LoginPrincipal extends javax.swing.JFrame {
     private Camping c;
+    private int idCliente;
     /**
      * Creates new form Login
      */
@@ -74,21 +75,22 @@ public class LoginPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(201, 201, 201)
-                .addComponent(jLabel1)
-                .addContainerGap(254, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(201, 201, 201)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextField1)
+                            .addComponent(jLabel3)
+                            .addComponent(jPasswordField1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,21 +141,24 @@ public class LoginPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String usuario = jTextField1.getText();
-        String password = jPasswordField1.getText();
-
+        String usuario = jTextField1.getText().trim();
+        String password = jPasswordField1.getText().trim();
+        
+        idCliente = c.averiguamosCliente(usuario, password); //averiguamso cliente comparando en la base de datos, y devolvemos su pos en el vector.
+        c.setIdCliente(idCliente);
+        //System.out.print("PRUEBA: " + idCliente + "\n");
+        
         if(usuario.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(null, "Algun campo esta vacío");
         } else if(usuario.equals("empleado") && password.equals("easy")){
             Encargado_Menu empleado = new Encargado_Menu(c);
             empleado.setVisible(true);
             this.dispose();
-        } else if (usuario.equals("cliente") && password.equals("noob"))
-        {
+        } else if (idCliente >= 0){
             Cliente_Menu cliente = new Cliente_Menu(c);
             cliente.setVisible(true);
             this.dispose();
-        } else {
+        } else { 
             JOptionPane.showMessageDialog(null,"Usuario o contraseña incorrectos");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
