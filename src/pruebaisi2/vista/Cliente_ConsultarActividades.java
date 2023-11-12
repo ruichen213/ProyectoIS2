@@ -120,14 +120,14 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+
         String entrada = (String) jComboBox1.getSelectedItem();
         String[] partes = entrada.split(", ");
         int k = c.averiguarIdActividadCliente(partes);
         c.cancelarActividadCliente(k);
         
         int indiceSeleccionado = jComboBox1.getSelectedIndex();
-         jComboBox1.removeItemAt(indiceSeleccionado);
+        jComboBox1.removeItemAt(indiceSeleccionado);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

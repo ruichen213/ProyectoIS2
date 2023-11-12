@@ -1,5 +1,7 @@
 package pruebaisi2.modelo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -273,8 +275,6 @@ public class Camping {
         
         return id;
     }
-    
-    
     public String getFechaEntrada (int idCliente){
         String fechaEntrada = "";
         
@@ -285,8 +285,7 @@ public class Camping {
         }
         
         return fechaEntrada;
-    }
-            
+    }       
     public int getLastId(){
         int size = actividades.size();
         if (size > 0) {
@@ -296,4 +295,48 @@ public class Camping {
             return -1; // o algún valor predeterminado apropiado
         }
     }
+    public boolean esFechaValida(String fechaTexto) {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        formatoFecha.setLenient(false); // Esto hace que el parseo sea estricto
+
+        try {
+            formatoFecha.parse(fechaTexto); // Intenta parsear la fecha
+            return true; // La fecha es válida
+        } catch (ParseException e) {
+            return false; // La fecha no es válida
+        }
+    }
+    public boolean esHoraValida(String horaTexto) {
+        SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm");
+        formatoHora.setLenient(false); // Esto hace que el parseo sea estricto
+
+        try {
+            formatoHora.parse(horaTexto); // Intenta parsear la hora
+            return true; // La hora es válida
+        } catch (ParseException e) {
+            return false; // La hora no es válida
+        }
+    }
+    public boolean esFechaPosterior(String fechaEntradaTexto, String fechaSalidaTexto) {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        formatoFecha.setLenient(false);
+
+        try {
+            Date fechaEntrada = formatoFecha.parse(fechaEntradaTexto);
+            Date fechaSalida = formatoFecha.parse(fechaSalidaTexto);
+
+            // Comprueba si fechaEntrada es posterior a fechaSalida
+            if (fechaEntrada.after(fechaSalida)) {
+                return true; // La fecha de entrada es posterior a la fecha de salida
+            } else {
+                return false; // La fecha de entrada es anterior o igual a la fecha de salida
+            }
+        } 
+        catch (ParseException e) {
+            // Manejo de error si alguna de las fechas no es válida
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

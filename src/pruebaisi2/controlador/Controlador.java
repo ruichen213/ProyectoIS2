@@ -12,7 +12,7 @@ import pruebaisi2.modelo.modelo;
 import pruebaisi2.vista.Cliente_BuscarReserva;
 import pruebaisi2.vista.Cliente_ConsultarActividades;
 import pruebaisi2.vista.Cliente_DatosReserva;
-import pruebaisi2.vista.Cliente_Disponibilidad;
+import pruebaisi2.vista.Cliente_VerParcelasDisponibles;
 import pruebaisi2.vista.Cliente_Menu;
 import pruebaisi2.vista.Cliente_RegistrarReserva;
 import pruebaisi2.vista.Cliente_Reserva;
@@ -39,7 +39,7 @@ import pruebaisi2.vista.LoginPrincipal;
 public class Controlador {
     private Cliente_BuscarReserva cbr;
     private Cliente_DatosReserva cdr;
-    private Cliente_Disponibilidad cd;
+    private Cliente_VerParcelasDisponibles cd;
     private Cliente_Menu cm;
     private Cliente_RegistrarReserva crr;
     private Cliente_Reserva cr;
@@ -61,7 +61,7 @@ public class Controlador {
     private modelo m;
     private Cliente_ConsultarActividades cca;
     
-    public Controlador(Cliente_BuscarReserva cbr, Cliente_DatosReserva cdr, Cliente_Disponibilidad cd, Cliente_Menu cm, 
+    public Controlador(Cliente_BuscarReserva cbr, Cliente_DatosReserva cdr, Cliente_VerParcelasDisponibles cd, Cliente_Menu cm, 
             Cliente_RegistrarReserva crr, Cliente_Reserva cr, Cliente_ReservarActividades cra, Cliente_SinReserva csr, Encargado_BuscarCliente ebc, 
             Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, Encargado_DatosCliente edc, 
             Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, Encargado_MostrarReservas emr, Encargado_RegistrarEntrada ere, Encargado_RegistrarSalida ers,

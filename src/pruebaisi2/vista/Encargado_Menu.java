@@ -174,7 +174,7 @@ public class Encargado_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Cliente_Disponibilidad v = new Cliente_Disponibilidad(c);
+        Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed

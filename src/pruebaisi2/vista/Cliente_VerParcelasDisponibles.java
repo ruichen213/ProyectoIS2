@@ -3,10 +3,10 @@ package pruebaisi2.vista;
 import java.awt.event.ActionListener;
 import pruebaisi2.modelo.Camping;
 
-public class Cliente_Disponibilidad extends javax.swing.JFrame {
+public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
     private Camping c;
     
-    public Cliente_Disponibilidad(Camping c) {
+    public Cliente_VerParcelasDisponibles(Camping c) {
         this.c = c;
         initComponents();
     }
@@ -150,13 +150,13 @@ public class Cliente_Disponibilidad extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_Disponibilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Cliente_VerParcelasDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_Disponibilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Cliente_VerParcelasDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_Disponibilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Cliente_VerParcelasDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_Disponibilidad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Cliente_VerParcelasDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //        //</editor-fold>
@@ -164,7 +164,7 @@ public class Cliente_Disponibilidad extends javax.swing.JFrame {
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new Cliente_Disponibilidad().setVisible(true);
+//                new Cliente_VerParcelasDisponibles().setVisible(true);
 //            }
 //        });
 //    }
