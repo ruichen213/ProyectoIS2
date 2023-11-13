@@ -4,10 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- *
- * @author cuent
- */
 public class Camping {
     private ArrayList<Actividad> actividades;
     private ArrayList<Cliente> clientes;
@@ -64,10 +60,13 @@ public class Camping {
         Parcela parcela1 = new Parcela (1,100,true,20,true);
         Parcela parcela2 = new Parcela (2,50,true,15,false);
         Parcela parcela3 = new Parcela (3,20,true,10,true);
+        Parcela parcela4 = new Parcela (4,20,true,10,true);
+        Parcela parcela5 = new Parcela (5,20,true,10,true);
         parcelas.add(parcela1);
         parcelas.add(parcela2);
         parcelas.add(parcela3);
-        
+        parcelas.add(parcela4);
+        parcelas.add(parcela5);
         Cliente cliente1 = new Cliente("Jose", "1111");
         cliente1.addActividad(actividad1);
         cliente1.addParcela(parcela1);
