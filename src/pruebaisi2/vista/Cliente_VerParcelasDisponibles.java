@@ -125,7 +125,33 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void AsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarActionPerformed
-       
+       // Obtiene las filas seleccionadas del JTable
+        int[] selectedRows = tablaParcelas.getSelectedRows();
+
+        ArrayList<Parcela> parcelasParaReservar = new ArrayList<>();
+        for (int i : selectedRows) {
+            // Asumiendo que la primera columna contiene el ID de la parcela
+            int parcelaId = (Integer) tablaParcelas.getValueAt(i, 0);
+
+            // Encuentra la parcela por ID y se anyade a la lista de parcelas para reservar
+            for (Parcela p : c.getParcelas()) {
+                if (p.getId() == parcelaId) {
+                    parcelasParaReservar.add(p);
+                    // Marca la parcela como no disponible
+                    p.setDisponible(false);
+                    break;
+                }
+            }
+        }
+
+        // crear la reserva con estas parcelas
+        //c.crearReserva(parcelasParaReservar, fecha, num);
+
+        // Actualiza el JTable para reflejar los cambios de disponibilidad
+        mostrarParcelasDisponibles(c.getParcelas());
+
+        // Opcional: Cierra la ventana actual y abre la ventana de confirmación de reserva
+        // ...
     }//GEN-LAST:event_AsignarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

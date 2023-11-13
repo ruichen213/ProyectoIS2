@@ -31,26 +31,22 @@ public class Propietario_HistorialReservas extends javax.swing.JFrame {
         };
         tablaParcelas = new JTable();
         tablaParcelas.setModel(modelo);
-        jScrollPane1.setViewportView(tablaParcelas); // Usa el jScrollPane1 que creaste en initComponents
+        jScrollPane1.setViewportView(tablaParcelas);
 
         
         // Agrega las parcelas disponibles al modelo
         for (Cliente cliente : clientes) {
-                    for (Parcela Pracela : cliente.getReservas()) {
-                        modelo.addRow(new Object[]{
-                            Pracela.getId(),
-                            cliente.getUsuario(),
-                            Pracela.getSuperficie(),
-                            Pracela.getLuz() ? "Sí" : "No", // Suponiendo que hay un método tieneLuz()
-                            Pracela.getPrecio()
-                        });
-                    }
+            for (Parcela Pracela : cliente.getReservas()) {
+                modelo.addRow(new Object[]{
+                    Pracela.getId(),
+                    cliente.getUsuario(),
+                    Pracela.getSuperficie(),
+                    Pracela.getLuz() ? "Sí" : "No",
+                    Pracela.getPrecio()
+                });
+            }
         }
-        
-        
-        
-        this.add(jScrollPane1); // Agrega el JScrollPane al JFrame
-        
+        this.add(jScrollPane1); // Agrega el JScrollPane al JFrame 
         // Para asegurar que los cambios se muestren, valida y repinta el JFrame
         this.validate();
         this.repaint();
@@ -114,7 +110,7 @@ public class Propietario_HistorialReservas extends javax.swing.JFrame {
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         // TODO add your handling code here:
-        LoginPrincipal lp = new LoginPrincipal(c);
+        Propietario_Menu lp = new Propietario_Menu(c);
         lp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
