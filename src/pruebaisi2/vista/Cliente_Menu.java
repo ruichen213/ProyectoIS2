@@ -20,8 +20,8 @@ public class Cliente_Menu extends javax.swing.JFrame {
         Comprobar_Reserva = new javax.swing.JButton();
         CheckIn = new javax.swing.JButton();
         CheckOut = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
+        Consultar_Actividades = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,17 +62,17 @@ public class Cliente_Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Salir");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                SalirActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Consultar Actividades");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        Consultar_Actividades.setText("Consultar Actividades");
+        Consultar_Actividades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                Consultar_ActividadesActionPerformed(evt);
             }
         });
 
@@ -94,10 +94,10 @@ public class Cliente_Menu extends javax.swing.JFrame {
                                 .addComponent(CheckOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(CheckIn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Reservar_Actividad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Consultar_Actividades, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(109, 109, 109))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton6)
+                        .addComponent(Salir)
                         .addGap(149, 149, 149))))
         );
         layout.setVerticalGroup(
@@ -116,9 +116,9 @@ public class Cliente_Menu extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(CheckOut)
                 .addGap(27, 27, 27)
-                .addComponent(jButton7)
+                .addComponent(Consultar_Actividades)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(Salir)
                 .addGap(48, 48, 48))
         );
 
@@ -155,29 +155,29 @@ public class Cliente_Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_CheckOutActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         // TODO add your handling code here:
         LoginPrincipal lp = new LoginPrincipal(c);
         lp.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_SalirActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void Consultar_ActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Consultar_ActividadesActionPerformed
         // TODO add your handling code here:
         Cliente_ConsultarActividades cca = new Cliente_ConsultarActividades(c);
         cca.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_Consultar_ActividadesActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CheckIn;
     private javax.swing.JButton CheckOut;
     private javax.swing.JButton Comprobar_Reserva;
+    private javax.swing.JButton Consultar_Actividades;
     private javax.swing.JButton Realizar_Reserva;
     private javax.swing.JButton Reservar_Actividad;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton Salir;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 

@@ -39,12 +39,12 @@
                               <Component id="CheckIn" alignment="0" max="32767" attributes="0"/>
                               <Component id="Reservar_Actividad" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jButton7" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
+                          <Component id="Consultar_Actividades" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                      <Component id="Salir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -67,9 +67,9 @@
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="CheckOut" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+              <Component id="Consultar_Actividades" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="67" max="32767" attributes="0"/>
-              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+              <Component id="Salir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -121,20 +121,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckOutActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="Salir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
+    <Component class="javax.swing.JButton" name="Consultar_Actividades">
       <Properties>
         <Property name="text" type="java.lang.String" value="Consultar Actividades"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Consultar_ActividadesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

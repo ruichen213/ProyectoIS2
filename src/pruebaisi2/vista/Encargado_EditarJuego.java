@@ -5,9 +5,6 @@ import pruebaisi2.modelo.Camping;
 
 public class Encargado_EditarJuego extends javax.swing.JFrame {
     private Camping c;
-    /**
-     * Creates new form Encargado_EditarJuego
-     */
     public Encargado_EditarJuego(Camping c) {
         this.c = c;
         initComponents();
