@@ -157,6 +157,10 @@ public class LoginPrincipal extends javax.swing.JFrame {
             Encargado_Menu empleado = new Encargado_Menu(c);
             empleado.setVisible(true);
             this.dispose();
+        } else if(usuario.equals("Propietario") && password.equals("admin")){
+            Propietario_Menu p = new Propietario_Menu(c);
+            p.setVisible(true);
+            this.dispose();
         } else if (idCliente >= 0){
             Cliente_Menu cliente = new Cliente_Menu(c);
             cliente.setVisible(true);

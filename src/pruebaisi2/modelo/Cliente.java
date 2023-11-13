@@ -16,31 +16,13 @@ public class Cliente {
     private ArrayList<Actividad> actividadesReservadas = new ArrayList<>(); //Actividades que tiene reservadas el cliente
     private ArrayList<Parcela> parcelasReservadas = new ArrayList<>();      //Parcelas que tiene reversadas o ha reservado alguna vez
     private boolean asistido = false;
-    
-    /*
-        Constructores con distintos parametros
-    */
-//    public Cliente (String nombre_){
-//        nombre = nombre_;
-//    }
-    
-//    public Cliente (String nombre_, Actividad a){
-//        nombre = nombre_;
-//        actividadesReservadas.add(a);
-//    }
-    
-//    public Cliente (String nombre_, String contrasenya, Parcela p){
-//        this.nombre = nombre_;
-//        parcelasReservadas.add(p);
-//    }
+
     
     public Cliente (String nombre_, String contrasenya, boolean asistido, int pareja){
         this.pareja = pareja;
         this.nombre = nombre_;
         this.contrasenya = contrasenya;
         this.asistido = asistido;
-//        actividadesReservadas.add(a);
-//        parcelasReservadas.add(p);
     }
     
     /*
@@ -69,6 +51,10 @@ public class Cliente {
         }
         
         return k;
+    }
+    
+    public ArrayList<Parcela> getReservas(){
+        return parcelasReservadas;
     }
     
     public void setPareja(int i)

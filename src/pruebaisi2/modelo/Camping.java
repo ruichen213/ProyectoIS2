@@ -14,6 +14,7 @@ public class Camping {
     private ArrayList<Reserva> reservas;
     private ArrayList<Tienda> tiendas;
     private ArrayList<Encargado> encargados;
+    private ArrayList<String> usuario_mas_parcelas;
     private int idCliente, idEmpleado;
     
     public Camping(){
@@ -23,6 +24,7 @@ public class Camping {
         reservas = new ArrayList<Reserva>();
         tiendas = new ArrayList<Tienda>();
         encargados = new ArrayList<Encargado>();
+        usuario_mas_parcelas = new ArrayList<String>();
     }
     
     /*
@@ -144,6 +146,9 @@ public class Camping {
         return c1.getNombre();
     }
     
+    public ArrayList<Cliente> getClientes(){
+        return clientes;
+    }
     
     public String getClienteContrasenya(int i){
         Cliente c1 = clientes.get(i);
