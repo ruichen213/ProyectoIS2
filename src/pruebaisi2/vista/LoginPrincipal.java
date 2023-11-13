@@ -150,10 +150,10 @@ public class LoginPrincipal extends javax.swing.JFrame {
         c.setIdEmpleado(idEmpleado);
         
         //System.out.print("PRUEBA: " + idCliente + "\n");
-        
+
         if(usuario.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(null, "Algun campo esta vacío");
-        } else if(idEmpleado >= 0){
+        } else if(usuario.equals("empleado") && password.equals("easy")){
             Encargado_Menu empleado = new Encargado_Menu(c);
             empleado.setVisible(true);
             this.dispose();
