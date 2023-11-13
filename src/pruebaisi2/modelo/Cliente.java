@@ -12,9 +12,10 @@ import java.util.ArrayList;
  */
 public class Cliente {
     private String nombre, contrasenya;      //Nombre del cliente (para poder buscarlo a la hora de hacer el checkout)              
-    private int id;                                     //Identificador del cliente                         
+    private int id, pareja;                                  //Identificador del cliente                         
     private ArrayList<Actividad> actividadesReservadas = new ArrayList<>(); //Actividades que tiene reservadas el cliente
     private ArrayList<Parcela> parcelasReservadas = new ArrayList<>();      //Parcelas que tiene reversadas o ha reservado alguna vez
+    private boolean asistido = false;
     
     /*
         Constructores con distintos parametros
@@ -33,9 +34,11 @@ public class Cliente {
 //        parcelasReservadas.add(p);
 //    }
     
-    public Cliente (String nombre_, String contrasenya){
+    public Cliente (String nombre_, String contrasenya, boolean asistido, int pareja){
+        this.pareja = pareja;
         this.nombre = nombre_;
         this.contrasenya = contrasenya;
+        this.asistido = asistido;
 //        actividadesReservadas.add(a);
 //        parcelasReservadas.add(p);
     }
@@ -68,6 +71,15 @@ public class Cliente {
         return k;
     }
     
+    public void setPareja(int i)
+    {
+        pareja = i;
+    }
+    
+    public int getPareja()
+    {
+        return pareja;
+    }
     public int getNumActividades(){
         return actividadesReservadas.size();
     }
@@ -92,6 +104,14 @@ public class Cliente {
         parcelasReservadas.add(p);
     }
     
+    public boolean getActividadBool()
+    {
+        return asistido;
+    }
+    public void setActividadBool(boolean b)
+    {
+        asistido = b;
+    }
     /*
         Getters
     */
@@ -106,15 +126,15 @@ public class Cliente {
     /*
         Devuelve una lista con las parcelas que tiene el cliente
     */
-    public ArrayList<Parcela> getParcelas(){
-        return parcelasReservadas;
+    public Parcela getParcelas(int i){
+        return parcelasReservadas.get(i);
     }
 
     /*
         Devuelve una lista con las actividades que tiene el cliente
     */
-    public ArrayList<Actividad> getActividades(){
-        return actividadesReservadas;
+    public Actividad getActividades(int i){
+        return actividadesReservadas.get(i);
     }
     
     //Quita una actividad de la lista de actividades

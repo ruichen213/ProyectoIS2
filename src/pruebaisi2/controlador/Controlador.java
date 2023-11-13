@@ -18,6 +18,7 @@ import pruebaisi2.vista.Cliente_RegistrarReserva;
 import pruebaisi2.vista.Cliente_Reserva;
 import pruebaisi2.vista.Cliente_ReservarActividades;
 import pruebaisi2.vista.Cliente_SinReserva;
+import pruebaisi2.vista.Empleado_HacerParejas;
 import pruebaisi2.vista.Encargado_BuscarCliente;
 import pruebaisi2.vista.Encargado_CalcularParcela;
 import pruebaisi2.vista.Encargado_CrearActividad;
@@ -60,13 +61,15 @@ public class Controlador {
     private LoginPrincipal lp;
     private modelo m;
     private Cliente_ConsultarActividades cca;
+    private Empleado_HacerParejas hp;
     
     public Controlador(Cliente_BuscarReserva cbr, Cliente_DatosReserva cdr, Cliente_VerParcelasDisponibles cd, Cliente_Menu cm, 
             Cliente_RegistrarReserva crr, Cliente_Reserva cr, Cliente_ReservarActividades cra, Cliente_SinReserva csr, Encargado_BuscarCliente ebc, 
             Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, Encargado_DatosCliente edc, 
             Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, Encargado_MostrarReservas emr, Encargado_RegistrarEntrada ere, Encargado_RegistrarSalida ers,
-            InfoParcela ip, LoginPrincipal lp, modelo m, Cliente_ConsultarActividades cca){
+            InfoParcela ip, LoginPrincipal lp, modelo m, Cliente_ConsultarActividades cca, Empleado_HacerParejas hp){
         this.cbr = cbr;
+        this.hp = hp;
         this.cdr = cdr;
         this.cd = cd;
         this.cm = cm;
