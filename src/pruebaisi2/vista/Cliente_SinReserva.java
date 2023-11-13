@@ -115,18 +115,23 @@ public class Cliente_SinReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void Ver_DisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_DisponibilidadActionPerformed
-        String fecha = Fecha_Entrada.getText();
-        int num = Integer.parseInt(Num_Parcelas.getText());
-        if(!c.esFechaValida(fecha)){
-            JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
-            
+        try {
+            String fecha = Fecha_Entrada.getText();
+            int num = Integer.parseInt(Num_Parcelas.getText());
+            if(!c.esFechaValida(fecha)){
+                JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
+
+            }
+            else if (c.getNumParcelas()< num)
+                JOptionPane.showMessageDialog(this, "No tenemos tantas parcelas disponibles", "Error", JOptionPane.ERROR_MESSAGE);
+            else{
+                Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c,fecha,num);
+                v.setVisible(true);
+                this.dispose();
+            }
         }
-        else if (c.getNumParcelas()< num)
-            JOptionPane.showMessageDialog(this, "No tenemos tantas parcelas disponibles", "Error", JOptionPane.ERROR_MESSAGE);
-        else{
-            Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c,fecha,num);
-            v.setVisible(true);
-            this.dispose();
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_Ver_DisponibilidadActionPerformed
 

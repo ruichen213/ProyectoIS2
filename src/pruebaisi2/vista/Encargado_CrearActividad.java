@@ -2,6 +2,7 @@ package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import pruebaisi2.modelo.Actividad;
 import pruebaisi2.modelo.Camping;
 
@@ -11,8 +12,8 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
     
     public Encargado_CrearActividad(Camping c) {
         this.c = c;
+        initComponents();
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -128,13 +129,25 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String dia = Dia.getText();
-        String hora = Hora.getText();
-        String actividad = (String)Actividades.getSelectedItem();
-        int id = Integer.parseInt(ID_Usuario.getText());
-        Actividad a = new Actividad(actividad, dia, hora, "libre");
-
-        c.anyadirActividad(a);
+        try { 
+            String dia = Dia.getText();
+            String hora = Hora.getText();
+            String actividad = (String)Actividades.getSelectedItem();
+            int id = Integer.parseInt(ID_Usuario.getText());
+            if(!c.esFechaValida(dia)){
+                JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
+            }
+            else if (!c.esHoraValida(hora))
+                JOptionPane.showMessageDialog(this, "La hora ingresada no es válida. Por favor, ingrese una hora en el formato HH:mm.", "Hora Invalida", JOptionPane.ERROR_MESSAGE);
+            else
+            {
+                Actividad a = new Actividad(actividad, dia, hora, "libre");
+                c.anyadirActividad(a);
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActividadesActionPerformed
@@ -145,39 +158,6 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
         comboBox.addItem("Padel");
     }//GEN-LAST:event_ActividadesActionPerformed
 
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_CrearActividad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_CrearActividad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_CrearActividad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_CrearActividad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                Camping c = new Camping();
-//                new Encargado_CrearActividad(c).setVisible(true);
-//            }
-//        });
-//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Actividades;
     private javax.swing.JButton Cancelar;
@@ -192,6 +172,5 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
     public void setActionListener (ActionListener ae){
-
     }
 }

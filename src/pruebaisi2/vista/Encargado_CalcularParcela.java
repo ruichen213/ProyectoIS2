@@ -104,21 +104,26 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        String fechainicio = Fecha_Entrada.getText();
-        String fechafin = Fecha_Salida.getText();
-        
-        if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin)) {
-            JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
+        try {    
+            String fechainicio = Fecha_Entrada.getText();
+            String fechafin = Fecha_Salida.getText();
+
+            if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin)) {
+                JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
+            }
+            else
+            {
+                // Añadir todas las acciones
+            }   
+            if(c.esFechaPosterior(fechainicio, fechafin)) {
+                JOptionPane.showMessageDialog(this, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
+            } else {
+                // Poner aqui a que ventana quereis
+            }  
         }
-        else
-        {
-            // Añadir todas las acciones
-        }   
-        if(c.esFechaPosterior(fechainicio, fechafin)) {
-            JOptionPane.showMessageDialog(this, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
-        } else {
-            // Poner aqui a que ventana quereis
-        }  
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
