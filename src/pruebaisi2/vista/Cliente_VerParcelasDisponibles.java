@@ -11,7 +11,7 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
 
     private Camping c;
     private JTable tablaParcelas; // Agrega el JTable como miembro de la clase
-    public Cliente_VerParcelasDisponibles(Camping c) {
+    public Cliente_VerParcelasDisponibles(Camping c, String fecha, int num) {
         this.c = c;
         initComponents();
         mostrarParcelasDisponibles(c.getParcelas());
@@ -30,15 +30,15 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
         };
         tablaParcelas = new JTable();
         tablaParcelas.setModel(modelo);
-        jScrollPane1.setViewportView(tablaParcelas); // Usa el jScrollPane1 que creaste en initComponents
+        jScrollPane1.setViewportView(tablaParcelas);
 
         // Agrega las parcelas disponibles al modelo
         for (Parcela parcela : parcelas) {
-            if (parcela.isDisponible()) { // Suponiendo que tienes un método isDisponible() que retorna el valor de 'disp'
+            if (parcela.isDisponible()) {
                 modelo.addRow(new Object[]{
                     parcela.getId(),
                     parcela.getSuperficie(),
-                    parcela.getLuz() ? "Sí" : "No", // Suponiendo que hay un método tieneLuz()
+                    parcela.getLuz() ? "Sí" : "No",
                     parcela.getPrecio()
                 });
             }
@@ -57,6 +57,7 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         Cancelar = new javax.swing.JButton();
+        Asignar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +75,18 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel1);
 
         Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
+
+        Asignar.setText("Asignar");
+        Asignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AsignarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,10 +96,12 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(163, 163, 163)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Asignar)
+                .addGap(72, 72, 72)
                 .addComponent(Cancelar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(94, 94, 94))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,46 +109,27 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Cancelar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Cancelar)
+                    .addComponent(Asignar))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cliente_VerParcelasDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cliente_VerParcelasDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cliente_VerParcelasDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cliente_VerParcelasDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        Cliente_SinReserva v = new Cliente_SinReserva(c);
+        v.setVisible(true);
+        this.dispose(); 
+    }//GEN-LAST:event_CancelarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Camping c = new Camping();
-                new Cliente_VerParcelasDisponibles(c).setVisible(true);
-            }
-        });
-    }
+    private void AsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarActionPerformed
+       
+    }//GEN-LAST:event_AsignarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Asignar;
     private javax.swing.JButton Cancelar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

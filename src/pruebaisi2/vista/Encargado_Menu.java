@@ -2,40 +2,40 @@ package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
 import pruebaisi2.modelo.Camping;
+import pruebaisi2.modelo.Reserva;
 
 public class Encargado_Menu extends javax.swing.JFrame {
     private Camping c;
-
+    private Reserva r;
    
     public Encargado_Menu(Camping c) {
         this.c = c;
         initComponents();
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
+        Crear_Actividades = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Datos_Tienda = new javax.swing.JButton();
+        Historial = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Registrar_Salida = new javax.swing.JButton();
+        Registrar_Entrada = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        Anotar_Ganadores = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton7.setText("Crear actividades");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        Crear_Actividades.setText("Crear actividades");
+        Crear_Actividades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                Crear_ActividadesActionPerformed(evt);
             }
         });
 
@@ -46,17 +46,17 @@ public class Encargado_Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Datos tiendas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Datos_Tienda.setText("Datos tiendas");
+        Datos_Tienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                Datos_TiendaActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Historial cliente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Historial.setText("Historial cliente");
+        Historial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                HistorialActionPerformed(evt);
             }
         });
 
@@ -67,17 +67,17 @@ public class Encargado_Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Registar salida");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        Registrar_Salida.setText("Registar salida");
+        Registrar_Salida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                Registrar_SalidaActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Registrar entrada");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Registrar_Entrada.setText("Registrar entrada");
+        Registrar_Entrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                Registrar_EntradaActionPerformed(evt);
             }
         });
 
@@ -92,10 +92,10 @@ public class Encargado_Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setText("Anotar ganadores");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        Anotar_Ganadores.setText("Anotar ganadores");
+        Anotar_Ganadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                Anotar_GanadoresActionPerformed(evt);
             }
         });
 
@@ -116,17 +116,17 @@ public class Encargado_Menu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(33, 33, 33))
-                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Anotar_Ganadores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Registrar_Entrada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Registrar_Salida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Historial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Datos_Tienda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Crear_Actividades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
@@ -141,18 +141,18 @@ public class Encargado_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(Registrar_Entrada)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(Registrar_Salida)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(Historial)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(Datos_Tienda)
                 .addGap(18, 18, 18)
-                .addComponent(jButton7)
+                .addComponent(Crear_Actividades)
                 .addGap(18, 18, 18)
-                .addComponent(jButton9)
+                .addComponent(Anotar_Ganadores)
                 .addGap(18, 18, 18)
                 .addComponent(jButton6)
                 .addGap(18, 18, 18)
@@ -183,46 +183,46 @@ public class Encargado_Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialActionPerformed
         Encargado_DatosCliente v = new Encargado_DatosCliente(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_HistorialActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void Registrar_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrar_EntradaActionPerformed
         // TODO add your handling code here:
         Encargado_RegistrarEntrada v = new Encargado_RegistrarEntrada(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_Registrar_EntradaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void Registrar_SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrar_SalidaActionPerformed
         Encargado_RegistrarSalida v = new Encargado_RegistrarSalida(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_Registrar_SalidaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c);
+        Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c, r.getFechaInicio(), c.getNumParcelas());
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void Datos_TiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Datos_TiendaActionPerformed
         Encargado_DatoTiendas v = new Encargado_DatoTiendas(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_Datos_TiendaActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void Crear_ActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Crear_ActividadesActionPerformed
         Encargado_CrearActividad v = new Encargado_CrearActividad(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_Crear_ActividadesActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         Encargado_MostrarReservas v = new Encargado_MostrarReservas(c);
@@ -230,11 +230,11 @@ public class Encargado_Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void Anotar_GanadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Anotar_GanadoresActionPerformed
         Encargado_AnotarGanadores v = new Encargado_AnotarGanadores(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_Anotar_GanadoresActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
@@ -280,16 +280,16 @@ public class Encargado_Menu extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Anotar_Ganadores;
+    private javax.swing.JButton Crear_Actividades;
+    private javax.swing.JButton Datos_Tienda;
+    private javax.swing.JButton Historial;
+    private javax.swing.JButton Registrar_Entrada;
+    private javax.swing.JButton Registrar_Salida;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

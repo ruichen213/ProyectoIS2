@@ -20,7 +20,7 @@ public class Cliente_SinReserva extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Fecha_Entrada = new javax.swing.JTextField();
-        Num_Parcelas = new javax.swing.JComboBox<>();
+        Num_Parcelas = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,13 +48,6 @@ public class Cliente_SinReserva extends javax.swing.JFrame {
             }
         });
 
-        Num_Parcelas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Num_Parcelas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Num_ParcelasActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -67,9 +60,9 @@ public class Cliente_SinReserva extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Num_Parcelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Fecha_Entrada, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Fecha_Entrada, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                            .addComponent(Num_Parcelas)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addComponent(Cancelar))
@@ -85,11 +78,11 @@ public class Cliente_SinReserva extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(Fecha_Entrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Num_Parcelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(25, 25, 25)
+                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(Num_Parcelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addComponent(Ver_Disponibilidad)
                 .addGap(18, 18, 18)
                 .addComponent(Cancelar)
@@ -122,15 +115,16 @@ public class Cliente_SinReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void Ver_DisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_DisponibilidadActionPerformed
-        String fechaTexto = Fecha_Entrada.getText();
-        int num = Integer.parseInt((String)Num_Parcelas.getSelectedItem());
-        if(!c.esFechaValida(fechaTexto)){
+        String fecha = Fecha_Entrada.getText();
+        int num = Integer.parseInt(Num_Parcelas.getText());
+        if(!c.esFechaValida(fecha)){
             JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
-            if (c.getNumParcelas()< num)
-                JOptionPane.showMessageDialog(this, "No tenemos tantas parcelas disponibles", "No se que poner XD", JOptionPane.ERROR_MESSAGE);
+            
         }
+        else if (c.getNumParcelas()< num)
+            JOptionPane.showMessageDialog(this, "No tenemos tantas parcelas disponibles", "Error", JOptionPane.ERROR_MESSAGE);
         else{
-            Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c);
+            Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c,fecha,num);
             v.setVisible(true);
             this.dispose();
         }
@@ -140,14 +134,10 @@ public class Cliente_SinReserva extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Fecha_EntradaActionPerformed
 
-    private void Num_ParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num_ParcelasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Num_ParcelasActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
     private javax.swing.JTextField Fecha_Entrada;
-    private javax.swing.JComboBox<String> Num_Parcelas;
+    private javax.swing.JTextField Num_Parcelas;
     private javax.swing.JButton Ver_Disponibilidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
