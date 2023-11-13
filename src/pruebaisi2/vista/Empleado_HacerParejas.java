@@ -61,6 +61,11 @@ public class Empleado_HacerParejas extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setLabel("MostrarParejas");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -117,15 +122,10 @@ public class Empleado_HacerParejas extends javax.swing.JFrame {
     public Empleado_HacerParejas(Camping c) {
         this.c = c;
         
-        
-        
         initComponents();
         
         for(int i = 0; i < c.sizeCl(); i++)
         {
-            System.err.println("ME CAGO EN MIS MUERTOS");
-                    
-                    
             if(c.getCliente(i).getActividadBool() == true)
             {
                 comb1.addItem(c.mostrarCliente(i));
@@ -168,6 +168,12 @@ public class Empleado_HacerParejas extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Encargado_Menu v = new Encargado_Menu(c);
+        v.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -115,8 +115,8 @@ public class Propietario_TiendasParcelas extends javax.swing.JFrame {
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         // TODO add your handling code here:
-        LoginPrincipal lp = new LoginPrincipal(c);
-        lp.setVisible(true);
+        Propietario_Menu m = new Propietario_Menu(c);
+        m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
 

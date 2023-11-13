@@ -46,6 +46,11 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
         });
 
         jButton1.setText("Guardar y Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +134,12 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
         int indiceSeleccionado = jComboBox1.getSelectedIndex();
         jComboBox1.removeItemAt(indiceSeleccionado);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Cliente_Menu v = new Cliente_Menu(c);
+        v.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
