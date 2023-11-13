@@ -71,15 +71,19 @@ public class Camping {
         parcelas.add(parcela3);
         parcelas.add(parcela4);
         parcelas.add(parcela5);
+        
         Cliente cliente1 = new Cliente("Jose", "1111", true, 0);
         cliente1.addActividad(actividad1);
         cliente1.addParcela(parcela1);
+        
         Cliente cliente2 = new Cliente("Pepe", "2222", true, 0);
         cliente2.addActividad(actividad1);
         cliente2.addParcela(parcela2);
+        
         Cliente cliente3 = new Cliente("Marcos", "3333", false, 0);
         cliente3.addActividad(actividad3);
         cliente3.addParcela(parcela3);
+        
         clientes.add(cliente1);
         clientes.add(cliente2);
         clientes.add(cliente3);
@@ -92,9 +96,21 @@ public class Camping {
 //        cliente2.setId(clientes.indexOf(cliente2)+1);
 //        cliente3.setId(clientes.indexOf(cliente3)+1);
     }
+    
+    
+    
     /*
         Para qusitar
     */
+    
+    public void setGanadorActividad(String nombreActividad, int idGanador){
+        for(int i = 0; i < actividades.size();i++){
+            if(actividades.get(i).getTipoActividad().equalsIgnoreCase(nombreActividad)){
+                actividades.get(i).setGanador(idGanador);
+            }
+        }
+    }
+    
     public int averiguarIdActividadCliente(String[] partes){
         int k = 0;
         Cliente c1 = clientes.get(idCliente);
@@ -331,7 +347,7 @@ public class Camping {
     }
     
     public int getIdCliente(String nombre){
-        int id = 0;
+        int id = 9;
         
         for (int i = 0; i < clientes.size(); i++){
             if(clientes.get(i).getNombre().equalsIgnoreCase(nombre)){

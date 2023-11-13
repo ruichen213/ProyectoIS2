@@ -6,7 +6,8 @@ public class Actividad {
     private String usuario;
     private String hora;
     private String estado;
-    private int id;                          
+    private int id;  
+    private int ganador;    //Id del cliente ganador de la actividad
     
     public Actividad (String tipoActividad, String fecha, String hora, 
             String estado){
@@ -54,6 +55,10 @@ public class Actividad {
     public void setId (int id_){
         id = id_;
     }
+    
+    public void setGanador (int idGanador){
+        ganador = idGanador;
+    }
        
     /*
         Getters
@@ -72,5 +77,9 @@ public class Actividad {
     
     public int getId(){
         return id;
+    }
+    
+    public int getGanador(){
+        return ganador;
     }
 }
