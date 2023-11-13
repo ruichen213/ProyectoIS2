@@ -48,6 +48,11 @@ private Camping c;
         jLabel3.setText("Nombre de la actividad:");
 
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Aceptar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -122,17 +127,23 @@ private Camping c;
         String nombreGanador;
         int idGanador;
         
-        nombreActividad = jTextField1.getText();
-        nombreGanador = jTextField2.getText();
-        
-        idGanador = c.getIdCliente(nombreGanador);
+        if (!(jTextField1.getText() == null) || !(jTextField2.getText() == null)){
+            nombreActividad = jTextField1.getText();
+            nombreGanador = jTextField2.getText();
+
+            idGanador = c.getIdCliente(nombreGanador);
+
+            c.setGanadorActividad(nombreActividad, idGanador);
+
+            JOptionPane.showMessageDialog(null, "Confirmado, el cliente " + idGanador + " ha ganado la actividad " + nombreActividad);
+        }else{
+            JOptionPane.showMessageDialog(null, "Algun campo esta vacio");
+        }
         
         //System.out.println("bbbbbbbbbbb" + nombreActividad + "bbbbbbbbbbbbbb");
         //System.out.println("aaaaaaaaaaa" + idGanador + "aaaaaaaaaaaaaa");
         
-        c.setGanadorActividad(nombreActividad, idGanador);
         
-        JOptionPane.showMessageDialog(null, "Confirmado, el cliente " + idGanador + " ha ganado la actividad " + nombreActividad);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -143,6 +154,12 @@ private Camping c;
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Encargado_Menu v = new Encargado_Menu(c);
+        v.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

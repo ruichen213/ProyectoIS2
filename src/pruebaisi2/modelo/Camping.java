@@ -347,7 +347,7 @@ public class Camping {
     }
     
     public int getIdCliente(String nombre){
-        int id = 9;
+        int id = 9999999;
         
         for (int i = 0; i < clientes.size(); i++){
             if(clientes.get(i).getNombre().equalsIgnoreCase(nombre)){
