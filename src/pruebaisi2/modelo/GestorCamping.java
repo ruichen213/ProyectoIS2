@@ -17,7 +17,6 @@ public class GestorCamping {
        c.cargarDatos();
     }
     
-    
     public static void main(String args[]){
         GestorCamping gestor = new GestorCamping();
         LoginPrincipal lp = new LoginPrincipal(c);
