@@ -6,7 +6,7 @@ import pruebaisi2.modelo.Camping;
 
 public class LoginPrincipal extends javax.swing.JFrame {
     private Camping c;
-    private int idCliente;
+    private int idCliente, idEmpleado;
     /**
      * Creates new form Login
      */
@@ -146,11 +146,14 @@ public class LoginPrincipal extends javax.swing.JFrame {
         
         idCliente = c.averiguamosCliente(usuario, password); //averiguamso cliente comparando en la base de datos, y devolvemos su pos en el vector.
         c.setIdCliente(idCliente);
+        idEmpleado = c.averiguamosEncargado(usuario, password);
+        c.setIdEmpleado(idEmpleado);
+        
         //System.out.print("PRUEBA: " + idCliente + "\n");
         
         if(usuario.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(null, "Algun campo esta vacío");
-        } else if(usuario.equals("empleado") && password.equals("easy")){
+        } else if(idEmpleado >= 0){
             Encargado_Menu empleado = new Encargado_Menu(c);
             empleado.setVisible(true);
             this.dispose();

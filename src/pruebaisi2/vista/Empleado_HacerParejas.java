@@ -147,10 +147,13 @@ public class Empleado_HacerParejas extends javax.swing.JFrame {
        
        for( int i = 0; i < c.sizeCl(); i++)
        {
-           if(c.getCliente(i).getNombre()== s || c.getCliente(i).getNombre()== s2 )
+           if(c.getCliente(i).getNombre()== s)
            {
                c.getCliente(i).setPareja(c.getLastParCliente()+1);
-               c.getCliente(i).setPareja(c.getLastParCliente());
+           }
+           if( c.getCliente(i).getNombre() == s2)
+           {  
+               c.getCliente(i).setPareja(c.getLastParCliente()+1);
            }
        }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -159,9 +162,9 @@ public class Empleado_HacerParejas extends javax.swing.JFrame {
         
         for(int i = 0; i < c.sizeCl(); i++)
         {
-            if(c.getCliente(i).getPareja() < 0)
+            if(c.getCliente(i).getPareja() > 0)
             {
-                System.out.println( "Parejas :" + c.getCliente(i).getNombre() + c.getCliente(i).getPareja());
+                System.out.println( "Parejas :" + c.getCliente(i).getNombre() + " " + c.getCliente(i).getPareja());
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed

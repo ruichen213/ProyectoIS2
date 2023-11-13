@@ -13,7 +13,8 @@ public class Camping {
     private ArrayList<Parcela> parcelas;
     private ArrayList<Reserva> reservas;
     private ArrayList<Tienda> tiendas;
-    private int idCliente;
+    private ArrayList<Encargado> encargados;
+    private int idCliente, idEmpleado;
     
     public Camping(){
         actividades = new ArrayList<Actividad>();
@@ -21,6 +22,7 @@ public class Camping {
         parcelas = new ArrayList<Parcela>();
         reservas = new ArrayList<Reserva>();
         tiendas = new ArrayList<Tienda>();
+        encargados = new ArrayList<Encargado>();
     }
     
     /*
@@ -69,18 +71,21 @@ public class Camping {
         parcelas.add(parcela3);
         parcelas.add(parcela4);
         parcelas.add(parcela5);
-        Cliente cliente1 = new Cliente("Jose", "1111");
+        Cliente cliente1 = new Cliente("Jose", "1111", true, 0);
         cliente1.addActividad(actividad1);
         cliente1.addParcela(parcela1);
-        Cliente cliente2 = new Cliente("Pepe", "2222");
-        cliente2.addActividad(actividad2);
+        Cliente cliente2 = new Cliente("Pepe", "2222", true, 0);
+        cliente2.addActividad(actividad1);
         cliente2.addParcela(parcela2);
-        Cliente cliente3 = new Cliente("Marcos", "3333");
+        Cliente cliente3 = new Cliente("Marcos", "3333", false, 0);
         cliente3.addActividad(actividad3);
         cliente3.addParcela(parcela3);
         clientes.add(cliente1);
         clientes.add(cliente2);
         clientes.add(cliente3);
+        
+        Encargado enc = new Encargado("Mario", "69");
+        encargados.add(enc);
         
         //Dan valor al indice de los clientes en funcion de su posicion+1 en el ArrayList
 //        cliente1.setId(clientes.indexOf(cliente1)+1);
@@ -118,9 +123,18 @@ public class Camping {
         Cliente c1 = clientes.get(i);
         return c1.getUsuario();
     }
+    public String getEmpleadoUsuario(int i){
+        Encargado c1 = encargados.get(i);
+        return c1.getNombre();
+    }
+    
     
     public String getClienteContrasenya(int i){
         Cliente c1 = clientes.get(i);
+        return c1.getContrasenya(); }
+    
+    public String getEmpleadoContrasenya(int i){
+        Encargado c1 = encargados.get(i);
         return c1.getContrasenya(); }
     
     public int averiguamosCliente(String u, String p){
@@ -128,6 +142,18 @@ public class Camping {
         
         for (int i = 0; i < clientes.size(); i++){
             if (u.equals(getClienteUsuario(i)) && p.equals(getClienteContrasenya(i))){
+                pos = i;
+            }
+        }
+        
+        return pos;
+    }
+    
+     public int averiguamosEncargado(String u, String p){
+        int pos = 0;
+        
+        for (int i = 0; i < encargados.size(); i++){
+            if (u.equals(getEmpleadoUsuario(i)) && p.equals(getEmpleadoContrasenya(i))){
                 pos = i;
             }
         }
@@ -147,6 +173,11 @@ public class Camping {
         this.idCliente = i;
     }
     
+    public void setIdEmpleado(int i)
+    {
+        this.idEmpleado = i;
+    }
+    
     public int getIdCliente(){
         return idCliente;
     }
@@ -163,6 +194,15 @@ public class Camping {
         
         cadena = a1.getTipoActividad() + ", " + a1.getDia()
                 + ", " + a1.getHora();
+        
+        return cadena;
+    }
+    
+    public String mostrarCliente(int i){
+        String cadena;
+        Cliente a1 = clientes.get(i);
+        
+        cadena = a1.getNombre();
         
         return cadena;
     }
@@ -215,6 +255,9 @@ public class Camping {
     public void anyadirParcela(Parcela e){
         parcelas.add(e);
     }
+    public void anyadirCliente(Cliente c){
+        clientes.add(c);
+    }
     
     /*
         Getters
@@ -239,6 +282,14 @@ public class Camping {
     
     public Parcela getParcela(int index){
         return parcelas.get(index);
+    }
+    
+     public Cliente getCliente(int index){
+        return clientes.get(index);
+    }
+     
+     public int sizeCl(){
+        return clientes.size();
     }
     
     public ArrayList<Tienda> getTiendas(){
@@ -269,6 +320,10 @@ public class Camping {
     
     public int getLastIdCliente(){
         return clientes.get(clientes.size()-1).getId();
+    }
+    
+     public int getLastParCliente(){
+        return clientes.get(clientes.size()-1).getPareja();
     }
     
     public int getNumParcelas(){
