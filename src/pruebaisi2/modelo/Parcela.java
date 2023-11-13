@@ -68,6 +68,10 @@ public class Parcela {
         t = t_;
     }
     
+    public String getNombreTienda(){
+           return t.getNombre();
+    }
+    
     //PUEDE SER UTIL PERO NO SE COMO USARLO
     public void reservar(){
         if (disponible)

@@ -7,8 +7,7 @@ package pruebaisi2.modelo;
 public class Tienda {
     private String nombre;      //Nombre de la tienda
     private float superficie;   //Superficie de la tienda
-    //private int parcela;        //id de la parcela en la que está
-    
+
     public Tienda (String nombre_, float superficie_){
         nombre = nombre_;
         superficie = superficie_;
@@ -30,15 +29,4 @@ public class Tienda {
     public void setSuperficie(float superficie_) {
         superficie = superficie_;
     }
-
-    // Getter y Setter para parcela
-/*
-    public int getParcela() {
-        return parcela;
-    }
-
-    public void setParcela(int parcela_) {
-        parcela = parcela_;
-    }
-*/
 }

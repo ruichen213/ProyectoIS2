@@ -74,16 +74,32 @@ public class Camping {
         parcelas.add(parcela4);
         parcelas.add(parcela5);
         
+        Tienda tienda1 = new Tienda("Tienda1",100);
+        Tienda tienda2 = new Tienda("Tienda2",100);
+        Tienda tienda3 = new Tienda("Tienda3",100);
+        Tienda tienda4 = new Tienda("Tienda4",100);
+        Tienda tienda5 = new Tienda("Tienda5",100);
+        Tienda tienda6 = new Tienda("Tienda6",100);        
+        tiendas.add(tienda1);
+        tiendas.add(tienda2);
+        tiendas.add(tienda3);
+        tiendas.add(tienda4);
+        tiendas.add(tienda5);
+        tiendas.add(tienda6);
+        
         Cliente cliente1 = new Cliente("Jose", "1111", true, 0);
         cliente1.addActividad(actividad1);
+        parcela1.setTienda(tienda1);
         cliente1.addParcela(parcela1);
         
         Cliente cliente2 = new Cliente("Pepe", "2222", true, 0);
         cliente2.addActividad(actividad1);
+        parcela2.setTienda(tienda2);
         cliente2.addParcela(parcela2);
         
         Cliente cliente3 = new Cliente("Marcos", "3333", false, 0);
         cliente3.addActividad(actividad3);
+        parcela3.setTienda(tienda3);
         cliente3.addParcela(parcela3);
         
         clientes.add(cliente1);

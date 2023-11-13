@@ -34,6 +34,7 @@ import pruebaisi2.vista.InfoParcela;
 import pruebaisi2.vista.LoginPrincipal;
 import pruebaisi2.vista.Propietario_HistorialReservas;
 import pruebaisi2.vista.Propietario_Menu;
+import pruebaisi2.vista.Propietario_TiendasParcelas;
 
 /**
  *
@@ -66,9 +67,10 @@ public class Controlador {
     private Empleado_HacerParejas hp;
     private Propietario_Menu pm;
     private Propietario_HistorialReservas phr;
+    private Propietario_TiendasParcelas ptp;
     
     
-    public Controlador(Propietario_Menu pm, Propietario_HistorialReservas phr, Cliente_BuscarReserva cbr, Cliente_DatosReserva cdr, Cliente_VerParcelasDisponibles cd, Cliente_Menu cm, 
+    public Controlador(Propietario_TiendasParcelas ptp, Propietario_Menu pm, Propietario_HistorialReservas phr, Cliente_BuscarReserva cbr, Cliente_DatosReserva cdr, Cliente_VerParcelasDisponibles cd, Cliente_Menu cm, 
             Cliente_RegistrarReserva crr, Cliente_Reserva cr, Cliente_ReservarActividades cra, Cliente_SinReserva csr, Encargado_BuscarCliente ebc, 
             Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, Encargado_DatosCliente edc, 
             Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, Encargado_MostrarReservas emr, Encargado_RegistrarEntrada ere, Encargado_RegistrarSalida ers,
@@ -76,6 +78,7 @@ public class Controlador {
         this.cbr = cbr;
         this.phr = phr;
         this.pm = pm;
+        this.ptp = ptp;
         this.hp = hp;
         this.cdr = cdr;
         this.cd = cd;
