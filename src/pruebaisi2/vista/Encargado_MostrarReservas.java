@@ -139,7 +139,7 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        
+       
         Empleado_HacerParejas v = new Empleado_HacerParejas(c);
         v.setVisible(true);
         this.dispose();
@@ -152,14 +152,24 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jTextField3.setText("");
+        
+        /*
         String s = jTextField3.getText();
         
-        int x = Integer.parseInt(jTextField1.getText());
+        String x =jTextField1.getText();
+        
+        for (Cliente cliente : clientes) {
+            for (Parcela Pracela : cliente.getReservas()) {
+
+            }
+        }
+        
         if(c.getCliente(x).getId() == x)
         {
             for(int i = 0; i < c.sizeCl(); i++)
             {
-                if ( c.getCliente(i).getActividades(i).getId() == x)
+                if ( c.getCliente(i).getActividades(i).getTipoActividad() == x)
                 {
                     if( c.getCliente(i).getNombre() == s)
                     {
@@ -172,8 +182,9 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Pecha de mal ");
         }
+        */
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
