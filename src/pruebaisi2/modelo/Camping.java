@@ -41,7 +41,7 @@ public class Camping {
         actividades.add(actividad1);
         actividades.add(actividad2);
         actividades.add(actividad3);
-         actividades.add(actividad4);
+        actividades.add(actividad4);
         actividades.add(actividad5);
         actividades.add(actividad6);
         
@@ -87,17 +87,17 @@ public class Camping {
         tiendas.add(tienda5);
         tiendas.add(tienda6);
         
-        Cliente cliente1 = new Cliente("Jose", "1111", true, 0);
+        Cliente cliente1 = new Cliente("Jose", "1111", true, 0, false);
         cliente1.addActividad(actividad1);
         parcela1.setTienda(tienda1);
         cliente1.addParcela(parcela1);
         
-        Cliente cliente2 = new Cliente("Pepe", "2222", true, 0);
+        Cliente cliente2 = new Cliente("Pepe", "2222", true, 0, true);
         cliente2.addActividad(actividad1);
         parcela2.setTienda(tienda2);
         cliente2.addParcela(parcela2);
         
-        Cliente cliente3 = new Cliente("Marcos", "3333", false, 0);
+        Cliente cliente3 = new Cliente("Marcos", "3333", false, 0, false);
         cliente3.addActividad(actividad3);
         parcela3.setTienda(tienda3);
         cliente3.addParcela(parcela3);
@@ -108,11 +108,6 @@ public class Camping {
         
         Encargado enc = new Encargado("Mario", "69");
         encargados.add(enc);
-        
-        //Dan valor al indice de los clientes en funcion de su posicion+1 en el ArrayList
-//        cliente1.setId(clientes.indexOf(cliente1)+1);
-//        cliente2.setId(clientes.indexOf(cliente2)+1);
-//        cliente3.setId(clientes.indexOf(cliente3)+1);
     }
     
     
@@ -120,6 +115,10 @@ public class Camping {
     /*
         Para qusitar
     */
+    public void setSancionCliente(int pos){
+        Cliente c1 = clientes.get(pos);
+        c1.setSancionado(true);
+    }
     
     public void setGanadorActividad(String nombreActividad, int idGanador){
         for(int i = 0; i < actividades.size();i++){
@@ -175,7 +174,7 @@ public class Camping {
         return c1.getContrasenya(); }
     
     public int averiguamosCliente(String u, String p){
-        int pos = 0;
+        int pos = -9999;
         
         for (int i = 0; i < clientes.size(); i++){
             if (u.equals(getClienteUsuario(i)) && p.equals(getClienteContrasenya(i))){
@@ -187,7 +186,7 @@ public class Camping {
     }
     
      public int averiguamosEncargado(String u, String p){
-        int pos = 0;
+        int pos = -9999;
         
         for (int i = 0; i < encargados.size(); i++){
             if (u.equals(getEmpleadoUsuario(i)) && p.equals(getEmpleadoContrasenya(i))){

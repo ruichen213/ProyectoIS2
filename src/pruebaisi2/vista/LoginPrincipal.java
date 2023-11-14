@@ -142,6 +142,7 @@ public class LoginPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String usuario = jTextField1.getText().trim();
+//        Boolean ok = new Boolean(false);
         String password = jPasswordField1.getText().trim();
         
         idCliente = c.averiguamosCliente(usuario, password); //averiguamso cliente comparando en la base de datos, y devolvemos su pos en el vector.
@@ -149,7 +150,7 @@ public class LoginPrincipal extends javax.swing.JFrame {
         idEmpleado = c.averiguamosEncargado(usuario, password);
         c.setIdEmpleado(idEmpleado);
         
-        //System.out.print("PRUEBA: " + idCliente + "\n");
+        System.out.print("PRUEBA: " + idCliente + "\n");
 
         if(usuario.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(null, "Algun campo esta vacío");

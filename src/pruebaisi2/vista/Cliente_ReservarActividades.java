@@ -195,7 +195,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
             if (!c.esHoraValida(hora))
                 JOptionPane.showMessageDialog(this, "La hora ingresada no es válida. Por favor, ingrese una fecha en el formato HH:mm.", "Hora Inválida", JOptionPane.ERROR_MESSAGE);
         }
-        /*
+        
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Reserva realizada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         
@@ -206,8 +206,6 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
         cm.setVisible(true);
         this.dispose();
         
-        //c.setActividadOcupada(i);
-        */
     }//GEN-LAST:event_ReservarActionPerformed
 
     private void DiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaActionPerformed

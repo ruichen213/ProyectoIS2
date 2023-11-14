@@ -15,10 +15,12 @@ public class Cliente {
     private int id, pareja;                                  //Identificador del cliente                         
     private ArrayList<Actividad> actividadesReservadas = new ArrayList<>(); //Actividades que tiene reservadas el cliente
     private ArrayList<Parcela> parcelasReservadas = new ArrayList<>();      //Parcelas que tiene reversadas o ha reservado alguna vez
-    private boolean asistido = false;
-
+    private boolean asistido = false; //lo voy a borrar en el siguiente sprint NO SIRVE PARA NADA
+    private boolean sancionado = false;
     
-    public Cliente (String nombre_, String contrasenya, boolean asistido, int pareja){
+    public Cliente (String nombre_, String contrasenya, boolean asistido, 
+            int pareja, boolean sancionado){
+        this.sancionado = sancionado;
         this.pareja = pareja;
         this.nombre = nombre_;
         this.contrasenya = contrasenya;
@@ -51,6 +53,14 @@ public class Cliente {
         }
         
         return k;
+    }
+    
+    public void setSancionado(boolean s){
+        sancionado = s;
+    }
+    
+    public boolean getSancionado(){
+        return sancionado;
     }
     
     public ArrayList<Parcela> getReservas(){
