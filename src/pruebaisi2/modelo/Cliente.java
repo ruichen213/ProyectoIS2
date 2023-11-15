@@ -18,13 +18,14 @@ public class Cliente {
     private boolean asistido = false; //lo voy a borrar en el siguiente sprint NO SIRVE PARA NADA
     private boolean sancionado = false;
     
-    public Cliente (String nombre_, String contrasenya, boolean asistido, 
+    public Cliente (int id, String nombre_, String contrasenya, boolean asistido, 
             int pareja, boolean sancionado){
         this.sancionado = sancionado;
         this.pareja = pareja;
         this.nombre = nombre_;
         this.contrasenya = contrasenya;
         this.asistido = asistido;
+        this.id = id;
     }
     
     /*

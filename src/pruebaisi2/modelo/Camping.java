@@ -87,23 +87,25 @@ public class Camping {
         tiendas.add(tienda5);
         tiendas.add(tienda6);
         
-        Cliente cliente1 = new Cliente("Jose", "1111", true, 0, false);
+        Cliente cliente1 = new Cliente(getLastIdCliente(),"Jose", "1111", true, 0, false);
         cliente1.addActividad(actividad1);
         parcela1.setTienda(tienda1);
         cliente1.addParcela(parcela1);
         
-        Cliente cliente2 = new Cliente("Pepe", "2222", true, 0, true);
+        clientes.add(cliente1);
+        
+        Cliente cliente2 = new Cliente(getLastIdCliente(),"Pepe", "2222", true, 0, true);
         cliente2.addActividad(actividad1);
         parcela2.setTienda(tienda2);
         cliente2.addParcela(parcela2);
+
+        clientes.add(cliente2);
         
-        Cliente cliente3 = new Cliente("Marcos", "3333", false, 0, false);
+        Cliente cliente3 = new Cliente(getLastIdCliente(),"Marcos", "3333", false, 0, false);
         cliente3.addActividad(actividad3);
         parcela3.setTienda(tienda3);
         cliente3.addParcela(parcela3);
         
-        clientes.add(cliente1);
-        clientes.add(cliente2);
         clientes.add(cliente3);
         
         Encargado enc = new Encargado("Mario", "69");
@@ -355,7 +357,13 @@ public class Camping {
     }
     
     public int getLastIdCliente(){
-        return clientes.get(clientes.size()-1).getId();
+        int id;
+        if(clientes.isEmpty())
+                id = 1;
+        else
+            id = clientes.size()+1;
+        
+        return id;
     }
     
      public int getLastParCliente(){
@@ -369,12 +377,13 @@ public class Camping {
     public int getIdCliente(String nombre){
         int id = 0;
         
+        System.out.print(clientes.size() + "SIZE CLIENTES");
+        
         for (int i = 0; i < clientes.size(); i++){
             if(clientes.get(i).getNombre().equalsIgnoreCase(nombre)){
                 id = clientes.get(i).getId();
             }
         }
-        
         return id;
     }
     public String getFechaEntrada (int idCliente){

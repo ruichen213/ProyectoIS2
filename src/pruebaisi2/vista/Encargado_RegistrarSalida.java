@@ -24,6 +24,8 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
     public boolean recibirDescuento (String fechaIni, String fechaFin){
         boolean descuento;
         
+        
+        
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         
         LocalDate fecha1 = LocalDate.parse(fechaIni, formatter);
@@ -237,12 +239,6 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
-        Encargado_CalcularParcela v = new Encargado_CalcularParcela(c);
-        v.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_calcularActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         float precioFinal;
         String fechaInicio, fechaFin, nombre;
         int idCliente;
@@ -262,7 +258,11 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
             jTextField4.setText("El cliente ha estado mas de 15 dias, tiene derecho a descuento.");
         }else{
             jTextField4.setText("El cliente no ha estado mas de 15 dias, no tiene derecho a descuento.");
-        }       
+        }  
+    }//GEN-LAST:event_calcularActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+     
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
