@@ -4,17 +4,20 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import pruebaisi2.modelo.Actividad;
 import pruebaisi2.modelo.Camping;
 import pruebaisi2.modelo.Cliente;
+import pruebaisi2.modelo.Parcela;
 import pruebaisi2.modelo.Reserva;
 
-public class Encargado_DatosCliente extends javax.swing.JFrame {
+public class Encargado_HistorialCliente extends javax.swing.JFrame {
     private Camping c;
     /**
      * Creates new form Encargado_DatosCliente
      */
-    public Encargado_DatosCliente(Camping c) {
+    public Encargado_HistorialCliente(Camping c) {
         this.c = c;
         initComponents();
         
@@ -174,6 +177,12 @@ public class Encargado_DatosCliente extends javax.swing.JFrame {
 
         jLabel10.setText("Actividades:");
 
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
         jButton3.setText("Buscar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,6 +307,8 @@ public class Encargado_DatosCliente extends javax.swing.JFrame {
         jTextField7.setText("");
         ID_Cliente.setText("");
         ID_Parcela.setText("");
+        
+        jComboBox1.removeAllItems();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -318,13 +329,7 @@ public class Encargado_DatosCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_Fecha_EntradaActionPerformed
 
     private void Fecha_SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_SalidaActionPerformed
-        // TODO add your handling code here:
-        if (recibirDescuento(Fecha_Entrada.getText(),Fecha_Salida.getText())){
-            jTextField7.setEditable(true);
-        }
-        else{
-            jTextField7.setEditable(false);
-        }
+
     }//GEN-LAST:event_Fecha_SalidaActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
@@ -340,15 +345,38 @@ public class Encargado_DatosCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_ID_ClienteActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
         String nombre = ID_Cliente.getText();
         Cliente c1 = c.averiguarClienteV2(nombre);
+        ArrayList<Parcela> parcelas = new ArrayList<>();
+        ArrayList<Actividad> actividades = new ArrayList<>();
+        String parcelasReservadas = "";  //String en el que se almacean los id de las parcelas reservadas para luego mostrarlas
         
-//        ID_Parcela.setText(id_parcela);
+        parcelas = c1.getReservas();        //Todas las parcelas que tiene reservadas el cliente cl
+        actividades = c1.getActividades();  //Todas las actividades que tiene reservadas el cliente cl
         
+        for(int i = 0; i < parcelas.size(); i++){
+            parcelasReservadas += parcelas.get(i).getId();
+            
+            if(i < parcelas.size()-1){
+                parcelasReservadas += ", ";
+            }
+        }
         
+        for(int i = 0; i < actividades.size(); i++){
+            jComboBox1.addItem(actividades.get(i).getTipoActividad());
+        }
         
+        ID_Parcela.setText(parcelasReservadas);
+        
+        Fecha_Entrada.setText(c.getFechaEntrada(c.getIdCliente(nombre)));
+        Fecha_Salida.setText(c.getFechaSalida(c.getIdCliente(nombre)));
+               
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;

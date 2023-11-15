@@ -179,7 +179,7 @@ public class Encargado_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialActionPerformed
-        Encargado_DatosCliente v = new Encargado_DatosCliente(c);
+        Encargado_HistorialCliente v = new Encargado_HistorialCliente(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_HistorialActionPerformed

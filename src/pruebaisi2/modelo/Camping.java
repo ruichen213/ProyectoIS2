@@ -360,8 +360,7 @@ public class Camping {
         return actividades.get(index);
     }
      
-     
-     public int sizeCl(){
+    public int sizeCl(){
         return clientes.size();
     }
     
@@ -431,7 +430,20 @@ public class Camping {
         }
         
         return fechaEntrada;
-    }       
+    }    
+    
+    public String getFechaSalida (int idCliente){
+        String fechaSalida = "";
+        
+        for (int i = 0; i < reservas.size(); i++){
+            if (reservas.get(i).getIdCliente() == idCliente){
+                fechaSalida = reservas.get(i).getFechaFin();
+            }
+        }
+        
+        return fechaSalida;
+    } 
+    
     public int getLastId(){
         int size = actividades.size();
         if (size > 0) {

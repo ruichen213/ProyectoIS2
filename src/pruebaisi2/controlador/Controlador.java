@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import pruebaisi2.modelo.modelo;
-import pruebaisi2.vista.Cliente_BuscarReserva;
 import pruebaisi2.vista.Cliente_ConsultarActividades;
 import pruebaisi2.vista.Cliente_DatosReserva;
 import pruebaisi2.vista.Cliente_VerParcelasDisponibles;
@@ -19,11 +18,10 @@ import pruebaisi2.vista.Cliente_Reserva;
 import pruebaisi2.vista.Cliente_ReservarActividades;
 import pruebaisi2.vista.Cliente_SinReserva;
 import pruebaisi2.vista.Empleado_HacerParejas;
-import pruebaisi2.vista.Encargado_BuscarCliente;
 import pruebaisi2.vista.Encargado_CalcularParcela;
 import pruebaisi2.vista.Encargado_CrearActividad;
 import pruebaisi2.vista.Encargado_DatoTiendas;
-import pruebaisi2.vista.Encargado_DatosCliente;
+import pruebaisi2.vista.Encargado_HistorialCliente;
 import pruebaisi2.vista.Encargado_EditarJuego;
 import pruebaisi2.vista.Encargado_Menu;
 import pruebaisi2.vista.Encargado_MirarTiendas;
@@ -41,7 +39,6 @@ import pruebaisi2.vista.Propietario_TiendasParcelas;
  * @author cuent
  */
 public class Controlador {
-    private Cliente_BuscarReserva cbr;
     private Cliente_DatosReserva cdr;
     private Cliente_VerParcelasDisponibles cd;
     private Cliente_Menu cm;
@@ -49,11 +46,10 @@ public class Controlador {
     private Cliente_Reserva cr;
     private Cliente_ReservarActividades cra;
     private Cliente_SinReserva csr;
-    private Encargado_BuscarCliente ebc;
     private Encargado_CalcularParcela ecp;
     private Encargado_CrearActividad eca;
     private Encargado_DatoTiendas edt;
-    private Encargado_DatosCliente edc;
+    private Encargado_HistorialCliente edc;
     private Encargado_EditarJuego eej;
     private Encargado_Menu em;
     private Encargado_MirarTiendas emt;
@@ -70,12 +66,11 @@ public class Controlador {
     private Propietario_TiendasParcelas ptp;
     
     
-    public Controlador(Propietario_TiendasParcelas ptp, Propietario_Menu pm, Propietario_HistorialReservas phr, Cliente_BuscarReserva cbr, Cliente_DatosReserva cdr, Cliente_VerParcelasDisponibles cd, Cliente_Menu cm, 
-            Cliente_RegistrarReserva crr, Cliente_Reserva cr, Cliente_ReservarActividades cra, Cliente_SinReserva csr, Encargado_BuscarCliente ebc, 
-            Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, Encargado_DatosCliente edc, 
+    public Controlador(Propietario_TiendasParcelas ptp, Propietario_Menu pm, Propietario_HistorialReservas phr, Cliente_DatosReserva cdr, Cliente_VerParcelasDisponibles cd, Cliente_Menu cm, 
+            Cliente_RegistrarReserva crr, Cliente_Reserva cr, Cliente_ReservarActividades cra, Cliente_SinReserva csr, 
+            Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, Encargado_HistorialCliente edc, 
             Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, Encargado_MostrarReservas emr, Encargado_RegistrarEntrada ere, Encargado_RegistrarSalida ers,
             InfoParcela ip, LoginPrincipal lp, modelo m, Cliente_ConsultarActividades cca, Empleado_HacerParejas hp){
-        this.cbr = cbr;
         this.phr = phr;
         this.pm = pm;
         this.ptp = ptp;
@@ -87,7 +82,6 @@ public class Controlador {
         this.cr = cr;
         this.cra = cra;
         this.csr = csr;
-        this.ebc = ebc;
         this.ecp = ecp;
         this.eca = eca;
         this.edt = edt;
@@ -102,9 +96,6 @@ public class Controlador {
         this.lp = lp;
         this.m = m;
         this.cca = cca;
-        
-        cbr.setActionListener(new ControladorActionListener());
-        cbr.addWindowListener(new ControladorWindowListener());
         
         cdr.setActionListener(new ControladorActionListener());
         cdr.addWindowListener(new ControladorWindowListener());
@@ -129,9 +120,6 @@ public class Controlador {
         
         csr.setActionListener(new ControladorActionListener());
         csr.addWindowListener(new ControladorWindowListener());
-        
-        ebc.setActionListener(new ControladorActionListener());
-        ebc.addWindowListener(new ControladorWindowListener());
         
         ecp.setActionListener(new ControladorActionListener());
         ecp.addWindowListener(new ControladorWindowListener());

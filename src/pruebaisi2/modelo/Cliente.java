@@ -68,6 +68,10 @@ public class Cliente {
         return parcelasReservadas;
     }
     
+    public ArrayList<Actividad> getActividades(){
+        return actividadesReservadas;
+    }
+    
     public void setPareja(int i)
     {
         pareja = i;

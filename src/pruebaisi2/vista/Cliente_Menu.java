@@ -118,8 +118,6 @@ public class Cliente_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Realizar_ReservaActionPerformed
 
     private void Comprobar_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Comprobar_ReservaActionPerformed
-        Cliente_BuscarReserva v = new Cliente_BuscarReserva(c);
-        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Comprobar_ReservaActionPerformed
 

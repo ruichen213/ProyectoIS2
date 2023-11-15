@@ -85,8 +85,6 @@ public class Cliente_Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSinReservaActionPerformed
 
     private void buttonConReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConReservaActionPerformed
-        Cliente_BuscarReserva v = new Cliente_BuscarReserva(c);
-        v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonConReservaActionPerformed
 
