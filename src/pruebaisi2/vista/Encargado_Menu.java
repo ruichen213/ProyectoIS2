@@ -29,6 +29,8 @@ public class Encargado_Menu extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         Anotar_Ganadores = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,7 +88,6 @@ public class Encargado_Menu extends javax.swing.JFrame {
         jLabel2.setText("Registro de parcelas:");
 
         jButton8.setText("Contrastar Asistencia");
-        jButton8.setActionCommand("Contrastar Asistencia");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -107,6 +108,20 @@ public class Encargado_Menu extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Check-in");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Check-out");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,7 +133,11 @@ public class Encargado_Menu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(33, 33, 33))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton2)
+                                .addComponent(jButton1)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Anotar_Ganadores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -146,9 +165,13 @@ public class Encargado_Menu extends javax.swing.JFrame {
                     .addComponent(Registrar_Entrada)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(Registrar_Salida)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Registrar_Salida)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addComponent(Historial)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Historial)
+                    .addComponent(jButton2))
                 .addGap(18, 18, 18)
                 .addComponent(Datos_Tienda)
                 .addGap(18, 18, 18)
@@ -247,6 +270,20 @@ public class Encargado_Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Cliente_Checkin ck = new Cliente_Checkin(c);
+        ck.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Cliente_Checkout ck = new Cliente_Checkout(c);
+        ck.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,7 +327,9 @@ public class Encargado_Menu extends javax.swing.JFrame {
     private javax.swing.JButton Historial;
     private javax.swing.JButton Registrar_Entrada;
     private javax.swing.JButton Registrar_Salida;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;

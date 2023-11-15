@@ -18,14 +18,12 @@ public class Cliente_Menu extends javax.swing.JFrame {
         Realizar_Reserva = new javax.swing.JButton();
         Reservar_Actividad = new javax.swing.JButton();
         Comprobar_Reserva = new javax.swing.JButton();
-        CheckIn = new javax.swing.JButton();
-        CheckOut = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         Consultar_Actividades = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Menú principal");
+        jLabel1.setText("MENU CLIENTE");
 
         Realizar_Reserva.setText("Realizar reserva");
         Realizar_Reserva.addActionListener(new java.awt.event.ActionListener() {
@@ -48,20 +46,6 @@ public class Cliente_Menu extends javax.swing.JFrame {
             }
         });
 
-        CheckIn.setLabel("Check In");
-        CheckIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckInActionPerformed(evt);
-            }
-        });
-
-        CheckOut.setLabel("Check Out");
-        CheckOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckOutActionPerformed(evt);
-            }
-        });
-
         Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,46 +64,42 @@ public class Cliente_Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(138, 138, 138))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Realizar_Reserva, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(Comprobar_Reserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CheckOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CheckIn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Reservar_Actividad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Consultar_Actividades, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(109, 109, 109))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Salir)
-                        .addGap(149, 149, 149))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Comprobar_Reserva, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Consultar_Actividades, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                    .addComponent(Reservar_Actividad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(Realizar_Reserva, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 37, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(Salir)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(Realizar_Reserva)
                 .addGap(26, 26, 26)
                 .addComponent(Comprobar_Reserva)
                 .addGap(31, 31, 31)
                 .addComponent(Reservar_Actividad)
-                .addGap(28, 28, 28)
-                .addComponent(CheckIn)
-                .addGap(28, 28, 28)
-                .addComponent(CheckOut)
-                .addGap(27, 27, 27)
+                .addGap(36, 36, 36)
                 .addComponent(Consultar_Actividades)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(Salir)
-                .addGap(48, 48, 48))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,7 +112,7 @@ public class Cliente_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Reservar_ActividadActionPerformed
 
     private void Realizar_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Realizar_ReservaActionPerformed
-        Cliente_Reserva v = new Cliente_Reserva(c);
+        Cliente_RegistrarReserva v = new Cliente_RegistrarReserva(c);
         v.setVisible(true);
         this.dispose();      
     }//GEN-LAST:event_Realizar_ReservaActionPerformed
@@ -142,18 +122,6 @@ public class Cliente_Menu extends javax.swing.JFrame {
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Comprobar_ReservaActionPerformed
-
-    private void CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckInActionPerformed
-        Cliente_Checkin v = new Cliente_Checkin(c);
-        v.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_CheckInActionPerformed
-
-    private void CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutActionPerformed
-        Cliente_Checkout v = new Cliente_Checkout(c);
-        v.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_CheckOutActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         // TODO add your handling code here:
@@ -171,8 +139,6 @@ public class Cliente_Menu extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CheckIn;
-    private javax.swing.JButton CheckOut;
     private javax.swing.JButton Comprobar_Reserva;
     private javax.swing.JButton Consultar_Actividades;
     private javax.swing.JButton Realizar_Reserva;
