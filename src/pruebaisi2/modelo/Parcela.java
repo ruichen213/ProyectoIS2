@@ -1,7 +1,5 @@
 package pruebaisi2.modelo;
 
-import java.util.ArrayList;
-
 public class Parcela {
     private float superficie;   //Superficie de la parcela
     private float precio;       //Precio de la parcela
@@ -70,16 +68,5 @@ public class Parcela {
     
     public String getNombreTienda(){
            return t.getNombre();
-    }
-    
-    //PUEDE SER UTIL PERO NO SE COMO USARLO
-    public void reservar(){
-        if (disponible)
-            this.disponible = false;
-    }
-    
-    //PUEDE SER UTIL PERO NO SE COMO USARLO
-    public void liberar(){
-        this.disponible = true;
     }
 }

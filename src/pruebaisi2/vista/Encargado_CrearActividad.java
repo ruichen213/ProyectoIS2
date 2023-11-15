@@ -143,6 +143,7 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
             {
                 Actividad a = new Actividad(actividad, dia, hora, "libre");
                 c.anyadirActividad(a);
+                JOptionPane.showMessageDialog(this, "Actividad creada", "Exito", JOptionPane.ERROR_MESSAGE);
             }
         }
         catch (NumberFormatException e) {
@@ -151,11 +152,7 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActividadesActionPerformed
-        JComboBox<String> comboBox = new JComboBox<>();
-        // Aadir elementos al JComboBox
-        comboBox.addItem("Piscina");
-        comboBox.addItem("Club");
-        comboBox.addItem("Padel");
+
     }//GEN-LAST:event_ActividadesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

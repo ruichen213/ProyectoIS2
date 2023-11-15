@@ -7,8 +7,6 @@ import pruebaisi2.modelo.Reserva;
 
 public class Cliente_RegistrarReserva extends javax.swing.JFrame {
     private Camping c;
-    //Declaración de variables
-    
     public Cliente_RegistrarReserva(Camping c) {
         this.c = c;
         initComponents();
@@ -31,6 +29,8 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +143,6 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Num_ParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num_ParcelasActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_Num_ParcelasActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
@@ -154,25 +153,22 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
         if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin)) {
             JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
         }
-        else
-        {
-            if(c.esFechaPosterior(fechainicio, fechafin)) {
-                JOptionPane.showMessageDialog(this, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
-            } else {
-                for(int i = 1; i <= id; i++){
-                    Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,fechainicio, fechafin, true);
-                    c.anyadirReserva(reserva); 
-                }
-                
-                InfoParcela info = new InfoParcela(c);
-                info.setVisible(true);
-                this.dispose();
-            }       
-        }   
+        else if(c.esFechaPosterior(fechainicio, fechafin))
+            JOptionPane.showMessageDialog(this, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
+        else {
+            for(int i = 1; i <= id; i++){
+                Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,fechainicio, fechafin, true);
+                c.anyadirReserva(reserva); 
+            }
+
+            InfoParcela info = new InfoParcela(c);
+            info.setVisible(true);
+            this.dispose();
+        }        
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void Fecha_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_EntradaActionPerformed
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_Fecha_EntradaActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed

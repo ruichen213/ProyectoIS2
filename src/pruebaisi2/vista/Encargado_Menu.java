@@ -31,6 +31,8 @@ public class Encargado_Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         Crear_Actividades.setText("Crear actividades");
         Crear_Actividades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +127,7 @@ public class Encargado_Menu extends javax.swing.JFrame {
                             .addComponent(Registrar_Salida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Historial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addGap(176, 176, 176))
+                .addGap(171, 171, 171))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(144, 144, 144)
                 .addComponent(jLabel1)
@@ -134,9 +136,9 @@ public class Encargado_Menu extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(77, 77, 77)
                 .addComponent(jLabel1)
-                .addGap(66, 66, 66)
+                .addGap(31, 31, 31)
                 .addComponent(Registrar_Entrada)
                 .addGap(18, 18, 18)
                 .addComponent(Registrar_Salida)

@@ -1,9 +1,5 @@
 package pruebaisi2.modelo;
 
-/**
- *
- * @author Oscar
- */
 public class Tienda {
     private String nombre;      //Nombre de la tienda
     private float superficie;   //Superficie de la tienda

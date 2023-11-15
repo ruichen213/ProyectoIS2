@@ -30,9 +30,7 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         jTextField6.setEditable(false);
         jTextField7.setEditable(false);
         ID_Parcela.setEditable(false);
-        
     }
-    
     /*
         Funcion para comprobar si el cliente ha estado mas de 15 dias y por tanto 
         se le puede aplicar un descuento

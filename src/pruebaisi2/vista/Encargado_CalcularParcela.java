@@ -108,17 +108,12 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
             String fechainicio = Fecha_Entrada.getText();
             String fechafin = Fecha_Salida.getText();
 
-            if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin)) {
-                JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
-            }
-            else
-            {
-                // Añadir todas las acciones
-            }   
-            if(c.esFechaPosterior(fechainicio, fechafin)) {
+            if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin))
+                JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);  
+            else if(c.esFechaPosterior(fechainicio, fechafin))
                 JOptionPane.showMessageDialog(this, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
-            } else {
-                // Poner aqui a que ventana quereis
+            else {
+                // Poner aqui todas las acciones
             }  
         }
         catch (NumberFormatException e) {
@@ -131,37 +126,7 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_CalcularParcela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_CalcularParcela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_CalcularParcela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_CalcularParcela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Encargado_CalcularParcela().setVisible(true);
-//            }
-//        });
-//    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
     private javax.swing.JButton Cancelar;
@@ -176,6 +141,5 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-
     }
 }

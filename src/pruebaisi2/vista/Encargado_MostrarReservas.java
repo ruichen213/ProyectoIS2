@@ -12,14 +12,12 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
    
     public Encargado_MostrarReservas(Camping c) {   
         this.c = c;
- 
         initComponents(); 
         
         for(int i = 0; i< c.cantidadActividades(); i++)
         {
             Actividad.addItem(c.mostrarActividad(i));
         }
-     
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -159,7 +157,6 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-       
         Empleado_HacerParejas v = new Empleado_HacerParejas(c);
         v.setVisible(true);
         this.dispose();
@@ -173,7 +170,6 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String gente = (String) Gente.getSelectedItem();
-        
         for(int i = 0; i < c.sizeCl(); i++)
         {
             if(c.getCliente(i).getNombre()==gente)

@@ -14,8 +14,6 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     public Cliente_ReservarActividades(Camping c) {
         this.c = c;
         initComponents();
-    
-       
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -182,8 +180,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActividadActionPerformed
-        // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_ActividadActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
@@ -196,22 +193,21 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
         String dia = Dia.getText();
         String hora = Hora.getText();
         String actividad = (String)Actividad.getSelectedItem();
-        if(!c.esFechaValida(dia)) {
+        if(!c.esFechaValida(dia)) 
             JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-            if (!c.esHoraValida(hora))
-                JOptionPane.showMessageDialog(this, "La hora ingresada no es válida. Por favor, ingrese una fecha en el formato HH:mm.", "Hora Inválida", JOptionPane.ERROR_MESSAGE);
+        else if (!c.esHoraValida(hora))
+            JOptionPane.showMessageDialog(this, "La hora ingresada no es válida. Por favor, ingrese una fecha en el formato HH:mm.", "Hora Inválida", JOptionPane.ERROR_MESSAGE);
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Reserva realizada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+            c.setActividadOcupada(k);
+            c.addActividadToCliente(k);
+
+            Cliente_Menu cm = new Cliente_Menu(c);
+            cm.setVisible(true);
+            this.dispose();
         }
-        
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Reserva realizada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        
-        c.setActividadOcupada(k);
-        c.addActividadToCliente(k);
-        
-        Cliente_Menu cm = new Cliente_Menu(c);
-        cm.setVisible(true);
-        this.dispose();
-        
     }//GEN-LAST:event_ReservarActionPerformed
 
     private void DiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaActionPerformed
@@ -223,8 +219,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_HoraActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here: donde se muestran..
-        
+ 
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -253,44 +248,6 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_ReservarActividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_ReservarActividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_ReservarActividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_ReservarActividades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Cliente_ReservarActividades().setVisible(true);
-//            }
-//        });
-//    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Actividad;
     private javax.swing.JButton Cancelar;
@@ -309,6 +266,5 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-
     }
 }
