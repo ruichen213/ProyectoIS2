@@ -87,14 +87,14 @@ public class Camping {
         tiendas.add(tienda5);
         tiendas.add(tienda6);
         
-        Cliente cliente1 = new Cliente(getLastIdCliente(),"Jose", "1111", true, 0, false);
+        Cliente cliente1 = new Cliente(getLastIdCliente(),"Jose", "1111", false, 0, false);
         cliente1.addActividad(actividad1);
         parcela1.setTienda(tienda1);
         cliente1.addParcela(parcela1);
         
         clientes.add(cliente1);
         
-        Cliente cliente2 = new Cliente(getLastIdCliente(),"Pepe", "2222", true, 0, true);
+        Cliente cliente2 = new Cliente(getLastIdCliente(),"Pepe", "2222", false, 0, true);
         cliente2.addActividad(actividad1);
         parcela2.setTienda(tienda2);
         cliente2.addParcela(parcela2);
@@ -107,6 +107,13 @@ public class Camping {
         cliente3.addParcela(parcela3);
         
         clientes.add(cliente3);
+        
+        Cliente cliente4 = new Cliente(getLastIdCliente(),"Marcos", "3333", false, 0, false);
+        cliente3.addActividad(actividad3);
+        parcela3.setTienda(tienda3);
+        cliente3.addParcela(parcela3);
+        
+        clientes.add(cliente4);
         
         Encargado enc = new Encargado("Mario", "69");
         encargados.add(enc);
@@ -325,6 +332,11 @@ public class Camping {
      public Cliente getCliente(int index){
         return clientes.get(index);
     }
+     
+     public Actividad getActividad(int index){
+        return actividades.get(index);
+    }
+     
      
      public int sizeCl(){
         return clientes.size();

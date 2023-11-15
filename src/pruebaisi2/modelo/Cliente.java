@@ -15,7 +15,7 @@ public class Cliente {
     private int id, pareja;                                  //Identificador del cliente                         
     private ArrayList<Actividad> actividadesReservadas = new ArrayList<>(); //Actividades que tiene reservadas el cliente
     private ArrayList<Parcela> parcelasReservadas = new ArrayList<>();      //Parcelas que tiene reversadas o ha reservado alguna vez
-    private boolean asistido = false; //lo voy a borrar en el siguiente sprint NO SIRVE PARA NADA
+    private boolean asistido = false;               //lo voy a borrar en el siguiente sprint NO SIRVE PARA NADA
     private boolean sancionado = false;
     
     public Cliente (int id, String nombre_, String contrasenya, boolean asistido, 
@@ -119,6 +119,14 @@ public class Cliente {
     public String getNombre(){
         return nombre;
     }
+
+    public boolean isAsistido() {
+        return asistido;
+    }
+
+    public void setAsistido(boolean asistido) {
+        this.asistido = asistido;
+    }
     
     /*
         Devuelve una lista con las parcelas que tiene el cliente
@@ -132,6 +140,11 @@ public class Cliente {
     */
     public Actividad getActividades(int i){
         return actividadesReservadas.get(i);
+    }
+    
+    public int ActividadSize()
+    {
+        return actividadesReservadas.size();
     }
     
     //Quita una actividad de la lista de actividades
