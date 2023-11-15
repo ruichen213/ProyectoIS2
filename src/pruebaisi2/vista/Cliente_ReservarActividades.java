@@ -13,17 +13,8 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     
     public Cliente_ReservarActividades(Camping c) {
         this.c = c;
-        
         initComponents();
-        
-        for(int i = 0; i < c.cantidadActividades();i++)
-        {
-            if(c.getActividad(i).getEstado()== "libre")
-            {
-               Actividad.addItem(c.mostrarActividad(i));
-
-            }
-        }
+    
        
     }
     @SuppressWarnings("unchecked")
@@ -49,6 +40,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
 
         jLabel1.setText("Reservar actividades");
 
+        Actividad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piscina", "Fronton", "Juegos Sociales" }));
         Actividad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ActividadActionPerformed(evt);

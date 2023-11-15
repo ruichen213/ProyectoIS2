@@ -243,6 +243,15 @@ public class Camping {
         return cadena;
     }
     
+    public String mostrarActiv(int i){
+        String cadena = "";
+        Actividad a1 = actividades.get(i);
+        
+        cadena = a1.getTipoActividad();
+        
+        return cadena;
+    }
+    
     public String mostrarCliente(int i){
         String cadena;
         Cliente a1 = clientes.get(i);
