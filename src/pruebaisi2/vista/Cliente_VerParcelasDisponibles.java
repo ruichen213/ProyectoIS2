@@ -11,7 +11,7 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
 
     private Camping c;
     private JTable tablaParcelas; // Agrega el JTable como miembro de la clase
-    public Cliente_VerParcelasDisponibles(Camping c, String fecha, int num) {
+    public Cliente_VerParcelasDisponibles(Camping c) {
         this.c = c;
         initComponents();
         mostrarParcelasDisponibles(c.getParcelas());
@@ -35,12 +35,14 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
         // Agrega las parcelas disponibles al modelo
         for (Parcela parcela : parcelas) {
             if (parcela.isDisponible()) {
-                modelo.addRow(new Object[]{
-                    parcela.getId(),
-                    parcela.getSuperficie(),
-                    parcela.getLuz() ? "Sí" : "No",
-                    parcela.getPrecio()
-                });
+                if(parcela.isDisponible()){
+                    modelo.addRow(new Object[]{
+                        parcela.getId(),
+                        parcela.getSuperficie(),
+                        parcela.getLuz() ? "Sí" : "No",
+                        parcela.getPrecio()
+                    });
+                }
             }
         }
         this.add(jScrollPane1); // Agrega el JScrollPane al JFrame
@@ -119,7 +121,7 @@ public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Cliente_SinReserva v = new Cliente_SinReserva(c);
+        Encargado_Menu v = new Encargado_Menu(c);
         v.setVisible(true);
         this.dispose(); 
     }//GEN-LAST:event_CancelarActionPerformed

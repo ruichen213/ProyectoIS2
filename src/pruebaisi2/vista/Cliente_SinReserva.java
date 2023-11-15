@@ -125,9 +125,9 @@ public class Cliente_SinReserva extends javax.swing.JFrame {
             else if (c.getNumParcelas()< num)
                 JOptionPane.showMessageDialog(this, "No tenemos tantas parcelas disponibles", "Error", JOptionPane.ERROR_MESSAGE);
             else{
-                Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c,fecha,num);
-                v.setVisible(true);
-                this.dispose();
+//                Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c,fecha,num);
+//                v.setVisible(true);
+//                thiss.dispose();
             }
         }
         catch (NumberFormatException e) {

@@ -115,8 +115,8 @@ public class Camping {
         
         clientes.add(cliente4);
         
-        Encargado enc = new Encargado("Mario", "69");
-        encargados.add(enc);
+//        Encargado enc = new Encargado("Mario", "69");
+//        encargados.add(enc);
     }
     
     
@@ -192,6 +192,16 @@ public class Camping {
         }
         
         return pos;
+    }
+    
+    public Cliente averiguarClienteV2(String nombre){
+        int pos = 0;
+        for (int i = 0; i < clientes.size(); i++){
+            if (nombre.equals(getClienteUsuario(i))){
+               pos = i;
+            }
+        }
+        return clientes.get(pos);
     }
     
      public int averiguamosEncargado(String u, String p){
@@ -321,18 +331,22 @@ public class Camping {
     }
     
     public ArrayList<Parcela> getParcelas(){
-        Parcela parcela1 = new Parcela (1,100,true,20,true);
-        Parcela parcela2 = new Parcela (2,50,true,15,false);
-        Parcela parcela3 = new Parcela (3,20,true,10,true);
-        Parcela parcela4 = new Parcela (4,20,true,10,true);
-        Parcela parcela5 = new Parcela (5,20,true,10,true);
-        parcelas.add(parcela1);
-        parcelas.add(parcela2);
-        parcelas.add(parcela3);
-        parcelas.add(parcela4);
-        parcelas.add(parcela5);
         return parcelas;
     }
+    
+//    public ArrayList<Parcela> getParcelas(){
+//        Parcela parcela1 = new Parcela (1,100,true,20,true);
+//        Parcela parcela2 = new Parcela (2,50,true,15,false);
+//        Parcela parcela3 = new Parcela (3,20,true,10,true);
+//        Parcela parcela4 = new Parcela (4,20,true,10,true);
+//        Parcela parcela5 = new Parcela (5,20,true,10,true);
+//        parcelas.add(parcela1);
+//        parcelas.add(parcela2);
+//        parcelas.add(parcela3);
+//        parcelas.add(parcela4);
+//        parcelas.add(parcela5);
+//        return parcelas;
+//    }
     
     public Parcela getParcela(int index){
         return parcelas.get(index);
