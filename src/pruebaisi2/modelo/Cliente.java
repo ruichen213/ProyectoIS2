@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pruebaisi2.modelo;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Oscar
- */
 public class Cliente {
     private String nombre, contrasenya;      //Nombre del cliente (para poder buscarlo a la hora de hacer el checkout)              
     private int id, pareja;                                  //Identificador del cliente                         
