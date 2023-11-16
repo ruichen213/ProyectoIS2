@@ -10,9 +10,9 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import pruebaisi2.modelo.Camping;
 
-public class Encargado_RegistrarSalida extends javax.swing.JFrame {
+public class Encargado_Checkout extends javax.swing.JFrame {
     private Camping c;
-    public Encargado_RegistrarSalida(Camping c) {
+    public Encargado_Checkout(Camping c) {
         this.c = c;
         initComponents();
         

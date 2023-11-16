@@ -3,14 +3,15 @@ package pruebaisi2.modelo;
 public class Parcela {
     private float superficie;   //Superficie de la parcela
     private float precio;       //Precio de la parcela
+    private float precioPorMetro = 5;   //Precio que tiene el metro cuadrado
     private boolean luz;        //Si la parcela tiene o no luz
     private int id;             //Identificador de la parcela
     private boolean disponible; // Si la parcela esta disponible o no
     private Tienda t;           //Tienda que se encuentra en la parcela (solo una)
     
-    public Parcela(int id, float precio, boolean luz, float superficie, boolean disp) {
+    public Parcela(int id, boolean luz, float superficie, boolean disp) {
         this.superficie = superficie;
-        this.precio = precio;
+        this.precio = superficie * precioPorMetro;
         this.luz = luz;
         this.id = id;
         this.disponible = disp;

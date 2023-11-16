@@ -18,16 +18,18 @@ public class Encargado_Menu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Crear_Actividades = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
         Datos_Tienda = new javax.swing.JButton();
-        Historial = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        Registrar_Salida = new javax.swing.JButton();
-        Registrar_Entrada = new javax.swing.JButton();
+        HistorialCliente = new javax.swing.JButton();
+        ComprobarDisponibilidad = new javax.swing.JButton();
+        Checkout = new javax.swing.JButton();
+        Checkin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
+        ComprobarAsistencia = new javax.swing.JButton();
         Anotar_Ganadores = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        Sancionar = new javax.swing.JButton();
+        RegistrarEntrada = new javax.swing.JButton();
+        RegistrarSalida = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,10 +42,10 @@ public class Encargado_Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Salir");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                SalirActionPerformed(evt);
             }
         });
 
@@ -54,40 +56,40 @@ public class Encargado_Menu extends javax.swing.JFrame {
             }
         });
 
-        Historial.setText("Historial cliente");
-        Historial.addActionListener(new java.awt.event.ActionListener() {
+        HistorialCliente.setText("Historial cliente");
+        HistorialCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HistorialActionPerformed(evt);
+                HistorialClienteActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Comprobar disponibilidad");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        ComprobarDisponibilidad.setText("Comprobar disponibilidad");
+        ComprobarDisponibilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                ComprobarDisponibilidadActionPerformed(evt);
             }
         });
 
-        Registrar_Salida.setText("Check-out");
-        Registrar_Salida.addActionListener(new java.awt.event.ActionListener() {
+        Checkout.setText("Check-out");
+        Checkout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Registrar_SalidaActionPerformed(evt);
+                CheckoutActionPerformed(evt);
             }
         });
 
-        Registrar_Entrada.setText("Check-in");
-        Registrar_Entrada.addActionListener(new java.awt.event.ActionListener() {
+        Checkin.setText("Check-in");
+        Checkin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Registrar_EntradaActionPerformed(evt);
+                CheckinActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Menú principal");
 
-        jButton8.setText("Comprobar Asistencia");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        ComprobarAsistencia.setText("Comprobar Asistencia");
+        ComprobarAsistencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                ComprobarAsistenciaActionPerformed(evt);
             }
         });
 
@@ -98,10 +100,24 @@ public class Encargado_Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton10.setText("Sancionar");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        Sancionar.setText("Sancionar");
+        Sancionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                SancionarActionPerformed(evt);
+            }
+        });
+
+        RegistrarEntrada.setText("Registrar Entrada");
+        RegistrarEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarEntradaActionPerformed(evt);
+            }
+        });
+
+        RegistrarSalida.setText("Registrar Salida");
+        RegistrarSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarSalidaActionPerformed(evt);
             }
         });
 
@@ -110,54 +126,62 @@ public class Encargado_Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jButton5)
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Datos_Tienda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Anotar_Ganadores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Crear_Actividades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Registrar_Entrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Registrar_Salida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Historial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addGap(171, 171, 171))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(144, 144, 144)
+                .addGap(176, 176, 176)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Salir)
+                        .addGap(61, 61, 61))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RegistrarSalida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(RegistrarEntrada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Anotar_Ganadores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComprobarAsistencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Crear_Actividades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Sancionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Checkin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Checkout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(HistorialCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComprobarDisponibilidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(Datos_Tienda, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(149, 149, 149))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
-                .addComponent(Registrar_Entrada)
                 .addGap(18, 18, 18)
-                .addComponent(Registrar_Salida)
+                .addComponent(RegistrarEntrada)
                 .addGap(18, 18, 18)
-                .addComponent(Historial)
+                .addComponent(RegistrarSalida)
+                .addGap(18, 18, 18)
+                .addComponent(Checkin)
+                .addGap(18, 18, 18)
+                .addComponent(Checkout)
+                .addGap(18, 18, 18)
+                .addComponent(HistorialCliente)
                 .addGap(18, 18, 18)
                 .addComponent(Datos_Tienda)
                 .addGap(18, 18, 18)
                 .addComponent(Crear_Actividades)
                 .addGap(18, 18, 18)
                 .addComponent(Anotar_Ganadores)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6)
                 .addGap(18, 18, 18)
-                .addComponent(jButton8)
+                .addComponent(ComprobarDisponibilidad)
                 .addGap(18, 18, 18)
-                .addComponent(jButton10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(ComprobarAsistencia)
+                .addGap(18, 18, 18)
+                .addComponent(Sancionar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(Salir)
                 .addGap(27, 27, 27))
         );
 
@@ -165,44 +189,39 @@ public class Encargado_Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialActionPerformed
+    private void HistorialClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialClienteActionPerformed
         Encargado_HistorialCliente v = new Encargado_HistorialCliente(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_HistorialActionPerformed
+    }//GEN-LAST:event_HistorialClienteActionPerformed
 
-    private void Registrar_SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrar_SalidaActionPerformed
-        Encargado_RegistrarSalida v = new Encargado_RegistrarSalida(c);
+    private void CheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutActionPerformed
+        Encargado_Checkout v = new Encargado_Checkout(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_Registrar_SalidaActionPerformed
+    }//GEN-LAST:event_CheckoutActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         LoginPrincipal lp = new LoginPrincipal(c);
         lp.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_SalirActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void ComprobarDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprobarDisponibilidadActionPerformed
         Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_ComprobarDisponibilidadActionPerformed
 
     private void Datos_TiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Datos_TiendaActionPerformed
         Encargado_DatoTiendas v = new Encargado_DatoTiendas(c);
@@ -216,11 +235,11 @@ public class Encargado_Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Crear_ActividadesActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void ComprobarAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprobarAsistenciaActionPerformed
         Encargado_MostrarReservas v = new Encargado_MostrarReservas(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_ComprobarAsistenciaActionPerformed
 
     private void Anotar_GanadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Anotar_GanadoresActionPerformed
         Encargado_AnotarGanadores v = new Encargado_AnotarGanadores(c);
@@ -228,19 +247,33 @@ public class Encargado_Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Anotar_GanadoresActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void SancionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SancionarActionPerformed
         // TODO add your handling code here:
         Encargado_Sancion v = new Encargado_Sancion(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_SancionarActionPerformed
 
-    private void Registrar_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registrar_EntradaActionPerformed
+    private void CheckinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckinActionPerformed
+        // TODO add your handling code here:
+        Encargado_Checkin v = new Encargado_Checkin(c);
+        v.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CheckinActionPerformed
+
+    private void RegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarEntradaActionPerformed
         // TODO add your handling code here:
         Encargado_RegistrarEntrada v = new Encargado_RegistrarEntrada(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_Registrar_EntradaActionPerformed
+    }//GEN-LAST:event_RegistrarEntradaActionPerformed
+
+    private void RegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarSalidaActionPerformed
+        // TODO add your handling code here:
+        Encargado_RegistrarSalida v = new Encargado_RegistrarSalida(c);
+        v.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_RegistrarSalidaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,15 +313,17 @@ public class Encargado_Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anotar_Ganadores;
+    private javax.swing.JButton Checkin;
+    private javax.swing.JButton Checkout;
+    private javax.swing.JButton ComprobarAsistencia;
+    private javax.swing.JButton ComprobarDisponibilidad;
     private javax.swing.JButton Crear_Actividades;
     private javax.swing.JButton Datos_Tienda;
-    private javax.swing.JButton Historial;
-    private javax.swing.JButton Registrar_Entrada;
-    private javax.swing.JButton Registrar_Salida;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton HistorialCliente;
+    private javax.swing.JButton RegistrarEntrada;
+    private javax.swing.JButton RegistrarSalida;
+    private javax.swing.JButton Salir;
+    private javax.swing.JButton Sancionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

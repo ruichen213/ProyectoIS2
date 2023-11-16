@@ -63,11 +63,11 @@ public class Camping {
         tiendas.add(t1);
         tiendas.add(t2);
         
-        Parcela parcela1 = new Parcela (1,100,true,20,true);
-        Parcela parcela2 = new Parcela (2,50,true,15,false);
-        Parcela parcela3 = new Parcela (3,20,true,10,true);
-        Parcela parcela4 = new Parcela (4,20,true,10,true);
-        Parcela parcela5 = new Parcela (5,20,true,10,true);
+        Parcela parcela1 = new Parcela (1,true,20,true);
+        Parcela parcela2 = new Parcela (2,true,15,false);
+        Parcela parcela3 = new Parcela (3,true,10,true);
+        Parcela parcela4 = new Parcela (4,true,10,true);
+        Parcela parcela5 = new Parcela (5,true,10,true);
         parcelas.add(parcela1);
         parcelas.add(parcela2);
         parcelas.add(parcela3);

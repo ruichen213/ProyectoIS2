@@ -14,10 +14,10 @@ import pruebaisi2.vista.Cliente_DatosReserva;
 import pruebaisi2.vista.Cliente_VerParcelasDisponibles;
 import pruebaisi2.vista.Cliente_Menu;
 import pruebaisi2.vista.Cliente_RegistrarReserva;
-import pruebaisi2.vista.Cliente_Reserva;
 import pruebaisi2.vista.Cliente_ReservarActividades;
 import pruebaisi2.vista.Cliente_SinReserva;
-import pruebaisi2.vista.Empleado_HacerParejas;
+import pruebaisi2.vista.Encargado_AnotarGanadores;
+import pruebaisi2.vista.Encargado_HacerParejas;
 import pruebaisi2.vista.Encargado_CalcularParcela;
 import pruebaisi2.vista.Encargado_CrearActividad;
 import pruebaisi2.vista.Encargado_DatoTiendas;
@@ -26,8 +26,11 @@ import pruebaisi2.vista.Encargado_EditarJuego;
 import pruebaisi2.vista.Encargado_Menu;
 import pruebaisi2.vista.Encargado_MirarTiendas;
 import pruebaisi2.vista.Encargado_MostrarReservas;
+import pruebaisi2.vista.Encargado_Checkin;
+import pruebaisi2.vista.Encargado_Checkout;
 import pruebaisi2.vista.Encargado_RegistrarEntrada;
 import pruebaisi2.vista.Encargado_RegistrarSalida;
+import pruebaisi2.vista.Encargado_Sancion;
 import pruebaisi2.vista.InfoParcela;
 import pruebaisi2.vista.LoginPrincipal;
 import pruebaisi2.vista.Propietario_HistorialReservas;
@@ -39,38 +42,48 @@ import pruebaisi2.vista.Propietario_TiendasParcelas;
  * @author cuent
  */
 public class Controlador {
+    private Cliente_ConsultarActividades cca;
     private Cliente_DatosReserva cdr;
-    private Cliente_VerParcelasDisponibles cd;
     private Cliente_Menu cm;
     private Cliente_RegistrarReserva crr;
-    private Cliente_Reserva cr;
     private Cliente_ReservarActividades cra;
-    private Cliente_SinReserva csr;
+    private Cliente_SinReserva csr;    
+    private Cliente_VerParcelasDisponibles cd;
+    private Encargado_AnotarGanadores eag;
     private Encargado_CalcularParcela ecp;
+    private Encargado_Checkin ere;
+    private Encargado_Checkout ers;
     private Encargado_CrearActividad eca;
     private Encargado_DatoTiendas edt;
-    private Encargado_HistorialCliente edc;
     private Encargado_EditarJuego eej;
+    private Encargado_HacerParejas hp;
+    private Encargado_HistorialCliente edc;
     private Encargado_Menu em;
     private Encargado_MirarTiendas emt;
     private Encargado_MostrarReservas emr;
-    private Encargado_RegistrarEntrada ere;
-    private Encargado_RegistrarSalida ers;
+    private Encargado_RegistrarEntrada ere1;
+    private Encargado_RegistrarSalida ers1;
+    private Encargado_Sancion es1;
     private InfoParcela ip;
     private LoginPrincipal lp;
-    private modelo m;
-    private Cliente_ConsultarActividades cca;
-    private Empleado_HacerParejas hp;
     private Propietario_Menu pm;
     private Propietario_HistorialReservas phr;
     private Propietario_TiendasParcelas ptp;
+    private modelo m;
     
     
-    public Controlador(Propietario_TiendasParcelas ptp, Propietario_Menu pm, Propietario_HistorialReservas phr, Cliente_DatosReserva cdr, Cliente_VerParcelasDisponibles cd, Cliente_Menu cm, 
-            Cliente_RegistrarReserva crr, Cliente_Reserva cr, Cliente_ReservarActividades cra, Cliente_SinReserva csr, 
-            Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, Encargado_HistorialCliente edc, 
-            Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, Encargado_MostrarReservas emr, Encargado_RegistrarEntrada ere, Encargado_RegistrarSalida ers,
-            InfoParcela ip, LoginPrincipal lp, modelo m, Cliente_ConsultarActividades cca, Empleado_HacerParejas hp){
+    public Controlador(Encargado_Sancion es1,Encargado_RegistrarSalida ers1, Encargado_RegistrarEntrada ere1, Encargado_AnotarGanadores eag, 
+            Propietario_TiendasParcelas ptp, Propietario_Menu pm, Propietario_HistorialReservas phr, Cliente_DatosReserva cdr, 
+            Cliente_VerParcelasDisponibles cd, Cliente_Menu cm, Cliente_RegistrarReserva crr, Cliente_ReservarActividades cra, 
+            Cliente_SinReserva csr, Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, 
+            Encargado_HistorialCliente edc, Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, 
+            Encargado_MostrarReservas emr, Encargado_Checkin ere, Encargado_Checkout ers, InfoParcela ip, LoginPrincipal lp, 
+            modelo m, Cliente_ConsultarActividades cca, Encargado_HacerParejas hp){
+        
+        this.es1 = es1;
+        this.ers1 = ers1;
+        this.ere1 = ere1;
+        this.eag = eag;
         this.phr = phr;
         this.pm = pm;
         this.ptp = ptp;
@@ -78,8 +91,7 @@ public class Controlador {
         this.cdr = cdr;
         this.cd = cd;
         this.cm = cm;
-        this.crr = crr;
-        this.cr = cr;
+        this.crr = crr;;
         this.cra = cra;
         this.csr = csr;
         this.ecp = ecp;
@@ -111,9 +123,6 @@ public class Controlador {
 
         crr.setActionListener(new ControladorActionListener());
         crr.addWindowListener(new ControladorWindowListener());
-
-        cr.setActionListener(new ControladorActionListener());
-        cr.addWindowListener(new ControladorWindowListener());
         
         cra.setActionListener(new ControladorActionListener());
         cra.addWindowListener(new ControladorWindowListener());

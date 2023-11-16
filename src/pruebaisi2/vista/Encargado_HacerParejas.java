@@ -3,7 +3,7 @@ package pruebaisi2.vista;
 import javax.swing.JComboBox;
 import pruebaisi2.modelo.Camping;
 
-public class Empleado_HacerParejas extends javax.swing.JFrame {
+public class Encargado_HacerParejas extends javax.swing.JFrame {
     private Camping c;
     
     @SuppressWarnings("unchecked")
@@ -129,7 +129,7 @@ public class Empleado_HacerParejas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public Empleado_HacerParejas(Camping c) {
+    public Encargado_HacerParejas(Camping c) {
         this.c = c;
         initComponents();
         

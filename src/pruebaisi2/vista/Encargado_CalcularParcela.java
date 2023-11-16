@@ -122,7 +122,7 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Encargado_RegistrarSalida v = new Encargado_RegistrarSalida(c);
+        Encargado_Checkout v = new Encargado_Checkout(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
