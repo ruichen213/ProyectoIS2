@@ -29,7 +29,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        ActividadesDisponibles = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -72,9 +72,9 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
 
         jLabel8.setText("Actividadades disponibles: ");
 
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        ActividadesDisponibles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                ActividadesDisponiblesActionPerformed(evt);
             }
         });
 
@@ -102,7 +102,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
                                 .addComponent(Cancelar)
                                 .addGap(88, 88, 88)
                                 .addComponent(Reservar))
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ActividadesDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +151,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addGap(28, 28, 28)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ActividadesDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                 .addGap(30, 30, 30)
@@ -196,9 +196,9 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
 
     }//GEN-LAST:event_DiaActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void ActividadesDisponiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActividadesDisponiblesActionPerformed
  
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_ActividadesDisponiblesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dia = Dia.getText().trim();
@@ -216,7 +216,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     //                System.out.println("Hora de la actividad: |" + c.getFechaActividad(i) + "|");
                     if (tipoActividad.equalsIgnoreCase(c.getTipoActividad(i))) {
                         if (estado.equalsIgnoreCase(c.getEstadoActividad(i))){
-                            jComboBox2.addItem(c.mostrarActividad(i));
+                            ActividadesDisponibles.addItem(c.mostrarActividad(i));
                             k = i;
                         }
                     }
@@ -229,11 +229,11 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Actividad;
+    private javax.swing.JComboBox<String> ActividadesDisponibles;
     private javax.swing.JButton Cancelar;
     private javax.swing.JTextField Dia;
     private javax.swing.JButton Reservar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;

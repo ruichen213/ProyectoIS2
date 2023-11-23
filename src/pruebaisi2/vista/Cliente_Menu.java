@@ -9,6 +9,7 @@ public class Cliente_Menu extends javax.swing.JFrame {
     public Cliente_Menu(Camping c) {
         this.c = c;
         initComponents(); 
+        this.setTitle("Menu Cliente");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -136,20 +137,17 @@ public class Cliente_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Comprobar_ReservaActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        // TODO add your handling code here:
         LoginPrincipal lp = new LoginPrincipal(c);
         lp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_SalirActionPerformed
 
     private void Consultar_ActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Consultar_ActividadesActionPerformed
-        // TODO add your handling code here:
         Cliente_ConsultarActividades cca = new Cliente_ConsultarActividades(c);
         cca.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Consultar_ActividadesActionPerformed
 
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Comprobar_Reserva;
     private javax.swing.JButton Consultar_Actividades;
@@ -161,7 +159,6 @@ public class Cliente_Menu extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-        
     }
 }
 

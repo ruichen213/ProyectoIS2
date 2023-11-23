@@ -54,7 +54,7 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
 
         jLabel5.setText("Actividad:");
 
-        Actividades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Actividades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piscina", "Fronton", "Juegos Sociales" }));
         Actividades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ActividadesActionPerformed(evt);

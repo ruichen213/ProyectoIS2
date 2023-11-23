@@ -196,7 +196,6 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
         Gente.removeAllItems();
         for (int j = 0; j < c.sizeCl(); j++) {
             Cliente clienteActual = c.getCliente(j);
-
             if(c.getCliente(j).isAsistido()==false)
             {
                 for (int k = 0; k < clienteActual.ActividadSize(); k++) {

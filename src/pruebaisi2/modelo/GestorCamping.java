@@ -24,4 +24,3 @@ public class GestorCamping {
         System.out.println("Aplicación de inicio de sesión en ejecución... " );
     }
 }
-

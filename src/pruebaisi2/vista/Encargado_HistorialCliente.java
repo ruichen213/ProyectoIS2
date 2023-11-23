@@ -14,21 +14,18 @@ import pruebaisi2.modelo.Reserva;
 
 public class Encargado_HistorialCliente extends javax.swing.JFrame {
     private Camping c;
-    /**
-     * Creates new form Encargado_DatosCliente
-     */
     public Encargado_HistorialCliente(Camping c) {
         this.c = c;
         initComponents();
-        
+        this.setTitle("Historial Cliente");
         //No se puede editar el descuento a 
         //menos que hayan pasado más de 15 dias entre la fecha de entrada y la de salida
-        jTextField7.setEditable(false);
-        jTextField5.setEditable(false);
+        Descuento.setEditable(false);
+        PrecioCon.setEditable(false);
         Fecha_Entrada.setEditable(false);
         Fecha_Salida.setEditable(false);
-        jTextField6.setEditable(false);
-        jTextField7.setEditable(false);
+        PrecioSin.setEditable(false);
+        Descuento.setEditable(false);
         ID_Parcela.setEditable(false);
     }
     /*
@@ -78,7 +75,7 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        ID_Cliente = new javax.swing.JTextField();
+        Nombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -87,25 +84,25 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         Fecha_Entrada = new javax.swing.JTextField();
         ID_Parcela = new javax.swing.JTextField();
         Fecha_Salida = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        Aceptar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        PrecioCon = new javax.swing.JTextField();
+        Salir = new javax.swing.JButton();
+        Otro = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        PrecioSin = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        Descuento = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        Actividades = new javax.swing.JComboBox<>();
+        Buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Nombre:");
 
-        ID_Cliente.addActionListener(new java.awt.event.ActionListener() {
+        Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID_ClienteActionPerformed(evt);
+                NombreActionPerformed(evt);
             }
         });
 
@@ -135,39 +132,39 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        PrecioCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                PrecioConActionPerformed(evt);
             }
         });
 
-        Aceptar.setText("Salir");
-        Aceptar.addActionListener(new java.awt.event.ActionListener() {
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AceptarActionPerformed(evt);
+                SalirActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Otro cliente");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Otro.setText("Otro cliente");
+        Otro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                OtroActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Precio a pagar (con descuento):");
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        PrecioSin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                PrecioSinActionPerformed(evt);
             }
         });
 
         jLabel8.setText("Descuento (%):");
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        Descuento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                DescuentoActionPerformed(evt);
             }
         });
 
@@ -175,16 +172,16 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
 
         jLabel10.setText("Actividades:");
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        Actividades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                ActividadesActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BuscarActionPerformed(evt);
             }
         });
 
@@ -198,9 +195,9 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jButton2)
+                        .addComponent(Otro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Aceptar)
+                        .addComponent(Salir)
                         .addGap(110, 110, 110))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -217,19 +214,19 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField5)
+                                    .addComponent(PrecioCon)
                                     .addComponent(ID_Parcela, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(Fecha_Entrada)
                                     .addComponent(Fecha_Salida)
-                                    .addComponent(jTextField6)
-                                    .addComponent(ID_Cliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(PrecioSin)
+                                    .addComponent(Nombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Descuento, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3))
+                                .addComponent(Buscar))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(68, 68, 68)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Actividades, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(19, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -250,8 +247,8 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(ID_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3))
+                            .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Buscar))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -267,60 +264,60 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PrecioSin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Descuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PrecioCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Actividades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Aceptar)
-                    .addComponent(jButton2))
+                    .addComponent(Salir)
+                    .addComponent(Otro))
                 .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         Encargado_Menu v = new Encargado_Menu(c);
         v.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_AceptarActionPerformed
+    }//GEN-LAST:event_SalirActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jTextField7.setText("");
-        jTextField5.setText("");
+    private void OtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtroActionPerformed
+        Descuento.setText("");
+        PrecioCon.setText("");
         Fecha_Entrada.setText("");
         Fecha_Salida.setText("");
-        jTextField6.setText("");
-        jTextField7.setText("");
-        ID_Cliente.setText("");
+        PrecioSin.setText("");
+        Descuento.setText("");
+        Nombre.setText("");
         ID_Parcela.setText("");
         
-        jComboBox1.removeAllItems();
-    }//GEN-LAST:event_jButton2ActionPerformed
+        Actividades.removeAllItems();
+    }//GEN-LAST:event_OtroActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void PrecioSinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioSinActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_PrecioSinActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void DescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescuentoActionPerformed
         // TODO add your handling code here:
         float precioFinal;
         
-        precioFinal = aplicarDescuento(jTextField6.getText(),jTextField7.getText());
+        precioFinal = aplicarDescuento(PrecioSin.getText(),Descuento.getText());
         
-        jTextField5.setText(String.valueOf(precioFinal));
-    }//GEN-LAST:event_jTextField7ActionPerformed
+        PrecioCon.setText(String.valueOf(precioFinal));
+    }//GEN-LAST:event_DescuentoActionPerformed
 
     private void Fecha_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_EntradaActionPerformed
         // TODO add your handling code here:
@@ -330,20 +327,20 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Fecha_SalidaActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void PrecioConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioConActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_PrecioConActionPerformed
 
     private void ID_ParcelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ParcelaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ID_ParcelaActionPerformed
 
-    private void ID_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ClienteActionPerformed
+    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID_ClienteActionPerformed
+    }//GEN-LAST:event_NombreActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String nombre = ID_Cliente.getText();
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        String nombre = Nombre.getText();
         Cliente c1 = c.averiguarClienteV2(nombre);
         ArrayList<Parcela> parcelas = new ArrayList<>();
         ArrayList<Actividad> actividades = new ArrayList<>();
@@ -361,7 +358,7 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         }
         
         for(int i = 0; i < actividades.size(); i++){
-            jComboBox1.addItem(actividades.get(i).getTipoActividad());
+            Actividades.addItem(actividades.get(i).getTipoActividad());
         }
         
         ID_Parcela.setText(parcelasReservadas);
@@ -370,21 +367,24 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         Fecha_Salida.setText(c.getFechaSalida(c.getIdCliente(nombre)));
                
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BuscarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void ActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActividadesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_ActividadesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Aceptar;
+    private javax.swing.JComboBox<String> Actividades;
+    private javax.swing.JButton Buscar;
+    private javax.swing.JTextField Descuento;
     private javax.swing.JTextField Fecha_Entrada;
     private javax.swing.JTextField Fecha_Salida;
-    private javax.swing.JTextField ID_Cliente;
     private javax.swing.JTextField ID_Parcela;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField Nombre;
+    private javax.swing.JButton Otro;
+    private javax.swing.JTextField PrecioCon;
+    private javax.swing.JTextField PrecioSin;
+    private javax.swing.JButton Salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -395,9 +395,6 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
