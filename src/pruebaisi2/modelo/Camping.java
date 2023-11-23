@@ -129,6 +129,16 @@ public class Camping {
         c1.setSancionado(true);
     }
     
+    public int getNumParcelasCliente(){
+        Cliente c = clientes.get(idCliente);
+        return c.getNumReservas();
+    }
+    
+    public String mostrarParcelaCliente(int idParcelaCliente){
+        Cliente c = clientes.get(idCliente);        
+        return c.getMostrarParcela(idParcelaCliente);
+    }
+    
     public void setGanadorActividad(String nombreActividad, int idGanador){
         for(int i = 0; i < actividades.size();i++){
             if(actividades.get(i).getTipoActividad().equalsIgnoreCase(nombreActividad)){

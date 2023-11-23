@@ -23,6 +23,19 @@ public class Cliente {
     /*
         Setters
     */
+    public int getNumReservas(){
+        return parcelasReservadas.size();
+    }
+    
+    public String getMostrarParcela(int i){
+        Parcela p = parcelasReservadas.get(i);
+        String cadena = "";
+        
+        cadena = p.getPrecio()+"$, "+p.getSuperficie();
+        
+        return cadena;
+    }
+    
     public int getIdActividad(String[] partes){
         int k = 0;
         

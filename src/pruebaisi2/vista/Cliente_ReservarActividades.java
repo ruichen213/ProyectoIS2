@@ -221,8 +221,8 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
                         }
                     }
                 }
-                else 
-                    JOptionPane.showMessageDialog(this, "Pon otra fecha.", "Error", JOptionPane.INFORMATION_MESSAGE);
+//                else 
+//                    JOptionPane.showMessageDialog(this, "Pon otra fecha.", "Error", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
