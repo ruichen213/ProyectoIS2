@@ -8,6 +8,7 @@ public class Encargado_EditarJuego extends javax.swing.JFrame {
     public Encargado_EditarJuego(Camping c) {
         this.c = c;
         initComponents();
+        this.setTitle("Editar Juego");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

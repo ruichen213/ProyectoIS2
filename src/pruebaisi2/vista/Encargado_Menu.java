@@ -11,6 +11,7 @@ public class Encargado_Menu extends javax.swing.JFrame {
     public Encargado_Menu(Camping c) {
         this.c = c;
         initComponents();
+        this.setTitle("Menu Encargado");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

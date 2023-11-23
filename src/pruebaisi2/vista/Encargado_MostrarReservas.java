@@ -13,7 +13,7 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     public Encargado_MostrarReservas(Camping c) {   
         this.c = c;
         initComponents(); 
-        
+        this.setTitle("Mostrar Reservas Actividades");
         for(int i = 0; i< c.cantidadActividades(); i++)
         {
             Actividad.addItem(c.mostrarActividad(i));
@@ -195,61 +195,21 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
         
         Gente.removeAllItems();
         for (int j = 0; j < c.sizeCl(); j++) {
-        Cliente clienteActual = c.getCliente(j);
-        
-        if(c.getCliente(j).isAsistido()==false)
-        {
-           for (int k = 0; k < clienteActual.ActividadSize(); k++) {
-            Actividad actividadActual = clienteActual.getActividades(k);
+            Cliente clienteActual = c.getCliente(j);
 
-           if (misco[0].trim().equals(actividadActual.getTipoActividad())) {
-              
-                   System.err.println(actividadActual.getTipoActividad());
-                    Gente.addItem(c.mostrarCliente(j)); 
-               
-            
-        }
-        
-        }
-    }
-}
+            if(c.getCliente(j).isAsistido()==false)
+            {
+                for (int k = 0; k < clienteActual.ActividadSize(); k++) {
+                    Actividad actividadActual = clienteActual.getActividades(k);
 
+                    if (misco[0].trim().equals(actividadActual.getTipoActividad())) {
+                        System.err.println(actividadActual.getTipoActividad());
+                        Gente.addItem(c.mostrarCliente(j));  
+                    } 
+                }
+            }   
+        }
     }//GEN-LAST:event_BuscarActionPerformed
-    
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_MostrarReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_MostrarReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_MostrarReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_MostrarReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Encargado_MostrarReservas().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;

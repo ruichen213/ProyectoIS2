@@ -12,7 +12,7 @@ public class Encargado_Checkin extends javax.swing.JFrame {
     public Encargado_Checkin(Camping c) {
         this.c = c;
         initComponents();
-        
+        this.setTitle("Check-in");
         Parcelas.removeAllItems();
         
         if (c.getNumParcelas() > 0 ){

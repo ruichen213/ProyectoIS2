@@ -7,9 +7,7 @@ import pruebaisi2.modelo.Camping;
 public class LoginPrincipal extends javax.swing.JFrame {
     private Camping c;
     private int idCliente, idEmpleado;
-    /**
-     * Creates new form Login
-     */
+    
     public LoginPrincipal(Camping c) {
         this.c = c;
         initComponents();

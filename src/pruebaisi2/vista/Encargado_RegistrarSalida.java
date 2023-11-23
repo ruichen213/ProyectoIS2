@@ -15,6 +15,7 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
     public Encargado_RegistrarSalida(Camping c) {
         this.c = c;
         initComponents();
+        this.setTitle("Registrar Salida");
         
         jTextField4.setEditable(false);
         jTextField5.setEditable(false);

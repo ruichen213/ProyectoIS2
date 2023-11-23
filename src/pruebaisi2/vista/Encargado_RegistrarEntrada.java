@@ -12,7 +12,7 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
     public Encargado_RegistrarEntrada(Camping c) {
         this.c = c;
         initComponents();
-        
+        this.setTitle("Registrar Entrada");
         Parcelas.removeAllItems();
         
         if (c.getNumParcelas() > 0 ){

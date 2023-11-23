@@ -9,6 +9,7 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
     public Encargado_CalcularParcela(Camping c) {
         this.c = c;
         initComponents();
+        this.setTitle("Calcular Parcela");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

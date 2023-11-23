@@ -15,6 +15,7 @@ public class Encargado_Checkout extends javax.swing.JFrame {
     public Encargado_Checkout(Camping c) {
         this.c = c;
         initComponents();
+        this.setTitle("Check-out");
         
         jTextField4.setEditable(false);
         jTextField5.setEditable(false);

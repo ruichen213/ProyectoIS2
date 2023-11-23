@@ -14,6 +14,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     public Cliente_ReservarActividades(Camping c) {
         this.c = c;
         initComponents();
+        this.setTitle("Reservar Actividades");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -174,7 +175,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void ReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarActionPerformed
-        String dia = Dia.getText();
+        dia = Dia.getText();
         String actividad = (String)Actividad.getSelectedItem();
         if(!c.esFechaValida(dia)) 
             JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
@@ -205,17 +206,23 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
         estado = "libre";
         
         for (int i = 0; i < c.cantidadActividades(); i++) {
-//            System.out.println("Dia: |" + dia + "|");
-//            System.out.println("Dia de la actividad: |" + c.getDiaActividad(i) + "|");
-            if (dia.equalsIgnoreCase(c.getDiaActividad(i))) {
-//                System.out.println("Hora: |" + hora + "|");
-//                System.out.println("Hora de la actividad: |" + c.getFechaActividad(i) + "|");
-                if (tipoActividad.equalsIgnoreCase(c.getTipoActividad(i))) {
-                    if (estado.equalsIgnoreCase(c.getEstadoActividad(i))){
-                        jComboBox2.addItem(c.mostrarActividad(i));
-                        k = i;
+            if(!c.esFechaValida(dia)) 
+                JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
+//              System.out.println("Dia: |" + dia + "|");
+//              System.out.println("Dia de la actividad: |" + c.getDiaActividad(i) + "|");
+            else {
+                if (dia.equalsIgnoreCase(c.getDiaActividad(i))) {
+    //                System.out.println("Hora: |" + hora + "|");
+    //                System.out.println("Hora de la actividad: |" + c.getFechaActividad(i) + "|");
+                    if (tipoActividad.equalsIgnoreCase(c.getTipoActividad(i))) {
+                        if (estado.equalsIgnoreCase(c.getEstadoActividad(i))){
+                            jComboBox2.addItem(c.mostrarActividad(i));
+                            k = i;
+                        }
                     }
                 }
+                else 
+                    JOptionPane.showMessageDialog(this, "Pon otra fecha.", "Error", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -7,12 +7,11 @@ import pruebaisi2.modelo.Actividad;
 import pruebaisi2.modelo.Camping;
 
 public class Encargado_CrearActividad extends javax.swing.JFrame {
-
-     private Camping c;
-    
+    private Camping c;
     public Encargado_CrearActividad(Camping c) {
         this.c = c;
         initComponents();
+        this.setTitle("Crear Actividades");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

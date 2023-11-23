@@ -5,13 +5,10 @@ import pruebaisi2.modelo.Camping;
 
 public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     private Camping c;
-    /**
-     * Creates new form Clientes_DatosReserva
-     */
     public Cliente_ConsultarActividades(Camping c) {
         this.c = c;
         initComponents();
-        
+        this.setTitle("Consultar Actividades");
         for(int i = 0; i < c.getNumActividadesCliente(); i++){
             jComboBox1.addItem(c.mostrarActividad(i));
         }

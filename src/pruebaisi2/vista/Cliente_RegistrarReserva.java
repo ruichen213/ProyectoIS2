@@ -10,6 +10,7 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
     public Cliente_RegistrarReserva(Camping c) {
         this.c = c;
         initComponents();
+        this.setTitle("Registrar reserva");
     }
 
     @SuppressWarnings("unchecked")
@@ -160,7 +161,6 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
                 Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,fechainicio, fechafin, true);
                 c.anyadirReserva(reserva); 
             }
-
             InfoParcela info = new InfoParcela(c);
             info.setVisible(true);
             this.dispose();

@@ -6,8 +6,9 @@ import pruebaisi2.modelo.Camping;
 public class Encargado_AnotarGanadores extends javax.swing.JFrame {
     private Camping c;
     public Encargado_AnotarGanadores(Camping c_) {
-        c = c_;
+        this.c = c_;
         initComponents();
+        this.setTitle("Anotar Ganadores");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

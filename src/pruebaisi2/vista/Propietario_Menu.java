@@ -8,6 +8,7 @@ public class Propietario_Menu extends javax.swing.JFrame {
 
     public Propietario_Menu(Camping c) {
         this.c = c;
+        this.setTitle("Menu Propietario");
         initComponents(); 
     }
     @SuppressWarnings("unchecked")
@@ -105,7 +106,6 @@ public class Propietario_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Historial_ReservasActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        // TODO add your handling code here:
         LoginPrincipal lp = new LoginPrincipal(c);
         lp.setVisible(true);
         this.dispose();

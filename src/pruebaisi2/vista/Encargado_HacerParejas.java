@@ -5,7 +5,6 @@ import pruebaisi2.modelo.Camping;
 
 public class Encargado_HacerParejas extends javax.swing.JFrame {
     private Camping c;
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -132,7 +131,7 @@ public class Encargado_HacerParejas extends javax.swing.JFrame {
     public Encargado_HacerParejas(Camping c) {
         this.c = c;
         initComponents();
-        
+        this.setTitle("Hacer Parejas");
         for(int i = 0; i < c.sizeCl(); i++)
         {
             if(c.getCliente(i).getActividadBool() == true)
