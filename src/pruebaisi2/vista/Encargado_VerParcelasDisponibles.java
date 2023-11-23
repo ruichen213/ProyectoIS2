@@ -7,11 +7,11 @@ import javax.swing.table.DefaultTableModel;
 import pruebaisi2.modelo.Camping;
 import pruebaisi2.modelo.Parcela;
 
-public class Cliente_VerParcelasDisponibles extends javax.swing.JFrame {
+public class Encargado_VerParcelasDisponibles extends javax.swing.JFrame {
 
     private Camping c;
     private JTable tablaParcelas; // Agrega el JTable como miembro de la clase
-    public Cliente_VerParcelasDisponibles(Camping c) {
+    public Encargado_VerParcelasDisponibles(Camping c) {
         this.c = c;
         initComponents();
         this.setTitle("Parcelas disponibles");

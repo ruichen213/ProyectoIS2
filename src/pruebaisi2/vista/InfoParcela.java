@@ -9,9 +9,6 @@ public class InfoParcela extends javax.swing.JFrame {
     private Camping ce;
     private Reserva r;
     private Parcela p;
-    /**
-     * Creates new form Encargado_MirarTiendas
-     */
     public InfoParcela(Camping c) {
         this.ce = c;
         r = ce.getLastRes();
@@ -221,29 +218,21 @@ public class InfoParcela extends javax.swing.JFrame {
     }//GEN-LAST:event_botonacActionPerformed
 
     private void SuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuperficieActionPerformed
-        
-        
     }//GEN-LAST:event_SuperficieActionPerformed
 
     private void ID_ParcelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ParcelaActionPerformed
-        
-        
     }//GEN-LAST:event_ID_ParcelaActionPerformed
 
     private void LuzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LuzActionPerformed
-       
     }//GEN-LAST:event_LuzActionPerformed
 
     private void PrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioActionPerformed
-        
     }//GEN-LAST:event_PrecioActionPerformed
 
     private void EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaActionPerformed
-        
     }//GEN-LAST:event_EntradaActionPerformed
 
     private void SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaActionPerformed
-        
     }//GEN-LAST:event_SalidaActionPerformed
 
     private void botonac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonac1ActionPerformed
@@ -251,10 +240,6 @@ public class InfoParcela extends javax.swing.JFrame {
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonac1ActionPerformed
-
-  
-       
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Entrada;

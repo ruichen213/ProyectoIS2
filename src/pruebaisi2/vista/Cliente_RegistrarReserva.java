@@ -143,13 +143,9 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Num_ParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num_ParcelasActionPerformed
-    }//GEN-LAST:event_Num_ParcelasActionPerformed
-
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         String fechainicio = Fecha_Entrada.getText();
         String fechafin = Fecha_Salida.getText();
-        int id = Num_Parcelas.getSelectedIndex();
        
         if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin)) {
             JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
@@ -157,10 +153,8 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
         else if(c.esFechaPosterior(fechainicio, fechafin))
             JOptionPane.showMessageDialog(this, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
         else {
-            for(int i = 1; i <= id; i++){
-                Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,fechainicio, fechafin, true);
-                c.anyadirReserva(reserva); 
-            }
+            Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,fechainicio, fechafin, true);
+            c.anyadirReserva(reserva); 
             InfoParcela info = new InfoParcela(c);
             info.setVisible(true);
             this.dispose();
@@ -176,6 +170,10 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
+
+    private void Num_ParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num_ParcelasActionPerformed
+
+    }//GEN-LAST:event_Num_ParcelasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;

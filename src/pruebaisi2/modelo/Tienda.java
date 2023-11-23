@@ -16,13 +16,4 @@ public class Tienda {
     public void setNombre(String nombre_) {
         nombre = nombre_;
     }
-
-    // Getter y Setter para superficie
-    public float getSuperficie() {
-        return superficie;
-    }
-
-    public void setSuperficie(float superficie_) {
-        superficie = superficie_;
-    }
 }

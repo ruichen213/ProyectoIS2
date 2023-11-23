@@ -1,10 +1,13 @@
 package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import pruebaisi2.modelo.Actividad;
 import pruebaisi2.modelo.Camping;
 
 public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     private Camping c;
+    private ArrayList<Actividad> estadoAnteriorActividades = new ArrayList<>();
     public Cliente_ConsultarActividades(Camping c) {
         this.c = c;
         initComponents();
@@ -135,11 +138,9 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
         String entrada = (String) jComboBox1.getSelectedItem();
         String[] partes = entrada.split(", ");
         int k = c.averiguarIdActividadCliente(partes);

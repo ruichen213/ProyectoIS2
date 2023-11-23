@@ -7,11 +7,10 @@ import java.awt.event.WindowEvent;
 import pruebaisi2.modelo.modelo;
 import pruebaisi2.vista.Cliente_ConsultarActividades;
 import pruebaisi2.vista.Cliente_DatosReserva;
-import pruebaisi2.vista.Cliente_VerParcelasDisponibles;
+import pruebaisi2.vista.Encargado_VerParcelasDisponibles;
 import pruebaisi2.vista.Cliente_Menu;
 import pruebaisi2.vista.Cliente_RegistrarReserva;
 import pruebaisi2.vista.Cliente_ReservarActividades;
-import pruebaisi2.vista.Cliente_SinReserva;
 import pruebaisi2.vista.Encargado_AnotarGanadores;
 import pruebaisi2.vista.Encargado_HacerParejas;
 import pruebaisi2.vista.Encargado_CalcularParcela;
@@ -42,9 +41,8 @@ public class Controlador {
     private Cliente_DatosReserva cdr;
     private Cliente_Menu cm;
     private Cliente_RegistrarReserva crr;
-    private Cliente_ReservarActividades cra;
-    private Cliente_SinReserva csr;    
-    private Cliente_VerParcelasDisponibles cd;
+    private Cliente_ReservarActividades cra; 
+    private Encargado_VerParcelasDisponibles cd;
     private Encargado_AnotarGanadores eag;
     private Encargado_CalcularParcela ecp;
     private Encargado_Checkin ere;
@@ -70,8 +68,8 @@ public class Controlador {
     
     public Controlador(Encargado_Sancion es1,Encargado_RegistrarSalida ers1, Encargado_RegistrarEntrada ere1, Encargado_AnotarGanadores eag, 
             Propietario_TiendasParcelas ptp, Propietario_Menu pm, Propietario_HistorialReservas phr, Cliente_DatosReserva cdr, 
-            Cliente_VerParcelasDisponibles cd, Cliente_Menu cm, Cliente_RegistrarReserva crr, Cliente_ReservarActividades cra, 
-            Cliente_SinReserva csr, Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, 
+            Encargado_VerParcelasDisponibles cd, Cliente_Menu cm, Cliente_RegistrarReserva crr, Cliente_ReservarActividades cra, 
+            Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, 
             Encargado_HistorialCliente edc, Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, 
             Encargado_MostrarReservas emr, Encargado_Checkin ere, Encargado_Checkout ers, InfoParcela ip, LoginPrincipal lp, 
             modelo m, Cliente_ConsultarActividades cca, Encargado_HacerParejas hp){
@@ -89,7 +87,6 @@ public class Controlador {
         this.cm = cm;
         this.crr = crr;;
         this.cra = cra;
-        this.csr = csr;
         this.ecp = ecp;
         this.eca = eca;
         this.edt = edt;
@@ -122,9 +119,6 @@ public class Controlador {
         
         cra.setActionListener(new ControladorActionListener());
         cra.addWindowListener(new ControladorWindowListener());
-        
-        csr.setActionListener(new ControladorActionListener());
-        csr.addWindowListener(new ControladorWindowListener());
         
         ecp.setActionListener(new ControladorActionListener());
         ecp.addWindowListener(new ControladorWindowListener());

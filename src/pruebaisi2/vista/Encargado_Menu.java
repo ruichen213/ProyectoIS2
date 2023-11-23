@@ -219,7 +219,7 @@ public class Encargado_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void ComprobarDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprobarDisponibilidadActionPerformed
-        Cliente_VerParcelasDisponibles v = new Cliente_VerParcelasDisponibles(c);
+        Encargado_VerParcelasDisponibles v = new Encargado_VerParcelasDisponibles(c);
         v.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ComprobarDisponibilidadActionPerformed
