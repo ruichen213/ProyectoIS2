@@ -16,6 +16,10 @@ public class Reserva {
         this.fechaFin = fechaFin;
         this.reserva = reserva;
     }
+    
+    public Reserva(){
+    
+    }
            
     /*
         Getters
@@ -26,6 +30,10 @@ public class Reserva {
     
     public int getIdCliente() {
         return idCliente;
+    }
+    
+    public void setIdCliente(int idCliente){
+        this.idCliente = idCliente;
     }
     
     public String getFechaInicio() {

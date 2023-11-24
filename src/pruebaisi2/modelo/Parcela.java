@@ -16,6 +16,10 @@ public class Parcela {
         this.id = id;
         this.disponible = disp;
     }
+    
+    public Parcela (){
+        
+    }
 
     /*
         Getters

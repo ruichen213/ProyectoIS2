@@ -1,15 +1,17 @@
-import java.sql.*;
+package pruebaisi2.modelo;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import pruebaisi2.modelo.Parcela;
 
 public class ParcelaDAO {
-    /*
-     * Parámetros de conexión a la base de datos
-     */
     public static final String DRIVER = "oracle.jdbc.OracleDriver";
     public static final String DBURL = "jdbc:oracle:thin:@pokemon.uv.es:1521:ORCL";
-    public static final String USERNAME = "AL007";
-    public static final String PASSWORD = "AL007";
+    public static final String USERNAME = "GIISGBD214";
+    public static final String PASSWORD = "Negredo_07";
     /*
      * Consultas Parcelas
      *
@@ -56,10 +58,10 @@ public class ParcelaDAO {
             oracleConn.setAutoCommit(false);
             try (PreparedStatement insert = oracleConn.prepareStatement(CREATE)) {
                 insert.setInt(1, parcela.getId());
-                insert.setInt(2, parcela.isLuz() ? 1 : 0);
+                insert.setInt(2, parcela.getLuz() ? 1 : 0);
                 insert.setDouble(3, parcela.getSuperficie());
                 insert.setInt(4, parcela.isDisponible() ? 1 : 0);
-                insert.setInt(5, parcela.getIdTienda());
+                //insert.setInt(5, parcela.getIdTienda());
                 insert.executeUpdate();
             }
             
@@ -81,9 +83,9 @@ public class ParcelaDAO {
                     if (rs.next()) {
                         parcela.setId(rs.getInt("ID_PARCELA"));
                         parcela.setLuz(rs.getInt("LUZ") == 1);
-                        parcela.setSuperficie(rs.getDouble("SUPERFICIE"));
+                        parcela.setSuperficie(rs.getInt("SUPERFICIE"));
                         parcela.setDisponible(rs.getInt("DISPONIBILIDAD") == 1);
-                        parcela.setIdTienda(rs.getInt("ID_TIENDA"));
+                        //parcela.setIdTienda(rs.getInt("ID_TIENDA"));
                     }
                 }
             }
@@ -100,10 +102,10 @@ public class ParcelaDAO {
             oracleConn.setAutoCommit(false);
             try (PreparedStatement update = oracleConn.prepareStatement(UPDATE)) {
                 update.setInt(1, parcela.getId());
-                update.setInt(2, parcela.isLuz() ? 1 : 0);
+                update.setInt(2, parcela.getLuz() ? 1 : 0);
                 update.setDouble(3, parcela.getSuperficie());
                 update.setInt(4, parcela.isDisponible() ? 1 : 0);
-                update.setInt(5, parcela.getIdTienda());
+                //update.setInt(5, parcela.getIdTienda());
                 update.setInt(6, idParcela);
                 update.executeUpdate();
             }
@@ -133,28 +135,24 @@ public class ParcelaDAO {
     
     public ArrayList<Parcela> obtenerTodasParcelas() {
         ArrayList<Parcela> listaParcelas = new ArrayList<>();
-
+        int id, precio,superficie;
+        boolean luz, disponible;
         try {
             Class.forName(DRIVER).newInstance();
-            try (Connection oracleConn = DriverManager.getConnection(DBURL, USERNAME, PASSWORD)) {
-
-                try (PreparedStatement statement = oracleConn.prepareStatement(READALL);
-                     ResultSet rs = statement.executeQuery()) {
+            try (Connection oracleConn = DriverManager.getConnection(DBURL, USERNAME, PASSWORD);
+                 PreparedStatement statement = oracleConn.prepareStatement(READALL);
+                 ResultSet rs = statement.executeQuery()) {
 
                     while (rs.next()) {
-                        Parcela parcela = new Parcela();
-                        parcela.setId(rs.getInt("ID"));
-                        parcela.setPrecio(rs.getDouble("PRECIO"));
-                        parcela.setPrecioPorMetro(rs.getDouble("PRECIO_POR_METRO"));
-                        parcela.setSuperficie(rs.getDouble("SUPERFICIE"));
-                        parcela.setLuz(rs.getString("LUZ").equals("1"));
-                        parcela.setDisponible(rs.getString("DISPONIBLE").equals("1"));
-                        parcela.setIdTienda(rs.getInt("ID_TIENDA"));
-
+                        id = rs.getInt("ID");
+                        superficie = rs.getInt("SUPERFICIE");
+                        luz = rs.getString("LUZ").equals("1");
+                        disponible = rs.getString("DISPONIBLE").equals("1");
+                        //parcela.setIdTienda(rs.getInt("ID_TIENDA"));
+                        Parcela parcela = new Parcela(id, luz,  superficie,  disponible);
                         listaParcelas.add(parcela);
                     }
                 }
-            }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
             System.out.println("ParcelaDAO::obtenerTodasParcelas -- " + e.getMessage());
         }

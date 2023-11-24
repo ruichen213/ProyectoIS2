@@ -17,6 +17,10 @@ public class Actividad {
         this.estado = estado;
     }
     
+    public Actividad(){
+        
+    }
+    
     /*
         Setters
     */
@@ -26,6 +30,10 @@ public class Actividad {
     
     public void setOcupada(){
         estado = "ocupada";
+    }
+    
+    public void setEstado(String estado){
+        this.estado = estado;
     }
     
     public String getEstado(){

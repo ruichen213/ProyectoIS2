@@ -20,6 +20,10 @@ public class Cliente {
         this.id = id;
     }
     
+    public Cliente (){
+        
+    }
+    
     /*
         Setters
     */
@@ -102,6 +106,10 @@ public class Cliente {
         return contrasenya;
     }
     
+    public void setContrasenya(String contrasenya){
+        this.contrasenya = contrasenya;
+    }
+    
     public void addActividad(Actividad a){
         actividadesReservadas.add(a);
     }
@@ -127,6 +135,10 @@ public class Cliente {
     
     public String getNombre(){
         return nombre;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre = nombre;
     }
 
     public boolean isAsistido() {

@@ -18,6 +18,10 @@ public class Camping {
     private ArrayList<String> usuario_mas_parcelas;
     private int idCliente, idEmpleado;
     private ClienteDAO cDao;
+    private ParcelaDAO pDAO;
+    private ActividadDAO aDAO;
+    private TiendaDAO tDAO;
+    private ReservaDAO rDAO;
     
     public Camping(){
         actividades = new ArrayList<Actividad>();
@@ -29,6 +33,10 @@ public class Camping {
         usuario_mas_parcelas = new ArrayList<String>();
         
         cDao = new ClienteDAO();
+        pDAO = new ParcelaDAO();
+        aDAO = new ActividadDAO();
+        tDAO = new TiendaDAO();
+        rDAO = new ReservaDAO();
     }
     
     /*
@@ -37,63 +45,75 @@ public class Camping {
     */
     public void cargarDatos() throws ClassNotFoundException{
         clientes = cDao.leerClientes();
-        System.out.print("\n\nPRUEBA: " + clientes.size() + "\n\n");
+        System.out.print("\n\nCLIENTES: " + clientes.size() + "\n\n");
         
-        Actividad actividad1 = new Actividad("Piscina", "10/10/2023", "12:30", "libre");
-        Actividad actividad2 = new Actividad("Fronton", "09/11/2023", "11:30", "ocupada");
-        Actividad actividad3 = new Actividad("Juegos Sociales", "08/08/2023", "10:30", "libre");
-        Actividad actividad4 = new Actividad("Piscina", "12/12/2023", "12:30", "libre");
-        Actividad actividad5 = new Actividad("Fronton", "09/12/2023", "11:30", "ocupada");
-        Actividad actividad6 = new Actividad("Juegos Sociales", "10/08/2023", "10:30", "libre");
-        actividades.add(actividad1);
-        actividades.add(actividad2);
-        actividades.add(actividad3);
-        actividades.add(actividad4);
-        actividades.add(actividad5);
-        actividades.add(actividad6);
+        parcelas = pDAO.obtenerTodasParcelas();
+        System.out.print("\n\nPARCELAS: " + parcelas.size() + "\n\n");
+
+        actividades = aDAO.obtenerTodasActividades();
+        System.out.print("\n\nACTIVIDADES: " + actividades.size() + "\n\n");
         
-        //Dan valor al indice de las actividades en funcion de su posicion+1 en el ArrayList
-        actividad1.setId(actividades.indexOf(actividad1)+1);
-        actividad2.setId(actividades.indexOf(actividad2)+1);
+        tiendas = tDAO.obtenerTodasTiendas();
+        System.out.print("\n\nTIENDAS: " + tiendas.size() + "\n\n");
         
-        Reserva reserva1 = new Reserva(1,1, "12/12/2020", "20/12/2020", true);
-        Reserva reserva2 = new Reserva(2,2, "07/06/2012", "07/07/2012", true);
-        reservas.add(reserva1);
-        reservas.add(reserva2);
+        reservas = rDAO.obtenerTodasReservas();
+        System.out.print("\n\nRESERVAS: " + reservas.size() + "\n\n");        
         
-        //Dan valor al indice de las reservas en funcion de su posicion+1 en el ArrayList
-        reserva1.setId(reservas.indexOf(reserva1)+1);
-        reserva2.setId(reservas.indexOf(reserva2)+1);
-        
-        Tienda t1 = new Tienda ("Suprema",20);
-        Tienda t2 = new Tienda ("Deluxe",50);
-        tiendas.add(t1);
-        tiendas.add(t2);
-        
-        Parcela parcela1 = new Parcela (1,true,20,true);
-        Parcela parcela2 = new Parcela (2,true,15,false);
-        Parcela parcela3 = new Parcela (3,true,10,true);
-        Parcela parcela4 = new Parcela (4,true,10,true);
-        Parcela parcela5 = new Parcela (5,true,10,true);
-        
-        parcelas.add(parcela1);
-        parcelas.add(parcela2);
-        parcelas.add(parcela3);
-        parcelas.add(parcela4);
-        parcelas.add(parcela5);
-        
-        Tienda tienda1 = new Tienda("Tienda1",100);
-        Tienda tienda2 = new Tienda("Tienda2",100);
-        Tienda tienda3 = new Tienda("Tienda3",100);
-        Tienda tienda4 = new Tienda("Tienda4",100);
-        Tienda tienda5 = new Tienda("Tienda5",100);
-        Tienda tienda6 = new Tienda("Tienda6",100);        
-        tiendas.add(tienda1);
-        tiendas.add(tienda2);
-        tiendas.add(tienda3);
-        tiendas.add(tienda4);
-        tiendas.add(tienda5);
-        tiendas.add(tienda6);
+//        Actividad actividad1 = new Actividad("Piscina", "10/10/2023", "12:30", "libre");
+//        Actividad actividad2 = new Actividad("Fronton", "09/11/2023", "11:30", "ocupada");
+//        Actividad actividad3 = new Actividad("Juegos Sociales", "08/08/2023", "10:30", "libre");
+//        Actividad actividad4 = new Actividad("Piscina", "12/12/2023", "12:30", "libre");
+//        Actividad actividad5 = new Actividad("Fronton", "09/12/2023", "11:30", "ocupada");
+//        Actividad actividad6 = new Actividad("Juegos Sociales", "10/08/2023", "10:30", "libre");
+//        actividades.add(actividad1);
+//        actividades.add(actividad2);
+//        actividades.add(actividad3);
+//        actividades.add(actividad4);
+//        actividades.add(actividad5);
+//        actividades.add(actividad6);
+//        
+//        //Dan valor al indice de las actividades en funcion de su posicion+1 en el ArrayList
+//        actividad1.setId(actividades.indexOf(actividad1)+1);
+//        actividad2.setId(actividades.indexOf(actividad2)+1);
+//        
+//        Reserva reserva1 = new Reserva(1,1, "12/12/2020", "20/12/2020", true);
+//        Reserva reserva2 = new Reserva(2,2, "07/06/2012", "07/07/2012", true);
+//        reservas.add(reserva1);
+//        reservas.add(reserva2);
+//        
+//        //Dan valor al indice de las reservas en funcion de su posicion+1 en el ArrayList
+//        reserva1.setId(reservas.indexOf(reserva1)+1);
+//        reserva2.setId(reservas.indexOf(reserva2)+1);
+//        
+//        Tienda t1 = new Tienda ("Suprema",20);
+//        Tienda t2 = new Tienda ("Deluxe",50);
+//        tiendas.add(t1);
+//        tiendas.add(t2);
+//        
+//        Parcela parcela1 = new Parcela (1,true,20,true);
+//        Parcela parcela2 = new Parcela (2,true,15,false);
+//        Parcela parcela3 = new Parcela (3,true,10,true);
+//        Parcela parcela4 = new Parcela (4,true,10,true);
+//        Parcela parcela5 = new Parcela (5,true,10,true);
+//        
+//        parcelas.add(parcela1);
+//        parcelas.add(parcela2);
+//        parcelas.add(parcela3);
+//        parcelas.add(parcela4);
+//        parcelas.add(parcela5);
+//        
+//        Tienda tienda1 = new Tienda("Tienda1",100);
+//        Tienda tienda2 = new Tienda("Tienda2",100);
+//        Tienda tienda3 = new Tienda("Tienda3",100);
+//        Tienda tienda4 = new Tienda("Tienda4",100);
+//        Tienda tienda5 = new Tienda("Tienda5",100);
+//        Tienda tienda6 = new Tienda("Tienda6",100);        
+//        tiendas.add(tienda1);
+//        tiendas.add(tienda2);
+//        tiendas.add(tienda3);
+//        tiendas.add(tienda4);
+//        tiendas.add(tienda5);
+//        tiendas.add(tienda6);
         
 //        Cliente cliente1 = new Cliente(getLastIdCliente(),"Jose", "1111", 0, false);
 //        cliente1.addActividad(actividad1);
