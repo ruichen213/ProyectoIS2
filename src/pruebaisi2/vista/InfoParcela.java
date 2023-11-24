@@ -9,16 +9,22 @@ public class InfoParcela extends javax.swing.JFrame {
     private Camping ce;
     private Reserva r;
     private Parcela p;
+    
     public InfoParcela(Camping c) {
         this.ce = c;
         r = ce.getLastRes();
         p = ce.getLastPar();
+        
         initComponents();
+        
         Superficie.setText(p.getSuperficie()+"");
         Luz.setText(Boolean.toString(p.getLuz()));
         Precio.setText(p.getPrecio()+ "");
         Entrada.setText(r.getFechaInicio());
         Salida.setText(r.getFechaFin());
+        
+        botonac.setActionCommand("InfoParcela_BotonAceptar");
+        botonac1.setActionCommand("InfoParcela_BotonCerrar");
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -242,6 +248,14 @@ public class InfoParcela extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-
+        Entrada.addActionListener(ae);
+        Salida.addActionListener(ae);
+        
+        Superficie.addActionListener(ae);
+        Luz.addActionListener(ae);
+        Precio.addActionListener(ae);
+        
+        botonac.addActionListener(ae);
+        botonac1.addActionListener(ae);
     }
 }

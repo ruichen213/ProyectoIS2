@@ -16,6 +16,10 @@ public class Encargado_Sancion extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Sancionar Cliente");
+                
+        jButton1.setActionCommand("EncargadoSancion_BotonSancionar");
+        Cancelar.setActionCommand("EncargadoSancion_BotonCancelar");
+        
         mostrarParcelasDisponibles(c.getClientes());
     }
 
@@ -195,5 +199,9 @@ public class Encargado_Sancion extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
     public void setActionListener (ActionListener ae){
+        jTextField1.addActionListener(ae);
+        
+        jButton1.addActionListener(ae);
+        Cancelar.addActionListener(ae);
     }
 }

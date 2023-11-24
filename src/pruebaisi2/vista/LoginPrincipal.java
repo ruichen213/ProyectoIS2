@@ -12,6 +12,9 @@ public class LoginPrincipal extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Login");
+        
+        Ingresar.setActionCommand("LoginPrincipal_BotonIngresar");
+        Salir.setActionCommand("LoginPrincipal_BotonSalir");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -49,6 +52,11 @@ public class LoginPrincipal extends javax.swing.JFrame {
 
         Contrasenya.setToolTipText("");
         Contrasenya.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Contrasenya.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContrasenyaActionPerformed(evt);
+            }
+        });
 
         Ingresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Ingresar.setText("INGRESAR");
@@ -169,6 +177,10 @@ public class LoginPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_UsuarioActionPerformed
 
+    private void ContrasenyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenyaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContrasenyaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Contrasenya;
     private javax.swing.JButton Ingresar;
@@ -181,6 +193,11 @@ public class LoginPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-
+        Usuario.addActionListener(ae);
+        Contrasenya.addActionListener(ae);
+        
+        Ingresar.addActionListener(ae);
+        Salir.addActionListener(ae);
+        
     }
 }

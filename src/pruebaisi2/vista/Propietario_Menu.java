@@ -10,6 +10,11 @@ public class Propietario_Menu extends javax.swing.JFrame {
         this.c = c;
         this.setTitle("Menu Propietario");
         initComponents(); 
+        
+        Comprobar_Parcelas.setActionCommand("PropietarioMenu_BotonComprobarParcelas");
+        Historial_Reservas.setActionCommand("PropietarioMenu_BotonHistorialReservas");
+        
+        Salir.setActionCommand("PropietarioMenu_BotonSalir");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -121,7 +126,10 @@ public class Propietario_Menu extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+        Comprobar_Parcelas.addActionListener(ae);
+        Historial_Reservas.addActionListener(ae);
         
+        Salir.addActionListener(ae);
     }
 }
 
