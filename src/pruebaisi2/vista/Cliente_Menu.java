@@ -82,10 +82,10 @@ public class Cliente_Menu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
                 .addComponent(Salir)
-                .addGap(87, 87, 87))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

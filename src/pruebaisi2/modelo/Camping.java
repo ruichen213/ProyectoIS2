@@ -68,6 +68,7 @@ public class Camping {
         Parcela parcela3 = new Parcela (3,true,10,true);
         Parcela parcela4 = new Parcela (4,true,10,true);
         Parcela parcela5 = new Parcela (5,true,10,true);
+        
         parcelas.add(parcela1);
         parcelas.add(parcela2);
         parcelas.add(parcela3);
@@ -91,6 +92,7 @@ public class Camping {
         cliente1.addActividad(actividad1);
         parcela1.setTienda(tienda1);
         cliente1.addParcela(parcela1);
+        cliente1.addParcela(parcela2);
         
         clientes.add(cliente1);
         
@@ -124,6 +126,7 @@ public class Camping {
     /*
         Para qusitar
     */
+    
     public void setSancionCliente(int pos){
         Cliente c1 = clientes.get(pos);
         c1.setSancionado(true);

@@ -3,6 +3,7 @@ package pruebaisi2.vista;
 import java.awt.event.ActionListener;
 import pruebaisi2.modelo.Camping;
 import pruebaisi2.modelo.Cliente;
+import pruebaisi2.modelo.Parcela;
 
 public class Cliente_ComprobarReserva extends javax.swing.JFrame {
     private Camping c;
@@ -159,6 +160,20 @@ public class Cliente_ComprobarReserva extends javax.swing.JFrame {
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         // TODO add your handling code here:
         Cliente cliente = c.getCliente(c.getIdCliente());
+        Parcela p = c.getParcela(Parcelas.getSelectedIndex());
+        String pre = "", sup = "";
+        
+        pre += p.getPrecio();
+        sup += p.getSuperficie();
+        
+        Superficie.setText(sup);
+        Precio.setText(pre);
+        if (p.getLuz()){
+            Luz.setText("Si");
+        }
+        else{
+            Luz.setText("No");
+        }
         
     }//GEN-LAST:event_BuscarActionPerformed
 

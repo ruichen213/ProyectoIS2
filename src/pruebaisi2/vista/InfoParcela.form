@@ -66,109 +66,94 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jLabel2" pref="69" max="32767" attributes="0"/>
-                  <Component id="jLabel3" max="32767" attributes="0"/>
-                  <Component id="jLabel4" max="32767" attributes="0"/>
-                  <Component id="jLabel5" max="32767" attributes="0"/>
-              </Group>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" attributes="0">
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="Salida" min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Luz" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                  <Component id="Superficie" min="-2" pref="96" max="-2" attributes="0"/>
-                                  <Component id="ID_Parcela" min="-2" pref="96" max="-2" attributes="0"/>
-                                  <Component id="Precio" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="33" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="Entrada" min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel3" max="32767" attributes="0"/>
+                                  <Component id="jLabel4" max="32767" attributes="0"/>
+                                  <Component id="jLabel5" min="-2" pref="69" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Luz" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="Superficie" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="Precio" min="-2" pref="96" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="botonac" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="botonac1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-              <Component id="botonac" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="botonac1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="166" max="32767" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Entrada" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="ID_Parcela" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Superficie" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Luz" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="33" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Precio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="Salida" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Entrada" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Salida" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Superficie" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Luz" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Precio" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="125" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="botonac" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botonac1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -176,12 +161,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Parcela 1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ID Parecla:"/>
+        <Property name="text" type="java.lang.String" value="Resumen "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -191,12 +171,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Luz o no:"/>
+        <Property name="text" type="java.lang.String" value="Luz:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Precio/dia:"/>
+        <Property name="text" type="java.lang.String" value="Precio:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="botonac">
@@ -209,12 +189,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha entrada"/>
+        <Property name="text" type="java.lang.String" value="- Fecha entrada"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha salida"/>
+        <Property name="text" type="java.lang.String" value="- Fecha salida"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Superficie">
@@ -225,11 +205,6 @@
     <Component class="javax.swing.JTextField" name="Luz">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LuzActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="ID_Parcela">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ID_ParcelaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="Precio">
@@ -254,6 +229,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonac1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fechas reserva:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
