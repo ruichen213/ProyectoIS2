@@ -12,6 +12,8 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Crear Actividades");
+        jButton1.setActionCommand("EncargadoCrearActividad_BotonCrear");
+        Cancelar.setActionCommand("EncargadoCrearActividad_BotonCancelar");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -183,5 +185,11 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
     public void setActionListener (ActionListener ae){
-    }
+	Dia.addActionListener(ae);
+	Hora.addActionListener(ae);
+	Actividades.addActionListener(ae);
+
+	jButton1.addActionListener(ae);
+	Cancelar.addActionListener(ae);
+}
 }

@@ -13,6 +13,10 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Registrar Entrada");
+        
+        Registrar.setActionCommand("EncargadoRegistrarEntrada_BotonRegistrar");
+        Cancelar.setActionCommand("EncargadoRegistrarEntrada_BotonCancelar");
+
         //Parcelas.removeAllItems();
         
         //revisar da error al iniciar
@@ -261,6 +265,13 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	Nombre_Cliente.addActionListener(ae);
+	Entrada.addActionListener(ae);
+	Salida.addActionListener(ae);
 
-    }
+	Parcelas.addActionListener(ae);
+
+	Registrar.addActionListener(ae);
+	Cancelar.addActionListener(ae);
+}
 }

@@ -17,6 +17,9 @@ public class Encargado_Checkout extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Check-out");
         
+        calcular.setActionCommand("EncargadoCheckout_BotonCalcular");
+        cancelar.setActionCommand("EncargadoCheckout_BotonCancelar");
+        
         jTextField4.setEditable(false);
         jTextField5.setEditable(false);
         jTextField7.setEditable(false);
@@ -341,6 +344,16 @@ public class Encargado_Checkout extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	jTextField2.addActionListener(ae);
+	jTextField3.addActionListener(ae);
+	jTextField4.addActionListener(ae);
+	jTextField5.addActionListener(ae);
+	jTextField6.addActionListener(ae);
+	jTextField7.addActionListener(ae);
+	jTextField8.addActionListener(ae);
 
-    }
+	calcular.addActionListener(ae);
+	cancelar.addActionListener(ae);
+
+}
 }

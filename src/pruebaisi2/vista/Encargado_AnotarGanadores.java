@@ -11,6 +11,10 @@ public class Encargado_AnotarGanadores extends javax.swing.JFrame {
         this.c = c_;
         initComponents();
         this.setTitle("Anotar Ganadores");
+        
+        Aceptar.setActionCommand("EncargadoAnotarGanadores_BotonAceptar");
+        Cancelar.setActionCommand("EncargadoAnotarGanadores_BotonCancelar");
+
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -205,7 +209,11 @@ public class Encargado_AnotarGanadores extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    public void setActionListener(ActionListener ae) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void setActionListener (ActionListener ae){
+	Actividad.addActionListener(ae);
+	Ganador.addActionListener(ae);
+
+	Aceptar.addActionListener(ae);
+	Cancelar.addActionListener(ae);
+}
 }

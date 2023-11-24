@@ -17,6 +17,10 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Registrar Salida");
         
+        calcular.setActionCommand("EncargadoRegistrarSalida_BotonCalcular");
+        cancelar.setActionCommand("EncargadoRegistrarSalida_BotonCancelar");
+
+        
         SiNo.setEditable(false);
         jTextField5.setEditable(false);
         jTextField6.setEditable(false);
@@ -348,6 +352,15 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	Salida.addActionListener(ae);
+	Nombre.addActionListener(ae);
+	jTextField5.addActionListener(ae);
+	SiNo.addActionListener(ae);
+	jTextField6.addActionListener(ae);
+	jTextField7.addActionListener(ae);
+	jTextField8.addActionListener(ae);
 
-    }
+	calcular.addActionListener(ae);
+	cancelar.addActionListener(ae);
+}
 }

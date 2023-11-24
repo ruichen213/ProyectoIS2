@@ -13,6 +13,8 @@ public class Encargado_Checkin extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Check-in");
+        Registrar.setActionCommand("EncargadoChechin_BotonRegistrar");
+        Cancelar.setActionCommand("EncargadoChechin_BotonCancelar");
         Parcelas.removeAllItems();
         
         //REVISAR HACE ERROR AL INICIAR
@@ -253,6 +255,12 @@ public class Encargado_Checkin extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	Nombre_Cliente.addActionListener(ae);
+	Entrada.addActionListener(ae);
+	Salida.addActionListener(ae);
+	Parcelas.addActionListener(ae);
 
-    }
+	Registrar.addActionListener(ae);
+	Cancelar.addActionListener(ae);
+}
 }

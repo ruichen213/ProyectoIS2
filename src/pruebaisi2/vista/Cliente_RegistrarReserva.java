@@ -11,6 +11,9 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Registrar reserva");
+        
+        Aceptar.setActionCommand("ClienteRegistrarReserva_BotonAceptar");
+        Cancelar.setActionCommand("ClienteRegistrarReserva_BotonCancelar");
     }
 
     @SuppressWarnings("unchecked")
@@ -55,6 +58,12 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Numero de Parcelas");
+
+        Fecha_Salida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Fecha_SalidaActionPerformed(evt);
+            }
+        });
 
         Fecha_Entrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +184,10 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Num_ParcelasActionPerformed
 
+    private void Fecha_SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_SalidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Fecha_SalidaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
     private javax.swing.JButton Cancelar;
@@ -190,6 +203,11 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-
+        Fecha_Entrada.addActionListener(ae);
+        Fecha_Salida.addActionListener(ae);
+        Num_Parcelas.addActionListener(ae);
+        
+        Aceptar.addActionListener(ae);
+        Cancelar.addActionListener(ae);
     }
 }

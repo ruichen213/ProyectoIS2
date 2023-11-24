@@ -8,6 +8,8 @@ public class Encargado_DatoTiendas extends javax.swing.JFrame {
     public Encargado_DatoTiendas(Camping c) {
         this.c = c;
         initComponents();
+        jButton1.setActionCommand("EncargadoDatosTienda_BotonAceptar");
+        jButton2.setActionCommand("EncargadoDatosTienda_BotonAtras");
         jTextField3.setEditable(false);
     }
     @SuppressWarnings("unchecked")
@@ -168,6 +170,10 @@ public class Encargado_DatoTiendas extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	jTextField2.addActionListener(ae);
+	jTextField3.addActionListener(ae);
 
-    }
+	jButton1.addActionListener(ae);
+	jButton2.addActionListener(ae);
+}
 }

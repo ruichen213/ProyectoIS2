@@ -134,6 +134,10 @@ public class Encargado_HacerParejas extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Hacer Parejas");
+        Hacer.setActionCommand("EncargadoHacerParejas_BotonHacerParejas");
+        Mostrar.setActionCommand("EncargadoHacerParejas_BotonMostrarParejas");
+        Cancelar.setActionCommand("EncargadoHacerParejas_BotonCancelar");
+
         for(int i = 0; i < c.sizeCl(); i++)
         {
             if(c.getCliente(i).getActividadBool() == true)
@@ -194,7 +198,12 @@ public class Encargado_HacerParejas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    public void setActionListener(ActionListener ae) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void setActionListener (ActionListener ae){
+	comb1.addActionListener(ae);
+	comb2.addActionListener(ae);
+
+	Hacer.addActionListener(ae);
+	Mostrar.addActionListener(ae);
+	Cancelar.addActionListener(ae);
+}
 }

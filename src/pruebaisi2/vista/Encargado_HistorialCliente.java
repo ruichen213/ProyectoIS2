@@ -18,6 +18,9 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Historial Cliente");
+        Buscar.setActionCommand("EncargadoHistorialCliente_BotonBuscar");
+        Otro.setActionCommand("EncargadoHistorialCliente_BotonOtro");
+        Salir.setActionCommand("EncargadoHistorialCliente_BotonSalir");
         //No se puede editar el descuento a 
         //menos que hayan pasado más de 15 dias entre la fecha de entrada y la de salida
         Fecha_Entrada.setEditable(false);
@@ -346,6 +349,16 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	Nombre.addActionListener(ae);
+	ID_Parcela.addActionListener(ae);
+	Fecha_Entrada.addActionListener(ae);
+	Fecha_Salida.addActionListener(ae);
+	PrecioSin.addActionListener(ae);
+	Actividades.addActionListener(ae);
 
-    }
+	Buscar.addActionListener(ae);
+	Otro.addActionListener(ae);
+	Salir.addActionListener(ae);
+	
+}
 }

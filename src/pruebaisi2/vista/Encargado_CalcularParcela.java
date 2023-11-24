@@ -10,6 +10,8 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Calcular Parcela");
+        Aceptar.setActionCommand("EncargadoCalcularParcela_BotonAceptar");
+        Cancelar.setActionCommand("EncargadoCalcularParcela_BotonCancelar");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -164,5 +166,12 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-    }
+	ID_Parcela.addActionListener(ae);
+	Fecha_Entrada.addActionListener(ae);
+	Fecha_Salida.addActionListener(ae);
+	Precio.addActionListener(ae);
+
+	Aceptar.addActionListener(ae);
+	Cancelar.addActionListener(ae);
+}
 }

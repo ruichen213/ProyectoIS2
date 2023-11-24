@@ -8,6 +8,9 @@ public class Cliente_DatosReserva extends javax.swing.JFrame {
     public Cliente_DatosReserva(Camping c) {
         this.c = c;
         initComponents();
+        
+        jButton1.setActionCommand("ClienteDatosReserva_BotonAnularReserva");
+        Aceptar.setActionCommand("ClienteDatosReserva_BotonAceptar");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -186,6 +189,12 @@ public class Cliente_DatosReserva extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	ID_Reserva.addActionListener(ae);
+	Fecha_Entrada.addActionListener(ae);
+	Hora.addActionListener(ae);
+	jComboBox1.addActionListener(ae);
 
-    }
+	jButton1.addActionListener(ae);
+	Aceptar.addActionListener(ae);
+}
 }

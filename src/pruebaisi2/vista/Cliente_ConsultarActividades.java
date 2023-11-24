@@ -12,6 +12,11 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Consultar Actividades");
+        
+        jButton1.setActionCommand("ClienteConsultarActividades_BotonGuardarSalir");
+        jButton2.setActionCommand("ClienteConsultarActividades_BotonCancelar");
+        jButton3.setActionCommand("ClienteConsultarActividades_BotonCancelarActividad");
+        
         for(int i = 0; i < c.getNumActividadesCliente(); i++){
             jComboBox1.addItem(c.mostrarActividad(i));
         }
@@ -167,6 +172,11 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	jComboBox1.addActionListener(ae);
 
-    }
+	jButton1.addActionListener(ae);
+	jButton2.addActionListener(ae);
+	jButton3.addActionListener(ae);
+	
+}
 }

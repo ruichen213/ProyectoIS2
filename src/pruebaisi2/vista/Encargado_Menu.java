@@ -12,6 +12,7 @@ public class Encargado_Menu extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Menu Encargado");
+        Salir.setActionCommand("EncargadoMenu_BotonSalir");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -330,6 +331,18 @@ public class Encargado_Menu extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	RegistrarEntrada.addActionListener(ae);
+	RegistrarSalida.addActionListener(ae);
+	Checkin.addActionListener(ae);
+	Checkout.addActionListener(ae);
+	HistorialCliente.addActionListener(ae);
+	Datos_Tienda.addActionListener(ae);
+	Crear_Actividades.addActionListener(ae);
+	Anotar_Ganadores.addActionListener(ae);
+	ComprobarDisponibilidad.addActionListener(ae);
+	ComprobarAsistencia.addActionListener(ae);
+	Sancionar.addActionListener(ae);
 
-    }
+	Salir.addActionListener(ae);
+}
 }

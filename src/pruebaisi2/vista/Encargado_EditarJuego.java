@@ -9,6 +9,9 @@ public class Encargado_EditarJuego extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Editar Juego");
+        jButton1.setActionCommand("EncargadoEditarJuego_BotonAnotarGanadores");
+        jButton3.setActionCommand("EncargadoEditarJuego_BotonCancelar");
+
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -177,6 +180,10 @@ public class Encargado_EditarJuego extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	jTextField1.addActionListener(ae);
+	jTextField2.addActionListener(ae);
 
-    }
+	jButton1.addActionListener(ae);
+	jButton3.addActionListener(ae);
+}
 }

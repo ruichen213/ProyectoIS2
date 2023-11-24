@@ -10,6 +10,14 @@ public class Cliente_Menu extends javax.swing.JFrame {
         this.c = c;
         initComponents(); 
         this.setTitle("Menu Cliente");
+        
+        Realizar_Reserva.setActionCommand("ClienteMenu_BotonRealizarReserva");
+        Comprobar_Reserva.setActionCommand("ClienteMenu_BotonComprobarReserva");
+        Reservar_Actividad.setActionCommand("ClienteMenu_BotonReservarActividad");
+        Consultar_Actividades.setActionCommand("ClienteMenu_BotonConsultarActividades");
+
+        Salir.setActionCommand("ClienteMenu_BotonSalir");
+
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -160,6 +168,12 @@ public class Cliente_Menu extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-    }
+	Realizar_Reserva.addActionListener(ae);
+	Comprobar_Reserva.addActionListener(ae);
+	Reservar_Actividad.addActionListener(ae);
+	Consultar_Actividades.addActionListener(ae);
+
+	Salir.addActionListener(ae);
+}
 }
 

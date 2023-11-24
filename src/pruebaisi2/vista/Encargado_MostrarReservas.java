@@ -14,6 +14,12 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
         this.c = c;
         initComponents(); 
         this.setTitle("Mostrar Reservas Actividades");
+        
+        jButton3.setActionCommand("EncargadoMostrarReserva_BotonAnyadirCliente");
+        Aceptar.setActionCommand("EncargadoMostrarReserva_BotonAceptar");
+        Cancelar.setActionCommand("EncargadoMostrarReserva_BotonCancelar");
+        Buscar.setActionCommand("EncargadoMostrarReserva_BotonBuscar");
+
         for(int i = 0; i< c.cantidadActividades(); i++)
         {
             Actividad.addItem(c.mostrarActividad(i));
@@ -224,6 +230,13 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	Actividad.addActionListener(ae);
+	Gente.addActionListener(ae);
 
-    }
+	jButton3.addActionListener(ae);
+	Aceptar.addActionListener(ae);
+	Cancelar.addActionListener(ae);
+	Buscar.addActionListener(ae);
+	
+}
 }

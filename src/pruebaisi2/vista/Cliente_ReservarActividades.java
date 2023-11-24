@@ -15,6 +15,9 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Reservar Actividades");
+        jButton1.setActionCommand("ClienteReservarActividades_BotonBuscar");
+        Cancelar.setActionCommand("ClienteReservarActividades_BotonCancelar");
+        Reservar.setActionCommand("ClienteReservarActividades_BotonReservar");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -243,5 +246,12 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-    }
+	Actividad.addActionListener(ae);
+	Dia.addActionListener(ae);
+	ActividadesDisponibles.addActionListener(ae);
+
+	jButton1.addActionListener(ae);
+	Cancelar.addActionListener(ae);
+	Reservar.addActionListener(ae);
+}
 }

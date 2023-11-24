@@ -10,6 +10,10 @@ public class Cliente_ComprobarReserva extends javax.swing.JFrame {
     public Cliente_ComprobarReserva(Camping c) {
         this.c = c;
         initComponents();
+        
+        Buscar.setActionCommand("Cliente_BotonBuscar");
+        jButton1.setActionCommand("Cliente_BotonSalir");
+        
         Superficie.setEditable(false);
         Precio.setEditable(false);
         Luz.setEditable(false);
@@ -239,6 +243,12 @@ public class Cliente_ComprobarReserva extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
+	Parcelas.addActionListener(ae);
+	Superficie.addActionListener(ae);
+	Precio.addActionListener(ae);
+	Luz.addActionListener(ae);
 
-    }
+	Buscar.addActionListener(ae);
+	jButton1.addActionListener(ae);
+}
 }

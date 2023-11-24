@@ -167,6 +167,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="Fecha_Salida">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Fecha_SalidaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Fecha_Entrada">
           <Events>
