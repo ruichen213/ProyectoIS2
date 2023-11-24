@@ -1,6 +1,8 @@
 package pruebaisi2.vista;
 
+import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
+import pruebaisi2.controlador.Controlador;
 import pruebaisi2.modelo.Camping;
 
 public class Encargado_HacerParejas extends javax.swing.JFrame {
@@ -191,4 +193,8 @@ public class Encargado_HacerParejas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void setActionListener(ActionListener ae) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

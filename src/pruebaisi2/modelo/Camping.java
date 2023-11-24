@@ -6,6 +6,7 @@ import java.util.*;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import pruebaisi2.controlador.Controlador;
 
 public class Camping {
     private ArrayList<Actividad> actividades;
@@ -524,5 +525,4 @@ public class Camping {
         
         return precioAPagar;
     }
-
 }
