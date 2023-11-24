@@ -192,11 +192,15 @@ public class Controlador {
     }
     
     class ControladorActionListener implements ActionListener{
-
         @Override
         public void actionPerformed(ActionEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-        
+            String key = e.getActionCommand();
+            switch (key) {
+                case "menuExportar":
+                    System.out.println("MenuActionListener: Accion '" + key + "' no implementada.");
+                    break;
+            }
+        } 
+       
     }
 }

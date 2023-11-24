@@ -34,11 +34,11 @@ import pruebaisi2.vista.Propietario_Menu;
 import pruebaisi2.vista.Propietario_TiendasParcelas;
 
 public class GestorCamping {    
-    public static void main(String args[]){
+    public static void main(String args[]) throws ClassNotFoundException{
         Camping c = new Camping();  //Es nuestro modelo
         
-        Cliente_ComprobarReserva ccr = new Cliente_ComprobarReserva(c);
-        Cliente_ConsultarActividades cca = new Cliente_ConsultarActividades(c);
+//        Cliente_ComprobarReserva ccr = new Cliente_ComprobarReserva(c);
+//        Cliente_ConsultarActividades cca = new Cliente_ConsultarActividades(c);
         Cliente_DatosReserva cdr = new Cliente_DatosReserva(c);
         Cliente_Menu cm = new Cliente_Menu(c);
         Cliente_RegistrarReserva crr = new Cliente_RegistrarReserva(c);
@@ -60,8 +60,7 @@ public class GestorCamping {
         Encargado_Sancion es = new Encargado_Sancion(c);
         Encargado_VerParcelasDisponibles evpd = new Encargado_VerParcelasDisponibles(c);
         
-        InfoParcela ip = new InfoParcela(c);
-        
+//      InfoParcela ip = new InfoParcela(c);
         LoginPrincipal lp = new LoginPrincipal(c);
         
         Propietario_HistorialReservas phr = new Propietario_HistorialReservas(c);
@@ -70,8 +69,11 @@ public class GestorCamping {
         
         c.cargarDatos();
         
-        Controlador controlador = new Controlador(c,ccr,cca,cdr,cm,crr,cra,eag,ecp,
-                                        eci,eco,eca,edt,eej,ehp,ehc,em,emr,ere,
-                                        ers,es,evpd,ip,lp,phr,pm,ptp);
+        lp.setVisible(true);
+        
+//        Controlador controlador = new Controlador(c,ccr,cca,cdr,cm,crr,cra,eag,ecp,
+//                                        eci,eco,eca,edt,eej,ehp,ehc,em,emr,ere,
+//                                        ers,es,evpd,ip,lp,phr,pm,ptp);
+        
     }
 }

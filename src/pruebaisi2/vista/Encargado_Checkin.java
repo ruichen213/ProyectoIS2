@@ -15,15 +15,16 @@ public class Encargado_Checkin extends javax.swing.JFrame {
         this.setTitle("Check-in");
         Parcelas.removeAllItems();
         
-        if (c.getNumParcelas() > 0 ){
-            for(int i = 0;i < c.getNumParcelas();i++){
-                if (c.getParcela(i).isDisponible() == true)
-                    Parcelas.addItem(String.valueOf(c.getParcela(i).getId()));
-                    //jComboBox1.addItem(Integer.toString((c.getParcela(i).getId())));     
-                }
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
+        //REVISAR HACE ERROR AL INICIAR
+//        if (c.getNumParcelas() > 0 ){
+//            for(int i = 0;i < c.getNumParcelas();i++){
+//                if (c.getParcela(i).isDisponible() == true)
+//                    Parcelas.addItem(String.valueOf(c.getParcela(i).getId()));
+//                    //jComboBox1.addItem(Integer.toString((c.getParcela(i).getId())));     
+//                }
+//        }
+//        else
+//            JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -181,7 +182,7 @@ public class Encargado_Checkin extends javax.swing.JFrame {
             {
                 //Reserva reserva = new Reserva(c.getLastIdParcela()+1,fechaInicio, fechaFin, true);
                 Reserva reserva = new Reserva(Integer.parseInt(String.valueOf(Parcelas.getSelectedItem())), idClienteNuevo, fechaInicio, fechaFin, true);
-                Cliente cliente = new Cliente(idClienteNuevo, nombre, "default", true, 0, false);
+                Cliente cliente = new Cliente(idClienteNuevo, nombre, "default", 0, false);
                 System.out.println("Parcela seleccionada numero: " + Integer.valueOf(String.valueOf(Parcelas.getSelectedItem())));
                 c.anyadirReserva(reserva);
                 c.getParcela(Integer.parseInt(String.valueOf(Parcelas.getSelectedItem()))-1).setDisponible(false);

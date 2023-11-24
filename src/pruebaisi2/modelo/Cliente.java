@@ -11,8 +11,7 @@ public class Cliente {
     private boolean sancionado = false;
     private String fechaEntrada, fechaSalida;       //Fechas de entrada y salida oficiales (las que registra el empleado, no las que pone en la reserva)
     
-    public Cliente (int id, String nombre_, String contrasenya, boolean asistido, 
-            int pareja, boolean sancionado){
+    public Cliente (int id, String nombre_, String contrasenya, int pareja, boolean sancionado){
         this.sancionado = sancionado;
         this.pareja = pareja;
         this.nombre = nombre_;

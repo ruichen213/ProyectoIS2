@@ -17,6 +17,7 @@ public class Camping {
     private ArrayList<Encargado> encargados;
     private ArrayList<String> usuario_mas_parcelas;
     private int idCliente, idEmpleado;
+    private ClienteDAO cDao;
     
     public Camping(){
         actividades = new ArrayList<Actividad>();
@@ -26,13 +27,18 @@ public class Camping {
         tiendas = new ArrayList<Tienda>();
         encargados = new ArrayList<Encargado>();
         usuario_mas_parcelas = new ArrayList<String>();
+        
+        cDao = new ClienteDAO();
     }
     
     /*
         Esta funcion anyade al camping algunos valores (actividades, 
         clientes, parcelas, reservas, tiendas)
     */
-    public void cargarDatos(){
+    public void cargarDatos() throws ClassNotFoundException{
+        clientes = cDao.leerClientes();
+        System.out.print("\n\nPRUEBA: " + clientes.size() + "\n\n");
+        
         Actividad actividad1 = new Actividad("Piscina", "10/10/2023", "12:30", "libre");
         Actividad actividad2 = new Actividad("Fronton", "09/11/2023", "11:30", "ocupada");
         Actividad actividad3 = new Actividad("Juegos Sociales", "08/08/2023", "10:30", "libre");
@@ -89,34 +95,34 @@ public class Camping {
         tiendas.add(tienda5);
         tiendas.add(tienda6);
         
-        Cliente cliente1 = new Cliente(getLastIdCliente(),"Jose", "1111", false, 0, false);
-        cliente1.addActividad(actividad1);
-        parcela1.setTienda(tienda1);
-        cliente1.addParcela(parcela1);
-        cliente1.addParcela(parcela2);
-        
-        clientes.add(cliente1);
-        
-        Cliente cliente2 = new Cliente(getLastIdCliente(),"Pepe", "2222", false, 0, true);
-        cliente2.addActividad(actividad1);
-        parcela2.setTienda(tienda2);
-        cliente2.addParcela(parcela2);
-
-        clientes.add(cliente2);
-        
-        Cliente cliente3 = new Cliente(getLastIdCliente(),"Marcos", "3333", false, 0, false);
-        cliente3.addActividad(actividad3);
-        parcela3.setTienda(tienda3);
-        cliente3.addParcela(parcela3);
-        
-        clientes.add(cliente3);
-        
-        Cliente cliente4 = new Cliente(getLastIdCliente(),"Marcos", "3333", false, 0, false);
-        cliente3.addActividad(actividad3);
-        parcela3.setTienda(tienda3);
-        cliente3.addParcela(parcela3);
-        
-        clientes.add(cliente4);
+//        Cliente cliente1 = new Cliente(getLastIdCliente(),"Jose", "1111", 0, false);
+//        cliente1.addActividad(actividad1);
+//        parcela1.setTienda(tienda1);
+//        cliente1.addParcela(parcela1);
+//        cliente1.addParcela(parcela2);
+//        
+//        clientes.add(cliente1);
+//        
+//        Cliente cliente2 = new Cliente(getLastIdCliente(),"Pepe", "2222", 0, true);
+//        cliente2.addActividad(actividad1);
+//        parcela2.setTienda(tienda2);
+//        cliente2.addParcela(parcela2);
+//
+//        clientes.add(cliente2);
+//        
+//        Cliente cliente3 = new Cliente(getLastIdCliente(),"Marcos", "3333", 0, false);
+//        cliente3.addActividad(actividad3);
+//        parcela3.setTienda(tienda3);
+//        cliente3.addParcela(parcela3);
+//        
+//        clientes.add(cliente3);
+//        
+//        Cliente cliente4 = new Cliente(getLastIdCliente(),"Marcos", "3333", 0, false);
+//        cliente3.addActividad(actividad3);
+//        parcela3.setTienda(tienda3);
+//        cliente3.addParcela(parcela3);
+//        
+//        clientes.add(cliente4);
         
 //        Encargado enc = new Encargado("Mario", "69");
 //        encargados.add(enc);

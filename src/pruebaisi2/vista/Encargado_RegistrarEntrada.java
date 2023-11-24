@@ -15,15 +15,16 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
         this.setTitle("Registrar Entrada");
         //Parcelas.removeAllItems();
         
-        if (c.getNumParcelas() > 0 ){
-            for(int i = 0;i < c.getNumParcelas();i++){
-                if (c.getParcela(i).isDisponible() == true)
-                    Parcelas.addItem(String.valueOf(c.getParcela(i).getId()));
-                    //jComboBox1.addItem(Integer.toString((c.getParcela(i).getId())));     
-                }
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
+        //revisar da error al iniciar
+//        if (c.getNumParcelas() > 0 ){
+//            for(int i = 0;i < c.getNumParcelas();i++){
+//                if (c.getParcela(i).isDisponible() == true)
+//                    Parcelas.addItem(String.valueOf(c.getParcela(i).getId()));
+//                    //jComboBox1.addItem(Integer.toString((c.getParcela(i).getId())));     
+//                }
+//        }
+//        else
+//            JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
     }
     
     public void limpiarCasillas(){
@@ -184,7 +185,7 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
             {
                 //Reserva reserva = new Reserva(c.getLastIdParcela()+1,fechaInicio, fechaFin, true);
                 Reserva reserva = new Reserva(Integer.parseInt(String.valueOf(Parcelas.getSelectedItem())), idClienteNuevo, fechaInicio, fechaFin, true);
-                Cliente cliente = new Cliente(idClienteNuevo, nombre, "default", true, 0, false);
+                Cliente cliente = new Cliente(idClienteNuevo, nombre, "default", 0, false);
                 
                 System.out.println("Parcela seleccionada numero: " + Integer.valueOf(String.valueOf(Parcelas.getSelectedItem())));
                 
