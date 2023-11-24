@@ -9,6 +9,7 @@ public class Cliente {
     private ArrayList<Parcela> parcelasReservadas = new ArrayList<>();      //Parcelas que tiene reversadas o ha reservado alguna vez
     private boolean asistido = false;               //lo voy a borrar en el siguiente sprint NO SIRVE PARA NADA
     private boolean sancionado = false;
+    private String fechaEntrada, fechaSalida;       //Fechas de entrada y salida oficiales (las que registra el empleado, no las que pone en la reserva)
     
     public Cliente (int id, String nombre_, String contrasenya, boolean asistido, 
             int pareja, boolean sancionado){
@@ -23,7 +24,7 @@ public class Cliente {
     /*
         Setters
     */
-    public int getNumReservas(){
+    public int getNumParcelas(){
         return parcelasReservadas.size();
     }
     
@@ -138,9 +139,9 @@ public class Cliente {
     }
     
     /*
-        Devuelve una lista con las parcelas que tiene el cliente
+        Devuelve una parcela que tiene el cliente
     */
-    public Parcela getParcelas(int i){
+    public Parcela getParcela(int i){
         return parcelasReservadas.get(i);
     }
 

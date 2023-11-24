@@ -12,6 +12,10 @@ public class Tienda {
     public String getNombre() {
         return nombre;
     }
+    
+    public float getSuperficie(){
+        return superficie;
+    }
 
     public void setNombre(String nombre_) {
         nombre = nombre_;

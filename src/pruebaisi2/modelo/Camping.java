@@ -131,7 +131,7 @@ public class Camping {
     
     public int getNumParcelasCliente(){
         Cliente c = clientes.get(idCliente);
-        return c.getNumReservas();
+        return c.getNumParcelas();
     }
     
     public String mostrarParcelaCliente(int idParcelaCliente){
@@ -344,20 +344,6 @@ public class Camping {
         return parcelas;
     }
     
-//    public ArrayList<Parcela> getParcelas(){
-//        Parcela parcela1 = new Parcela (1,100,true,20,true);
-//        Parcela parcela2 = new Parcela (2,50,true,15,false);
-//        Parcela parcela3 = new Parcela (3,20,true,10,true);
-//        Parcela parcela4 = new Parcela (4,20,true,10,true);
-//        Parcela parcela5 = new Parcela (5,20,true,10,true);
-//        parcelas.add(parcela1);
-//        parcelas.add(parcela2);
-//        parcelas.add(parcela3);
-//        parcelas.add(parcela4);
-//        parcelas.add(parcela5);
-//        return parcelas;
-//    }
-    
     public Parcela getParcela(int index){
         return parcelas.get(index);
     }
@@ -380,6 +366,18 @@ public class Camping {
     
     public Tienda getTienda(int indice){
         return tiendas.get(indice);
+    }
+    
+    public float getSuperficieTienda(String nombreTienda){
+        float superficie = 9999999;
+        
+        for(int i = 0; i < tiendas.size();i++){
+            if(tiendas.get(i).getNombre().equals(nombreTienda)){
+                superficie = tiendas.get(i).getSuperficie();
+            }
+        }
+        
+        return superficie;
     }
      
     public Parcela getLastPar()
@@ -506,4 +504,22 @@ public class Camping {
             return false;
         }
     }
+    
+    /*
+        Funcion que calcula el precio de los clientes
+    */
+    public int getPrecioCliente(int idCliente){
+        int precioAPagar = 0;
+        
+        for (int i = 0; i < clientes.size();i++){
+            if(clientes.get(i).getId() == idCliente){
+                for(int j = 0; j < clientes.get(i).getNumParcelas();j++){
+                    precioAPagar += clientes.get(i).getParcela(j).getPrecio();
+                }
+            }
+        }
+        
+        return precioAPagar;
+    }
+
 }

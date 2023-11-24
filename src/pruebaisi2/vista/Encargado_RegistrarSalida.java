@@ -19,6 +19,7 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
         
         SiNo.setEditable(false);
         jTextField5.setEditable(false);
+        jTextField6.setEditable(false);
         jTextField7.setEditable(false);
         jTextField8.setEditable(false);
     }
@@ -110,7 +111,6 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
             }
         });
 
-        SiNo.setText("Descuento");
         SiNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SiNoActionPerformed(evt);
@@ -182,10 +182,10 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SiNo, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextField5)
                             .addComponent(Nombre)
-                            .addComponent(Salida, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))))
+                            .addComponent(Salida, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)))
+                    .addComponent(SiNo, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
@@ -234,15 +234,17 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
-        float precioFinal;
-        String fechaInicio, fechaFin, nombre;
-        int idCliente;
-        boolean descuento;
+        float precioFinal;                      //Precio final una vez aplicado el descuento
+        String fechaInicio, fechaFin, nombre;   //Informacioon del cliente que estamos tratando  
+        int idCliente;                          //ID del cliente que estamos tratando
+        int nParcelas;                          //Cantidad de actividades que tiene el cliente
+        boolean descuento;                      //Si existe descuento para el cliente o no
         
         fechaFin = Salida.getText();
         nombre = Nombre.getText();
         
         idCliente = c.getIdCliente(nombre);
+        System.out.println(idCliente);
         fechaInicio = c.getFechaEntrada(idCliente);
         descuento = recibirDescuento(fechaInicio,fechaFin);
         
@@ -254,6 +256,10 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
         }else{
             SiNo.setText("El cliente no ha estado mas de 15 dias, no tiene derecho a descuento.");
         }
+        
+        //Anyade el precio de las parcelas que el cliente tiene automaticamente
+        jTextField6.setText(String.valueOf(c.getPrecioCliente(idCliente)));
+        
     }//GEN-LAST:event_calcularActionPerformed
 
     private void SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaActionPerformed

@@ -44,20 +44,16 @@
                                       <Component id="jLabel3" max="32767" attributes="0"/>
                                       <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel8" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" alignment="1" min="-2" pref="171" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="PrecioCon" max="32767" attributes="0"/>
-                                  <Component id="ID_Parcela" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="ID_Parcela" alignment="1" pref="127" max="32767" attributes="0"/>
                                   <Component id="Fecha_Entrada" alignment="0" max="32767" attributes="0"/>
                                   <Component id="Fecha_Salida" alignment="0" max="32767" attributes="0"/>
                                   <Component id="PrecioSin" alignment="0" max="32767" attributes="0"/>
                                   <Component id="Nombre" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="Descuento" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="Buscar" min="-2" max="-2" attributes="0"/>
@@ -91,7 +87,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -117,17 +113,7 @@
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="PrecioSin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Descuento" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="PrecioCon" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Actividades" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -192,11 +178,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Fecha_SalidaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="PrecioCon">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrecioConActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="Salir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
@@ -213,24 +194,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OtroActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Precio a pagar (con descuento):"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="PrecioSin">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrecioSinActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Descuento (%):"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="Descuento">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DescuentoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">

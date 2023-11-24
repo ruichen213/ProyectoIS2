@@ -13,7 +13,7 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
         this.c = c;
         initComponents();
         this.setTitle("Registrar Entrada");
-        Parcelas.removeAllItems();
+        //Parcelas.removeAllItems();
         
         if (c.getNumParcelas() > 0 ){
             for(int i = 0;i < c.getNumParcelas();i++){
@@ -25,6 +25,13 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
         else
             JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
     }
+    
+    public void limpiarCasillas(){
+        Nombre_Cliente.setText("");
+        Entrada.setText("");
+        Salida.setText("");
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -168,6 +175,7 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
             String fechaFin = Salida.getText();
             int contador = 0;   //Contador para saber las parcelas que se anyaden al jComboBox
             int idClienteNuevo = c.getLastIdCliente() + 1;
+            
             if (!c.esFechaValida(fechaFin) || !c.esFechaValida(fechaInicio))
                 JOptionPane.showMessageDialog(this, "La fecha ingresada no es valida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
             else if (c.esFechaPosterior(fechaInicio, fechaFin))
@@ -177,14 +185,18 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
                 //Reserva reserva = new Reserva(c.getLastIdParcela()+1,fechaInicio, fechaFin, true);
                 Reserva reserva = new Reserva(Integer.parseInt(String.valueOf(Parcelas.getSelectedItem())), idClienteNuevo, fechaInicio, fechaFin, true);
                 Cliente cliente = new Cliente(idClienteNuevo, nombre, "default", true, 0, false);
+                
                 System.out.println("Parcela seleccionada numero: " + Integer.valueOf(String.valueOf(Parcelas.getSelectedItem())));
+                
                 c.anyadirReserva(reserva);
                 c.getParcela(Integer.parseInt(String.valueOf(Parcelas.getSelectedItem()))-1).setDisponible(false);
                 c.anyadirCliente(cliente);
 
                 JOptionPane.showMessageDialog(null, "Reserva confirmada");
-
+                
+                limpiarCasillas();
                 Parcelas.removeAllItems();
+                
                 if (c.getNumParcelas() > 0){
                     for(int i = 0;i < c.getNumParcelas();i++){
                         if (c.getParcela(i).isDisponible() == true){
@@ -193,6 +205,7 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
                         }
                     }
                 }
+                
                 if (contador == 0){
                     JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
                 }

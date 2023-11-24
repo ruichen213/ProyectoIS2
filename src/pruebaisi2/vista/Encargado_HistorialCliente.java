@@ -20,12 +20,9 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         this.setTitle("Historial Cliente");
         //No se puede editar el descuento a 
         //menos que hayan pasado más de 15 dias entre la fecha de entrada y la de salida
-        Descuento.setEditable(false);
-        PrecioCon.setEditable(false);
         Fecha_Entrada.setEditable(false);
         Fecha_Salida.setEditable(false);
         PrecioSin.setEditable(false);
-        Descuento.setEditable(false);
         ID_Parcela.setEditable(false);
     }
     /*
@@ -84,13 +81,9 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         Fecha_Entrada = new javax.swing.JTextField();
         ID_Parcela = new javax.swing.JTextField();
         Fecha_Salida = new javax.swing.JTextField();
-        PrecioCon = new javax.swing.JTextField();
         Salir = new javax.swing.JButton();
         Otro = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         PrecioSin = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        Descuento = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         Actividades = new javax.swing.JComboBox<>();
@@ -132,12 +125,6 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
             }
         });
 
-        PrecioCon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrecioConActionPerformed(evt);
-            }
-        });
-
         Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,19 +139,9 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Precio a pagar (con descuento):");
-
         PrecioSin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PrecioSinActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("Descuento (%):");
-
-        Descuento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DescuentoActionPerformed(evt);
             }
         });
 
@@ -208,19 +185,15 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
                                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel1))
+                                .addGap(15, 15, 15)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(PrecioCon)
-                                    .addComponent(ID_Parcela, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ID_Parcela, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                                     .addComponent(Fecha_Entrada)
                                     .addComponent(Fecha_Salida)
                                     .addComponent(PrecioSin)
-                                    .addComponent(Nombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(Descuento, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Nombre, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Buscar))
                             .addGroup(layout.createSequentialGroup()
@@ -244,7 +217,7 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel9)
-                        .addGap(40, 40, 40)
+                        .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,15 +238,7 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(PrecioSin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(Descuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PrecioCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
+                        .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(Actividades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -294,12 +259,9 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void OtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtroActionPerformed
-        Descuento.setText("");
-        PrecioCon.setText("");
         Fecha_Entrada.setText("");
         Fecha_Salida.setText("");
         PrecioSin.setText("");
-        Descuento.setText("");
         Nombre.setText("");
         ID_Parcela.setText("");
         
@@ -310,15 +272,6 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PrecioSinActionPerformed
 
-    private void DescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescuentoActionPerformed
-        // TODO add your handling code here:
-        float precioFinal;
-        
-        precioFinal = aplicarDescuento(PrecioSin.getText(),Descuento.getText());
-        
-        PrecioCon.setText(String.valueOf(precioFinal));
-    }//GEN-LAST:event_DescuentoActionPerformed
-
     private void Fecha_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_EntradaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Fecha_EntradaActionPerformed
@@ -326,10 +279,6 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
     private void Fecha_SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_SalidaActionPerformed
 
     }//GEN-LAST:event_Fecha_SalidaActionPerformed
-
-    private void PrecioConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioConActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PrecioConActionPerformed
 
     private void ID_ParcelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ParcelaActionPerformed
         // TODO add your handling code here:
@@ -366,6 +315,9 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         Fecha_Entrada.setText(c.getFechaEntrada(c.getIdCliente(nombre)));
         Fecha_Salida.setText(c.getFechaSalida(c.getIdCliente(nombre)));
                
+        //Anyade el precio de las parcelas que el cliente tiene automaticamente
+        PrecioSin.setText(String.valueOf(c.getPrecioCliente(c.getIdCliente(nombre))));
+        
 
     }//GEN-LAST:event_BuscarActionPerformed
 
@@ -376,13 +328,11 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Actividades;
     private javax.swing.JButton Buscar;
-    private javax.swing.JTextField Descuento;
     private javax.swing.JTextField Fecha_Entrada;
     private javax.swing.JTextField Fecha_Salida;
     private javax.swing.JTextField ID_Parcela;
     private javax.swing.JTextField Nombre;
     private javax.swing.JButton Otro;
-    private javax.swing.JTextField PrecioCon;
     private javax.swing.JTextField PrecioSin;
     private javax.swing.JButton Salir;
     private javax.swing.JLabel jLabel1;
@@ -392,8 +342,6 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 

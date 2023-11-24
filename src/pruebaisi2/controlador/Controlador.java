@@ -19,7 +19,6 @@ import pruebaisi2.vista.Encargado_DatoTiendas;
 import pruebaisi2.vista.Encargado_HistorialCliente;
 import pruebaisi2.vista.Encargado_EditarJuego;
 import pruebaisi2.vista.Encargado_Menu;
-import pruebaisi2.vista.Encargado_MirarTiendas;
 import pruebaisi2.vista.Encargado_MostrarReservas;
 import pruebaisi2.vista.Encargado_Checkin;
 import pruebaisi2.vista.Encargado_Checkout;
@@ -53,7 +52,6 @@ public class Controlador {
     private Encargado_HacerParejas hp;
     private Encargado_HistorialCliente edc;
     private Encargado_Menu em;
-    private Encargado_MirarTiendas emt;
     private Encargado_MostrarReservas emr;
     private Encargado_RegistrarEntrada ere1;
     private Encargado_RegistrarSalida ers1;
@@ -70,7 +68,7 @@ public class Controlador {
             Propietario_TiendasParcelas ptp, Propietario_Menu pm, Propietario_HistorialReservas phr, Cliente_DatosReserva cdr, 
             Encargado_VerParcelasDisponibles cd, Cliente_Menu cm, Cliente_RegistrarReserva crr, Cliente_ReservarActividades cra, 
             Encargado_CalcularParcela ecp, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, 
-            Encargado_HistorialCliente edc, Encargado_EditarJuego eej, Encargado_Menu em, Encargado_MirarTiendas emt, 
+            Encargado_HistorialCliente edc, Encargado_EditarJuego eej, Encargado_Menu em, 
             Encargado_MostrarReservas emr, Encargado_Checkin ere, Encargado_Checkout ers, InfoParcela ip, LoginPrincipal lp, 
             modelo m, Cliente_ConsultarActividades cca, Encargado_HacerParejas hp){
         
@@ -93,7 +91,6 @@ public class Controlador {
         this.edc = edc;
         this.eej = eej;
         this.em = em;
-        this.emt = emt;
         this.emr = emr;
         this.ere = ere;
         this.ers = ers;
@@ -138,9 +135,6 @@ public class Controlador {
         em.setActionListener(new ControladorActionListener());
         em.addWindowListener(new ControladorWindowListener());
         
-        emt.setActionListener(new ControladorActionListener());
-        emt.addWindowListener(new ControladorWindowListener());
-
         emr.setActionListener(new ControladorActionListener());
         emr.addWindowListener(new ControladorWindowListener());
 
