@@ -7,7 +7,6 @@ import java.awt.event.WindowEvent;
 import pruebaisi2.modelo.Camping;
 import pruebaisi2.vista.Cliente_ComprobarReserva;
 import pruebaisi2.vista.Cliente_ConsultarActividades;
-import pruebaisi2.vista.Cliente_DatosReserva;
 import pruebaisi2.vista.Encargado_VerParcelasDisponibles;
 import pruebaisi2.vista.Cliente_Menu;
 import pruebaisi2.vista.Cliente_RegistrarReserva;
@@ -40,7 +39,6 @@ public class Controlador {
     private Camping c;
     private Cliente_ComprobarReserva ccr;
     private Cliente_ConsultarActividades cca;
-    private Cliente_DatosReserva cdr;
     private Cliente_Menu cm;
     private Cliente_RegistrarReserva crr;
     private Cliente_ReservarActividades cra; 
@@ -67,7 +65,7 @@ public class Controlador {
     
     
     public Controlador(Camping c,Cliente_ComprobarReserva ccr, Cliente_ConsultarActividades cca, 
-                        Cliente_DatosReserva cdr, Cliente_Menu cm, Cliente_RegistrarReserva crr, 
+                        Cliente_Menu cm, Cliente_RegistrarReserva crr, 
                         Cliente_ReservarActividades cra, Encargado_AnotarGanadores eag, Encargado_CalcularParcela ecp, 
                         Encargado_Checkin eci, Encargado_Checkout eco, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, 
                         Encargado_EditarJuego eej, Encargado_HacerParejas ehp, Encargado_HistorialCliente ehc, Encargado_Menu em, 
@@ -78,7 +76,6 @@ public class Controlador {
         this.c = c;
         this.ccr = ccr;
         this.cca = cca;
-        this.cdr = cdr;
         this.cm = cm;
         this.crr = crr;
         this.cra = cra; 
@@ -108,10 +105,7 @@ public class Controlador {
         
         cca.setActionListener(new ControladorActionListener());
         cca.addWindowListener(new ControladorWindowListener());
-      
-        cdr.setActionListener(new ControladorActionListener());
-        cdr.addWindowListener(new ControladorWindowListener());
-        
+
         cm.setActionListener(new ControladorActionListener());
         cm.addWindowListener(new ControladorWindowListener());
         

@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import pruebaisi2.vista.Cliente_ComprobarReserva;
 import pruebaisi2.vista.Cliente_ConsultarActividades;
-import pruebaisi2.vista.Cliente_DatosReserva;
 import pruebaisi2.vista.Cliente_Menu;
 import pruebaisi2.vista.Cliente_RegistrarReserva;
 import pruebaisi2.vista.Cliente_ReservarActividades;
@@ -39,7 +38,6 @@ public class GestorCamping {
         
 //        Cliente_ComprobarReserva ccr = new Cliente_ComprobarReserva(c);
 //        Cliente_ConsultarActividades cca = new Cliente_ConsultarActividades(c);
-        Cliente_DatosReserva cdr = new Cliente_DatosReserva(c);
         Cliente_Menu cm = new Cliente_Menu(c);
         Cliente_RegistrarReserva crr = new Cliente_RegistrarReserva(c);
         Cliente_ReservarActividades cra = new Cliente_ReservarActividades(c);
