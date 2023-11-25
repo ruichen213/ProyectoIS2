@@ -17,9 +17,11 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
         jButton2.setActionCommand("ClienteConsultarActividades_BotonCancelar");
         jButton3.setActionCommand("ClienteConsultarActividades_BotonCancelarActividad");
         
-        for(int i = 0; i < c.getNumActividadesCliente(); i++){
-            jComboBox1.addItem(c.mostrarActividad(i));
-        }
+/*
+for(int i = 0; i < c.getNumActividadesCliente(); i++){
+jComboBox1.addItem(c.mostrarActividad(i));
+}
+*/
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -2,16 +2,27 @@ package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
 import pruebaisi2.modelo.Camping;
-import pruebaisi2.modelo.Reserva;
 
 public class Encargado_Menu extends javax.swing.JFrame {
     private Camping c;
-    private Reserva r;
    
     public Encargado_Menu(Camping c) {
         this.c = c;
         initComponents();
         this.setTitle("Menu Encargado");
+        
+        RegistrarEntrada.setActionCommand("EncargadoMenu_BotonRegistrarEntrada");
+	RegistrarSalida.setActionCommand("EncargadoMenu_BotonRegistrarSalida");
+	Checkin.setActionCommand("EncargadoMenu_BotonCheckin");
+	Checkout.setActionCommand("EncargadoMenu_BotonCheckout");
+	HistorialCliente.setActionCommand("EncargadoMenu_BotonHistorialCliente");
+	Datos_Tienda.setActionCommand("EncargadoMenu_BotonDatosTienda");
+	Crear_Actividades.setActionCommand("EncargadoMenu_BotonRegistrarEntrada");
+	Anotar_Ganadores.setActionCommand("EncargadoMenu_BotonAnotarGanadores");
+	ComprobarDisponibilidad.setActionCommand("EncargadoMenu_BotonComprobarDisponibilidad");
+	ComprobarAsistencia.setActionCommand("EncargadoMenu_BotonComprobarAsistencia");
+	Sancionar.setActionCommand("EncargadoMenu_BotonSancionar");
+        
         Salir.setActionCommand("EncargadoMenu_BotonSalir");
     }
     @SuppressWarnings("unchecked")
@@ -202,116 +213,52 @@ public class Encargado_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void HistorialClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialClienteActionPerformed
-        Encargado_HistorialCliente v = new Encargado_HistorialCliente(c);
-        v.setVisible(true);
-        this.dispose();
+   
     }//GEN-LAST:event_HistorialClienteActionPerformed
 
     private void CheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutActionPerformed
-        Encargado_Checkout v = new Encargado_Checkout(c);
-        v.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_CheckoutActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        LoginPrincipal lp = new LoginPrincipal(c);
-        lp.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_SalirActionPerformed
 
     private void ComprobarDisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprobarDisponibilidadActionPerformed
-        Encargado_VerParcelasDisponibles v = new Encargado_VerParcelasDisponibles(c);
-        v.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_ComprobarDisponibilidadActionPerformed
 
     private void Datos_TiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Datos_TiendaActionPerformed
-        Encargado_DatoTiendas v = new Encargado_DatoTiendas(c);
-        v.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_Datos_TiendaActionPerformed
 
     private void Crear_ActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Crear_ActividadesActionPerformed
-        Encargado_CrearActividad v = new Encargado_CrearActividad(c);
-        v.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_Crear_ActividadesActionPerformed
 
     private void ComprobarAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprobarAsistenciaActionPerformed
-        Encargado_MostrarReservas v = new Encargado_MostrarReservas(c);
-        v.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_ComprobarAsistenciaActionPerformed
 
     private void Anotar_GanadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Anotar_GanadoresActionPerformed
-        Encargado_AnotarGanadores v = new Encargado_AnotarGanadores(c);
-        v.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_Anotar_GanadoresActionPerformed
 
     private void SancionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SancionarActionPerformed
-        // TODO add your handling code here:
-        Encargado_Sancion v = new Encargado_Sancion(c);
-        v.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_SancionarActionPerformed
 
     private void CheckinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckinActionPerformed
-        // TODO add your handling code here:
-        Encargado_Checkin v = new Encargado_Checkin(c);
-        v.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_CheckinActionPerformed
 
     private void RegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarEntradaActionPerformed
-        // TODO add your handling code here:
-        Encargado_RegistrarEntrada v = new Encargado_RegistrarEntrada(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_RegistrarEntradaActionPerformed
 
     private void RegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarSalidaActionPerformed
-        // TODO add your handling code here:
-        Encargado_RegistrarSalida v = new Encargado_RegistrarSalida(c);
-        v.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_RegistrarSalidaActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Encargado_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Encargado_Menu().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anotar_Ganadores;

@@ -134,56 +134,21 @@ public class LoginPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-        // TODO add your handling code here:
-        String usuario = Usuario.getText().trim();
-//        Boolean ok = new Boolean(false);
-        String password = Contrasenya.getText().trim();
-        
-        idCliente = c.averiguamosCliente(usuario, password); //averiguamso cliente comparando en la base de datos, y devolvemos su pos en el vector.
-        c.setIdCliente(idCliente);
-        idEmpleado = c.averiguamosEncargado(usuario, password);
-        c.setIdEmpleado(idEmpleado);
-        
-        System.out.print("PRUEBA: " + idCliente + "\n");
-
-        if(usuario.isEmpty() || password.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Algun campo esta vacío");
-        } else if(usuario.equals("empleado") && password.equals("easy")){
-            Encargado_Menu empleado = new Encargado_Menu(c);
-            empleado.setVisible(true);
-            this.dispose();
-        } else if(usuario.equals("Propietario") && password.equals("admin")){
-            Propietario_Menu p = new Propietario_Menu(c);
-            p.setVisible(true);
-            this.dispose();
-        } else if (idCliente >= 0){
-            Cliente_Menu cliente = new Cliente_Menu(c);
-            cliente.setVisible(true);
-            this.dispose();
-        } else { 
-            JOptionPane.showMessageDialog(null,"Usuario o contraseña incorrectos");
-        }
     }//GEN-LAST:event_IngresarActionPerformed
 
     private void UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioActionPerformed
-        // TODO add your handling code here:
-
     }//GEN-LAST:event_UsuarioActionPerformed
 
     private void ContrasenyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenyaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_ContrasenyaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Contrasenya;
-    private javax.swing.JButton Ingresar;
+    public javax.swing.JButton Ingresar;
     private javax.swing.JButton Salir;
     private javax.swing.JTextField Usuario;
     private javax.swing.JLabel jLabel1;
@@ -198,6 +163,13 @@ public class LoginPrincipal extends javax.swing.JFrame {
         
         Ingresar.addActionListener(ae);
         Salir.addActionListener(ae);
-        
+    }
+    
+    public String getUsuario(){
+        return Usuario.getText();
+    }
+    
+    public String getContrasenya(){
+        return Contrasenya.getText();
     }
 }

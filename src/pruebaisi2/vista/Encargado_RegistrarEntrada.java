@@ -31,12 +31,6 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
     }
     
-    public void limpiarCasillas(){
-        Nombre_Cliente.setText("");
-        Entrada.setText("");
-        Salida.setText("");
-    }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -173,60 +167,11 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
-        try { 
-            Registrar.setActionCommand("Fecha de entrada confirmada");
-            String nombre = Nombre_Cliente.getText();
-            String fechaInicio = Entrada.getText();
-            String fechaFin = Salida.getText();
-            int contador = 0;   //Contador para saber las parcelas que se anyaden al jComboBox
-            int idClienteNuevo = c.getLastIdCliente() + 1;
-            
-            if (!c.esFechaValida(fechaFin) || !c.esFechaValida(fechaInicio))
-                JOptionPane.showMessageDialog(this, "La fecha ingresada no es valida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-            else if (c.esFechaPosterior(fechaInicio, fechaFin))
-                JOptionPane.showMessageDialog(this, "Las fechas ingresadas no son validas. Por favor, mirar que las fechas tengan sentido", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-            else
-            {
-                //Reserva reserva = new Reserva(c.getLastIdParcela()+1,fechaInicio, fechaFin, true);
-                Reserva reserva = new Reserva(Integer.parseInt(String.valueOf(Parcelas.getSelectedItem())), idClienteNuevo, fechaInicio, fechaFin, true);
-                Cliente cliente = new Cliente(idClienteNuevo, nombre, "default", 0, false);
-                
-                System.out.println("Parcela seleccionada numero: " + Integer.valueOf(String.valueOf(Parcelas.getSelectedItem())));
-                
-                c.anyadirReserva(reserva);
-                c.getParcela(Integer.parseInt(String.valueOf(Parcelas.getSelectedItem()))-1).setDisponible(false);
-                c.anyadirCliente(cliente);
-
-                JOptionPane.showMessageDialog(null, "Reserva confirmada");
-                
-                limpiarCasillas();
-                Parcelas.removeAllItems();
-                
-                if (c.getNumParcelas() > 0){
-                    for(int i = 0;i < c.getNumParcelas();i++){
-                        if (c.getParcela(i).isDisponible() == true){
-                            Parcelas.addItem(String.valueOf(c.getParcela(i).getId_parcela()));
-                            contador ++;
-                        }
-                    }
-                }
-                
-                if (contador == 0){
-                    JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
-                }
-            }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
+    
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Cancelar.setActionCommand("Cancelando registro...");
-        Encargado_Menu v = new Encargado_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaActionPerformed
@@ -234,20 +179,15 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
     }//GEN-LAST:event_EntradaActionPerformed
 
     private void ParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParcelasActionPerformed
-        //jComboBox1.remove();
-        /*
-        for(int i = 0;i < c.getNumTiendas();i++){
-            jComboBox1.addItem(c.getTienda(i).getNombre());
-        }
-        */
+ 
     }//GEN-LAST:event_ParcelasActionPerformed
 
     private void SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_SalidaActionPerformed
 
     private void Nombre_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nombre_ClienteActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_Nombre_ClienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -273,5 +213,35 @@ public class Encargado_RegistrarEntrada extends javax.swing.JFrame {
 
 	Registrar.addActionListener(ae);
 	Cancelar.addActionListener(ae);
-}
+    }
+    
+    public String getNombre(){
+        return Nombre_Cliente.getText();
+    }
+    
+    public String getFechaEntrada(){
+        return Entrada.getText();
+    }
+    
+    public String getFechaSalida(){
+        return Salida.getText();
+    }
+    
+    public String getParcelaSeleccionada(){
+        return String.valueOf(Parcelas.getSelectedItem());
+    }
+    
+    public void limpiarCasillas(){
+        Nombre_Cliente.setText("");
+        Entrada.setText("");
+        Salida.setText("");
+    }
+    
+    public void borrarListaParcelas(){
+        Parcelas.removeAllItems();
+    }
+    
+    public void addParcela(String idParcela){
+        Parcelas.addItem(idParcela);
+    }
 }

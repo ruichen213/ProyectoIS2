@@ -12,16 +12,17 @@ public class InfoParcela extends javax.swing.JFrame {
     
     public InfoParcela(Camping c) {
         this.ce = c;
-        r = ce.getLastRes();
-        p = ce.getLastPar();
+//r = ce.getLastRes();
+//p = ce.getLastPar();
         
         initComponents();
-        
+        /*
         Superficie.setText(p.getSuperficie()+"");
         Luz.setText(Boolean.toString(p.getLuz()));
         Precio.setText(p.getPrecio()+ "");
         Entrada.setText(r.getFechaInicio());
         Salida.setText(r.getFechaFin());
+*/
         
         botonac.setActionCommand("InfoParcela_BotonAceptar");
         botonac1.setActionCommand("InfoParcela_BotonCerrar");
