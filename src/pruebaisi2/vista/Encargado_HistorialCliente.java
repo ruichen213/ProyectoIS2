@@ -298,11 +298,11 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         ArrayList<Actividad> actividades = new ArrayList<>();
         String parcelasReservadas = "";  //String en el que se almacean los id de las parcelas reservadas para luego mostrarlas
         
-        parcelas = c1.getReservas();        //Todas las parcelas que tiene reservadas el cliente cl
+        parcelas = c.getReservasCliente(c1.getId_cliente());        //Todas las parcelas que tiene reservadas el cliente cl
         actividades = c1.getActividades();  //Todas las actividades que tiene reservadas el cliente cl
         
         for(int i = 0; i < parcelas.size(); i++){
-            parcelasReservadas += parcelas.get(i).getId();
+            parcelasReservadas += parcelas.get(i).getId_parcela();
             
             if(i < parcelas.size()-1){
                 parcelasReservadas += ", ";

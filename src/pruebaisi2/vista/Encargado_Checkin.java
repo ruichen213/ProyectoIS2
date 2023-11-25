@@ -196,7 +196,7 @@ public class Encargado_Checkin extends javax.swing.JFrame {
                 if (c.getNumParcelas() > 0){
                     for(int i = 0;i < c.getNumParcelas();i++){
                         if (c.getParcela(i).isDisponible() == true){
-                            Parcelas.addItem(String.valueOf(c.getParcela(i).getId()));
+                            Parcelas.addItem(String.valueOf(c.getParcela(i).getId_parcela()));
                             contador ++;
                         }
                     }

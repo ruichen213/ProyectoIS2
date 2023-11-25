@@ -4,47 +4,38 @@ import java.util.ArrayList;
 
 public class Cliente {
     private String nombre, contrasenya;      //Nombre del cliente (para poder buscarlo a la hora de hacer el checkout)              
-    private int id, pareja;                                  //Identificador del cliente                         
-    private ArrayList<Actividad> actividadesReservadas = new ArrayList<>(); //Actividades que tiene reservadas el cliente
-    private ArrayList<Parcela> parcelasReservadas = new ArrayList<>();      //Parcelas que tiene reversadas o ha reservado alguna vez
+    private int id_cliente, pareja;                                  //Identificador del cliente                         
+    private ArrayList<Actividad> actividades = new ArrayList<>(); //Actividades que tiene reservadas el cliente
     private boolean asistido = false;               //lo voy a borrar en el siguiente sprint NO SIRVE PARA NADA
     private boolean sancionado = false;
-    private String fechaEntrada, fechaSalida;       //Fechas de entrada y salida oficiales (las que registra el empleado, no las que pone en la reserva)
+
+    
     
     public Cliente (int id, String nombre_, String contrasenya, int pareja, boolean sancionado){
-        this.sancionado = sancionado;
         this.pareja = pareja;
         this.nombre = nombre_;
         this.contrasenya = contrasenya;
-        this.asistido = asistido;
-        this.id = id;
+        this.id_cliente = id;
+        this.sancionado = sancionado;
     }
     
     public Cliente (){
         
     }
     
-    /*
-        Setters
-    */
-    public int getNumParcelas(){
-        return parcelasReservadas.size();
+    public boolean isSancionado() {
+        return sancionado;
     }
-    
-    public String getMostrarParcela(int i){
-        Parcela p = parcelasReservadas.get(i);
-        String cadena = "";
-        
-        cadena = p.getPrecio()+"$, "+p.getSuperficie();
-        
-        return cadena;
+
+    public void setSancionado(boolean sancionado) {
+        this.sancionado = sancionado;
     }
     
     public int getIdActividad(String[] partes){
         int k = 0;
         
-        for (int i = 0; i < actividadesReservadas.size(); i++){
-            Actividad a1 = actividadesReservadas.get(i);
+        for (int i = 0; i < actividades.size(); i++){
+            Actividad a1 = actividades.get(i);
             String dia = a1.getDia();
             String hora = a1.getHora();
             String tipoActividad = a1.getTipoActividad();
@@ -65,20 +56,8 @@ public class Cliente {
         return k;
     }
     
-    public void setSancionado(boolean s){
-        sancionado = s;
-    }
-    
-    public boolean getSancionado(){
-        return sancionado;
-    }
-    
-    public ArrayList<Parcela> getReservas(){
-        return parcelasReservadas;
-    }
-    
     public ArrayList<Actividad> getActividades(){
-        return actividadesReservadas;
+        return actividades;
     }
     
     public void setPareja(int i)
@@ -91,11 +70,11 @@ public class Cliente {
         return pareja;
     }
     public int getNumActividades(){
-        return actividadesReservadas.size();
+        return actividades.size();
     }
     
-    public void setId (int id_){
-        id = id_;
+    public void setId_cliente (int id_){
+        id_cliente = id_;
     }
     
     public String getUsuario(){
@@ -111,11 +90,7 @@ public class Cliente {
     }
     
     public void addActividad(Actividad a){
-        actividadesReservadas.add(a);
-    }
-    
-    public void addParcela(Parcela p){
-        parcelasReservadas.add(p);
+        actividades.add(a);
     }
     
     public boolean getActividadBool()
@@ -129,8 +104,8 @@ public class Cliente {
     /*
         Getters
     */
-    public int getId (){
-        return id;
+    public int getId_cliente (){
+        return id_cliente;
     }
     
     public String getNombre(){
@@ -148,34 +123,22 @@ public class Cliente {
     public void setAsistido(boolean asistido) {
         this.asistido = asistido;
     }
-    
-    /*
-        Devuelve una parcela que tiene el cliente
-    */
-    public Parcela getParcela(int i){
-        return parcelasReservadas.get(i);
-    }
 
     /*
         Devuelve una lista con las actividades que tiene el cliente
     */
     public Actividad getActividades(int i){
-        return actividadesReservadas.get(i);
+        return actividades.get(i);
     }
     
     public int ActividadSize()
     {
-        return actividadesReservadas.size();
+        return actividades.size();
     }
     
     //Quita una actividad de la lista de actividades
     public void quitarActividad(Actividad a){
-        actividadesReservadas.remove(a);
-    }
-    
-    //Quita una parcela de la lista de parcelas
-    public void quitarParcela(Parcela p){
-        parcelasReservadas.remove(p);
+        actividades.remove(a);
     }
 }
 

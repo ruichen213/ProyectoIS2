@@ -5,7 +5,7 @@ public class Tienda {
     private String nombre;      //Nombre de la tienda
     private float superficie;   //Superficie de la tienda
     
-    public Tienda (String nombre_, float superficie_){
+    public Tienda (int id, String nombre_, float superficie_){
         nombre = nombre_;
         superficie = superficie_;
     }

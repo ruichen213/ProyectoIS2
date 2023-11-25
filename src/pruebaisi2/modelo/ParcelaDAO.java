@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class ParcelaDAO {
     public static final String DRIVER = "oracle.jdbc.OracleDriver";
     public static final String DBURL = "jdbc:oracle:thin:@pokemon.uv.es:1521:ORCL";
-    public static final String USERNAME = "GIISGBD208";
-    public static final String PASSWORD = "778778";
+    public static final String USERNAME = "GIISGBD214";
+    public static final String PASSWORD = "Negredo_07";
 
     private static final String CREATE =
         "INSERT INTO ISI2_Parcela (id_parcela, luz, superficie, disponibilidad, id_tienda, id_reserva)" +
@@ -48,7 +48,7 @@ public class ParcelaDAO {
 
             oracleConn.setAutoCommit(false);
             try (PreparedStatement insert = oracleConn.prepareStatement(CREATE)) {
-                insert.setInt(1, parcela.getId());
+                insert.setInt(1, parcela.getId_parcela());
                 insert.setInt(2, parcela.getLuz() ? 1 : 0);
                 insert.setDouble(3, parcela.getSuperficie());
                 insert.setInt(4, parcela.isDisponible() ? 1 : 0);
@@ -73,7 +73,7 @@ public class ParcelaDAO {
                 read.setInt(1, idParcela);
                 try (ResultSet rs = read.executeQuery()) {
                     if (rs.next()) {
-                        parcela.setId(rs.getInt("ID_PARCELA"));
+                        parcela.setId_parcela(rs.getInt("ID_PARCELA"));
                         parcela.setLuz(rs.getInt("LUZ") == 1);
                         parcela.setSuperficie((float) rs.getDouble("SUPERFICIE"));
                         parcela.setDisponible(rs.getInt("DISPONIBILIDAD") == 1);
@@ -93,7 +93,7 @@ public class ParcelaDAO {
 
             oracleConn.setAutoCommit(false);
             try (PreparedStatement update = oracleConn.prepareStatement(UPDATE)) {
-                update.setInt(1, parcela.getId());
+                update.setInt(1, parcela.getId_parcela());
                 update.setInt(2, parcela.getLuz() ? 1 : 0);
                 update.setDouble(3, parcela.getSuperficie());
                 update.setInt(4, parcela.isDisponible() ? 1 : 0);

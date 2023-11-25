@@ -5,9 +5,8 @@ public class Parcela {
     private float precio;       //Precio de la parcela
     private float precioPorMetro = 5;   //Precio que tiene el metro cuadrado
     private boolean luz;        //Si la parcela tiene o no luz
-    private int id;             //Identificador de la parcela
+    private int id_parcela;             //Identificador de la parcela
     private boolean disponible; // Si la parcela esta disponible o no
-    private Tienda t;           //Tienda que se encuentra en la parcela (solo una)
     private int id_tienda, id_reserva;
     
     public Parcela(int id, boolean luz, float superficie, boolean disp, int id_tienda,
@@ -16,7 +15,7 @@ public class Parcela {
         this.id_tienda = id_tienda;
         this.precio = superficie * precioPorMetro;
         this.luz = luz;
-        this.id = id;
+        this.id_parcela = id;
         this.disponible = disp;
         this.id_reserva = id_reserva;
     }
@@ -56,8 +55,8 @@ public class Parcela {
         return luz;
     }
     
-    public int getId (){
-        return id;
+    public int getId_parcela (){
+        return id_parcela;
     }
 
     public boolean isDisponible() {
@@ -79,19 +78,19 @@ public class Parcela {
         luz = luz_;
     }
     
-    public void setId(int id_){
-        id = id_;
+    public void setId_parcela(int id_){
+        id_parcela = id_;
     }
     
     public void setDisponible(boolean disponible_){
         disponible = disponible_;
     }
     
-    public void setTienda (Tienda t_){
-        t = t_;
+    public void setTienda ( int id_tienda){
+        this.id_tienda = id_tienda;
     }
     
-    public String getNombreTienda(){
-           return t.getNombre();
+    public int getNombreTienda(){
+           return id_tienda;
     }
 }

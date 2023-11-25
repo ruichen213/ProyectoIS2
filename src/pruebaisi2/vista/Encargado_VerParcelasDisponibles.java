@@ -38,7 +38,7 @@ public class Encargado_VerParcelasDisponibles extends javax.swing.JFrame {
             if (parcela.isDisponible()) {
                 if(parcela.isDisponible()){
                     modelo.addRow(new Object[]{
-                        parcela.getId(),
+                        parcela.getId_parcela(),
                         parcela.getSuperficie(),
                         parcela.getLuz() ? "Sí" : "No",
                         parcela.getPrecio()
@@ -135,7 +135,7 @@ public class Encargado_VerParcelasDisponibles extends javax.swing.JFrame {
             int parcelaId = (Integer) tablaParcelas.getValueAt(i, 0);
             // Encuentra la parcela por ID y se anyade a la lista de parcelas para reservar
             for (Parcela p : c.getParcelas()) {
-                if (p.getId() == parcelaId) {
+                if (p.getId_parcela() == parcelaId) {
                     parcelasParaReservar.add(p);
                     // Marca la parcela como no disponible
                     p.setDisponible(false);

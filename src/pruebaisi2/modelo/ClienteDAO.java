@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class ClienteDAO {
     public static final String DRIVER = "oracle.jdbc.OracleDriver";
     public static final String DBURL = "jdbc:oracle:thin:@pokemon.uv.es:1521:ORCL";
-    public static final String USERNAME = "GIISGBD208";
-    public static final String PASSWORD = "778778";
+    public static final String USERNAME = "GIISGBD214";
+    public static final String PASSWORD = "Negredo_07";
     /*
      * Consultas Clientes
      *
@@ -57,10 +57,10 @@ public class ClienteDAO {
 
             oracleConn.setAutoCommit(false);
             try (PreparedStatement insert = oracleConn.prepareStatement(CREATE)) {
-                insert.setInt(1, cliente.getId());
+                insert.setInt(1, cliente.getId_cliente());
                 insert.setString(2, cliente.getNombre());
                 insert.setString(3, cliente.getContrasenya());
-                insert.setInt(4, cliente.getSancionado() ? 1 : 0);
+                insert.setInt(4, cliente.isSancionado() ? 1 : 0);
                 insert.setInt(5, cliente.getPareja());
                 insert.executeUpdate();
             }
@@ -82,7 +82,7 @@ public class ClienteDAO {
                 read.setInt(1, idCliente);
                 try (ResultSet rs = read.executeQuery()) {
                     if (rs.next()) {
-                        cliente.setId(rs.getInt("ID_CLIENTE"));
+                        cliente.setId_cliente(rs.getInt("ID_CLIENTE"));
                         cliente.setNombre(rs.getString("NOMBRE"));
                         cliente.setContrasenya(rs.getString("CONTRASENYA"));
                         cliente.setSancionado(rs.getInt("SANCIONADO") == 1);
@@ -102,10 +102,10 @@ public class ClienteDAO {
 
             oracleConn.setAutoCommit(false);
             try (PreparedStatement update = oracleConn.prepareStatement(UPDATE)) {
-                update.setInt(1, cliente.getId());
+                update.setInt(1, cliente.getId_cliente());
                 update.setString(2, cliente.getNombre());
                 update.setString(3, cliente.getContrasenya());
-                update.setInt(4, cliente.getSancionado() ? 1 : 0);
+                update.setInt(4, cliente.isSancionado() ? 1 : 0);
                 update.setInt(5, cliente.getPareja());
                 update.setInt(6, idCliente);
                 update.executeUpdate();
@@ -138,8 +138,7 @@ public class ClienteDAO {
         ArrayList<Cliente> clientes = new ArrayList<>();
         String nombre = "", contrasenya = "";
         int id_cliente = 0, pareja = 0;
-        Boolean sancionado = false;
-
+        boolean sancionado = false;
         try {
             Class.forName(DRIVER).newInstance();
             try (Connection oracleConn = DriverManager.getConnection(DBURL, USERNAME, PASSWORD);
@@ -151,7 +150,7 @@ public class ClienteDAO {
                     id_cliente = rs.getInt("ID_CLIENTE");
                     nombre = rs.getString("NOMBRE");
                     contrasenya = rs.getString("Contrasenya");
-                    sancionado = rs.getInt("SANCIONADO") == 1;
+                   // sancionado = rs.getInt("SANCIONADO") == 1;
                     pareja = rs.getInt("PAREJA");
                     Cliente c = new Cliente(id_cliente, nombre, contrasenya, pareja, sancionado);
                     clientes.add(c);

@@ -15,7 +15,7 @@ public class Camping {
     private ArrayList<Reserva> reservas;
     private ArrayList<Tienda> tiendas;
     private ArrayList<Encargado> encargados;
-    private ArrayList<String> usuario_mas_parcelas;
+//    private ArrayList<String> usuario_mas_parcelas;
     private int idCliente, idEmpleado;
     private ClienteDAO cDao;
     private ParcelaDAO pDAO;
@@ -30,7 +30,7 @@ public class Camping {
         reservas = new ArrayList<Reserva>();
         tiendas = new ArrayList<Tienda>();
         encargados = new ArrayList<Encargado>();
-        usuario_mas_parcelas = new ArrayList<String>();
+//        usuario_mas_parcelas = new ArrayList<String>();
         
         cDao = new ClienteDAO();
         pDAO = new ParcelaDAO();
@@ -164,13 +164,51 @@ public class Camping {
     }
     
     public int getNumParcelasCliente(){
-        Cliente c = clientes.get(idCliente);
-        return c.getNumParcelas();
+        int num = 0;
+        
+        for (Reserva reserva : reservas) {
+            if (reserva.getIdCliente() == idCliente) {
+                int idReserva = reserva.getId(); // Asumiendo que hay un método getIdParcela en Reserva
+                for (Parcela parcela : parcelas) {
+                    if (parcela.getIdReserva() == idReserva) {
+                        num++;
+                    }
+                }
+            }
+        }
+        
+        return num;
     }
     
     public String mostrarParcelaCliente(int idParcelaCliente){
-        Cliente c = clientes.get(idCliente);        
-        return c.getMostrarParcela(idParcelaCliente);
+        String cadena = "";
+        
+        for (Parcela parcela : parcelas) {
+            if (parcela.getId_parcela() == idParcelaCliente) {
+                cadena = parcela.getPrecio()+"$, "+parcela.getSuperficie();
+                break; // Terminamos la búsqueda porque encontramos la parcela asociada a la reserva
+            }
+        }
+
+        return cadena;
+    }
+    
+    public ArrayList<Parcela> getReservasCliente(int id){
+        ArrayList<Parcela> reservasclientes = new ArrayList<Parcela>();
+        
+        for (Reserva reserva : reservas) {
+            if (reserva.getIdCliente() == idCliente) {
+                int idReserva = reserva.getId();
+                for (Parcela parcela : parcelas) {
+                    if (parcela.getIdReserva() == idReserva) {
+                        reservasclientes.add(parcela);
+                    }
+                }
+                
+            }
+        }
+
+        return reservasclientes;
     }
     
     public void setGanadorActividad(String nombreActividad, int idGanador){
@@ -429,7 +467,7 @@ public class Camping {
     }
     
     public int getLastIdParcela(){
-        return parcelas.get(parcelas.size()-1).getId();
+        return parcelas.get(parcelas.size()-1).getId_parcela();
     }
     
     public int getLastIdCliente(){
@@ -457,7 +495,7 @@ public class Camping {
         
         for (int i = 0; i < clientes.size(); i++){
             if(clientes.get(i).getNombre().equalsIgnoreCase(nombre)){
-                id = clientes.get(i).getId();
+                id = clientes.get(i).getId_cliente();
             }
         }
         return id;
@@ -545,10 +583,13 @@ public class Camping {
     public int getPrecioCliente(int idCliente){
         int precioAPagar = 0;
         
-        for (int i = 0; i < clientes.size();i++){
-            if(clientes.get(i).getId() == idCliente){
-                for(int j = 0; j < clientes.get(i).getNumParcelas();j++){
-                    precioAPagar += clientes.get(i).getParcela(j).getPrecio();
+        for (Reserva reserva : reservas) {
+            if (reserva.getIdCliente() == idCliente) {
+                int idReserva = reserva.getId(); // Asumiendo que hay un método getIdParcela en Reserva
+                for (Parcela parcela : parcelas) {
+                    if (parcela.getIdReserva() == idReserva) {
+                        precioAPagar += parcela.getPrecio();
+                    }
                 }
             }
         }

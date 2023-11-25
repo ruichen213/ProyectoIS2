@@ -42,7 +42,7 @@ public class Encargado_Sancion extends javax.swing.JFrame {
             modelo.addRow(new Object[]{
                 pos,
                 cliente.getUsuario(),
-                cliente.getSancionado() ? "Si" : "No"  
+                cliente.isSancionado() ? "Si" : "No"  
             });
             pos++;
         }
