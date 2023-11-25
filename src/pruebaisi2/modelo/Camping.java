@@ -47,6 +47,10 @@ public class Camping {
         clientes = cDao.leerClientes();
         System.out.print("\n\nCLIENTES: " + clientes.size() + "\n\n");
         
+//        for (int){
+//            
+//        }
+        
         parcelas = pDAO.obtenerTodasParcelas();
         System.out.print("\n\nPARCELAS: " + parcelas.size() + "\n\n");
 

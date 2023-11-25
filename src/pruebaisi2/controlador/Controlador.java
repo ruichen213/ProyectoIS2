@@ -190,9 +190,9 @@ public class Controlador {
         public void actionPerformed(ActionEvent e) {
             String key = e.getActionCommand();
             switch (key) {
-                case "menuExportar":
-                    System.out.println("MenuActionListener: Accion '" + key + "' no implementada.");
-                    break;
+//                case "menuExportar":
+//                    System.out.println("MenuActionListener: Accion '" + key + "' no implementada.");
+//                    break;
             }
         } 
        

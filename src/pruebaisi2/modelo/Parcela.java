@@ -8,14 +8,19 @@ public class Parcela {
     private int id;             //Identificador de la parcela
     private boolean disponible; // Si la parcela esta disponible o no
     private Tienda t;           //Tienda que se encuentra en la parcela (solo una)
+    private int id_tienda, id_reserva;
     
-    public Parcela(int id, boolean luz, float superficie, boolean disp) {
+    public Parcela(int id, boolean luz, float superficie, boolean disp, int id_tienda,
+            int id_reserva) {
         this.superficie = superficie;
+        this.id_tienda = id_tienda;
         this.precio = superficie * precioPorMetro;
         this.luz = luz;
         this.id = id;
         this.disponible = disp;
+        this.id_reserva = id_reserva;
     }
+    
     
     public Parcela (){
         
@@ -24,10 +29,25 @@ public class Parcela {
     /*
         Getters
     */
+    public void setIdTienda(int i){
+        id_tienda = i;
+    }
+    
+    public void setIdReserva(int i){
+        id_reserva = i;
+    }
+    
     public float getSuperficie() {
         return superficie;
     }
+    
+    public int getIdTienda(){
+        return id_tienda;
+    }
 
+    public int getIdReserva(){
+        return id_reserva;
+    }
     public float getPrecio() {
         return precio;
     }

@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class ActividadDAO {
     public static final String DRIVER = "oracle.jdbc.OracleDriver";
     public static final String DBURL = "jdbc:oracle:thin:@pokemon.uv.es:1521:ORCL";
-    public static final String USERNAME = "GIISGBD214";
-    public static final String PASSWORD = "Negredo_07";
+    public static final String USERNAME = "GIISGBD208";
+    public static final String PASSWORD = "778778";
     /*
      * Consultas Actividades
      *

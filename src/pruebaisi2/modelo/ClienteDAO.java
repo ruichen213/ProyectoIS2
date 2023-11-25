@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class ClienteDAO {
     public static final String DRIVER = "oracle.jdbc.OracleDriver";
     public static final String DBURL = "jdbc:oracle:thin:@pokemon.uv.es:1521:ORCL";
-    public static final String USERNAME = "GIISGBD214";
-    public static final String PASSWORD = "Negredo_07";
+    public static final String USERNAME = "GIISGBD208";
+    public static final String PASSWORD = "778778";
     /*
      * Consultas Clientes
      *
@@ -148,18 +148,17 @@ public class ClienteDAO {
 
                 while (rs.next()) {
                     System.out.println("Leyendo cliente...");
-                    id_cliente = rs.getInt("Id");
-                    nombre = rs.getString("Nombre");
+                    id_cliente = rs.getInt("ID_CLIENTE");
+                    nombre = rs.getString("NOMBRE");
                     contrasenya = rs.getString("Contrasenya");
-                    sancionado = rs.getInt("Sancionado") == 1;
-                    pareja = rs.getInt("Pareja");
-
+                    sancionado = rs.getInt("SANCIONADO") == 1;
+                    pareja = rs.getInt("PAREJA");
                     Cliente c = new Cliente(id_cliente, nombre, contrasenya, pareja, sancionado);
                     clientes.add(c);
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
-            System.out.println("ParcelaDAO::obtenerTodasParcelas -- " + e.getMessage());
+            System.out.println("ClienteDAO::obtenerTodasClientes -- " + e.getMessage());
         }
         return clientes;
     }
