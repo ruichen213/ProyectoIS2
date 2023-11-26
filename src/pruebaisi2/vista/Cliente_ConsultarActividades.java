@@ -9,7 +9,7 @@ import pruebaisi2.modelo.Parcela;
 public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     private Camping c;
     private ArrayList<Actividad> estadoAnteriorActividades = new ArrayList<>();
-    private int acum = 0;
+    private int acum = 0, idActividadSelec;
     
     public Cliente_ConsultarActividades(Camping c) {
         this.c = c;
@@ -161,6 +161,8 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     
     public void borrarItem(){
         int indiceSeleccionado = jComboBox1.getSelectedIndex();
+        idActividadSelec = indiceSeleccionado;
+        System.out.print("\nPRUEBA: " + idActividadSelec);
         jComboBox1.removeItemAt(indiceSeleccionado);
     }
     
@@ -169,20 +171,21 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     }
     
     public Actividad getActividad(){
-        int id = getIdActividad();
-        Actividad a = c.getActividad(id);
+        //int id = getIdActividad();
+        Actividad a = c.getActividad(idActividadSelec);
+        
+//        System.out.print("\nPRUEBA: " + idActividadSelec);
         
         a.setEstado("libre");
-        a.setIdCliente(-1);
+//        a.setIdCliente(1);
         
         return a;
     }
     
-    public int getIdActividad(){
-        String entrada = (String) jComboBox1.getSelectedItem();
-        String[] partes = entrada.split(", ");
-        return c.averiguarIdActividadCliente(partes);
+    public int getIdClienteActividad(){
+        return c.getIdCliente();
     }
+
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      

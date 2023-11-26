@@ -39,7 +39,7 @@ public class Actividad {
     }
     
     public void setOcupada(){
-        estado = "ocupada";
+        estado = "Ocupada";
     }
     
     public void setEstado(String estado){
@@ -82,7 +82,7 @@ public class Actividad {
         Getters
     */
     public String getFecha (){
-        return hora;
+        return fecha;
     }
     
     public String getUsuario (){

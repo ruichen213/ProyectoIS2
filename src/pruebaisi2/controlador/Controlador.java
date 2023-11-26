@@ -847,6 +847,8 @@ public class Controlador {
                     // Código correspondiente a ClienteMenu_BotonConsultarActividades
                     System.out.println("ClienteMenu_BotonConsultarActividades");
                     
+//                    System.out.print("PRUEBA_getNumAct.. -> " + c.getNumActividadesCliente());
+                    
                     for(int i = 0; i < c.getNumActividadesCliente(); i++){
                         cca.setJComboBoxData(c.mostrarActividad(i));
                     }                    
@@ -890,7 +892,7 @@ public class Controlador {
                     
                     if(cca.getAcumBotonCancelar() != 0){
                         try {
-                            c.actualizarDatosActividades(cca.getActividad(), cca.getIdActividad());
+                            c.actualizarDatosActividades(cca.getActividad(), cca.getIdClienteActividad()+1);
                             c.cargarDatos();
                         } catch (ClassNotFoundException ex) {
                             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
@@ -928,8 +930,8 @@ public class Controlador {
                     
                 case "ClienteConsultarActividades_BotonCancelarActividad":
                     // Código correspondiente a ClienteConsultarActividades_BotonCancelarActividad
-                    cm.setVisible(true);
-                    cca.setVisible(false);
+//                    cm.setVisible(true);
+//                    cca.setVisible(false);
                     
                     String entrada = cca.getJComboBoxText();
                     String[] partes = entrada.split(", ");
@@ -982,7 +984,6 @@ public class Controlador {
                     
                     int idCliente = c.averiguamosCliente(lp.getUsuario(), lp.getContrasenya()); //averiguamso cliente comparando en la base de datos, y devolvemos su pos en el vector.
                     c.setIdCliente(idCliente);
-                    System.out.print("PRUEBA: " + idCliente);
                     
                     int idEmpleado = c.averiguamosEncargado(lp.getUsuario(), lp.getContrasenya());
                     c.setIdEmpleado(idEmpleado);

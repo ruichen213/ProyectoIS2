@@ -97,7 +97,7 @@ public class ActividadDAO {
 ////        return actividad;
 //    }
 
-    public void actualizarActividad(Actividad actividad, int idActividad) throws ClassNotFoundException,
+    public void actualizarActividad(Actividad actividad, int idCliente) throws ClassNotFoundException,
             InstantiationException, IllegalAccessException, SQLException {
 
         Class.forName(DRIVER).newInstance();
@@ -110,8 +110,9 @@ public class ActividadDAO {
                 update.setString(3, actividad.getFecha());
                 update.setString(4, actividad.getHora());
                 update.setString(5, actividad.getEstado());
-                update.setInt(6, actividad.getGanador());
-                update.setInt(7, idActividad);
+                update.setInt(6, idCliente);
+//                update.setInt(6, actividad.getGanador());
+                update.setInt(7,  actividad.getIdActividad());
                 update.executeUpdate();
             }
 

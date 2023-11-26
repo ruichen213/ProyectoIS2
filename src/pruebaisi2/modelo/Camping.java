@@ -72,7 +72,8 @@ public class Camping {
             for (int i = 0; i < actividades.size(); i++){
                 Actividad a = actividades.get(i);
                 if(c.getId_cliente() == a.getIdCliente()){
-                    clientes.get(j).addActividad(a);  
+                    if(a.getEstado().equals("Ocupada"))
+                        clientes.get(j).addActividad(a);  
                 }
             }
         }
@@ -279,16 +280,17 @@ public class Camping {
     
     public String mostrarActividad(int num){
          ArrayList<String> cad = new ArrayList<>();
-    
-        for (int j = 0; j < clientes.size(); j++){
-            Cliente c = clientes.get(j);
+        Cliente c = clientes.get(idCliente);
+            
             for (int i = 0; i < actividades.size(); i++){
                 Actividad a = actividades.get(i);
                 if(c.getId_cliente() == a.getIdCliente()){
-                    cad.add(a.getTipoActividad() + ", " + a.getDia() + ", " + a.getHora());
+                    if(a.getEstado().equals("Ocupada")){
+                        cad.add(a.getTipoActividad() + ", " + a.getDia() + ", " + a.getHora());
+                    }
                 }
             }
-        }
+        
         return cad.get(num);
     }
     
