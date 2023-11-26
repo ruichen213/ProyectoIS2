@@ -16,12 +16,16 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
         jButton1.setActionCommand("ClienteConsultarActividades_BotonGuardarSalir");
         jButton2.setActionCommand("ClienteConsultarActividades_BotonCancelar");
         jButton3.setActionCommand("ClienteConsultarActividades_BotonCancelarActividad");
+        jComboBox1.setActionCommand("ClienteConsultarActividades_JComboBox");
         
-/*
-for(int i = 0; i < c.getNumActividadesCliente(); i++){
-jComboBox1.addItem(c.mostrarActividad(i));
-}
-*/
+//        for(int i = 0; i < c.getNumActividadesCliente(); i++){
+//            jComboBox1.addItem(c.mostrarActividad(i));
+//        }
+        
+    }
+    
+    public void setJComboBoxData(String cad){
+        jComboBox1.addItem(cad);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -139,28 +143,26 @@ jComboBox1.addItem(c.mostrarActividad(i));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Cliente_Menu v = new Cliente_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String entrada = (String) jComboBox1.getSelectedItem();
-        String[] partes = entrada.split(", ");
-        int k = c.averiguarIdActividadCliente(partes);
-        c.cancelarActividadCliente(k);
-        
-        int indiceSeleccionado = jComboBox1.getSelectedIndex();
-        jComboBox1.removeItemAt(indiceSeleccionado);
+//        String entrada = (String) jComboBox1.getSelectedItem();
+//        String[] partes = entrada.split(", ");
+//        int k = c.averiguarIdActividadCliente(partes);
+//        c.cancelarActividadCliente(k);
+//        
+//        int indiceSeleccionado = jComboBox1.getSelectedIndex();
+//        jComboBox1.removeItemAt(indiceSeleccionado);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cliente_Menu v = new Cliente_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -173,9 +175,9 @@ jComboBox1.addItem(c.mostrarActividad(i));
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
+//    public getIem
     public void setActionListener (ActionListener ae){
 	jComboBox1.addActionListener(ae);
-
 	jButton1.addActionListener(ae);
 	jButton2.addActionListener(ae);
 	jButton3.addActionListener(ae);

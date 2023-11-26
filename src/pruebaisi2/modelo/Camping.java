@@ -47,108 +47,122 @@ public class Camping {
         clientes = cDao.leerClientes();
         System.out.print("\n\nCLIENTES: " + clientes.size() + "\n\n");
         
-//        for (int){
-//            
-//        }
-        
         parcelas = pDAO.obtenerTodasParcelas();
         System.out.print("\n\nPARCELAS: " + parcelas.size() + "\n\n");
 
         actividades = aDAO.obtenerTodasActividades();
-        System.out.print("\n\nACTIVIDADES: " + actividades.size() + "\n\n");
+        System.out.print("\n\nACTIVIDADES: " + actividades.get(4).getIdCliente() + "\n\n");
         
         tiendas = tDAO.obtenerTodasTiendas();
         System.out.print("\n\nTIENDAS: " + tiendas.size() + "\n\n");
         
         reservas = rDAO.obtenerTodasReservas();
-        System.out.print("\n\nRESERVAS: " + reservas.size() + "\n\n");        
+        System.out.print("\n\nRESERVAS: " + reservas.size() + "\n\n");   
         
-        // Actividades
-        Actividad actividad1 = new Actividad("Piscina", "10/10/2023", "12:30", "libre");
-        Actividad actividad2 = new Actividad("Fronton", "09/11/2023", "11:30", "ocupada");
-        Actividad actividad3 = new Actividad("Juegos Sociales", "08/08/2023", "10:30", "libre");
-        Actividad actividad4 = new Actividad("Piscina", "12/12/2023", "12:30", "libre");
-        Actividad actividad5 = new Actividad("Fronton", "09/12/2023", "11:30", "ocupada");
-        Actividad actividad6 = new Actividad("Juegos Sociales", "10/08/2023", "10:30", "libre");
-        actividades.add(actividad1);
-        actividades.add(actividad2);
-        actividades.add(actividad3);
-        actividades.add(actividad4);
-        actividades.add(actividad5);
-        actividades.add(actividad6);
-
-        // Índices de actividades
-        actividad1.setId(actividades.indexOf(actividad1) + 1);
-        actividad2.setId(actividades.indexOf(actividad2) + 1);
-
-        // Reservas
-        Reserva reserva1 = new Reserva(1, 1, "12/12/2020", "20/12/2020", true);
-        Reserva reserva2 = new Reserva(2, 2, "07/06/2012", "07/07/2012", true);
-        reservas.add(reserva1);
-        reservas.add(reserva2);
-
-        // Índices de reservas
-        reserva1.setId(reservas.indexOf(reserva1) + 1);
-        reserva2.setId(reservas.indexOf(reserva2) + 1);
-
-        // Tiendas
-        Tienda t1 = new Tienda(0,"Suprema", 20);
-        Tienda t2 = new Tienda(1,"Deluxe", 50);
-        Tienda tienda1 = new Tienda(2,"Tienda1", 100);
-        Tienda tienda2 = new Tienda(3,"Tienda2", 100);
-        Tienda tienda3 = new Tienda(4,"Tienda3", 100);
-        Tienda tienda4 = new Tienda(5,"Tienda4", 100);
-        Tienda tienda5 = new Tienda(6,"Tienda5", 100);
-        Tienda tienda6 = new Tienda(7,"Tienda6", 100);
-        tiendas.add(t1);
-        tiendas.add(t2);
-        tiendas.add(tienda1);
-        tiendas.add(tienda2);
-        tiendas.add(tienda3);
-        tiendas.add(tienda4);
-        tiendas.add(tienda5);
-        tiendas.add(tienda6);
-
-        // Parcelas
-        Parcela parcela1 = new Parcela(1, true, 20, true,0,0);
-        Parcela parcela2 = new Parcela(2, true, 15, false,1,1);
-        Parcela parcela3 = new Parcela(3, true, 10, true,2,0);
-        Parcela parcela4 = new Parcela(4, true, 10, true,3,1);
-
-        parcelas.add(parcela1);
-        parcelas.add(parcela2);
-        parcelas.add(parcela3);
-        parcelas.add(parcela4);
-
-        // Clientes
-        Cliente cliente1 = new Cliente(getLastIdCliente(), "Jose", "1111", 0, false);
-        cliente1.addActividad(actividad1);
-        //parcela1.setTienda(tienda1);
-        //cliente1.addParcela(parcela1);
-        //cliente1.addParcela(parcela2);
-        clientes.add(cliente1);
-
-        Cliente cliente2 = new Cliente(getLastIdCliente(), "Pepe", "2222", 0, true);
-        cliente2.addActividad(actividad1);
-        //parcela2.setTienda(tienda2);
-        //cliente2.addParcela(parcela2);
-        clientes.add(cliente2);
-
-        Cliente cliente3 = new Cliente(getLastIdCliente(), "Marcos", "3333", 0, false);
-        cliente3.addActividad(actividad3);
-        //parcela3.setTienda(tienda3);
-        //cliente3.addParcela(parcela3);
-        clientes.add(cliente3);
-
-        Cliente cliente4 = new Cliente(getLastIdCliente(), "Marcos", "3333", 0, false);
-        cliente4.addActividad(actividad3);
-        //parcela3.setTienda(tienda3);
-        //cliente4.addParcela(parcela3);
-        clientes.add(cliente4);
-
-        // Encargado
-        Encargado enc = new Encargado("Mario", "69");
-        encargados.add(enc);
+        
+        for (int j = 0; j < clientes.size(); j++){
+            Cliente c = clientes.get(j);
+//            System.out.print("\n" + c.getId_cliente() + ":" + a.getIdCliente() + "\n");
+            for (int i = 0; i < actividades.size(); i++){
+                Actividad a = actividades.get(i);
+                if(c.getId_cliente() == a.getIdCliente()){
+                    clientes.get(j).addActividad(a);  
+                }
+            }
+        }
+        
+        System.out.print("\nPRUEBA: " + clientes.get(idCliente).getNumActividades());
+        
+//        for (int i = 0; i < clientes; i++){
+//            
+//        }
+//        
+//        // Actividades
+//        Actividad actividad1 = new Actividad("Piscina", "10/10/2023", "12:30", "libre");
+//        Actividad actividad2 = new Actividad("Fronton", "09/11/2023", "11:30", "ocupada");
+//        Actividad actividad3 = new Actividad("Juegos Sociales", "08/08/2023", "10:30", "libre");
+//        Actividad actividad4 = new Actividad("Piscina", "12/12/2023", "12:30", "libre");
+//        Actividad actividad5 = new Actividad("Fronton", "09/12/2023", "11:30", "ocupada");
+//        Actividad actividad6 = new Actividad("Juegos Sociales", "10/08/2023", "10:30", "libre");
+//        actividades.add(actividad1);
+//        actividades.add(actividad2);
+//        actividades.add(actividad3);
+//        actividades.add(actividad4);
+//        actividades.add(actividad5);
+//        actividades.add(actividad6);
+//
+//        // Índices de actividades
+//        actividad1.setId(actividades.indexOf(actividad1) + 1);
+//        actividad2.setId(actividades.indexOf(actividad2) + 1);
+//
+//        // Reservas
+//        Reserva reserva1 = new Reserva(1, 1, "12/12/2020", "20/12/2020", true);
+//        Reserva reserva2 = new Reserva(2, 2, "07/06/2012", "07/07/2012", true);
+//        reservas.add(reserva1);
+//        reservas.add(reserva2);
+//
+//        // Índices de reservas
+//        reserva1.setId(reservas.indexOf(reserva1) + 1);
+//        reserva2.setId(reservas.indexOf(reserva2) + 1);
+//
+//        // Tiendas
+//        Tienda t1 = new Tienda(0,"Suprema", 20);
+//        Tienda t2 = new Tienda(1,"Deluxe", 50);
+//        Tienda tienda1 = new Tienda(2,"Tienda1", 100);
+//        Tienda tienda2 = new Tienda(3,"Tienda2", 100);
+//        Tienda tienda3 = new Tienda(4,"Tienda3", 100);
+//        Tienda tienda4 = new Tienda(5,"Tienda4", 100);
+//        Tienda tienda5 = new Tienda(6,"Tienda5", 100);
+//        Tienda tienda6 = new Tienda(7,"Tienda6", 100);
+//        tiendas.add(t1);
+//        tiendas.add(t2);
+//        tiendas.add(tienda1);
+//        tiendas.add(tienda2);
+//        tiendas.add(tienda3);
+//        tiendas.add(tienda4);
+//        tiendas.add(tienda5);
+//        tiendas.add(tienda6);
+//
+//        // Parcelas
+//        Parcela parcela1 = new Parcela(1, true, 20, true,0,0);
+//        Parcela parcela2 = new Parcela(2, true, 15, false,1,1);
+//        Parcela parcela3 = new Parcela(3, true, 10, true,2,0);
+//        Parcela parcela4 = new Parcela(4, true, 10, true,3,1);
+//
+//        parcelas.add(parcela1);
+//        parcelas.add(parcela2);
+//        parcelas.add(parcela3);
+//        parcelas.add(parcela4);
+//
+//        // Clientes
+//        Cliente cliente1 = new Cliente(getLastIdCliente(), "Jose", "1111", 0, false);
+//        cliente1.addActividad(actividad1);
+//        //parcela1.setTienda(tienda1);
+//        //cliente1.addParcela(parcela1);
+//        //cliente1.addParcela(parcela2);
+//        clientes.add(cliente1);
+//
+//        Cliente cliente2 = new Cliente(getLastIdCliente(), "Pepe", "2222", 0, true);
+//        cliente2.addActividad(actividad1);
+//        //parcela2.setTienda(tienda2);
+//        //cliente2.addParcela(parcela2);
+//        clientes.add(cliente2);
+//
+//        Cliente cliente3 = new Cliente(getLastIdCliente(), "Marcos", "3333", 0, false);
+//        cliente3.addActividad(actividad3);
+//        //parcela3.setTienda(tienda3);
+//        //cliente3.addParcela(parcela3);
+//        clientes.add(cliente3);
+//
+//        Cliente cliente4 = new Cliente(getLastIdCliente(), "Marcos", "3333", 0, false);
+//        cliente4.addActividad(actividad3);
+//        //parcela3.setTienda(tienda3);
+//        //cliente4.addParcela(parcela3);
+//        clientes.add(cliente4);
+//
+//        // Encargado
+//        Encargado enc = new Encargado("Mario", "69");
+//        encargados.add(enc);
     }
     
     
@@ -156,6 +170,12 @@ public class Camping {
     /*
         Para qusitar
     */
+    
+    public int getIdActividad(){
+        Actividad a = actividades.get(idCliente);
+        return a.getIdActividad();
+    }
+            
     
     public void setSancionCliente(int pos){
         Cliente c1 = clientes.get(pos);
@@ -233,6 +253,7 @@ public class Camping {
     
     public int getNumActividadesCliente(){
         Cliente c1 = clientes.get(idCliente);
+        
         return c1.getNumActividades();
     }
     
@@ -526,7 +547,7 @@ public class Camping {
     public int getLastId(){
         int size = actividades.size();
         if (size > 0) {
-            return actividades.get(2).getId();
+            return actividades.get(2).getIdActividad();
         } else {
             // Manejar el caso en el que la lista esté vacía
             return -1; // o algún valor predeterminado apropiado

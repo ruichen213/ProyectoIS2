@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Cliente {
     private String nombre, contrasenya;      //Nombre del cliente (para poder buscarlo a la hora de hacer el checkout)              
     private int id_cliente, pareja;                                  //Identificador del cliente                         
-    private ArrayList<Actividad> actividades = new ArrayList<>(); //Actividades que tiene reservadas el cliente
+    private ArrayList<Actividad> actividades; //Actividades que tiene reservadas el cliente
     private boolean asistido = false;               //lo voy a borrar en el siguiente sprint NO SIRVE PARA NADA
     private boolean sancionado = false;
 
@@ -17,6 +17,7 @@ public class Cliente {
         this.contrasenya = contrasenya;
         this.id_cliente = id;
         this.sancionado = sancionado;
+        actividades = new ArrayList<Actividad>();
     }
     
     public Cliente (){

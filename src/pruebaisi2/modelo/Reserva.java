@@ -8,6 +8,7 @@ public class Reserva {
     private String fechaInicio;     //Fecha de inicio de la reserva
     private String fechaFin;        //Fecha de fin de la reserva
     private boolean reserva;        //Si la reserva sigue activa o no
+    private ArrayList<Parcela> parcelas;
     
     public Reserva (int id_,int idCliente_, String fechaInicio, String fechaFin, boolean reserva){
         idCliente = idCliente_;
@@ -15,11 +16,16 @@ public class Reserva {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.reserva = reserva;
+        parcelas = new ArrayList<Parcela>();
     }
     
-    public Reserva(){
-    
+    public Reserva(){ // hay q buscar otra forma para esto
     }
+    
+//    public ArrayList<Parcela> getReservaCliente(int id){
+//        
+//         return parcelas;
+//    }
            
     /*
         Getters

@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class ActividadDAO {
     public static final String DRIVER = "oracle.jdbc.OracleDriver";
     public static final String DBURL = "jdbc:oracle:thin:@pokemon.uv.es:1521:ORCL";
-    public static final String USERNAME = "GIISGBD214";
-    public static final String PASSWORD = "Negredo_07";
+    public static final String USERNAME = "GIISGBD208";
+    public static final String PASSWORD = "778778";
     /*
      * Consultas Actividades
      *
@@ -58,7 +58,7 @@ public class ActividadDAO {
 
             oracleConn.setAutoCommit(false);
             try (PreparedStatement insert = oracleConn.prepareStatement(CREATE)) {
-                insert.setInt(1, actividad.getId());
+//                insert.setInt(1, actividad.getId());
                 insert.setString(2, actividad.getTipoActividad());
                 insert.setString(3, actividad.getFecha());
                 insert.setString(4, actividad.getHora());
@@ -72,30 +72,30 @@ public class ActividadDAO {
         }
     }
 
-    public Actividad leerActividad(int idActividad) throws ClassNotFoundException,
-            InstantiationException, IllegalAccessException, SQLException {
-
-        Actividad actividad = new Actividad();
-
-        Class.forName(DRIVER).newInstance();
-        try (Connection oracleConn = DriverManager.getConnection(DBURL, USERNAME, PASSWORD)) {
-
-            try (PreparedStatement read = oracleConn.prepareStatement(READ)) {
-                read.setInt(1, idActividad);
-                try (ResultSet rs = read.executeQuery()) {
-                    if (rs.next()) {
-                        actividad.setId(rs.getInt("ID_ACTIVIDAD"));
-                        actividad.setTipoActividad(rs.getString("TIPO_ACTIVIDAD"));
-                        actividad.setFecha(rs.getString("FECHA"));
-                        actividad.setHora(rs.getString("HORA"));
-                        actividad.setEstado(rs.getString("ESTADO"));
-                        actividad.setGanador(rs.getInt("ID_CLIENTE"));
-                    }
-                }
-            }
-        }
-        return actividad;
-    }
+//    public Actividad leerActividad(int idActividad) throws ClassNotFoundException,
+//            InstantiationException, IllegalAccessException, SQLException {
+//
+////        Actividad actividad = new Actividad();
+//
+//        Class.forName(DRIVER).newInstance();
+//        try (Connection oracleConn = DriverManager.getConnection(DBURL, USERNAME, PASSWORD)) {
+//
+//            try (PreparedStatement read = oracleConn.prepareStatement(READ)) {
+//                read.setInt(1, idActividad);
+//                try (ResultSet rs = read.executeQuery()) {
+//                    if (rs.next()) {
+////                        actividad.setId(rs.getInt("ID_ACTIVIDAD"));
+////                        actividad.setTipoActividad(rs.getString("TIPO_ACTIVIDAD"));
+////                        actividad.setFecha(rs.getString("FECHA"));
+////                        actividad.setHora(rs.getString("HORA"));
+////                        actividad.setEstado(rs.getString("ESTADO"));
+////                        actividad.setGanador(rs.getInt("ID_CLIENTE"));
+//                    }
+//                }
+//            }
+//        }
+////        return actividad;
+//    }
 
     public void actualizarActividad(Actividad actividad, int idActividad) throws ClassNotFoundException,
             InstantiationException, IllegalAccessException, SQLException {
@@ -105,7 +105,7 @@ public class ActividadDAO {
 
             oracleConn.setAutoCommit(false);
             try (PreparedStatement update = oracleConn.prepareStatement(UPDATE)) {
-                update.setInt(1, actividad.getId());
+//                update.setInt(1, actividad.getId());
                 update.setString(2, actividad.getTipoActividad());
                 update.setString(3, actividad.getFecha());
                 update.setString(4, actividad.getHora());
@@ -139,7 +139,9 @@ public class ActividadDAO {
     }
 
 public ArrayList<Actividad> obtenerTodasActividades() {
-    ArrayList<Actividad> listaActividades = new ArrayList<>();
+    ArrayList<Actividad> actividades = new ArrayList<>();
+    String tipoActividad = "", fecha = "", hora = "", estado = "";
+    int idActividad = 0, idCliente = 0;
 
     try {
         Class.forName(DRIVER).newInstance();
@@ -149,15 +151,17 @@ public ArrayList<Actividad> obtenerTodasActividades() {
                  ResultSet rs = statement.executeQuery()) {
 
                 while (rs.next()) {
-                    Actividad actividad = new Actividad();
-                    actividad.setId(rs.getInt("ID_ACTIVIDAD"));
-                    actividad.setTipoActividad(rs.getString("TIPO_ACTIVIDAD"));
-                    actividad.setFecha(rs.getString("FECHA"));
-                    actividad.setHora(rs.getString("HORA"));
-                    actividad.setEstado(rs.getString("ESTADO"));
-                    actividad.setGanador(rs.getInt("ID_CLIENTE"));
-
-                    listaActividades.add(actividad);
+                    
+                    idActividad = rs.getInt("ID_ACTIVIDAD");
+                    tipoActividad = rs.getString("TIPO_ACTIVIDAD");
+                    fecha = rs.getString("FECHA");
+                    hora = rs.getString("HORA");
+                    estado = rs.getString("ESTADO");
+                    idCliente = rs.getInt("ID_CLIENTE");
+                    
+                    Actividad actividad = new Actividad(idActividad, idCliente,
+                    tipoActividad, fecha, hora, estado);
+                    actividades.add(actividad);
                 }
             }
         }
@@ -165,7 +169,7 @@ public ArrayList<Actividad> obtenerTodasActividades() {
         System.out.println("ActividadesDAO::obtenerTodasActividades -- " + e.getMessage());
     }
 
-    return listaActividades;
+    return actividades;
 }
     
     // Resto del código...

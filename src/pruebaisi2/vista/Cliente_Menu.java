@@ -15,7 +15,6 @@ public class Cliente_Menu extends javax.swing.JFrame {
         Comprobar_Reserva.setActionCommand("ClienteMenu_BotonComprobarReserva");
         Reservar_Actividad.setActionCommand("ClienteMenu_BotonReservarActividad");
         Consultar_Actividades.setActionCommand("ClienteMenu_BotonConsultarActividades");
-
         Salir.setActionCommand("ClienteMenu_BotonSalir");
 
     }
@@ -128,33 +127,23 @@ public class Cliente_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Reservar_ActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reservar_ActividadActionPerformed
-        Cliente_ReservarActividades v = new Cliente_ReservarActividades(c);
-        v.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_Reservar_ActividadActionPerformed
 
     private void Realizar_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Realizar_ReservaActionPerformed
-        Cliente_RegistrarReserva v = new Cliente_RegistrarReserva(c);
-        v.setVisible(true);
-        this.dispose();      
+              
     }//GEN-LAST:event_Realizar_ReservaActionPerformed
 
     private void Comprobar_ReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Comprobar_ReservaActionPerformed
-        Cliente_ComprobarReserva cr = new Cliente_ComprobarReserva(c);
-        cr.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_Comprobar_ReservaActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        LoginPrincipal lp = new LoginPrincipal(c);
-        lp.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_SalirActionPerformed
 
     private void Consultar_ActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Consultar_ActividadesActionPerformed
-        Cliente_ConsultarActividades cca = new Cliente_ConsultarActividades(c);
-        cca.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_Consultar_ActividadesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -172,7 +161,6 @@ public class Cliente_Menu extends javax.swing.JFrame {
 	Comprobar_Reserva.addActionListener(ae);
 	Reservar_Actividad.addActionListener(ae);
 	Consultar_Actividades.addActionListener(ae);
-
 	Salir.addActionListener(ae);
 }
 }

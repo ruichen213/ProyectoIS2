@@ -572,7 +572,8 @@ public class Controlador {
                     try { 
                         String dia = eca.getDiaActividad();
                         String hora = eca.getHoraActividad();
-                        String actividad = eca.getActividadSeleccionada();
+                        String tipoActividad = eca.getActividadSeleccionada();
+                        int idActividad = c.getIdActividad(), idCliente = c.getIdCliente();
                         if(!c.esFechaValida(dia)){
                             JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
                         }
@@ -580,7 +581,7 @@ public class Controlador {
                             JOptionPane.showMessageDialog(null, "La hora ingresada no es válida. Por favor, ingrese una hora en el formato HH:mm.", "Hora Invalida", JOptionPane.ERROR_MESSAGE);
                         else
                         {
-                            Actividad a = new Actividad(actividad, dia, hora, "libre");
+                            Actividad a = new Actividad(idActividad, idCliente, tipoActividad, dia, hora, "libre");
                             c.anyadirActividad(a);
                             JOptionPane.showMessageDialog(null, "Actividad creada", "Exito", JOptionPane.ERROR_MESSAGE);
                         }
@@ -783,22 +784,46 @@ public class Controlador {
                 case "ClienteMenu_BotonRealizarReserva":
                     // Código correspondiente a ClienteMenu_BotonRealizarReserva
                     System.out.println("ClienteMenu_BotonRealizarReserva");
+                    cm.setVisible(false);
+                    crr.setVisible(true);
                     break;
                 case "ClienteMenu_BotonComprobarReserva":
                     // Código correspondiente a ClienteMenu_BotonComprobarReserva
                     System.out.println("ClienteMenu_BotonComprobarReserva");
+                    cm.setVisible(false);
+                    ccr.setVisible(true);
                     break;
                 case "ClienteMenu_BotonReservarActividad":
                     // Código correspondiente a ClienteMenu_BotonReservarActividad
                     System.out.println("ClienteMenu_BotonReservarActividad");
+                    cm.setVisible(false);
+                    cra.setVisible(true);
                     break;
                 case "ClienteMenu_BotonConsultarActividades":
                     // Código correspondiente a ClienteMenu_BotonConsultarActividades
                     System.out.println("ClienteMenu_BotonConsultarActividades");
+                    
+                    for(int i = 0; i < c.getNumActividadesCliente(); i++){
+                        cca.setJComboBoxData(c.mostrarActividad(i));//FGDFNGDOLNGVLDNXVBLNDLVBNDLZNBLDZNFDSNFB
+                    }
+                    
+                    cm.setVisible(false);
+                    cca.setVisible(true);
                     break;
+                    
+                 case "ClienteConsultarActividades_JComboBox":
+                    // Código correspondiente a ClienteMenu_BotonConsultarActividades
+                    System.out.println("ClienteConsultarActividades_JComboBox");
+                    
+                    cm.setVisible(false);
+                    cca.setVisible(true);
+                    break;
+                    
                 case "ClienteMenu_BotonSalir":
                     // Código correspondiente a ClienteMenu_BotonSalir
                     System.out.println("ClienteMenu_BotonSalir");
+                    cm.setVisible(false);
+                    lp.setVisible(true);
                     break;
 
                 /* 
@@ -819,10 +844,14 @@ public class Controlador {
                 case "ClienteConsultarActividades_BotonGuardarSalir":
                     // Código correspondiente a ClienteConsultarActividades_BotonGuardarSalir
                     System.out.println("ClienteConsultarActividades_BotonGuardarSalir");
+                    cca.setVisible(false);
+                    cm.setVisible(true);
                     break;
                 case "ClienteConsultarActividades_BotonCancelar":
                     // Código correspondiente a ClienteConsultarActividades_BotonCancelar
                     System.out.println("ClienteConsultarActividades_BotonCancelar");
+                    cca.setVisible(false);
+                    cm.setVisible(true);
                     break;
                 case "ClienteConsultarActividades_BotonCancelarActividad":
                     // Código correspondiente a ClienteConsultarActividades_BotonCancelarActividad
@@ -849,6 +878,7 @@ public class Controlador {
                     
                     int idCliente = c.averiguamosCliente(lp.getUsuario(), lp.getContrasenya()); //averiguamso cliente comparando en la base de datos, y devolvemos su pos en el vector.
                     c.setIdCliente(idCliente);
+                    System.out.print("PRUEBA: " + idCliente);
                     
                     int idEmpleado = c.averiguamosEncargado(lp.getUsuario(), lp.getContrasenya());
                     c.setIdEmpleado(idEmpleado);
