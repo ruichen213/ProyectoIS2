@@ -153,21 +153,21 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        String fechainicio = Fecha_Entrada.getText();
-        String fechafin = Fecha_Salida.getText();
-       
-        if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin)) {
-            JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
-        }
-        else if(c.esFechaPosterior(fechainicio, fechafin))
-            JOptionPane.showMessageDialog(this, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
-        else {
-            Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,fechainicio, fechafin, true);
-            c.anyadirReserva(reserva); 
-            InfoParcela info = new InfoParcela(c);
-            info.setVisible(true);
-            this.dispose();
-        }        
+//        String fechainicio = Fecha_Entrada.getText();
+//        String fechafin = Fecha_Salida.getText();
+//       
+//        if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin)) {
+//            JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
+//        }
+//        else if(c.esFechaPosterior(fechainicio, fechafin))
+//            JOptionPane.showMessageDialog(this, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
+//        else {
+//            Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,fechainicio, fechafin, true);
+//            c.anyadirReserva(reserva); 
+//            InfoParcela info = new InfoParcela(c);
+//            info.setVisible(true);
+//            this.dispose();
+//        }        
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void Fecha_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_EntradaActionPerformed
@@ -175,9 +175,7 @@ public class Cliente_RegistrarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_Fecha_EntradaActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Cliente_Menu v = new Cliente_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void Num_ParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num_ParcelasActionPerformed

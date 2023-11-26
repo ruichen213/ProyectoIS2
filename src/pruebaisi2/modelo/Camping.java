@@ -202,7 +202,8 @@ public class Camping {
         
         for (Parcela parcela : parcelas) {
             if (parcela.getId_parcela() == idParcelaCliente) {
-                cadena = parcela.getPrecio()+"$, "+parcela.getSuperficie();
+                cadena =  String.valueOf(parcela.getId_parcela());
+                //cadena = parcela.getPrecio()+"$, "+parcela.getSuperficie();
                 break; // Terminamos la búsqueda porque encontramos la parcela asociada a la reserva
             }
         }

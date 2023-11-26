@@ -767,14 +767,50 @@ public class Controlador {
                 */
                 case "ClienteReservarActividades_BotonBuscar":
                     // Código correspondiente a ClienteReservarActividades_BotonBuscar
+                    cra.setdia(cra.DiaGetText());
+                    cra.setTipoActividad(cra.ActividadGetItem());
+                    cra.setEstado("libre");
+
+                    for (int i = 0; i < c.cantidadActividades(); i++) {
+                        if(!c.esFechaValida(cra.getdia())) 
+                            JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
+                        else {
+                            if (cra.getdia().equalsIgnoreCase(c.getDiaActividad(i))) {
+                                if (cra.getTipoActividad().equalsIgnoreCase(c.getTipoActividad(i))) {
+                                    if (cra.getEstado().equalsIgnoreCase(c.getEstadoActividad(i))){
+                                        cra.addActividadDisponible(c.mostrarActividad(i));
+                                        cra.setK(i);
+                                    }
+                                }
+                            }                
+                        }
+                    }
+                    
                     System.out.println("ClienteReservarActividades_BotonBuscar");
                     break;
                 case "ClienteReservarActividades_BotonCancelar":
                     // Código correspondiente a ClienteReservarActividades_BotonCancelar
+                    cm.setVisible(true);
+                    cra.setVisible(false);
                     System.out.println("ClienteReservarActividades_BotonCancelar");
                     break;
                 case "ClienteReservarActividades_BotonReservar":
                     // Código correspondiente a ClienteReservarActividades_BotonReservar
+                    cra.setdia(cra.DiaGetText());
+                    cra.setTipoActividad(cra.ActividadGetItem());
+                    if(!c.esFechaValida(cra.getdia())) 
+                        JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Reserva realizada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+                        c.setActividadOcupada(cra.getK());
+                        c.addActividadToCliente(cra.getK());
+
+                        cm.setVisible(true);
+                        cra.setVisible(false);
+                    }
+                    
                     System.out.println("ClienteReservarActividades_BotonReservar");
                     break;
 
@@ -860,6 +896,8 @@ public class Controlador {
                     break;
                 case "ClienteConsultarActividades_BotonCancelarActividad":
                     // Código correspondiente a ClienteConsultarActividades_BotonCancelarActividad
+                    cm.setVisible(true);
+                    cca.setVisible(false);
                     System.out.println("ClienteConsultarActividades_BotonCancelarActividad");
                     break;
 

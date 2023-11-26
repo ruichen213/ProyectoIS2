@@ -1,10 +1,8 @@
 package pruebaisi2.vista;
 
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
-import pruebaisi2.modelo.Actividad;
 import pruebaisi2.modelo.Camping;
-import pruebaisi2.modelo.Reserva;
+
 
 public class Cliente_ReservarActividades extends javax.swing.JFrame {
     private Camping c;
@@ -172,27 +170,11 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_ActividadActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Cliente_Menu v = new Cliente_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void ReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReservarActionPerformed
-        dia = Dia.getText();
-        String actividad = (String)Actividad.getSelectedItem();
-        if(!c.esFechaValida(dia)) 
-            JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-        else
-        {
-            JOptionPane.showMessageDialog(this, "Reserva realizada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
-            c.setActividadOcupada(k);
-            c.addActividadToCliente(k);
-
-            Cliente_Menu cm = new Cliente_Menu(c);
-            cm.setVisible(true);
-            this.dispose();
-        }
     }//GEN-LAST:event_ReservarActionPerformed
 
     private void DiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaActionPerformed
@@ -204,30 +186,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     }//GEN-LAST:event_ActividadesDisponiblesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dia = Dia.getText().trim();
-        tipoActividad = (String) Actividad.getSelectedItem();
-        estado = "libre";
-        
-        for (int i = 0; i < c.cantidadActividades(); i++) {
-            if(!c.esFechaValida(dia)) 
-                JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-//              System.out.println("Dia: |" + dia + "|");
-//              System.out.println("Dia de la actividad: |" + c.getDiaActividad(i) + "|");
-            else {
-                if (dia.equalsIgnoreCase(c.getDiaActividad(i))) {
-    //                System.out.println("Hora: |" + hora + "|");
-    //                System.out.println("Hora de la actividad: |" + c.getFechaActividad(i) + "|");
-                    if (tipoActividad.equalsIgnoreCase(c.getTipoActividad(i))) {
-                        if (estado.equalsIgnoreCase(c.getEstadoActividad(i))){
-                            ActividadesDisponibles.addItem(c.mostrarActividad(i));
-                            k = i;
-                        }
-                    }
-                }
-//                else 
-//                    JOptionPane.showMessageDialog(this, "Pon otra fecha.", "Error", JOptionPane.INFORMATION_MESSAGE);
-            }
-        }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -253,5 +212,49 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
 	jButton1.addActionListener(ae);
 	Cancelar.addActionListener(ae);
 	Reservar.addActionListener(ae);
-}
+    }
+    
+    public String DiaGetText(){
+        return Dia.getText().trim();
+    }
+    
+    public void setdia(String dia){
+        this.dia = dia;
+    }
+    
+    public String getdia(){
+        return dia;
+    }
+    
+    public String ActividadGetItem(){
+        return (String) Actividad.getSelectedItem();
+    }
+    
+    public void setTipoActividad(String tipoActividad){
+        this.tipoActividad = tipoActividad;
+    }
+    
+    public String getTipoActividad(){
+        return tipoActividad;
+    }
+    
+    public void setEstado(String estado){
+        this.estado = estado;
+    }
+    
+    public String getEstado(){
+        return estado;
+    }
+    
+    public void addActividadDisponible(String actividad){
+        ActividadesDisponibles.addItem(actividad);
+    }
+    
+    public void setK(int k){
+        this.k = k;
+    }
+    
+    public int getK(){
+        return k;
+    }
 }
