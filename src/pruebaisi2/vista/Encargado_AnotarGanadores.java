@@ -14,7 +14,6 @@ public class Encargado_AnotarGanadores extends javax.swing.JFrame {
         
         Aceptar.setActionCommand("EncargadoAnotarGanadores_BotonAceptar");
         Cancelar.setActionCommand("EncargadoAnotarGanadores_BotonCancelar");
-
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -131,22 +130,7 @@ public class Encargado_AnotarGanadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        String nombreActividad;
-        String nombreGanador;
-        int idGanador;
         
-        if (!(Actividad.getText() == null) || !(Ganador.getText() == null)){
-            nombreActividad = Actividad.getText();
-            nombreGanador = Ganador.getText();
-            idGanador = c.getIdCliente(nombreGanador);
-            c.setGanadorActividad(nombreActividad, idGanador);
-            JOptionPane.showMessageDialog(null, "Confirmado, el cliente " + idGanador + " ha ganado la actividad " + nombreActividad);
-        }else{
-            JOptionPane.showMessageDialog(null, "Algun campo esta vacio");
-        }
-        
-        //System.out.println("bbbbbbbbbbb" + nombreActividad + "bbbbbbbbbbbbbb");
-        //System.out.println("aaaaaaaaaaa" + idGanador + "aaaaaaaaaaaaaa");  
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void ActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActividadActionPerformed
@@ -158,46 +142,9 @@ public class Encargado_AnotarGanadores extends javax.swing.JFrame {
     }//GEN-LAST:event_GanadorActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Encargado_Menu v = new Encargado_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_CancelarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Encargado_AnotarGanadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Encargado_AnotarGanadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Encargado_AnotarGanadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Encargado_AnotarGanadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Encargado_AnotarGanadores().setVisible(true);
-            }
-        });
-    }
-*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
     private javax.swing.JTextField Actividad;
@@ -215,5 +162,16 @@ public class Encargado_AnotarGanadores extends javax.swing.JFrame {
 
 	Aceptar.addActionListener(ae);
 	Cancelar.addActionListener(ae);
-}
+    }
+    
+    /*
+        Getters
+    */
+    public String getNombreActividad(){
+        return Actividad.getText();
+    }
+    
+    public String getNombreGanador(){
+        return Ganador.getText();
+    }
 }

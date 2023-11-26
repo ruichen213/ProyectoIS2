@@ -39,6 +39,30 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
 
         jLabel4.setText("Precio a pagar:");
 
+        ID_Parcela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ID_ParcelaActionPerformed(evt);
+            }
+        });
+
+        Fecha_Entrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Fecha_EntradaActionPerformed(evt);
+            }
+        });
+
+        Fecha_Salida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Fecha_SalidaActionPerformed(evt);
+            }
+        });
+
+        Precio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrecioActionPerformed(evt);
+            }
+        });
+
         Aceptar.setText("Aceptar");
         Aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,28 +152,28 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        try {    
-            String fechainicio = Fecha_Entrada.getText();
-            String fechafin = Fecha_Salida.getText();
 
-            if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin))
-                JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);  
-            else if(c.esFechaPosterior(fechainicio, fechafin))
-                JOptionPane.showMessageDialog(this, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
-            else {
-                // Poner aqui todas las acciones
-            }  
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Encargado_Checkout v = new Encargado_Checkout(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_CancelarActionPerformed
+
+    private void ID_ParcelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID_ParcelaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ID_ParcelaActionPerformed
+
+    private void Fecha_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_EntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Fecha_EntradaActionPerformed
+
+    private void Fecha_SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Fecha_SalidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Fecha_SalidaActionPerformed
+
+    private void PrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PrecioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
@@ -173,5 +197,24 @@ public class Encargado_CalcularParcela extends javax.swing.JFrame {
 
 	Aceptar.addActionListener(ae);
 	Cancelar.addActionListener(ae);
-}
+    }
+    
+    /*
+        Getters
+    */
+    public String getIdParcela(){
+        return ID_Parcela.getText();
+    }
+    
+    public String getFechaEntrada(){
+        return Fecha_Entrada.getText();
+    }
+    
+    public String getFechaSalida(){
+        return Fecha_Salida.getText();
+    }
+    
+    public String getPrecio(){
+        return Precio.getText();
+    }
 }

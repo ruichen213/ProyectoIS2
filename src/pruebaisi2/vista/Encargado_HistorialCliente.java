@@ -28,48 +28,7 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
         PrecioSin.setEditable(false);
         ID_Parcela.setEditable(false);
     }
-    /*
-        Funcion para comprobar si el cliente ha estado mas de 15 dias y por tanto 
-        se le puede aplicar un descuento
-    */
-    public boolean recibirDescuento (String fechaIni, String fechaFin){
-        boolean descuento;
-        
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        
-        LocalDate fecha1 = LocalDate.parse(fechaIni, formatter);
-        LocalDate fecha2 = LocalDate.parse(fechaFin, formatter);
-        
-        // Calcula la diferencia en días entre las fechas
-        long diferenciaEnDias = ChronoUnit.DAYS.between(fecha1, fecha2);
-
-        // Verifica si la diferencia es mayor a 15 días
-        if (Math.abs(diferenciaEnDias) > 15) {
-            descuento = true;
-        } else {
-            descuento = false;
-        }
-        
-        return descuento;
-    }
     
-    /*
-        Funcion que calcula el precio con el descuento
-    */
-    public float aplicarDescuento (String precioSinDesc, String descuento){
-        float precioConDesc;
-        float aDescontar;
-        float descuento_;
-        float precioSinDesc_;
-        
-        descuento_ = Float.parseFloat(descuento);
-        precioSinDesc_ = Float.parseFloat(precioSinDesc);
-        
-        aDescontar = precioSinDesc_ * (descuento_/100);
-        precioConDesc = precioSinDesc_ - aDescontar;
-        
-        return precioConDesc;
-    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -256,19 +215,11 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        Encargado_Menu v = new Encargado_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_SalirActionPerformed
 
     private void OtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtroActionPerformed
-        Fecha_Entrada.setText("");
-        Fecha_Salida.setText("");
-        PrecioSin.setText("");
-        Nombre.setText("");
-        ID_Parcela.setText("");
         
-        Actividades.removeAllItems();
     }//GEN-LAST:event_OtroActionPerformed
 
     private void PrecioSinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioSinActionPerformed
@@ -292,35 +243,6 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_NombreActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        String nombre = Nombre.getText();
-        Cliente c1 = c.averiguarClienteV2(nombre);
-        ArrayList<Parcela> parcelas = new ArrayList<>();
-        ArrayList<Actividad> actividades = new ArrayList<>();
-        String parcelasReservadas = "";  //String en el que se almacean los id de las parcelas reservadas para luego mostrarlas
-        
-        parcelas = c.getReservasCliente(c1.getId_cliente());        //Todas las parcelas que tiene reservadas el cliente cl
-        actividades = c1.getActividades();  //Todas las actividades que tiene reservadas el cliente cl
-        
-        for(int i = 0; i < parcelas.size(); i++){
-            parcelasReservadas += parcelas.get(i).getId_parcela();
-            
-            if(i < parcelas.size()-1){
-                parcelasReservadas += ", ";
-            }
-        }
-        
-        for(int i = 0; i < actividades.size(); i++){
-            Actividades.addItem(actividades.get(i).getTipoActividad());
-        }
-        
-        ID_Parcela.setText(parcelasReservadas);
-        
-        Fecha_Entrada.setText(c.getFechaEntrada(c.getIdCliente(nombre)));
-        Fecha_Salida.setText(c.getFechaSalida(c.getIdCliente(nombre)));
-               
-        //Anyade el precio de las parcelas que el cliente tiene automaticamente
-        PrecioSin.setText(String.valueOf(c.getPrecioCliente(c.getIdCliente(nombre))));
-        
 
     }//GEN-LAST:event_BuscarActionPerformed
 
@@ -359,6 +281,87 @@ public class Encargado_HistorialCliente extends javax.swing.JFrame {
 	Buscar.addActionListener(ae);
 	Otro.addActionListener(ae);
 	Salir.addActionListener(ae);
-	
-}
+    }
+    /*
+        Funcion para comprobar si el cliente ha estado mas de 15 dias y por tanto 
+        se le puede aplicar un descuento
+    */
+    public boolean recibirDescuento (String fechaIni, String fechaFin){
+        boolean descuento;
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        LocalDate fecha1 = LocalDate.parse(fechaIni, formatter);
+        LocalDate fecha2 = LocalDate.parse(fechaFin, formatter);
+        
+        // Calcula la diferencia en días entre las fechas
+        long diferenciaEnDias = ChronoUnit.DAYS.between(fecha1, fecha2);
+
+        // Verifica si la diferencia es mayor a 15 días
+        if (Math.abs(diferenciaEnDias) > 15) {
+            descuento = true;
+        } else {
+            descuento = false;
+        }
+        
+        return descuento;
+    }
+    
+    /*
+        Funcion que calcula el precio con el descuento
+    */
+    public float aplicarDescuento (String precioSinDesc, String descuento){
+        float precioConDesc;
+        float aDescontar;
+        float descuento_;
+        float precioSinDesc_;
+        
+        descuento_ = Float.parseFloat(descuento);
+        precioSinDesc_ = Float.parseFloat(precioSinDesc);
+        
+        aDescontar = precioSinDesc_ * (descuento_/100);
+        precioConDesc = precioSinDesc_ - aDescontar;
+        
+        return precioConDesc;
+    }
+    
+    public void limpiarDatos(){
+        Fecha_Entrada.setText("");
+        Fecha_Salida.setText("");
+        PrecioSin.setText("");
+        Nombre.setText("");
+        ID_Parcela.setText("");
+        
+        Actividades.removeAllItems();
+    }
+    
+    public void addActividades(String s){
+        Actividades.addItem(s);
+    }
+    
+    /*
+        Getters
+    */
+    public String getNombre(){
+        return Nombre.getText();
+    }
+    
+    /*
+        Setters
+    */
+    public void setFechaEntrada(String s){
+        Fecha_Entrada.setText(s);
+    }
+    
+    public void setFechaSalida(String s){
+        Fecha_Salida.setText(s);
+    }
+    
+    public void setPrecioSinDescuento(String s){
+        PrecioSin.setText(s);
+    }
+    
+    public void setIdParcela(String s){
+        ID_Parcela.setText(s);
+    }
 }

@@ -130,12 +130,24 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="ID_Parcela">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ID_ParcelaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Fecha_Entrada">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Fecha_EntradaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Fecha_Salida">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Fecha_SalidaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="Precio">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrecioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Aceptar">
           <Properties>

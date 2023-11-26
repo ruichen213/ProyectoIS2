@@ -15,6 +15,7 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
         jButton1.setActionCommand("EncargadoCrearActividad_BotonCrear");
         Cancelar.setActionCommand("EncargadoCrearActividad_BotonCancelar");
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,6 +52,18 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
         jLabel4.setText("Hora:");
 
         jLabel5.setText("Actividad:");
+
+        Dia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiaActionPerformed(evt);
+            }
+        });
+
+        Hora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HoraActionPerformed(evt);
+            }
+        });
 
         Actividades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piscina", "Fronton", "Juegos Sociales" }));
         Actividades.addActionListener(new java.awt.event.ActionListener() {
@@ -141,36 +154,24 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Encargado_Menu v = new Encargado_Menu(c);
-        v.setVisible(true);
-        this.dispose();                 
+               
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try { 
-            String dia = Dia.getText();
-            String hora = Hora.getText();
-            String actividad = (String)Actividades.getSelectedItem();
-            if(!c.esFechaValida(dia)){
-                JOptionPane.showMessageDialog(this, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-            }
-            else if (!c.esHoraValida(hora))
-                JOptionPane.showMessageDialog(this, "La hora ingresada no es válida. Por favor, ingrese una hora en el formato HH:mm.", "Hora Invalida", JOptionPane.ERROR_MESSAGE);
-            else
-            {
-                Actividad a = new Actividad(actividad, dia, hora, "libre");
-                c.anyadirActividad(a);
-                JOptionPane.showMessageDialog(this, "Actividad creada", "Exito", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActividadesActionPerformed
 
     }//GEN-LAST:event_ActividadesActionPerformed
+
+    private void DiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DiaActionPerformed
+
+    private void HoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HoraActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Actividades;
@@ -191,5 +192,20 @@ public class Encargado_CrearActividad extends javax.swing.JFrame {
 
 	jButton1.addActionListener(ae);
 	Cancelar.addActionListener(ae);
-}
+    }
+    
+    /*
+        Getters
+    */
+    public String getDiaActividad(){
+        return Dia.getText();
+    }
+    
+    public String getHoraActividad(){
+        return Hora.getText();
+    }
+    
+    public String getActividadSeleccionada(){
+        return String.valueOf(Actividades.getSelectedItem());
+    }
 }

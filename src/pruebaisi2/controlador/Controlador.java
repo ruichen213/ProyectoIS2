@@ -4,9 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import pruebaisi2.modelo.Actividad;
 import pruebaisi2.modelo.Camping;
 import pruebaisi2.modelo.Cliente;
+import pruebaisi2.modelo.Parcela;
 import pruebaisi2.modelo.Reserva;
 import pruebaisi2.vista.Cliente_ComprobarReserva;
 import pruebaisi2.vista.Cliente_ConsultarActividades;
@@ -200,10 +203,41 @@ public class Controlador {
                 case "EncargadoRegistrarSalida_BotonCalcular":
                     // Código correspondiente a EncargadoRegistrarSalida_BotonCalcular
                     System.out.println("EncargadoRegistrarSalida_BotonCalcular");
+                    
+                    float precioFinal;                      //Precio final una vez aplicado el descuento
+                    String fechaInicio, fechaFin, nombre;   //Informacioon del cliente que estamos tratando  
+                    int idCliente1;                          //ID del cliente que estamos tratando
+                    int nParcelas;                          //Cantidad de actividades que tiene el cliente
+                    boolean descuento;                      //Si existe descuento para el cliente o no
+
+                    fechaFin = ers.getFechaSalida();
+                    nombre = ers.getNombre();
+
+                    idCliente1 = c.getIdCliente(nombre);
+                    System.out.println(idCliente1);
+                    fechaInicio = c.getFechaEntrada(idCliente1);
+                    descuento = ers.recibirDescuento(fechaInicio,fechaFin);
+
+                    ers.setFechaEntrada(fechaInicio);
+
+                    if(descuento){
+                        ers.setCajaDescuentoEditable();
+                        ers.setMensajeInformativo("El cliente ha estado mas de 15 dias, tiene derecho a descuento.");
+                    }else{
+                        ers.setMensajeInformativo("El cliente no ha estado mas de 15 dias, no tiene derecho a descuento.");
+                    }
+
+                    //Anyade el precio de las parcelas que el cliente tiene automaticamente
+                    ers.setPrecioSinDescuento(String.valueOf(c.getPrecioCliente(idCliente1)));
+                    
                     break;
                 case "EncargadoRegistrarSalida_BotonCancelar":
                     // Código correspondiente a EncargadoRegistrarSalida_BotonCancelar
                     System.out.println("EncargadoRegistrarSalida_BotonCancelar");
+                    
+                    em.setVisible(true);
+                    ers.setVisible(false);
+                    
                     break;
 
                 /* 
@@ -214,20 +248,17 @@ public class Controlador {
                     System.out.println("EncargadoRegistrarEntrada_BotonRegistrar");
                     
                             try { 
-                                String nombre = ere.getNombre();
-                                String fechaInicio = ere.getFechaEntrada();
-                                String fechaFin = ere.getFechaSalida();
                                 int contador = 0;   //Contador para saber las parcelas que se anyaden al jComboBox
                                 int idClienteNuevo = c.getLastIdCliente() + 1;
 
-                                if (!c.esFechaValida(fechaFin) || !c.esFechaValida(fechaInicio))
+                                if (!c.esFechaValida(ere.getFechaSalida()) || !c.esFechaValida(ere.getFechaEntrada()))
                                     JOptionPane.showMessageDialog(null, "La fecha ingresada no es valida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-                                else if (c.esFechaPosterior(fechaInicio, fechaFin))
+                                else if (c.esFechaPosterior(ere.getFechaEntrada(), ere.getFechaSalida()))
                                     JOptionPane.showMessageDialog(null, "Las fechas ingresadas no son validas. Por favor, mirar que las fechas tengan sentido", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
                                 else
                                 {
-                                    Reserva reserva = new Reserva(Integer.parseInt(ere.getParcelaSeleccionada()), idClienteNuevo, fechaInicio, fechaFin, true);
-                                    Cliente cliente = new Cliente(idClienteNuevo, nombre, "default", 0, false);
+                                    Reserva reserva = new Reserva(Integer.parseInt(ere.getParcelaSeleccionada()), idClienteNuevo, ere.getFechaEntrada(), ere.getFechaSalida(), true);
+                                    Cliente cliente = new Cliente(idClienteNuevo, ere.getNombre(), "default", 0, false);
 
                                     System.out.println("Parcela seleccionada numero: " + Integer.valueOf(ere.getParcelaSeleccionada()));
 
@@ -404,14 +435,50 @@ public class Controlador {
                 case "EncargadoHistorialCliente_BotonBuscar":
                     // Código correspondiente a EncargadoHistorialCliente_BotonBuscar
                     System.out.println("EncargadoHistorialCliente_BotonBuscar");
+                    
+                    Cliente c1 = c.averiguarClienteV2(ehc.getNombre());
+                    ArrayList<Parcela> parcelas = new ArrayList<>();
+                    ArrayList<Actividad> actividades = new ArrayList<>();
+                    String parcelasReservadas = "";                                 //String en el que se almacean los id de las parcelas reservadas para luego mostrarlas
+
+                    parcelas = c.getReservasCliente(c1.getId_cliente());         //Todas las parcelas que tiene reservadas el cliente cl
+                    actividades = c1.getActividades();                              //Todas las actividades que tiene reservadas el cliente cl
+
+                    for(int i = 0; i < parcelas.size(); i++){
+                        parcelasReservadas += parcelas.get(i).getId_parcela();
+
+                        if(i < parcelas.size()-1){
+                            parcelasReservadas += ", ";
+                        }
+                    }
+
+                    for(int i = 0; i < actividades.size(); i++){
+                        ehc.addActividades(actividades.get(i).getTipoActividad());
+                    }
+
+                    ehc.setIdParcela(parcelasReservadas);
+
+                    ehc.setFechaEntrada(c.getFechaEntrada(c.getIdCliente(ehc.getNombre())));
+                    ehc.setFechaSalida(c.getFechaSalida(c.getIdCliente(ehc.getNombre())));
+
+                    //Anyade el precio de las parcelas que el cliente tiene automaticamente
+                    ehc.setPrecioSinDescuento(String.valueOf(c.getPrecioCliente(c.getIdCliente(ehc.getNombre()))));
+                    
                     break;
                 case "EncargadoHistorialCliente_BotonOtro":
                     // Código correspondiente a EncargadoHistorialCliente_BotonOtro
                     System.out.println("EncargadoHistorialCliente_BotonOtro");
+                    
+                    ehc.limpiarDatos();
+                    
                     break;
                 case "EncargadoHistorialCliente_BotonSalir":
                     // Código correspondiente a EncargadoHistorialCliente_BotonSalir
                     System.out.println("EncargadoHistorialCliente_BotonSalir");
+                    
+                    ehc.setVisible(false);
+                    em.setVisible(true);
+                    
                     break;
 
                 /* 
@@ -420,14 +487,42 @@ public class Controlador {
                 case "EncargadoHacerParejas_BotonHacerParejas":
                     // Código correspondiente a EncargadoHacerParejas_BotonHacerParejas
                     System.out.println("EncargadoHacerParejas_BotonHacerParejas");
+                    
+                    String s = ehp.getPersona1();
+                    String s2 = ehp.getPersona2();
+
+                    for( int i = 0; i < c.sizeCl(); i++){
+                        if(c.getCliente(i).getNombre()== s)
+                        {
+                            c.getCliente(i).setPareja(c.getLastParCliente()+1);
+                        }
+                        if( c.getCliente(i).getNombre() == s2)
+                        {  
+                            c.getCliente(i).setPareja(c.getLastParCliente()+1);
+                        }
+                    }
+                    
                     break;
                 case "EncargadoHacerParejas_BotonMostrarParejas":
                     // Código correspondiente a EncargadoHacerParejas_BotonMostrarParejas
                     System.out.println("EncargadoHacerParejas_BotonMostrarParejas");
+                    
+                    for(int i = 0; i < c.sizeCl(); i++)
+                    {
+                        if(c.getCliente(i).getPareja() > 0)
+                        {
+                            System.out.println( "Parejas :" + c.getCliente(i).getNombre() + " " + c.getCliente(i).getPareja());
+                        }
+                    }
+                    
                     break;
                 case "EncargadoHacerParejas_BotonCancelar":
                     // Código correspondiente a EncargadoHacerParejas_BotonCancelar
                     System.out.println("EncargadoHacerParejas_BotonCancelar");
+                    
+                    ehp.setVisible(false);
+                    em.setVisible(true);
+                    
                     break;
 
                 /* 
@@ -448,10 +543,23 @@ public class Controlador {
                 case "EncargadoDatosTienda_BotonAceptar":
                     // Código correspondiente a EncargadoDatosTienda_BotonAceptar
                     System.out.println("EncargadoDatosTienda_BotonAceptar");
+                    
+                    String nombreTienda = edt.getNombreTienda();
+                    float superficieTienda;
+
+                    superficieTienda = c.getSuperficieTienda(nombreTienda);
+                    System.out.println(superficieTienda);
+
+                    edt.setSuperficieTienda(String.valueOf(superficieTienda));
+                    
                     break;
                 case "EncargadoDatosTienda_BotonAtras":
                     // Código correspondiente a EncargadoDatosTienda_BotonAtras
                     System.out.println("EncargadoDatosTienda_BotonAtras");
+                    
+                    edt.setVisible(false);
+                    em.setVisible(true);
+                    
                     break;
 
                 /* 
@@ -460,10 +568,35 @@ public class Controlador {
                 case "EncargadoCrearActividad_BotonCrear":
                     // Código correspondiente a EncargadoCrearActividad_BotonCrear
                     System.out.println("EncargadoCrearActividad_BotonCrear");
+                    
+                    try { 
+                        String dia = eca.getDiaActividad();
+                        String hora = eca.getHoraActividad();
+                        String actividad = eca.getActividadSeleccionada();
+                        if(!c.esFechaValida(dia)){
+                            JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
+                        }
+                        else if (!c.esHoraValida(hora))
+                            JOptionPane.showMessageDialog(null, "La hora ingresada no es válida. Por favor, ingrese una hora en el formato HH:mm.", "Hora Invalida", JOptionPane.ERROR_MESSAGE);
+                        else
+                        {
+                            Actividad a = new Actividad(actividad, dia, hora, "libre");
+                            c.anyadirActividad(a);
+                            JOptionPane.showMessageDialog(null, "Actividad creada", "Exito", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
                     break;
                 case "EncargadoCrearActividad_BotonCancelar":
                     // Código correspondiente a EncargadoCrearActividad_BotonCancelar
                     System.out.println("EncargadoCrearActividad_BotonCancelar");
+                    
+                    eca.setVisible(false);
+                    em.setVisible(true);
+                    
                     break;
 
                 /* 
@@ -472,10 +605,38 @@ public class Controlador {
                 case "EncargadoCheckout_BotonCalcular":
                     // Código correspondiente a EncargadoCheckout_BotonCalcular
                     System.out.println("EncargadoCheckout_BotonCalcular");
+                    
+                    float precioFinal2;
+                    String fechaInicio2, fechaFin2, nombre2;
+                    int idCliente2;
+                    boolean descuento2;
+
+                    fechaFin2 = eco.getFechaSalida();
+                    nombre2 = eco.getNombre();
+
+                    idCliente2 = c.getIdCliente(nombre2);
+                    fechaInicio2 = c.getFechaEntrada(idCliente2);
+                    descuento2 = eco.recibirDescuento(fechaInicio2,fechaFin2);
+
+                    eco.setFechaEntrada(fechaInicio2);
+
+                    if(descuento2){
+                        eco.setCajaDescuentoEditable();
+                        eco.setMensaje("El cliente ha estado mas de 15 dias, tiene derecho a descuento.");
+                    }else{
+                        eco.setMensaje("El cliente no ha estado mas de 15 dias, no tiene derecho a descuento.");
+                    }
+                    
+                    eco.setPrecioSinDescuento(String.valueOf(c.getPrecioCliente(idCliente2)));
+                    
                     break;
                 case "EncargadoCheckout_BotonCancelar":
                     // Código correspondiente a EncargadoCheckout_BotonCancelar
                     System.out.println("EncargadoCheckout_BotonCancelar");
+                    
+                    eco.setVisible(false);
+                    em.setVisible(true);
+                    
                     break;
 
                 /* 
@@ -484,10 +645,56 @@ public class Controlador {
                 case "EncargadoChechin_BotonRegistrar":
                     // Código correspondiente a EncargadoChechin_BotonRegistrar
                     System.out.println("EncargadoChechin_BotonRegistrar");
+                    
+                    try { 
+                        String nombre3 = eci.getNombre();
+                        String fechaInicio3 = eci.getEntrada();
+                        String fechaFin3 = eci.getSalida();
+                        int contador = 0;   //Contador para saber las parcelas que se anyaden al jComboBox
+                        int idClienteNuevo = c.getLastIdCliente() + 1;
+                        
+                        if (!c.esFechaValida(fechaFin3) || !c.esFechaValida(fechaInicio3))
+                            JOptionPane.showMessageDialog(null, "La fecha ingresada no es valida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
+                        else if (c.esFechaPosterior(fechaInicio3, fechaFin3))
+                            JOptionPane.showMessageDialog(null, "Las fechas ingresadas no son validas. Por favor, mirar que las fechas tengan sentido", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
+                        else
+                        {
+                            //Reserva reserva = new Reserva(c.getLastIdParcela()+1,fechaInicio3, fechaFin3, true);
+                            Reserva reserva = new Reserva(Integer.parseInt(eci.getParcelaSeleccionada()), idClienteNuevo, fechaInicio3, fechaFin3, true);
+                            Cliente cliente = new Cliente(idClienteNuevo, nombre3, "default", 0, false);
+                            System.out.println("Parcela seleccionada numero: " + eci.getParcelaSeleccionada());
+                            c.anyadirReserva(reserva);
+                            c.getParcela(Integer.parseInt(eci.getParcelaSeleccionada())-1).setDisponible(false);
+                            c.anyadirCliente(cliente);
+
+                            JOptionPane.showMessageDialog(null, "Reserva confirmada");
+
+                            eci.eliminarItems();
+                            if (c.getNumParcelas() > 0){
+                                for(int i = 0;i < c.getNumParcelas();i++){
+                                    if (c.getParcela(i).isDisponible() == true){
+                                        eci.addParcela(String.valueOf(c.getParcela(i).getId_parcela()));
+                                        contador ++;
+                                    }
+                                }
+                            }
+                            if (contador == 0){
+                                JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
+                            }
+                        }
+                    }
+                    catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
                     break;
                 case "EncargadoChechin_BotonCancelar":
                     // Código correspondiente a EncargadoChechin_BotonCancelar
                     System.out.println("EncargadoChechin_BotonCancelar");
+                    
+                    eci.setVisible(false);
+                    em.setVisible(true);
+                    
                     break;
 
                 /*
@@ -496,10 +703,31 @@ public class Controlador {
                 case "EncargadoCalcularParcela_BotonAceptar":
                     // Código correspondiente a EncargadoCalcularParcela_BotonAceptar
                     System.out.println("EncargadoCalcularParcela_BotonAceptar");
+                    
+                    try {    
+                        String fechainicio = ecp.getFechaEntrada();
+                        String fechafin = ecp.getFechaSalida();
+
+                        if(!c.esFechaValida(fechainicio) || !c.esFechaValida(fechafin))
+                            JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);  
+                        else if(c.esFechaPosterior(fechainicio, fechafin))
+                            JOptionPane.showMessageDialog(null, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
+                        else {
+                            // Poner aqui todas las acciones
+                        }  
+                    }
+                    catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
                     break;
                 case "EncargadoCalcularParcela_BotonCancelar":
                     // Código correspondiente a EncargadoCalcularParcela_BotonCancelar
                     System.out.println("EncargadoCalcularParcela_BotonCancelar");
+                    
+                    ecp.setVisible(false);
+                    em.setVisible(true);
+                    
                     break;
 
                 /* 
@@ -508,10 +736,29 @@ public class Controlador {
                 case "EncargadoAnotarGanadores_BotonAceptar":
                     // Código correspondiente a EncargadoAnotarGanadores_BotonAceptar
                     System.out.println("EncargadoAnotarGanadores_BotonAceptar");
+                    
+                    String nombreActividad;
+                    String nombreGanador;
+                    int idGanador;
+
+                    if (!(eag.getNombreActividad() == null) || !(eag.getNombreGanador() == null)){
+                        nombreActividad = eag.getNombreActividad();
+                        nombreGanador = eag.getNombreGanador();
+                        idGanador = c.getIdCliente(nombreGanador);
+                        c.setGanadorActividad(nombreActividad, idGanador);
+                        JOptionPane.showMessageDialog(null, "Confirmado, el cliente " + idGanador + " ha ganado la actividad " + nombreActividad);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Algun campo esta vacio");
+                    }
+                    
                     break;
                 case "EncargadoAnotarGanadores_BotonCancelar":
                     // Código correspondiente a EncargadoAnotarGanadores_BotonCancelar
                     System.out.println("EncargadoAnotarGanadores_BotonCancelar");
+                    
+                    eag.setVisible(false);
+                    em.setVisible(true);
+                    
                     break;
 
                 /* 

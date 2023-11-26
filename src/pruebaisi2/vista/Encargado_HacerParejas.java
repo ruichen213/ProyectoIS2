@@ -156,35 +156,15 @@ public class Encargado_HacerParejas extends javax.swing.JFrame {
     }//GEN-LAST:event_comb2ActionPerformed
 
     private void HacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HacerActionPerformed
-    String s = String.valueOf(comb1.getSelectedItem());
-    String s2 = String.valueOf(comb2.getSelectedItem());
-
-    for( int i = 0; i < c.sizeCl(); i++){
-        if(c.getCliente(i).getNombre()== s)
-        {
-            c.getCliente(i).setPareja(c.getLastParCliente()+1);
-        }
-        if( c.getCliente(i).getNombre() == s2)
-        {  
-            c.getCliente(i).setPareja(c.getLastParCliente()+1);
-        }
-    }
+   
     }//GEN-LAST:event_HacerActionPerformed
 
     private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
-        for(int i = 0; i < c.sizeCl(); i++)
-        {
-            if(c.getCliente(i).getPareja() > 0)
-            {
-                System.out.println( "Parejas :" + c.getCliente(i).getNombre() + " " + c.getCliente(i).getPareja());
-            }
-        }
+
     }//GEN-LAST:event_MostrarActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Encargado_Menu v = new Encargado_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_CancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -205,5 +185,16 @@ public class Encargado_HacerParejas extends javax.swing.JFrame {
 	Hacer.addActionListener(ae);
 	Mostrar.addActionListener(ae);
 	Cancelar.addActionListener(ae);
-}
+    }
+    
+    /*
+        Getters
+    */
+    public String getPersona1(){
+        return String.valueOf(comb1.getSelectedItem());
+    }
+    
+    public String getPersona2(){
+        return String.valueOf(comb2.getSelectedItem());
+    }
 }
