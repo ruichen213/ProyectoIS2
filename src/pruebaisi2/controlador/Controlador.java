@@ -790,6 +790,11 @@ public class Controlador {
                 case "ClienteMenu_BotonComprobarReserva":
                     // Código correspondiente a ClienteMenu_BotonComprobarReserva
                     System.out.println("ClienteMenu_BotonComprobarReserva");
+                    
+                    for(int i = 0; i < c.getNumParcelasCliente(); i++){
+                        ccr.setParcela(c.mostrarParcelaCliente(i));
+                    }
+                    
                     cm.setVisible(false);
                     ccr.setVisible(true);
                     break;
@@ -863,10 +868,30 @@ public class Controlador {
                 */
                 case "Cliente_BotonBuscar":
                     // Código correspondiente a Cliente_BotonBuscar
+                    
+                    // TODO add your handling code here:
+                    Cliente cliente = c.getCliente(c.getIdCliente());
+                    Parcela p = c.getParcela(Integer.parseInt(ccr.getSelected()));
+                    String pre = "", sup = "";
+
+                    pre += p.getPrecio();
+                    sup += p.getSuperficie();
+
+                    ccr.SupSetText(sup);
+                    ccr.PreSetText(pre);
+                    if (p.getLuz()){
+                        ccr.LuzSetText("Si");
+                    }
+                    else{
+                        ccr.LuzSetText("No");
+                    }
+                    
                     System.out.println("Cliente_BotonBuscar");
                     break;
                 case "Cliente_BotonSalir":
                     // Código correspondiente a Cliente_BotonSalir
+                    cm.setVisible(true);
+                    ccr.setVisible(false);
                     System.out.println("Cliente_BotonSalir");
                     break;
                     
@@ -874,6 +899,7 @@ public class Controlador {
                     LOGIN PRINCIPAL
                 */
                 case "LoginPrincipal_BotonIngresar":
+                                       
                     System.out.println("LoginPrincipal_BotonIngresar");
                     
                     int idCliente = c.averiguamosCliente(lp.getUsuario(), lp.getContrasenya()); //averiguamso cliente comparando en la base de datos, y devolvemos su pos en el vector.

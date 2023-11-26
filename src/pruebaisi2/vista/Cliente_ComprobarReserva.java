@@ -18,9 +18,6 @@ public class Cliente_ComprobarReserva extends javax.swing.JFrame {
         Precio.setEditable(false);
         Luz.setEditable(false);
         
-        for(int i = 0; i < c.getNumParcelasCliente(); i++){
-            Parcelas.addItem(c.mostrarParcelaCliente(i));
-        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -150,83 +147,29 @@ public class Cliente_ComprobarReserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_PrecioActionPerformed
 
     private void SuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuperficieActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_SuperficieActionPerformed
 
     private void LuzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LuzActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_LuzActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        // TODO add your handling code here:
-        Cliente cliente = c.getCliente(c.getIdCliente());
-        Parcela p = c.getParcela(Parcelas.getSelectedIndex());
-        String pre = "", sup = "";
-        
-        pre += p.getPrecio();
-        sup += p.getSuperficie();
-        
-        Superficie.setText(sup);
-        Precio.setText(pre);
-        if (p.getLuz()){
-            Luz.setText("Si");
-        }
-        else{
-            Luz.setText("No");
-        }
         
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void ParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParcelasActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_ParcelasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Cliente_Menu v = new Cliente_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_DatosReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_DatosReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_DatosReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Cliente_DatosReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Cliente_DatosReserva().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar;
@@ -250,5 +193,25 @@ public class Cliente_ComprobarReserva extends javax.swing.JFrame {
 
 	Buscar.addActionListener(ae);
 	jButton1.addActionListener(ae);
-}
+    }
+    
+    public String getSelected(){
+        return String.valueOf(Parcelas.getSelectedItem());
+    }
+    
+    public void setParcela(String i){
+        Parcelas.addItem(i);
+    }
+        
+    public void SupSetText(String i ){
+        Superficie.setText(i);
+    }
+    
+    public void PreSetText(String i) {
+        Precio.setText(i);
+    }
+    
+    public void LuzSetText(String i) {
+        Luz.setText(i);
+    }
 }

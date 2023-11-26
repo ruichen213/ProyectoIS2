@@ -72,7 +72,6 @@ public class Camping {
         }
         
         System.out.print("\nPRUEBA: " + clientes.get(idCliente).getNumActividades());
-        
 //        for (int i = 0; i < clientes; i++){
 //            
 //        }
@@ -184,10 +183,9 @@ public class Camping {
     
     public int getNumParcelasCliente(){
         int num = 0;
-        
         for (Reserva reserva : reservas) {
             if (reserva.getIdCliente() == idCliente) {
-                int idReserva = reserva.getId(); // Asumiendo que hay un método getIdParcela en Reserva
+                int idReserva = reserva.getId();// Asumiendo que hay un método getIdParcela en Reserva
                 for (Parcela parcela : parcelas) {
                     if (parcela.getIdReserva() == idReserva) {
                         num++;
