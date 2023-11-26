@@ -54,7 +54,7 @@ public class ReservaDAO {
 
             oracleConn.setAutoCommit(false);
             try (PreparedStatement insert = oracleConn.prepareStatement(CREATE)) {
-                insert.setInt(1, reserva.getId());
+                insert.setInt(1, reserva.getIdReserva());
                 insert.setString(2, reserva.getFechaInicio());
                 insert.setString(3, reserva.getFechaFin());
                 insert.setInt(4, reserva.isReserva() ? 1 : 0);
@@ -77,7 +77,7 @@ public class ReservaDAO {
                 read.setInt(1, idReserva);
                 try (ResultSet rs = read.executeQuery()) {
                     if (rs.next()) {
-                        reserva.setId(rs.getInt("ID_RESERVA"));
+                        reserva.setIdReserva(rs.getInt("ID_RESERVA"));
                         reserva.setFechaInicio(rs.getString("FECHA_INI"));
                         reserva.setFechaFin(rs.getString("FECHA_FIN"));
                         reserva.setReserva(rs.getInt("RESERVA") == 1);
@@ -95,7 +95,7 @@ public class ReservaDAO {
 
             oracleConn.setAutoCommit(false);
             try (PreparedStatement update = oracleConn.prepareStatement(UPDATE)) {
-                update.setInt(1, reserva.getId());
+                update.setInt(1, reserva.getIdReserva());
                 update.setString(2, reserva.getFechaInicio());
                 update.setString(3, reserva.getFechaFin());
                 update.setInt(4, reserva.isReserva() ? 1 : 0);
@@ -137,7 +137,7 @@ public class ReservaDAO {
 
                     while (rs.next()) {
                         Reserva reserva = new Reserva();
-                        reserva.setId(rs.getInt("ID_RESERVA"));
+                        reserva.setIdReserva(rs.getInt("ID_RESERVA"));
                         reserva.setFechaInicio(rs.getString("FECHA_INI"));
                         reserva.setFechaFin(rs.getString("FECHA_FIN"));
                         reserva.setReserva(rs.getInt("RESERVA") == 1);

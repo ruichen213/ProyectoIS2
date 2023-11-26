@@ -138,7 +138,7 @@ public class ParcelaDAO {
                  ResultSet rs = statement.executeQuery()) {
 
                 while (rs.next()) {
-                    System.out.println("Leyendo parcelas...");
+//                    System.out.println("Leyendo parcelas...");
                     id_parcela = rs.getInt("ID_PARCELA");
                     luz = rs.getInt("LUZ") == 1;
                     superficie = rs.getFloat("SUPERFICIE");

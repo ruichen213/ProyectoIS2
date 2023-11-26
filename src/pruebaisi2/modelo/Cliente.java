@@ -17,11 +17,11 @@ public class Cliente {
         this.contrasenya = contrasenya;
         this.id_cliente = id;
         this.sancionado = sancionado;
-        actividades = new ArrayList<Actividad>();
+        this.actividades = new ArrayList<Actividad>();
     }
     
     public Cliente (){
-        
+        this.actividades = new ArrayList<Actividad>();
     }
     
     public boolean isSancionado() {

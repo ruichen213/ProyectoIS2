@@ -1,5 +1,6 @@
 package pruebaisi2.modelo;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -15,7 +16,6 @@ public class Camping {
     private ArrayList<Reserva> reservas;
     private ArrayList<Tienda> tiendas;
     private ArrayList<Encargado> encargados;
-//    private ArrayList<String> usuario_mas_parcelas;
     private int idCliente, idEmpleado;
     private ClienteDAO cDao;
     private ParcelaDAO pDAO;
@@ -23,14 +23,13 @@ public class Camping {
     private TiendaDAO tDAO;
     private ReservaDAO rDAO;
     
-    public Camping(){
+    public Camping() throws ClassNotFoundException{
         actividades = new ArrayList<Actividad>();
         clientes = new ArrayList<Cliente>();
         parcelas = new ArrayList<Parcela>();
         reservas = new ArrayList<Reserva>();
         tiendas = new ArrayList<Tienda>();
         encargados = new ArrayList<Encargado>();
-//        usuario_mas_parcelas = new ArrayList<String>();
         
         cDao = new ClienteDAO();
         pDAO = new ParcelaDAO();
@@ -44,6 +43,12 @@ public class Camping {
         clientes, parcelas, reservas, tiendas)
     */
     public void cargarDatos() throws ClassNotFoundException{
+        clientes = new ArrayList<>();
+        parcelas = new ArrayList<>();
+        actividades = new ArrayList<>();
+        tiendas = new ArrayList<>();
+        reservas = new ArrayList<>();
+        
         clientes = cDao.leerClientes();
         System.out.print("\n\nCLIENTES: " + clientes.size() + "\n\n");
         
@@ -59,10 +64,11 @@ public class Camping {
         reservas = rDAO.obtenerTodasReservas();
         System.out.print("\n\nRESERVAS: " + reservas.size() + "\n\n");   
         
-        
+        /*
+            Bucle para asignar las correspondientes actividades a sus clientes
+        */
         for (int j = 0; j < clientes.size(); j++){
             Cliente c = clientes.get(j);
-//            System.out.print("\n" + c.getId_cliente() + ":" + a.getIdCliente() + "\n");
             for (int i = 0; i < actividades.size(); i++){
                 Actividad a = actividades.get(i);
                 if(c.getId_cliente() == a.getIdCliente()){
@@ -71,97 +77,18 @@ public class Camping {
             }
         }
         
-        System.out.print("\nPRUEBA: " + clientes.get(idCliente).getNumActividades());
-//        for (int i = 0; i < clientes; i++){
-//            
-//        }
-//        
-//        // Actividades
-//        Actividad actividad1 = new Actividad("Piscina", "10/10/2023", "12:30", "libre");
-//        Actividad actividad2 = new Actividad("Fronton", "09/11/2023", "11:30", "ocupada");
-//        Actividad actividad3 = new Actividad("Juegos Sociales", "08/08/2023", "10:30", "libre");
-//        Actividad actividad4 = new Actividad("Piscina", "12/12/2023", "12:30", "libre");
-//        Actividad actividad5 = new Actividad("Fronton", "09/12/2023", "11:30", "ocupada");
-//        Actividad actividad6 = new Actividad("Juegos Sociales", "10/08/2023", "10:30", "libre");
-//        actividades.add(actividad1);
-//        actividades.add(actividad2);
-//        actividades.add(actividad3);
-//        actividades.add(actividad4);
-//        actividades.add(actividad5);
-//        actividades.add(actividad6);
-//
-//        // Índices de actividades
-//        actividad1.setId(actividades.indexOf(actividad1) + 1);
-//        actividad2.setId(actividades.indexOf(actividad2) + 1);
-//
-//        // Reservas
-//        Reserva reserva1 = new Reserva(1, 1, "12/12/2020", "20/12/2020", true);
-//        Reserva reserva2 = new Reserva(2, 2, "07/06/2012", "07/07/2012", true);
-//        reservas.add(reserva1);
-//        reservas.add(reserva2);
-//
-//        // Índices de reservas
-//        reserva1.setId(reservas.indexOf(reserva1) + 1);
-//        reserva2.setId(reservas.indexOf(reserva2) + 1);
-//
-//        // Tiendas
-//        Tienda t1 = new Tienda(0,"Suprema", 20);
-//        Tienda t2 = new Tienda(1,"Deluxe", 50);
-//        Tienda tienda1 = new Tienda(2,"Tienda1", 100);
-//        Tienda tienda2 = new Tienda(3,"Tienda2", 100);
-//        Tienda tienda3 = new Tienda(4,"Tienda3", 100);
-//        Tienda tienda4 = new Tienda(5,"Tienda4", 100);
-//        Tienda tienda5 = new Tienda(6,"Tienda5", 100);
-//        Tienda tienda6 = new Tienda(7,"Tienda6", 100);
-//        tiendas.add(t1);
-//        tiendas.add(t2);
-//        tiendas.add(tienda1);
-//        tiendas.add(tienda2);
-//        tiendas.add(tienda3);
-//        tiendas.add(tienda4);
-//        tiendas.add(tienda5);
-//        tiendas.add(tienda6);
-//
-//        // Parcelas
-//        Parcela parcela1 = new Parcela(1, true, 20, true,0,0);
-//        Parcela parcela2 = new Parcela(2, true, 15, false,1,1);
-//        Parcela parcela3 = new Parcela(3, true, 10, true,2,0);
-//        Parcela parcela4 = new Parcela(4, true, 10, true,3,1);
-//
-//        parcelas.add(parcela1);
-//        parcelas.add(parcela2);
-//        parcelas.add(parcela3);
-//        parcelas.add(parcela4);
-//
-//        // Clientes
-//        Cliente cliente1 = new Cliente(getLastIdCliente(), "Jose", "1111", 0, false);
-//        cliente1.addActividad(actividad1);
-//        //parcela1.setTienda(tienda1);
-//        //cliente1.addParcela(parcela1);
-//        //cliente1.addParcela(parcela2);
-//        clientes.add(cliente1);
-//
-//        Cliente cliente2 = new Cliente(getLastIdCliente(), "Pepe", "2222", 0, true);
-//        cliente2.addActividad(actividad1);
-//        //parcela2.setTienda(tienda2);
-//        //cliente2.addParcela(parcela2);
-//        clientes.add(cliente2);
-//
-//        Cliente cliente3 = new Cliente(getLastIdCliente(), "Marcos", "3333", 0, false);
-//        cliente3.addActividad(actividad3);
-//        //parcela3.setTienda(tienda3);
-//        //cliente3.addParcela(parcela3);
-//        clientes.add(cliente3);
-//
-//        Cliente cliente4 = new Cliente(getLastIdCliente(), "Marcos", "3333", 0, false);
-//        cliente4.addActividad(actividad3);
-//        //parcela3.setTienda(tienda3);
-//        //cliente4.addParcela(parcela3);
-//        clientes.add(cliente4);
-//
-//        // Encargado
-//        Encargado enc = new Encargado("Mario", "69");
-//        encargados.add(enc);
+        /*
+            Bucle para asignar las correspondientes parcelas a sus reservas
+        */
+        for (int j = 0; j < reservas.size(); j++){ 
+            Reserva r = reservas.get(j);
+            for (int i = 0; i < parcelas.size(); i++){
+                Parcela p = parcelas.get(i);
+                if(r.getIdReserva() == p.getIdReserva()){
+                    reservas.get(j).addParcelas(p);
+                }
+            }
+        }
     }
     
     
@@ -169,6 +96,13 @@ public class Camping {
     /*
         Para qusitar
     */
+    
+    /*
+        Esta funcion actualiza los datos de la base de la tabla Parcelas...
+    */
+    public void actualizarDatosParcelas(Parcela p, int i) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+        pDAO.actualizarParcela(p, i);
+    }
     
     public int getIdActividad(){
         Actividad a = actividades.get(idCliente);
@@ -185,7 +119,7 @@ public class Camping {
         int num = 0;
         for (Reserva reserva : reservas) {
             if (reserva.getIdCliente() == idCliente) {
-                int idReserva = reserva.getId();// Asumiendo que hay un método getIdParcela en Reserva
+                int idReserva = reserva.getIdReserva();// Asumiendo que hay un método getIdParcela en Reserva
                 for (Parcela parcela : parcelas) {
                     if (parcela.getIdReserva() == idReserva) {
                         num++;
@@ -193,7 +127,6 @@ public class Camping {
                 }
             }
         }
-        
         return num;
     }
     
@@ -216,7 +149,7 @@ public class Camping {
         
         for (Reserva reserva : reservas) {
             if (reserva.getIdCliente() == idCliente) {
-                int idReserva = reserva.getId();
+                int idReserva = reserva.getIdReserva();
                 for (Parcela parcela : parcelas) {
                     if (parcela.getIdReserva() == idReserva) {
                         reservasclientes.add(parcela);
@@ -344,14 +277,19 @@ public class Camping {
         actividades.add(a);
     }
     
-    public String mostrarActividad(int i){
-        String cadena = "";
-        Actividad a1 = actividades.get(i);
-        
-        cadena = a1.getTipoActividad() + ", " + a1.getDia()
-                + ", " + a1.getHora();
-        
-        return cadena;
+    public String mostrarActividad(int num){
+         ArrayList<String> cad = new ArrayList<>();
+    
+        for (int j = 0; j < clientes.size(); j++){
+            Cliente c = clientes.get(j);
+            for (int i = 0; i < actividades.size(); i++){
+                Actividad a = actividades.get(i);
+                if(c.getId_cliente() == a.getIdCliente()){
+                    cad.add(a.getTipoActividad() + ", " + a.getDia() + ", " + a.getHora());
+                }
+            }
+        }
+        return cad.get(num);
     }
     
     public String mostrarActiv(int i){
@@ -604,7 +542,7 @@ public class Camping {
         
         for (Reserva reserva : reservas) {
             if (reserva.getIdCliente() == idCliente) {
-                int idReserva = reserva.getId(); // Asumiendo que hay un método getIdParcela en Reserva
+                int idReserva = reserva.getIdReserva(); // Asumiendo que hay un método getIdParcela en Reserva
                 for (Parcela parcela : parcelas) {
                     if (parcela.getIdReserva() == idReserva) {
                         precioAPagar += parcela.getPrecio();
@@ -612,7 +550,6 @@ public class Camping {
                 }
             }
         }
-        
         return precioAPagar;
     }
 }

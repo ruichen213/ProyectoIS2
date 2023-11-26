@@ -20,10 +20,10 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
         Cancelar.setActionCommand("EncargadoMostrarReserva_BotonCancelar");
         Buscar.setActionCommand("EncargadoMostrarReserva_BotonBuscar");
 
-        for(int i = 0; i< c.cantidadActividades(); i++)
-        {
-            Actividad.addItem(c.mostrarActividad(i));
-        }
+//        for(int i = 0; i< c.cantidadActividades(); i++)
+//        {
+//            Actividad.addItem(c.mostrarActividad(i));
+//        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

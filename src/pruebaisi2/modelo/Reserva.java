@@ -3,43 +3,43 @@ package pruebaisi2.modelo;
 import java.util.ArrayList;
 
 public class Reserva {
-    private int id;                 //Identificador de la reserva
+    private int idReserva;                 //Identificador de la reserva
     private int idCliente;          //Identificador del cliente al que pertenece la reserva
     private String fechaInicio;     //Fecha de inicio de la reserva
     private String fechaFin;        //Fecha de fin de la reserva
     private boolean reserva;        //Si la reserva sigue activa o no
     private ArrayList<Parcela> parcelas;
     
-    public Reserva (int id_,int idCliente_, String fechaInicio, String fechaFin, boolean reserva){
-        idCliente = idCliente_;
-        id = id_;
+    public Reserva (int idReserva,int idCliente, String fechaInicio, String fechaFin, boolean reserva){
+        this.idCliente = idCliente;
+        this.idReserva = idReserva;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.reserva = reserva;
-        parcelas = new ArrayList<Parcela>();
+        this.parcelas = new ArrayList<Parcela>();
     }
     
     public Reserva(){ // hay q buscar otra forma para esto
+          this.parcelas = new ArrayList<Parcela>();
     }
     
-//    public ArrayList<Parcela> getReservaCliente(int id){
-//        
-//         return parcelas;
-//    }
+    public void addParcelas(Parcela p){
+        this.parcelas.add(p);
+    }
            
     /*
         Getters
     */
-    public int getId() {
-        return id;
+    public int getIdReserva() {
+        return idReserva;
     }
     
     public int getIdCliente() {
         return idCliente;
     }
     
-    public void setIdCliente(int idCliente){
-        this.idCliente = idCliente;
+    public void setIdCliente(int id){
+        idCliente = id;
     }
     
     public String getFechaInicio() {
@@ -58,8 +58,8 @@ public class Reserva {
         Setters
     */
 
-    public void setId(int id_) {
-        id = id_;
+    public void setIdReserva(int id) {
+        idReserva = id;
     }
     /*
     public void setIdCliente (int idCliente_){

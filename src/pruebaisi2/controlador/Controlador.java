@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pruebaisi2.modelo.Actividad;
 import pruebaisi2.modelo.Camping;
@@ -845,16 +847,8 @@ public class Controlador {
                     System.out.println("ClienteMenu_BotonConsultarActividades");
                     
                     for(int i = 0; i < c.getNumActividadesCliente(); i++){
-                        cca.setJComboBoxData(c.mostrarActividad(i));//FGDFNGDOLNGVLDNXVBLNDLVBNDLZNBLDZNFDSNFB
-                    }
-                    
-                    cm.setVisible(false);
-                    cca.setVisible(true);
-                    break;
-                    
-                 case "ClienteConsultarActividades_JComboBox":
-                    // Código correspondiente a ClienteMenu_BotonConsultarActividades
-                    System.out.println("ClienteConsultarActividades_JComboBox");
+                        cca.setJComboBoxData(c.mostrarActividad(i));
+                    }                    
                     
                     cm.setVisible(false);
                     cca.setVisible(true);
@@ -882,22 +876,58 @@ public class Controlador {
                 /* 
                     CLIENTE_CONSULTARACTIVIDADES
                 */
+                case "ClienteConsultarActividades_JComboBox":
+                    // Código correspondiente a ClienteMenu_BotonConsultarActividades
+                    System.out.println("ClienteConsultarActividades_JComboBox");
+                    cm.setVisible(false);
+                    cca.setVisible(true);
+                    break;
+                    
                 case "ClienteConsultarActividades_BotonGuardarSalir":
                     // Código correspondiente a ClienteConsultarActividades_BotonGuardarSalir
                     System.out.println("ClienteConsultarActividades_BotonGuardarSalir");
+                    
+//                    try {
+//                        c.cargarDatos();
+//                    } catch (ClassNotFoundException ex) {
+//                        Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+                    c.actualizarDatos(cca.getParcela, cca.getIdParcela);
                     cca.setVisible(false);
                     cm.setVisible(true);
                     break;
+
                 case "ClienteConsultarActividades_BotonCancelar":
                     // Código correspondiente a ClienteConsultarActividades_BotonCancelar
                     System.out.println("ClienteConsultarActividades_BotonCancelar");
+                    
+                    if(cca.getAcumBotonCancelar() != 0){
+                        try {
+                            c.cargarDatos();
+                            
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    
+                    cca.borrarDatosJComboBox();
+                    
                     cca.setVisible(false);
                     cm.setVisible(true);
                     break;
+                    
                 case "ClienteConsultarActividades_BotonCancelarActividad":
                     // Código correspondiente a ClienteConsultarActividades_BotonCancelarActividad
                     cm.setVisible(true);
                     cca.setVisible(false);
+                    
+                    String entrada = cca.getJComboBoxText();
+                    String[] partes = entrada.split(", ");
+                    int k = c.averiguarIdActividadCliente(partes);
+                    c.cancelarActividadCliente(k);
+                    cca.borrarItem();
+                    cca.incrementarAcum();
+                    
                     System.out.println("ClienteConsultarActividades_BotonCancelarActividad");
                     break;
 

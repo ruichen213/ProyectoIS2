@@ -35,7 +35,6 @@ import pruebaisi2.vista.Propietario_TiendasParcelas;
 public class GestorCamping {    
     public static void main(String args[]) throws ClassNotFoundException{
         Camping c = new Camping();  //Es nuestro modelo
-        c.cargarDatos();
         
         Cliente_ComprobarReserva ccr = new Cliente_ComprobarReserva(c);
         Cliente_ConsultarActividades cca = new Cliente_ConsultarActividades(c);
@@ -66,9 +65,7 @@ public class GestorCamping {
         Propietario_Menu pm = new Propietario_Menu(c);
         Propietario_TiendasParcelas ptp = new Propietario_TiendasParcelas(c);
         
-        
-        
-        //lp.setVisible(true);
+        c.cargarDatos();
         
         Controlador controlador = new Controlador(c,ccr,cca,cm,crr,cra,eag,ecp,
                                         eci,eco,eca,edt,eej,ehp,ehc,em,emr,ere,
