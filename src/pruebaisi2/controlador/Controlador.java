@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -887,12 +888,22 @@ public class Controlador {
                     // Código correspondiente a ClienteConsultarActividades_BotonGuardarSalir
                     System.out.println("ClienteConsultarActividades_BotonGuardarSalir");
                     
-//                    try {
-//                        c.cargarDatos();
-//                    } catch (ClassNotFoundException ex) {
-//                        Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-                    c.actualizarDatos(cca.getParcela, cca.getIdParcela);
+                    if(cca.getAcumBotonCancelar() != 0){
+                        try {
+                            c.actualizarDatosActividades(cca.getActividad(), cca.getIdActividad());
+                            c.cargarDatos();
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (InstantiationException ex) {
+                            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IllegalAccessException ex) {
+                            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    
+                    cca.borrarDatosJComboBox();
                     cca.setVisible(false);
                     cm.setVisible(true);
                     break;
@@ -911,7 +922,6 @@ public class Controlador {
                     }
                     
                     cca.borrarDatosJComboBox();
-                    
                     cca.setVisible(false);
                     cm.setVisible(true);
                     break;

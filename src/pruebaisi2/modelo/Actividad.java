@@ -30,6 +30,10 @@ public class Actividad {
         return idCliente;
     }
     
+    public void setIdCliente(int i){
+        idCliente = i;
+    }
+    
     public void setFecha (String fecha_){
         fecha = fecha_;
     }

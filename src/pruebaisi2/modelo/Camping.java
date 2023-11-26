@@ -100,8 +100,8 @@ public class Camping {
     /*
         Esta funcion actualiza los datos de la base de la tabla Parcelas...
     */
-    public void actualizarDatosParcelas(Parcela p, int i) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
-        pDAO.actualizarParcela(p, i);
+    public void actualizarDatosActividades(Actividad a, int i) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+        aDAO.actualizarActividad(a, i);
     }
     
     public int getIdActividad(){

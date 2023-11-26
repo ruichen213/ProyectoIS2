@@ -105,7 +105,7 @@ public class ActividadDAO {
 
             oracleConn.setAutoCommit(false);
             try (PreparedStatement update = oracleConn.prepareStatement(UPDATE)) {
-//                update.setInt(1, actividad.getId());
+                update.setInt(1, actividad.getIdActividad());
                 update.setString(2, actividad.getTipoActividad());
                 update.setString(3, actividad.getFecha());
                 update.setString(4, actividad.getHora());

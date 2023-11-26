@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import pruebaisi2.modelo.Actividad;
 import pruebaisi2.modelo.Camping;
+import pruebaisi2.modelo.Parcela;
 
 public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     private Camping c;
@@ -167,19 +168,20 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
         return (String) jComboBox1.getSelectedItem();
     }
     
-    public Parcela getParcela(){
-        Parcela p = ..
+    public Actividad getActividad(){
+        int id = getIdActividad();
+        Actividad a = c.getActividad(id);
         
+        a.setEstado("libre");
+        a.setIdCliente(-1);
         
-        return p;
+        return a;
     }
     
-    public int getIdParcela(){
-        int id;
-        
-        
-    
-        return id;
+    public int getIdActividad(){
+        String entrada = (String) jComboBox1.getSelectedItem();
+        String[] partes = entrada.split(", ");
+        return c.averiguarIdActividadCliente(partes);
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
