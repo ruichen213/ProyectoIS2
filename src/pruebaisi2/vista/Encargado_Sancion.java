@@ -170,22 +170,15 @@ public class Encargado_Sancion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        // TODO add your handling code here:
-        Encargado_Menu lp = new Encargado_Menu(c);
-        lp.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String s = jTextField1.getText();
-        int pos = Integer.parseInt(s);
-        c.setSancionCliente(pos);
-        mostrarParcelasDisponibles(c.getClientes());//la vuelve a dibujar
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -203,5 +196,13 @@ public class Encargado_Sancion extends javax.swing.JFrame {
         
         jButton1.addActionListener(ae);
         Cancelar.addActionListener(ae);
+    }
+    
+    public String JTF1getText(){
+        return jTextField1.getText();
+    }
+    
+    public void mostrarClientesSancionados(ArrayList<Cliente> clientes){
+        mostrarParcelasDisponibles(clientes);
     }
 }

@@ -233,6 +233,9 @@ public class Controlador {
                     //Anyade el precio de las parcelas que el cliente tiene automaticamente
                     ers.setPrecioSinDescuento(String.valueOf(c.getPrecioCliente(idCliente1)));
                     
+                    c.eliminarReserva(idCliente1);
+                    System.out.println(c.getReservas().size());
+                    
                     break;
                 case "EncargadoRegistrarSalida_BotonCancelar":
                     // Código correspondiente a EncargadoRegistrarSalida_BotonCancelar
@@ -243,6 +246,18 @@ public class Controlador {
                     
                     break;
 
+                /*
+                    ENCARGADO SANCIONAR
+                */
+                case"EncargadoSancion_BotonSancionar":
+                    c.setSancionCliente(Integer.parseInt(es.JTF1getText()));
+                    es.mostrarClientesSancionados(c.getClientes());//la vuelve a dibujar
+                    break;
+                case"EncargadoSancion_BotonCancelar":
+                    em.setVisible(true);
+                    es.setVisible(false);
+                    break;
+                    
                 /* 
                     ENCARGADO_REGISTRARENTRADA
                 */
@@ -308,18 +323,54 @@ public class Controlador {
                 */
                 case "EncargadoMostrarReserva_BotonAnyadirCliente":
                     // Código correspondiente a EncargadoMostrarReserva_BotonAnyadirCliente
+                    int id =c.averiguarClienteV2(emr.getGente()).getId_cliente()-1;
+                    
+                    System.out.println(id);
+                    
+                    ehp.Comb1addItem(emr.getGente());
+                    ehp.Comb2addItem(emr.getGente());
+                    
+                    c.getCliente(id).setAsistido(true);
+                    emr.eliminarGente(emr.getGente());
+                    
                     System.out.println("EncargadoMostrarReserva_BotonAnyadirCliente");
                     break;
                 case "EncargadoMostrarReserva_BotonAceptar":
                     // Código correspondiente a EncargadoMostrarReserva_BotonAceptar
+                    ehp.setVisible(true);
+                    emr.setVisible(false);
+                    
                     System.out.println("EncargadoMostrarReserva_BotonAceptar");
                     break;
                 case "EncargadoMostrarReserva_BotonCancelar":
                     // Código correspondiente a EncargadoMostrarReserva_BotonCancelar
+                    emr.setVisible(false);
+                    em.setVisible(true);
                     System.out.println("EncargadoMostrarReserva_BotonCancelar");
                     break;
                 case "EncargadoMostrarReserva_BotonBuscar":
                     // Código correspondiente a EncargadoMostrarReserva_BotonBuscar
+                          
+                    String[] misco = emr.getActividad().split(",");
+
+                    emr.eliminarTodos();
+                    
+                    for (int j = 0; j < c.sizeCl(); j++) {
+                        Cliente clienteActual = c.getCliente(j);
+                        if(c.getCliente(j).isAsistido()==false)
+                        {
+                            for (int k = 0; k < clienteActual.ActividadSize(); k++) {
+                                Actividad actividadActual = clienteActual.getActividades(k);
+
+                                if (misco[0].equals(actividadActual.getTipoActividad())) {
+                                    System.err.println(actividadActual.getTipoActividad());
+                                    emr.addGente(j);
+                                } 
+                            }
+                        }   
+                    }
+                    
+                    
                     System.out.println("EncargadoMostrarReserva_BotonBuscar");
                     break;
 
@@ -420,7 +471,7 @@ public class Controlador {
                     System.out.println("EncargadoMenu_BotonComprobarAsistencia");
                     
                     em.setVisible(false);
-                    eca.setVisible(true);
+                    emr.setVisible(true);
                     
                     break;
 
@@ -445,7 +496,7 @@ public class Controlador {
                     ArrayList<Actividad> actividades = new ArrayList<>();
                     String parcelasReservadas = "";                                 //String en el que se almacean los id de las parcelas reservadas para luego mostrarlas
 
-                    parcelas = c.getReservasCliente(c1.getId_cliente());         //Todas las parcelas que tiene reservadas el cliente cl
+                    parcelas = c.getParcelasCliente(c1.getId_cliente());         //Todas las parcelas que tiene reservadas el cliente cl
                     actividades = c1.getActividades();                              //Todas las actividades que tiene reservadas el cliente cl
 
                     for(int i = 0; i < parcelas.size(); i++){
@@ -484,7 +535,7 @@ public class Controlador {
                     em.setVisible(true);
                     
                     break;
-
+                
                 /* 
                     ENCARGADO_HACERPAREJAS
                 */
@@ -492,19 +543,11 @@ public class Controlador {
                     // Código correspondiente a EncargadoHacerParejas_BotonHacerParejas
                     System.out.println("EncargadoHacerParejas_BotonHacerParejas");
                     
-                    String s = ehp.getPersona1();
-                    String s2 = ehp.getPersona2();
+                    c.averiguarClienteV2(ehp.getPersona1()).setPareja( c.averiguarClienteV2(ehp.getPersona2()).getId_cliente());
+                    c.averiguarClienteV2(ehp.getPersona2()).setPareja( c.averiguarClienteV2(ehp.getPersona1()).getId_cliente());
 
-                    for( int i = 0; i < c.sizeCl(); i++){
-                        if(c.getCliente(i).getNombre()== s)
-                        {
-                            c.getCliente(i).setPareja(c.getLastParCliente()+1);
-                        }
-                        if( c.getCliente(i).getNombre() == s2)
-                        {  
-                            c.getCliente(i).setPareja(c.getLastParCliente()+1);
-                        }
-                    }
+                    ehp.Comb1deleteItem();
+                    ehp.Comb2deleteItem();
                     
                     break;
                 case "EncargadoHacerParejas_BotonMostrarParejas":
@@ -644,7 +687,7 @@ public class Controlador {
                     }
                     
                     eco.setPrecioSinDescuento(String.valueOf(c.getPrecioCliente(idCliente2)));
-                    
+                    c.eliminarReserva(idCliente2);
                     break;
                 case "EncargadoCheckout_BotonCancelar":
                     // Código correspondiente a EncargadoCheckout_BotonCancelar
@@ -665,44 +708,23 @@ public class Controlador {
                     try { 
                         String nombre3 = eci.getNombre();
                         String fechaInicio3 = eci.getEntrada();
-                        String fechaFin3 = eci.getSalida();
-                        int contador = 0;   //Contador para saber las parcelas que se anyaden al jComboBox
-                        int idClienteNuevo = c.getLastIdCliente() + 1;
                         
-                        if (!c.esFechaValida(fechaFin3) || !c.esFechaValida(fechaInicio3))
-                            JOptionPane.showMessageDialog(null, "La fecha ingresada no es valida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-                        else if (c.esFechaPosterior(fechaInicio3, fechaFin3))
-                            JOptionPane.showMessageDialog(null, "Las fechas ingresadas no son validas. Por favor, mirar que las fechas tengan sentido", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-                        else
-                        {
-                            //Reserva reserva = new Reserva(c.getLastIdParcela()+1,fechaInicio3, fechaFin3, true);
-                            Reserva reserva = new Reserva(Integer.parseInt(eci.getParcelaSeleccionada()), idClienteNuevo, fechaInicio3, fechaFin3, true);
-                            Cliente cliente = new Cliente(idClienteNuevo, nombre3, "default", 0, false);
-                            System.out.println("Parcela seleccionada numero: " + eci.getParcelaSeleccionada());
-                            c.anyadirReserva(reserva);
-                            c.getParcela(Integer.parseInt(eci.getParcelaSeleccionada())-1).setDisponible(false);
-                            c.anyadirCliente(cliente);
-
-                            JOptionPane.showMessageDialog(null, "Reserva confirmada");
-
-                            eci.eliminarItems();
-                            if (c.getNumParcelas() > 0){
-                                for(int i = 0;i < c.getNumParcelas();i++){
-                                    if (c.getParcela(i).isDisponible() == true){
-                                        eci.addParcela(String.valueOf(c.getParcela(i).getId_parcela()));
-                                        contador ++;
-                                    }
-                                }
-                            }
-                            if (contador == 0){
-                                JOptionPane.showMessageDialog(null, "Todas las parcelas estan ocupadas, disculpe las molestias");
-                            }
-                        }
+                        for(Reserva reserva: c.getReservasCliente(c.getIdCliente(nombre3))){
+                            if (c.esFechaPosterior(fechaInicio3,reserva.getFechaInicio()))
+                                c.setFechaInicioReserva(reserva.getIdReserva(), fechaInicio3);
+                        }   
+                        
                     }
                     catch (NumberFormatException e) {
                         JOptionPane.showMessageDialog(null, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                     
+                    break;
+                case "EncargadoChechin_BotonBuscar":
+                    String nombre3 = eci.getNombre();
+                    for(Reserva reserva: c.getReservasCliente(c.getIdCliente(nombre3))){
+                        eci.addParcela(String.valueOf(reserva.getIdReserva()));
+                    }
                     break;
                 case "EncargadoChechin_BotonCancelar":
                     // Código correspondiente a EncargadoChechin_BotonCancelar
@@ -1016,9 +1038,6 @@ public class Controlador {
                     
                     int idCliente = c.averiguamosCliente(lp.getUsuario(), lp.getContrasenya()); //averiguamso cliente comparando en la base de datos, y devolvemos su pos en el vector.
                     c.setIdCliente(idCliente);
-                    
-                    int idEmpleado = c.averiguamosEncargado(lp.getUsuario(), lp.getContrasenya());
-                    c.setIdEmpleado(idEmpleado);
                     
                     if(lp.getUsuario().isEmpty() || lp.getContrasenya().isEmpty()){
                         JOptionPane.showMessageDialog(null, "Algun campo esta vacío");

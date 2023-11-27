@@ -21,8 +21,9 @@ public class Encargado_Checkout extends javax.swing.JFrame {
         cancelar.setActionCommand("EncargadoCheckout_BotonCancelar");
         
         jTextField4.setEditable(false);
-        jTextField5.setEditable(false);
+        jTextField3.setEditable(false);
         jTextField7.setEditable(false);
+        jTextField6.setEditable(false);
         jTextField8.setEditable(false);
     }
 
@@ -210,10 +211,6 @@ public class Encargado_Checkout extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
@@ -233,6 +230,10 @@ public class Encargado_Checkout extends javax.swing.JFrame {
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton calcular;
@@ -268,7 +269,7 @@ public class Encargado_Checkout extends javax.swing.JFrame {
     public boolean recibirDescuento (String fechaIni, String fechaFin){
         boolean descuento;
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         
         LocalDate fecha1 = LocalDate.parse(fechaIni, formatter);
         LocalDate fecha2 = LocalDate.parse(fechaFin, formatter);

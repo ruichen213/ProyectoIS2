@@ -4,11 +4,9 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import pruebaisi2.controlador.Controlador;
 
 public class Camping {
     private ArrayList<Actividad> actividades;
@@ -16,8 +14,7 @@ public class Camping {
     private ArrayList<Parcela> parcelas;
     private ArrayList<Reserva> reservas;
     private ArrayList<Tienda> tiendas;
-    private ArrayList<Encargado> encargados;
-    private int idCliente, idEmpleado;
+    private int idCliente;
     private ClienteDAO cDao;
     private ParcelaDAO pDAO;
     private ActividadDAO aDAO;
@@ -30,7 +27,6 @@ public class Camping {
         parcelas = new ArrayList<Parcela>();
         reservas = new ArrayList<Reserva>();
         tiendas = new ArrayList<Tienda>();
-        encargados = new ArrayList<Encargado>();
         
         cDao = new ClienteDAO();
         pDAO = new ParcelaDAO();
@@ -57,7 +53,7 @@ public class Camping {
         System.out.print("\n\nPARCELAS: " + parcelas.size() + "\n\n");
 
         actividades = aDAO.obtenerTodasActividades();
-        System.out.print("\n\nACTIVIDADES: " + actividades.get(4).getIdCliente() + "\n\n");
+        System.out.print("\n\nACTIVIDADES: " + actividades.size()+ "\n\n");
         
         tiendas = tDAO.obtenerTodasTiendas();
         System.out.print("\n\nTIENDAS: " + tiendas.size() + "\n\n");
@@ -93,7 +89,73 @@ public class Camping {
         }
     }
     
-    
+    public void ActualizarDatos()throws ClassNotFoundException{
+        
+        for(Cliente cliente:clientes){
+            try {
+                int id = cliente.getId_cliente();
+                cDao.actualizarCliente(cliente, id);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        for(Reserva reserva:reservas){
+            try {
+                int id = reserva.getIdReserva();
+                rDAO.actualizarReserva(reserva, id);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        for(Actividad actividad: actividades){
+            try {
+                int id = actividad.getIdActividad();
+                aDAO.actualizarActividad(actividad, id);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        for(Parcela parcela: parcelas){
+            try {
+                int id = parcela.getId_parcela();
+                pDAO.actualizarParcela(parcela, id);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        for(Tienda tienda: tiendas){
+            try {
+                int id = tienda.getId();
+                tDAO.actualizarTienda(tienda, id);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     
     /*
         Para qusitar
@@ -120,14 +182,14 @@ public class Camping {
     public int getNumParcelasCliente(){
         int num = 0;
         for (Reserva reserva : reservas) {
-            System.out.print("\n"+reserva.getIdCliente()+":"+idCliente+"\n");
+            //System.out.print("\n"+reserva.getIdCliente()+":"+idCliente+"\n");
             if (reserva.getIdCliente() == (idCliente+1)) {
                 int idReserva = reserva.getIdReserva();// Asumiendo que hay un método getIdParcela en Reserva
                 
                 for (Parcela parcela : parcelas) {
                     if (parcela.getIdReserva() == idReserva) {
                         num++;
-                        System.out.print("NUM-----> " + num);
+                        //System.out.print("NUM-----> " + num);
                     }
                 }
             }
@@ -147,7 +209,7 @@ public class Camping {
         return cadena;
     }
     
-    public ArrayList<Parcela> getReservasCliente(int id){
+    public ArrayList<Parcela> getParcelasCliente(int id){
         ArrayList<Parcela> reservasclientes = new ArrayList<Parcela>(); 
         for (Reserva reserva : reservas) {
             if (reserva.getIdCliente() == id) {
@@ -158,6 +220,16 @@ public class Camping {
                     }
                 }
                 
+            }
+        }
+        return reservasclientes;
+    }
+    
+    public ArrayList<Reserva> getReservasCliente(int id){
+        ArrayList<Reserva> reservasclientes = new ArrayList<Reserva>(); 
+        for (Reserva reserva : reservas) {
+            if (reserva.getIdCliente() == id) {
+                        reservasclientes.add(reserva); 
             }
         }
         return reservasclientes;
@@ -200,10 +272,6 @@ public class Camping {
         Cliente c1 = clientes.get(i);
         return c1.getUsuario();
     }
-    public String getEmpleadoUsuario(int i){
-        Encargado c1 = encargados.get(i);
-        return c1.getNombre();
-    }
     
     public ArrayList<Cliente> getClientes(){
         return clientes;
@@ -211,11 +279,8 @@ public class Camping {
     
     public String getClienteContrasenya(int i){
         Cliente c1 = clientes.get(i);
-        return c1.getContrasenya(); }
-    
-    public String getEmpleadoContrasenya(int i){
-        Encargado c1 = encargados.get(i);
-        return c1.getContrasenya(); }
+        return c1.getContrasenya(); 
+    }
     
     public int averiguamosCliente(String u, String p){
         int pos = -9999;
@@ -239,18 +304,6 @@ public class Camping {
         return clientes.get(pos);
     }
     
-     public int averiguamosEncargado(String u, String p){
-        int pos = -9999;
-        
-        for (int i = 0; i < encargados.size(); i++){
-            if (u.equals(getEmpleadoUsuario(i)) && p.equals(getEmpleadoContrasenya(i))){
-                pos = i;
-            }
-        }
-        
-        return pos;
-    }
-    
     public void retirarParcela(int id_){
         // ?
     }
@@ -261,11 +314,6 @@ public class Camping {
     
     public void setIdCliente(int i){
         this.idCliente = i;
-    }
-    
-    public void setIdEmpleado(int i)
-    {
-        this.idEmpleado = i;
     }
     
     public int getIdCliente(){
@@ -292,6 +340,10 @@ public class Camping {
             }
         
         return cad.get(num);
+    }
+    
+    public void setFechaInicioReserva(int id, String fecha){
+        reservas.get(id).setFechaInicio(fecha);
     }
     
     public String mostrarActiv(int i){
@@ -399,27 +451,26 @@ public class Camping {
         return tiendas.get(indice);
     }
     
-public float getSuperficieTienda(String nombreTienda){
-    float superficie = 0;
-    boolean encontrada = false;
+    public float getSuperficieTienda(String nombreTienda){
+        float superficie = 0;
 
-    for (int i = 0; i < tiendas.size(); i++) {
-        if (tiendas.get(i).getNombre().equals(nombreTienda)) {
-            superficie = tiendas.get(i).getSuperficie();
-            encontrada = true;
-            // Si llegamos aquí, se encontró una tienda y superficie se ha actualizado correctamente
-            System.out.println("Superficie de la tienda encontrada: " + superficie);
-            break;  // Termina el bucle una vez que se encuentra la tienda
-        }else{
-            JOptionPane.showMessageDialog(null, "Error: Hubo un problema al buscar la tienda.", "Nombre Invalido", JOptionPane.ERROR_MESSAGE);
+        for (int i = 0; i < tiendas.size(); i++) {
+            if (tiendas.get(i).getNombre().equals(nombreTienda)) {
+                superficie = tiendas.get(i).getSuperficie();
+                break;  // Termina el bucle una vez que se encuentra la tienda
+            }else{
+                JOptionPane.showMessageDialog(null, "Error: Hubo un problema al buscar la tienda.", "Nombre Invalido", JOptionPane.ERROR_MESSAGE);
 
+            }
         }
+
+        return superficie;
     }
 
-    return superficie;
-}
-
-     
+    public int sizePar(){
+        return parcelas.size();
+    }
+    
     public Parcela getLastPar()
     {
         return parcelas.get(parcelas.size()-1);     
@@ -446,6 +497,13 @@ public float getSuperficieTienda(String nombreTienda){
             id = clientes.size()+1;
         
         return id;
+    }
+    
+    public void eliminarReserva(int idCliente){
+        for(int i = 0; i < reservas.size();i++){
+            if(reservas.get(i).getIdCliente() == idCliente)
+                reservas.remove(i);
+        }
     }
     
      public int getLastParCliente(){
@@ -539,8 +597,6 @@ public float getSuperficieTienda(String nombreTienda){
             }
         } 
         catch (ParseException e) {
-            // Manejo de error si alguna de las fechas no es válida
-            e.printStackTrace();
             return false;
         }
     }

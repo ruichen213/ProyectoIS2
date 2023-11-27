@@ -37,7 +37,7 @@ public class Propietario_HistorialReservas extends javax.swing.JFrame {
         
         // Agrega las parcelas disponibles al modelo
         for (Cliente cliente : clientes) {
-            for (Parcela Pracela : c.getReservasCliente(cliente.getId_cliente())) {
+            for (Parcela Pracela : c.getParcelasCliente(cliente.getId_cliente())) {
                 modelo.addRow(new Object[]{
                     Pracela.getId_parcela(),
                     cliente.getUsuario(),

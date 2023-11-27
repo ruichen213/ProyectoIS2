@@ -19,11 +19,6 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
         Aceptar.setActionCommand("EncargadoMostrarReserva_BotonAceptar");
         Cancelar.setActionCommand("EncargadoMostrarReserva_BotonCancelar");
         Buscar.setActionCommand("EncargadoMostrarReserva_BotonBuscar");
-
-//        for(int i = 0; i< c.cantidadActividades(); i++)
-//        {
-//            Actividad.addItem(c.mostrarActividad(i));
-//        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -67,10 +62,11 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
 
         jLabel4.setText("Gente asistida:");
 
-        jLabel2.setText("ID Actividad: ");
+        jLabel2.setText("Tipo Actividad: ");
 
         jLabel1.setText("Contrastar reservas");
 
+        Actividad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piscina", "Fronton", "Juegos Sociales" }));
         Actividad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ActividadActionPerformed(evt);
@@ -84,7 +80,6 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
         });
 
         Buscar.setText("Buscar");
-        Buscar.setActionCommand("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarActionPerformed(evt);
@@ -163,27 +158,15 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        Encargado_HacerParejas v = new Encargado_HacerParejas(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Encargado_Menu v = new Encargado_Menu(c);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String gente = (String) Gente.getSelectedItem();
-        for(int i = 0; i < c.sizeCl(); i++)
-        {
-            if(c.getCliente(i).getNombre()==gente)
-            {
-                c.getCliente(i).setAsistido(true);
-                Gente.removeItem(gente);
-            }
-        }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void ActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActividadActionPerformed
@@ -195,25 +178,7 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_GenteActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        tipoActividad = (String) Actividad.getSelectedItem();
         
-        String[] misco = tipoActividad.split(",");
-        
-        Gente.removeAllItems();
-        for (int j = 0; j < c.sizeCl(); j++) {
-            Cliente clienteActual = c.getCliente(j);
-            if(c.getCliente(j).isAsistido()==false)
-            {
-                for (int k = 0; k < clienteActual.ActividadSize(); k++) {
-                    Actividad actividadActual = clienteActual.getActividades(k);
-
-                    if (misco[0].trim().equals(actividadActual.getTipoActividad())) {
-                        System.err.println(actividadActual.getTipoActividad());
-                        Gente.addItem(c.mostrarCliente(j));  
-                    } 
-                }
-            }   
-        }
     }//GEN-LAST:event_BuscarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -230,13 +195,33 @@ public class Encargado_MostrarReservas extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setActionListener (ActionListener ae){
-	Actividad.addActionListener(ae);
-	Gente.addActionListener(ae);
+	//Actividad.addActionListener(ae);
+	//Gente.addActionListener(ae);
 
 	jButton3.addActionListener(ae);
 	Aceptar.addActionListener(ae);
 	Cancelar.addActionListener(ae);
 	Buscar.addActionListener(ae);
 	
-}
+    }
+    
+    public String getGente(){
+        return (String) Gente.getSelectedItem();
+    }
+    
+    public void eliminarGente(String gente){
+        Gente.removeItem(gente);
+    }
+    
+    public String getActividad(){
+        return (String) Actividad.getSelectedItem();
+    }
+    
+    public void eliminarTodos(){
+        Gente.removeAllItems();
+    }
+    
+    public void addGente(int i){
+        Gente.addItem(c.mostrarCliente(i)); 
+    }
 }

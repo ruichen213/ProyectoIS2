@@ -34,7 +34,7 @@ public class Propietario_TiendasParcelas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaParcelas);
         // Agrega las parcelas disponibles al modelo
         for (Cliente cliente : clientes) {
-            ArrayList<Parcela> Parcelas = c.getReservasCliente(cliente.getId_cliente());
+            ArrayList<Parcela> Parcelas = c.getParcelasCliente(cliente.getId_cliente());
             for (Parcela Pracela : Parcelas) {
                 
                 modelo.addRow(new Object[]{

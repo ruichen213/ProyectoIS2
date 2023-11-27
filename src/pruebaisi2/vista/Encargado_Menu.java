@@ -17,7 +17,7 @@ public class Encargado_Menu extends javax.swing.JFrame {
 	Checkout.setActionCommand("EncargadoMenu_BotonCheckout");
 	HistorialCliente.setActionCommand("EncargadoMenu_BotonHistorialCliente");
 	Datos_Tienda.setActionCommand("EncargadoMenu_BotonDatosTienda");
-	Crear_Actividades.setActionCommand("EncargadoMenu_BotonRegistrarEntrada");
+	Crear_Actividades.setActionCommand("EncargadoMenu_BotonCrearActividades");
 	Anotar_Ganadores.setActionCommand("EncargadoMenu_BotonAnotarGanadores");
 	ComprobarDisponibilidad.setActionCommand("EncargadoMenu_BotonComprobarDisponibilidad");
 	ComprobarAsistencia.setActionCommand("EncargadoMenu_BotonComprobarAsistencia");

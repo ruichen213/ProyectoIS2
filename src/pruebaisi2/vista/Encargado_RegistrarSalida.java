@@ -270,7 +270,7 @@ public class Encargado_RegistrarSalida extends javax.swing.JFrame {
     public boolean recibirDescuento (String fechaIni, String fechaFin){
         boolean descuento;
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         
         LocalDate fecha1 = LocalDate.parse(fechaIni, formatter);
         LocalDate fecha2 = LocalDate.parse(fechaFin, formatter);
