@@ -120,11 +120,14 @@ public class Camping {
     public int getNumParcelasCliente(){
         int num = 0;
         for (Reserva reserva : reservas) {
-            if (reserva.getIdCliente() == idCliente) {
+            System.out.print("\n"+reserva.getIdCliente()+":"+idCliente+"\n");
+            if (reserva.getIdCliente() == (idCliente+1)) {
                 int idReserva = reserva.getIdReserva();// Asumiendo que hay un método getIdParcela en Reserva
+                
                 for (Parcela parcela : parcelas) {
                     if (parcela.getIdReserva() == idReserva) {
                         num++;
+                        System.out.print("NUM-----> " + num);
                     }
                 }
             }
@@ -134,7 +137,6 @@ public class Camping {
     
     public String mostrarParcelaCliente(int idParcelaCliente){
         String cadena = "";
-        
         for (Parcela parcela : parcelas) {
             if (parcela.getId_parcela() == idParcelaCliente) {
                 cadena =  String.valueOf(parcela.getId_parcela());
@@ -142,13 +144,11 @@ public class Camping {
                 break; // Terminamos la búsqueda porque encontramos la parcela asociada a la reserva
             }
         }
-
         return cadena;
     }
     
     public ArrayList<Parcela> getReservasCliente(int id){
-        ArrayList<Parcela> reservasclientes = new ArrayList<Parcela>();
-        
+        ArrayList<Parcela> reservasclientes = new ArrayList<Parcela>(); 
         for (Reserva reserva : reservas) {
             if (reserva.getIdCliente() == id) {
                 int idReserva = reserva.getIdReserva();
@@ -160,7 +160,6 @@ public class Camping {
                 
             }
         }
-
         return reservasclientes;
     }
     
@@ -503,7 +502,7 @@ public float getSuperficieTienda(String nombreTienda){
         }
     }
     public boolean esFechaValida(String fechaTexto) {
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
         formatoFecha.setLenient(false); // Esto hace que el parseo sea estricto
 
         try {
@@ -525,7 +524,7 @@ public float getSuperficieTienda(String nombreTienda){
         }
     }
     public boolean esFechaPosterior(String fechaEntradaTexto, String fechaSalidaTexto) {
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
         formatoFecha.setLenient(false);
 
         try {

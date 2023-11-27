@@ -803,12 +803,14 @@ public class Controlador {
                     
                     System.out.println("ClienteReservarActividades_BotonBuscar");
                     break;
+                    
                 case "ClienteReservarActividades_BotonCancelar":
                     // Código correspondiente a ClienteReservarActividades_BotonCancelar
                     cm.setVisible(true);
                     cra.setVisible(false);
                     System.out.println("ClienteReservarActividades_BotonCancelar");
                     break;
+                    
                 case "ClienteReservarActividades_BotonReservar":
                     // Código correspondiente a ClienteReservarActividades_BotonReservar
                     cra.setdia(cra.DiaGetText());
@@ -879,6 +881,7 @@ public class Controlador {
                 /* 
                     CLIENTE_REGISTRARRESERVA
                 */
+                    
                 case "ClienteRegistrarReserva_BotonAceptar":
                     // Código correspondiente a ClienteRegistrarReserva_BotonAceptar
 
@@ -897,6 +900,7 @@ public class Controlador {
                     
                     System.out.println("ClienteRegistrarReserva_BotonAceptar");
                     break;
+                    
                 case "ClienteRegistrarReserva_BotonCancelar":
                     // Código correspondiente a ClienteRegistrarReserva_BotonCancelar
                     cm.setVisible(true);
@@ -997,6 +1001,7 @@ public class Controlador {
                     break;
                 case "Cliente_BotonSalir":
                     // Código correspondiente a Cliente_BotonSalir
+                    ccr.borrarItems();
                     cm.setVisible(true);
                     ccr.setVisible(false);
                     System.out.println("Cliente_BotonSalir");

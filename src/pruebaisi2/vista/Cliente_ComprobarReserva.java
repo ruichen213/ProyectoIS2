@@ -202,6 +202,8 @@ public class Cliente_ComprobarReserva extends javax.swing.JFrame {
     public void setParcela(String i){
         Parcelas.addItem(i);
     }
+    
+    public void borrarItems(){Parcelas.removeAllItems();}
         
     public void SupSetText(String i ){
         Superficie.setText(i);

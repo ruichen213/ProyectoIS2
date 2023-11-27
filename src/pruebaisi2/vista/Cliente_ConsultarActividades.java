@@ -162,7 +162,7 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
     public void borrarItem(){
         int indiceSeleccionado = jComboBox1.getSelectedIndex();
         idActividadSelec = indiceSeleccionado;
-        System.out.print("\nPRUEBA: " + idActividadSelec);
+//        System.out.print("\nPRUEBA: " + idActividadSelec);
         jComboBox1.removeItemAt(indiceSeleccionado);
     }
     
