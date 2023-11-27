@@ -619,4 +619,16 @@ public class Camping {
         }
         return precioAPagar;
     }
+
+    public void updateDBParcelas(Parcela p3, int id_parcela) throws ClassNotFoundException {
+        try {
+            pDAO.actualizarParcela(p3, id_parcela);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

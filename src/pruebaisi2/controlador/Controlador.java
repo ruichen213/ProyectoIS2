@@ -34,7 +34,7 @@ import pruebaisi2.vista.Encargado_Checkout;
 import pruebaisi2.vista.Encargado_RegistrarEntrada;
 import pruebaisi2.vista.Encargado_RegistrarSalida;
 import pruebaisi2.vista.Encargado_Sancion;
-import pruebaisi2.vista.InfoParcela;
+import pruebaisi2.vista.Cliente_InfoParcela;
 import pruebaisi2.vista.LoginPrincipal;
 import pruebaisi2.vista.Propietario_HistorialReservas;
 import pruebaisi2.vista.Propietario_Menu;
@@ -66,23 +66,25 @@ public class Controlador {
     private Encargado_RegistrarEntrada ere;
     private Encargado_RegistrarSalida ers;
     private Encargado_Sancion es;
-    private InfoParcela ip;
+    private Cliente_InfoParcela ip;
     private LoginPrincipal lp;
     private Propietario_Menu pm;
     private Propietario_HistorialReservas phr;
     private Propietario_TiendasParcelas ptp;
+    private Cliente_InfoParcela cip;
     
     
-    public Controlador(Camping c,Cliente_ComprobarReserva ccr, Cliente_ConsultarActividades cca, 
+    public Controlador(Cliente_InfoParcela cip, Camping c,Cliente_ComprobarReserva ccr, Cliente_ConsultarActividades cca, 
                         Cliente_Menu cm, Cliente_RegistrarReserva crr, 
                         Cliente_ReservarActividades cra, Encargado_AnotarGanadores eag, Encargado_CalcularParcela ecp, 
                         Encargado_Checkin eci, Encargado_Checkout eco, Encargado_CrearActividad eca, Encargado_DatoTiendas edt, 
                         Encargado_EditarJuego eej, Encargado_HacerParejas ehp, Encargado_HistorialCliente ehc, Encargado_Menu em, 
                         Encargado_MostrarReservas emr, Encargado_RegistrarEntrada ere, Encargado_RegistrarSalida ers, 
-                        Encargado_Sancion es, Encargado_VerParcelasDisponibles evpd, InfoParcela ip, LoginPrincipal lp, 
+                        Encargado_Sancion es, Encargado_VerParcelasDisponibles evpd, Cliente_InfoParcela ip, LoginPrincipal lp, 
                         Propietario_HistorialReservas phr, Propietario_Menu pm, Propietario_TiendasParcelas ptp){
         
         this.c = c;
+        this.cip= cip;
         this.ccr = ccr;
         this.cca = cca;
         this.cm = cm;
@@ -108,6 +110,9 @@ public class Controlador {
         this.pm = pm;
         this.phr = phr;
         this.ptp = ptp;
+        
+        cip.setActionListener(new ControladorActionListener());
+        cip.addWindowListener(new ControladorWindowListener());
         
         ccr.setActionListener(new ControladorActionListener());
         ccr.addWindowListener(new ControladorWindowListener());
@@ -882,9 +887,7 @@ public class Controlador {
                 case "ClienteMenu_BotonConsultarActividades":
                     // Código correspondiente a ClienteMenu_BotonConsultarActividades
                     System.out.println("ClienteMenu_BotonConsultarActividades");
-                    
-//                    System.out.print("PRUEBA_getNumAct.. -> " + c.getNumActividadesCliente());
-                    
+
                     for(int i = 0; i < c.getNumActividadesCliente(); i++){
                         cca.setJComboBoxData(c.mostrarActividad(i));
                     }                    
@@ -915,9 +918,20 @@ public class Controlador {
                         else {
                             Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,crr.getFechaEntrada(), crr.getFechaSalida(), true);
                             c.anyadirReserva(reserva); 
-                            InfoParcela info = new InfoParcela(c);
-                            info.setVisible(true);
+                            
                             crr.setVisible(false);
+                            
+                            //las funciones que tendrian que haber en el constructor de cip
+                            Reserva r = c.getLastRes();
+                            Parcela p = c.getLastPar();
+
+                            cip.setSuperficie(p.getSuperficie()+"");
+                            cip.setLuz(p.getLuz());
+                            cip.setPrecio(p.getPrecio()+ "");
+                            cip.setEntrada(r.getFechaInicio());
+                            cip.setSalida(r.getFechaFin());
+                            
+                            cip.setVisible(true);
                         }
                     
                     System.out.println("ClienteRegistrarReserva_BotonAceptar");
@@ -931,6 +945,37 @@ public class Controlador {
                     System.out.println("ClienteRegistrarReserva_BotonCancelar");
                     break;
 
+                /*
+                    Cliente_InfoParcela
+                */    
+                case "ClienteInfoParcela_botonAceptar":
+                    Parcela p3 = c.getLastPar();
+                    Reserva r2 = c.getLastRes();
+                    
+                    p3.setId_parcela(p3.getId_parcela()+1);
+                    p3.setIdReserva(r2.getIdReserva()+1);
+                    System.out.print("\n" + p3.getIdReserva() + ", " + p3.getId_parcela() + "\n");
+                    
+                    {
+                        try {
+                            c.updateDBParcelas(p3, p3.getId_parcela());
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    
+                    crr.setVisible(false);
+                    cip.setVisible(true);
+                    break;
+                
+                    
+                    
+                case "ClienteInfoParcela_botonCancelar":
+                    crr.setVisible(false);
+                    cip.setVisible(true);
+                    break;
+
+                    
                 /* 
                     CLIENTE_CONSULTARACTIVIDADES
                 */
@@ -1004,15 +1049,15 @@ public class Controlador {
                     
                     // TODO add your handling code here:
                     Cliente cliente = c.getCliente(c.getIdCliente());
-                    Parcela p = c.getParcela(Integer.parseInt(ccr.getSelected()));
+                    Parcela p1 = c.getParcela(Integer.parseInt(ccr.getSelected()));
                     String pre = "", sup = "";
 
-                    pre += p.getPrecio();
-                    sup += p.getSuperficie();
+                    pre += p1.getPrecio();
+                    sup += p1.getSuperficie();
 
                     ccr.SupSetText(sup);
                     ccr.PreSetText(pre);
-                    if (p.getLuz()){
+                    if (p1.getLuz()){
                         ccr.LuzSetText("Si");
                     }
                     else{
@@ -1021,6 +1066,7 @@ public class Controlador {
                     
                     System.out.println("Cliente_BotonBuscar");
                     break;
+                    
                 case "Cliente_BotonSalir":
                     // Código correspondiente a Cliente_BotonSalir
                     ccr.borrarItems();

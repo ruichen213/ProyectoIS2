@@ -5,27 +5,32 @@ import pruebaisi2.modelo.Camping;
 import pruebaisi2.modelo.Parcela;
 import pruebaisi2.modelo.Reserva;
 
-public class InfoParcela extends javax.swing.JFrame {
-    private Camping ce;
+public class Cliente_InfoParcela extends javax.swing.JFrame {
     private Reserva r;
     private Parcela p;
     
-    public InfoParcela(Camping c) {
-        this.ce = c;
-//r = ce.getLastRes();
-//p = ce.getLastPar();
+    public Cliente_InfoParcela(Camping c) {
+        //r = ce.getLastRes();
+        //p = ce.getLastPar();
         
         initComponents();
+        
+        Entrada.setEditable(false);
+        Salida.setEditable(false);
+        Superficie.setEditable(false);
+        Luz.setEditable(false);
+        Precio.setEditable(false);
+        
         /*
         Superficie.setText(p.getSuperficie()+"");
         Luz.setText(Boolean.toString(p.getLuz()));
         Precio.setText(p.getPrecio()+ "");
         Entrada.setText(r.getFechaInicio());
         Salida.setText(r.getFechaFin());
-*/
+        */
         
-        botonac.setActionCommand("InfoParcela_BotonAceptar");
-        botonac1.setActionCommand("InfoParcela_BotonCerrar");
+        botonac.setActionCommand("ClienteInfoParcela_botonAceptar");
+        botonac1.setActionCommand("ClienteInfoParcela_botonCancelar");
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -71,7 +76,7 @@ public class InfoParcela extends javax.swing.JFrame {
 
         jLabel5.setText("Precio:");
 
-        botonac.setText("Aceptar");
+        botonac.setText("Confirmar Reserva");
         botonac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonacActionPerformed(evt);
@@ -112,7 +117,7 @@ public class InfoParcela extends javax.swing.JFrame {
             }
         });
 
-        botonac1.setLabel("Cerrar");
+        botonac1.setText("Cancelar Reserva");
         botonac1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonac1ActionPerformed(evt);
@@ -126,9 +131,20 @@ public class InfoParcela extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(jLabel1)
+                .addContainerGap(188, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(botonac, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonac1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7)
@@ -138,35 +154,25 @@ public class InfoParcela extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
                                 .addComponent(Entrada, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel8)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Luz, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Superficie, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(botonac)
-                                .addGap(70, 70, 70)
-                                .addComponent(botonac1))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jLabel1)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                            .addComponent(Luz, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Superficie, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(78, 78, 78))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(41, 41, 41)
+                .addGap(66, 66, 66)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -188,7 +194,7 @@ public class InfoParcela extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonac)
                     .addComponent(botonac1))
@@ -198,10 +204,18 @@ public class InfoParcela extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setSuperficie(String cad){Superficie.setText(cad);}
+    
+    public void setLuz(Boolean cad){Luz.setText(Boolean.toString(cad));}
+    
+    public void setPrecio(String cad){Precio.setText(cad);}
+    
+    public void setEntrada(String cad){Entrada.setText(cad);}
+    
+    public void setSalida(String cad){Salida.setText(cad);}
+    
     private void botonacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonacActionPerformed
-        Cliente_Menu v = new Cliente_Menu(ce);
-        v.setVisible(true);
-        this.dispose();
+   
     }//GEN-LAST:event_botonacActionPerformed
 
     private void SuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuperficieActionPerformed
@@ -220,9 +234,7 @@ public class InfoParcela extends javax.swing.JFrame {
     }//GEN-LAST:event_SalidaActionPerformed
 
     private void botonac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonac1ActionPerformed
-        Cliente_Menu v = new Cliente_Menu(ce);
-        v.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_botonac1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -251,11 +263,9 @@ public class InfoParcela extends javax.swing.JFrame {
     public void setActionListener (ActionListener ae){
         Entrada.addActionListener(ae);
         Salida.addActionListener(ae);
-        
         Superficie.addActionListener(ae);
         Luz.addActionListener(ae);
         Precio.addActionListener(ae);
-        
         botonac.addActionListener(ae);
         botonac1.addActionListener(ae);
     }

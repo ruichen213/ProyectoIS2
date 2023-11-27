@@ -26,7 +26,7 @@ import pruebaisi2.vista.Encargado_RegistrarEntrada;
 import pruebaisi2.vista.Encargado_RegistrarSalida;
 import pruebaisi2.vista.Encargado_Sancion;
 import pruebaisi2.vista.Encargado_VerParcelasDisponibles;
-import pruebaisi2.vista.InfoParcela;
+import pruebaisi2.vista.Cliente_InfoParcela;
 import pruebaisi2.vista.LoginPrincipal;
 import pruebaisi2.vista.Propietario_HistorialReservas;
 import pruebaisi2.vista.Propietario_Menu;
@@ -59,8 +59,8 @@ public class GestorCamping {
         Encargado_RegistrarSalida ers = new Encargado_RegistrarSalida(c);
         Encargado_Sancion es = new Encargado_Sancion(c);
         Encargado_VerParcelasDisponibles evpd = new Encargado_VerParcelasDisponibles(c);
-        
-        InfoParcela ip = new InfoParcela(c);
+        Cliente_InfoParcela cip = new Cliente_InfoParcela(c);
+        Cliente_InfoParcela ip = new Cliente_InfoParcela(c);
         LoginPrincipal lp = new LoginPrincipal(c);
         
         Propietario_HistorialReservas phr = new Propietario_HistorialReservas(c);
@@ -69,7 +69,7 @@ public class GestorCamping {
         
         
         
-        Controlador controlador = new Controlador(c,ccr,cca,cm,crr,cra,eag,ecp,
+        Controlador controlador = new Controlador(cip, c,ccr,cca,cm,crr,cra,eag,ecp,
                                         eci,eco,eca,edt,eej,ehp,ehc,em,emr,ere,
                                         ers,es,evpd,ip,lp,phr,pm,ptp);
         

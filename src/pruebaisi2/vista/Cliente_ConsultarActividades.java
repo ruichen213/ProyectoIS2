@@ -155,7 +155,7 @@ public class Cliente_ConsultarActividades extends javax.swing.JFrame {
         return acum;
     }
     
-    public void borrarDatosJComboBox(){jComboBox1.removeAllItems();}
+    public void borrarDatosJComboBox(){jComboBox1.removeAllItems(); acum=0;}
     
     public void incrementarAcum(){acum++;}
     
