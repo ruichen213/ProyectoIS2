@@ -99,21 +99,21 @@ public class Propietario_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Comprobar_ParcelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Comprobar_ParcelasActionPerformed
-        Propietario_TiendasParcelas p = new Propietario_TiendasParcelas(c);
-        p.setVisible(true);
-        this.dispose();   
+//        Propietario_TiendasParcelas p = new Propietario_TiendasParcelas(c);
+//        p.setVisible(true);
+//        this.dispose();   
     }//GEN-LAST:event_Comprobar_ParcelasActionPerformed
 
     private void Historial_ReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Historial_ReservasActionPerformed
-        Propietario_HistorialReservas p = new Propietario_HistorialReservas(c);
-        p.setVisible(true);
-        this.dispose();
+//        Propietario_HistorialReservas p = new Propietario_HistorialReservas(c);
+//        p.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_Historial_ReservasActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        LoginPrincipal lp = new LoginPrincipal(c);
-        lp.setVisible(true);
-        this.dispose();
+//        LoginPrincipal lp = new LoginPrincipal(c);
+//        lp.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_SalirActionPerformed
 
     

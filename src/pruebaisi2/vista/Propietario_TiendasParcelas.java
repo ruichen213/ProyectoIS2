@@ -32,24 +32,28 @@ public class Propietario_TiendasParcelas extends javax.swing.JFrame {
         tablaParcelas = new JTable();
         tablaParcelas.setModel(modelo);
         jScrollPane1.setViewportView(tablaParcelas);
-  
         // Agrega las parcelas disponibles al modelo
         for (Cliente cliente : clientes) {
-                    for (Parcela Pracela : c.getReservasCliente(cliente.getId_cliente())) {
-                        modelo.addRow(new Object[]{
-                            Pracela.getId_parcela(),
-                            cliente.getUsuario(),
-                            Pracela.getSuperficie(),
-                            Pracela.getLuz() ? "Sí" : "No",
-                            Pracela.getPrecio(),
-                            Pracela.getNombreTienda()
-                        });
-                    }
+            ArrayList<Parcela> Parcelas = c.getReservasCliente(cliente.getId_cliente());
+            for (Parcela Pracela : Parcelas) {
+                
+                modelo.addRow(new Object[]{
+                    Pracela.getId_parcela(),
+                    cliente.getUsuario(),
+                    Pracela.getSuperficie(),
+                    Pracela.getLuz() ? "Sí" : "No",
+                    Pracela.getPrecio(),
+                    Pracela.getNombreTienda()
+                });
+            }
         }
         this.add(jScrollPane1); // Agrega el JScrollPane al JFrame     
         // Para asegurar que los cambios se muestren, valida y repinta el JFrame
         this.validate();
         this.repaint();
+        
+        Cancelar.setActionCommand("PropietarioTiendasParcelas_BotonSalir");
+
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -109,9 +113,9 @@ public class Propietario_TiendasParcelas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Propietario_Menu lp = new Propietario_Menu(c);
-        lp.setVisible(true);
-        this.dispose();
+//        Propietario_Menu lp = new Propietario_Menu(c);
+//        lp.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -120,5 +124,6 @@ public class Propietario_TiendasParcelas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
     public void setActionListener (ActionListener ae){
+        Cancelar.addActionListener(ae);
     }
 }

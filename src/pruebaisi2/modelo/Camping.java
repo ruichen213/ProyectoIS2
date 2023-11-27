@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -149,7 +150,7 @@ public class Camping {
         ArrayList<Parcela> reservasclientes = new ArrayList<Parcela>();
         
         for (Reserva reserva : reservas) {
-            if (reserva.getIdCliente() == idCliente) {
+            if (reserva.getIdCliente() == id) {
                 int idReserva = reserva.getIdReserva();
                 for (Parcela parcela : parcelas) {
                     if (parcela.getIdReserva() == idReserva) {
@@ -399,17 +400,26 @@ public class Camping {
         return tiendas.get(indice);
     }
     
-    public float getSuperficieTienda(String nombreTienda){
-        float superficie = 9999999;
-        
-        for(int i = 0; i < tiendas.size();i++){
-            if(tiendas.get(i).getNombre().equals(nombreTienda)){
-                superficie = tiendas.get(i).getSuperficie();
-            }
+public float getSuperficieTienda(String nombreTienda){
+    float superficie = 0;
+    boolean encontrada = false;
+
+    for (int i = 0; i < tiendas.size(); i++) {
+        if (tiendas.get(i).getNombre().equals(nombreTienda)) {
+            superficie = tiendas.get(i).getSuperficie();
+            encontrada = true;
+            // Si llegamos aquí, se encontró una tienda y superficie se ha actualizado correctamente
+            System.out.println("Superficie de la tienda encontrada: " + superficie);
+            break;  // Termina el bucle una vez que se encuentra la tienda
+        }else{
+            JOptionPane.showMessageDialog(null, "Error: Hubo un problema al buscar la tienda.", "Nombre Invalido", JOptionPane.ERROR_MESSAGE);
+
         }
-        
-        return superficie;
     }
+
+    return superficie;
+}
+
      
     public Parcela getLastPar()
     {

@@ -51,7 +51,11 @@ public class Encargado_VerParcelasDisponibles extends javax.swing.JFrame {
         // Para asegurar que los cambios se muestren, valida y repinta el JFrame
         this.validate();
         this.repaint();
+        
+        Cancelar.setActionCommand("Encargado_VerParcelasDisponibles");
     }
+    
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -59,7 +63,6 @@ public class Encargado_VerParcelasDisponibles extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        Asignar = new javax.swing.JButton();
         Cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,13 +80,6 @@ public class Encargado_VerParcelasDisponibles extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel1);
 
-        Asignar.setText("Asignar");
-        Asignar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AsignarActionPerformed(evt);
-            }
-        });
-
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,13 +93,12 @@ public class Encargado_VerParcelasDisponibles extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Asignar)
-                        .addGap(151, 151, 151)
-                        .addComponent(Cancelar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(Cancelar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,9 +106,7 @@ public class Encargado_VerParcelasDisponibles extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Asignar)
-                    .addComponent(Cancelar))
+                .addComponent(Cancelar)
                 .addGap(32, 32, 32))
         );
 
@@ -121,44 +114,15 @@ public class Encargado_VerParcelasDisponibles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Encargado_Menu v = new Encargado_Menu(c);
-        v.setVisible(true);
-        this.dispose(); 
+
     }//GEN-LAST:event_CancelarActionPerformed
 
-    private void AsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarActionPerformed
-
-        int[] selectedRows = tablaParcelas.getSelectedRows();
-        ArrayList<Parcela> parcelasParaReservar = new ArrayList<>();
-        for (int i : selectedRows) {
-            // Asumiendo que la primera columna contiene el ID de la parcela
-            int parcelaId = (Integer) tablaParcelas.getValueAt(i, 0);
-            // Encuentra la parcela por ID y se anyade a la lista de parcelas para reservar
-            for (Parcela p : c.getParcelas()) {
-                if (p.getId_parcela() == parcelaId) {
-                    parcelasParaReservar.add(p);
-                    // Marca la parcela como no disponible
-                    p.setDisponible(false);
-                    break;
-                }
-            }
-        }
-
-        // crear la reserva con estas parcelas
-        //c.crearReserva(parcelasParaReservar, fecha, num);
-        // Actualiza el JTable para reflejar los cambios de disponibilidad
-        mostrarParcelasDisponibles(c.getParcelas());
-
-        // Opcional: Cierra la ventana actual y abre la ventana de confirmación de reserva
-        // ...
-    }//GEN-LAST:event_AsignarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Asignar;
     private javax.swing.JButton Cancelar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
     public void setActionListener (ActionListener ae){
+        Cancelar.addActionListener(ae);
     }
 }

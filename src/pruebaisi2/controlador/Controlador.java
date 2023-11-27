@@ -291,7 +291,8 @@ public class Controlador {
                             catch (NumberFormatException e) {
                                 JOptionPane.showMessageDialog(null, "Por favor, ingrese bien los datos.", "Error", JOptionPane.ERROR_MESSAGE);
                             }
-                    
+                    em.setVisible(true);
+                    ere.setVisible(false);
                     break;
                 case "EncargadoRegistrarEntrada_BotonCancelar":
                     // Código correspondiente a EncargadoRegistrarEntrada_BotonCancelar
@@ -538,6 +539,17 @@ public class Controlador {
                 case "EncargadoEditarJuego_BotonCancelar":
                     // Código correspondiente a EncargadoEditarJuego_BotonCancelar
                     System.out.println("EncargadoEditarJuego_BotonCancelar");
+                    break;
+                    
+                /*
+                    ENCARGADO_VER_PARCELAS_DISPONIBLES
+                */
+                case "Encargado_VerParcelasDisponibles":
+                    // Código correspondiente a EncargadoEditarJuego_BotonAnotarGanadores
+                    em.setVisible(true);
+                    evpd.setVisible(false);
+
+                    System.out.println("Propietario_VerParcelasDisponibles");
                     break;
 
                 /*
@@ -865,15 +877,32 @@ public class Controlador {
                     break;
 
                 /* 
-                    CLIENTE_DATOSRESERVA
+                    CLIENTE_REGISTRARRESERVA
                 */
-                case "ClienteDatosReserva_BotonAnularReserva":
-                    // Código correspondiente a ClienteDatosReserva_BotonAnularReserva
-                    System.out.println("ClienteDatosReserva_BotonAnularReserva");
+                case "ClienteRegistrarReserva_BotonAceptar":
+                    // Código correspondiente a ClienteRegistrarReserva_BotonAceptar
+
+                        if(!c.esFechaValida(crr.getFechaEntrada()) || !c.esFechaValida(crr.getFechaSalida())) {
+                            JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Inválida", JOptionPane.ERROR_MESSAGE);
+                        }
+                        else if(c.esFechaPosterior(crr.getFechaEntrada(), crr.getFechaSalida()))
+                            JOptionPane.showMessageDialog(null, "La fecha de entrada no puede ser posterior a la fecha de salida.", "Error de Fechas", JOptionPane.ERROR_MESSAGE);
+                        else {
+                            Reserva reserva = new Reserva(c.getLastIdParcela()+1,c.getLastIdCliente()+1,crr.getFechaEntrada(), crr.getFechaSalida(), true);
+                            c.anyadirReserva(reserva); 
+                            InfoParcela info = new InfoParcela(c);
+                            info.setVisible(true);
+                            crr.setVisible(false);
+                        }
+                    
+                    System.out.println("ClienteRegistrarReserva_BotonAceptar");
                     break;
-                case "ClienteDatosReserva_BotonAceptar":
-                    // Código correspondiente a ClienteDatosReserva_BotonAceptar
-                    System.out.println("ClienteDatosReserva_BotonAceptar");
+                case "ClienteRegistrarReserva_BotonCancelar":
+                    // Código correspondiente a ClienteRegistrarReserva_BotonCancelar
+                    cm.setVisible(true);
+                    crr.setVisible(false);
+                    
+                    System.out.println("ClienteRegistrarReserva_BotonCancelar");
                     break;
 
                 /* 
@@ -930,8 +959,6 @@ public class Controlador {
                     
                 case "ClienteConsultarActividades_BotonCancelarActividad":
                     // Código correspondiente a ClienteConsultarActividades_BotonCancelarActividad
-//                    cm.setVisible(true);
-//                    cca.setVisible(false);
                     
                     String entrada = cca.getJComboBoxText();
                     String[] partes = entrada.split(", ");
@@ -1007,7 +1034,38 @@ public class Controlador {
                     System.out.println("LoginPrincipal_BotonSalir");
                     System.exit(0);
                     break;
-
+                    
+                /*
+                    PROPIETARIO MENU
+                */    
+                case"PropietarioMenu_BotonComprobarParcelas":
+                    ptp.setVisible(true);
+                    pm.setVisible(false);
+                    break;
+                case"PropietarioMenu_BotonHistorialReservas":
+                    phr.setVisible(true);
+                    pm.setVisible(false);
+                    break;
+                case"PropietarioMenu_BotonSalir":
+                    lp.setVisible(true);
+                    pm.setVisible(false);
+                    break;
+                /*
+                    PROPIETARIO HISTORIAL RESERVAS
+                */    
+                case"PropietarioHistorialReservas_BotonSalir":
+                    phr.setVisible(false);
+                    pm.setVisible(true);
+                    break;
+                    
+                /*
+                    PROPIETARIO TIENDAS PARCELAS
+                */    
+                case"PropietarioTiendasParcelas_BotonSalir":
+                    ptp.setVisible(false);
+                    pm.setVisible(true);
+                    break;    
+                    
                 default:
                     // Acción por defecto si no se encuentra ninguna coincidencia
                     System.out.println("Acción no reconocida");

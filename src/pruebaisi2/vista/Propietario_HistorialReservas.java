@@ -51,6 +51,9 @@ public class Propietario_HistorialReservas extends javax.swing.JFrame {
         // Para asegurar que los cambios se muestren, valida y repinta el JFrame
         this.validate();
         this.repaint();
+        
+        Cancelar.setActionCommand("PropietarioHistorialReservas_BotonSalir");
+
     }
     
     @SuppressWarnings("unchecked")
@@ -110,44 +113,10 @@ public class Propietario_HistorialReservas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        Propietario_Menu lp = new Propietario_Menu(c);
-        lp.setVisible(true);
-        this.dispose();
+//        Propietario_Menu lp = new Propietario_Menu(c);
+//        lp.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
-
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Propietario_HistorialReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Propietario_HistorialReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Propietario_HistorialReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Propietario_HistorialReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                Camping c = new Camping();
-//                new Propietario_HistorialReservas(c).setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
@@ -155,5 +124,6 @@ public class Propietario_HistorialReservas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
     public void setActionListener (ActionListener ae){
+                Cancelar.addActionListener(ae);
     }
 }
