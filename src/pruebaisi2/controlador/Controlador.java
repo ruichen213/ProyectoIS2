@@ -956,23 +956,27 @@ public class Controlador {
                     p3.setIdReserva(r2.getIdReserva()+1);
                     System.out.print("\n" + p3.getIdReserva() + ", " + p3.getId_parcela() + "\n");
                     
-                    {
-                        try {
-                            c.updateDBParcelas(p3, p3.getId_parcela());
-                        } catch (ClassNotFoundException ex) {
-                            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
                     
-                    crr.setVisible(false);
-                    cip.setVisible(true);
+                    try {
+                        c.updateDBParcelas(p3, p3.getId_parcela());
+                        c.cargarDatos();
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                    }    
+                    
+                    
+                    cip.setVisible(false);
+                    cm.setVisible(true);
                     break;
+
+
+
                 
                     
                     
                 case "ClienteInfoParcela_botonCancelar":
-                    crr.setVisible(false);
-                    cip.setVisible(true);
+                    cip.setVisible(false);
+                    cm.setVisible(true);
                     break;
 
                     
