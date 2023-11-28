@@ -808,40 +808,41 @@ public class Controlador {
                     CLIENTE_RESERVARACTIVIDADES
                 */
                 case "ClienteReservarActividades_BotonBuscar":
+                    ArrayList<String> cad = c.mostrarActividadPorFecha(cra.getdia());
                     // Código correspondiente a ClienteReservarActividades_BotonBuscar
-                    cra.setdia(cra.DiaGetText());
-                    cra.setTipoActividad(cra.ActividadGetItem());
-                    cra.setEstado("libre");
-
-                    for (int i = 0; i < c.cantidadActividades(); i++) {
-                        if(!c.esFechaValida(cra.getdia())) 
-                            JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
-                        else {
-                            if (cra.getdia().equalsIgnoreCase(c.getDiaActividad(i))) {
-                                if (cra.getTipoActividad().equalsIgnoreCase(c.getTipoActividad(i))) {
-                                    if (cra.getEstado().equalsIgnoreCase(c.getEstadoActividad(i))){
-                                        cra.addActividadDisponible(c.mostrarActividad(i));
-                                        cra.setK(i);
-                                    }
-                                }
-                            }                
-                        }
+//                    System.out.print("\nc.getDiaActividad(i)?\n ->" + c.getDiaActividad(8));
+                    for (int i = 0; i < cad.size(); i++) {
+                        cra.addActividadDisponible(cad.get(i));
                     }
                     
                     System.out.println("ClienteReservarActividades_BotonBuscar");
                     break;
                     
                 case "ClienteReservarActividades_BotonCancelar":
-                    // Código correspondiente a ClienteReservarActividades_BotonCancelar
+                
+//                    try {
+//                        // Código correspondiente a ClienteReservarActividades_BotonCancelar
+//                        c.cargarDatos();
+//                    } catch (ClassNotFoundException ex) {
+//                        Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+                
                     cm.setVisible(true);
                     cra.setVisible(false);
+                    cra.limpiar();
                     System.out.println("ClienteReservarActividades_BotonCancelar");
                     break;
+
                     
                 case "ClienteReservarActividades_BotonReservar":
                     // Código correspondiente a ClienteReservarActividades_BotonReservar
                     cra.setdia(cra.DiaGetText());
                     cra.setTipoActividad(cra.ActividadGetItem());
+                    cra.setEstado("Ocupada");
+                    cra.setIdCliente(c.getIdCliente());
+                    cra.setdia(cra.DiaGetText());
+                    cra.setTipoActividad(cra.ActividadGetItem());
+                    
                     if(!c.esFechaValida(cra.getdia())) 
                         JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
                     else
@@ -850,6 +851,8 @@ public class Controlador {
 
                         c.setActividadOcupada(cra.getK());
                         c.addActividadToCliente(cra.getK());
+                        
+                        cra.limpiar();
 
                         cm.setVisible(true);
                         cra.setVisible(false);
@@ -968,11 +971,6 @@ public class Controlador {
                     cip.setVisible(false);
                     cm.setVisible(true);
                     break;
-
-
-
-                
-                    
                     
                 case "ClienteInfoParcela_botonCancelar":
                     cip.setVisible(false);
@@ -1088,6 +1086,8 @@ public class Controlador {
                     
                     int idCliente = c.averiguamosCliente(lp.getUsuario(), lp.getContrasenya()); //averiguamso cliente comparando en la base de datos, y devolvemos su pos en el vector.
                     c.setIdCliente(idCliente);
+                    
+//                    System.out.print("\nc.getDiaActividad(i)?\n ->" + c.getDiaActividad(11));
                     
                     if(lp.getUsuario().isEmpty() || lp.getContrasenya().isEmpty()){
                         JOptionPane.showMessageDialog(null, "Algun campo esta vacío");

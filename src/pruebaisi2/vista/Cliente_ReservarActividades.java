@@ -8,11 +8,13 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     private Camping c;
     private String dia, hora, tipoActividad, estado;
     private int k;
+    private int idCliente = 0;
     
     public Cliente_ReservarActividades(Camping c) {
         this.c = c;
         initComponents();
         this.setTitle("Reservar Actividades");
+//        System.out.print("\nc.getDiaActividad(i)?\n ->" + c.getDiaActividad(11));
         jButton1.setActionCommand("ClienteReservarActividades_BotonBuscar");
         Cancelar.setActionCommand("ClienteReservarActividades_BotonCancelar");
         Reservar.setActionCommand("ClienteReservarActividades_BotonReservar");
@@ -224,8 +226,10 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     }
     
     public String getdia(){
-        return dia;
+        return Dia.getText();
     }
+    
+    public void setIdCliente(int i){this.idCliente = i;}
     
     public String ActividadGetItem(){
         return (String) Actividad.getSelectedItem();
@@ -236,7 +240,7 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     }
     
     public String getTipoActividad(){
-        return tipoActividad;
+        return (String) Actividad.getSelectedItem();
     }
     
     public void setEstado(String estado){
@@ -245,6 +249,11 @@ public class Cliente_ReservarActividades extends javax.swing.JFrame {
     
     public String getEstado(){
         return estado;
+    }
+    
+    public void limpiar(){
+        Dia.setText("");
+        ActividadesDisponibles.removeAllItems();
     }
     
     public void addActividadDisponible(String actividad){

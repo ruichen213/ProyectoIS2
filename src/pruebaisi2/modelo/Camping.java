@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import static java.util.Arrays.equals;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -87,75 +88,77 @@ public class Camping {
                 }
             }
         }
+        
+//        System.out.print("\nc.getDiaActividad(i)?\n ->" + getDiaActividad(3));
     }
     
-    public void ActualizarDatos()throws ClassNotFoundException{
-        
-        for(Cliente cliente:clientes){
-            try {
-                int id = cliente.getId_cliente();
-                cDao.actualizarCliente(cliente, id);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        for(Reserva reserva:reservas){
-            try {
-                int id = reserva.getIdReserva();
-                rDAO.actualizarReserva(reserva, id);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        for(Actividad actividad: actividades){
-            try {
-                int id = actividad.getIdActividad();
-                aDAO.actualizarActividad(actividad, id);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        for(Parcela parcela: parcelas){
-            try {
-                int id = parcela.getId_parcela();
-                pDAO.actualizarParcela(parcela, id);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        for(Tienda tienda: tiendas){
-            try {
-                int id = tienda.getId();
-                tDAO.actualizarTienda(tienda, id);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+//    public void ActualizarDatos()throws ClassNotFoundException{
+//        
+//        for(Cliente cliente:clientes){
+//            try {
+//                int id = cliente.getId_cliente();
+//                cDao.actualizarCliente(cliente, id);
+//            } catch (InstantiationException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (IllegalAccessException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        
+//        for(Reserva reserva:reservas){
+//            try {
+//                int id = reserva.getIdReserva();
+//                rDAO.actualizarReserva(reserva, id);
+//            } catch (InstantiationException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (IllegalAccessException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        
+//        for(Actividad actividad: actividades){
+//            try {
+//                int id = actividad.getIdActividad();
+//                aDAO.actualizarActividad(actividad, id);
+//            } catch (InstantiationException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (IllegalAccessException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        
+//        for(Parcela parcela: parcelas){
+//            try {
+//                int id = parcela.getId_parcela();
+//                pDAO.actualizarParcela(parcela, id);
+//            } catch (InstantiationException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (IllegalAccessException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        
+//        for(Tienda tienda: tiendas){
+//            try {
+//                int id = tienda.getId();
+//                tDAO.actualizarTienda(tienda, id);
+//            } catch (InstantiationException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (IllegalAccessException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Camping.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
     
     /*
         Para qusitar
@@ -327,7 +330,7 @@ public class Camping {
     }
     
     public String mostrarActividad(int num){
-         ArrayList<String> cad = new ArrayList<>();
+        ArrayList<String> cad = new ArrayList<>();
         Cliente c = clientes.get(idCliente);
             
             for (int i = 0; i < actividades.size(); i++){
@@ -340,6 +343,24 @@ public class Camping {
             }
         
         return cad.get(num);
+    }
+    
+    public ArrayList<String> mostrarActividadPorFecha(String f){
+        ArrayList<String> cad = new ArrayList<>();
+        Cliente c = clientes.get(idCliente);
+            
+            for (int i = 0; i < actividades.size(); i++){
+                Actividad a = actividades.get(i);
+                if(c.getId_cliente() == a.getIdCliente()){
+                    if(a.getEstado().equals("Ocupada")){
+                        if (a.getFecha().equals(f)) {
+                            cad.add(a.getTipoActividad() + ", " + a.getDia() + ", " + a.getHora());
+                        }
+                    }
+                }
+            }
+        
+        return cad;
     }
     
     public void setFechaInicioReserva(int id, String fecha){

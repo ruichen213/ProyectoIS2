@@ -69,7 +69,7 @@ public class GestorCamping {
         
         
         
-        Controlador controlador = new Controlador(cip, c,ccr,cca,cm,crr,cra,eag,ecp,
+        Controlador controlador = new Controlador(cip,c,ccr,cca,cm,crr,cra,eag,ecp,
                                         eci,eco,eca,edt,eej,ehp,ehc,em,emr,ere,
                                         ers,es,evpd,ip,lp,phr,pm,ptp);
         
