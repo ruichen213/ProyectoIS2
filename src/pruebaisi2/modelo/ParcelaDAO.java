@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class ParcelaDAO {
     public static final String DRIVER = "oracle.jdbc.OracleDriver";
     public static final String DBURL = "jdbc:oracle:thin:@pokemon.uv.es:1521:ORCL";
-    public static final String USERNAME = "GIISGBD208";
-    public static final String PASSWORD = "778778";
+    public static final String USERNAME = "GIISGBD20x";
+    public static final String PASSWORD = "";
 
     private static final String CREATE =
         "INSERT INTO ISI2_Parcela (id_parcela, luz, superficie, disponibilidad, id_tienda, id_reserva)" +

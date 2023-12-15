@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class ClienteDAO {
     public static final String DRIVER = "oracle.jdbc.OracleDriver";
     public static final String DBURL = "jdbc:oracle:thin:@pokemon.uv.es:1521:ORCL";
-    public static final String USERNAME = "GIISGBD208";
-    public static final String PASSWORD = "778778";
+    public static final String USERNAME = "GIISGBD20x";
+    public static final String PASSWORD = "";
     /*
      * Consultas Clientes
      *
