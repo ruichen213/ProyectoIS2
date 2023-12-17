@@ -17,14 +17,21 @@ public class CampingTest {
     }
     @Test
     public void testCargarDatos() throws Exception {
+        Camping c = new Camping();
+        c.cargarDatos();
     }
 
     @Test
     public void testActualizarDatosActividades() throws Exception {
+        Camping c = new Camping();
+        c.actualizarDatosActividades();
     }
 
     @Test
     public void testGetIdActividad() {
+        Camping c = new Camping();
+        int i = c.getIdActividad();
+        Assertions.assertTrue(true);
     }
 
     @Test
