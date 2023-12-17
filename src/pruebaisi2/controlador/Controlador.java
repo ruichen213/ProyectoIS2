@@ -314,6 +314,7 @@ public class Controlador {
                     em.setVisible(true);
                     ere.setVisible(false);
                     break;
+                    
                 case "EncargadoRegistrarEntrada_BotonCancelar":
                     // Código correspondiente a EncargadoRegistrarEntrada_BotonCancelar
                     System.out.println("EncargadoRegistrarEntrada_BotonCancelar");
@@ -795,6 +796,7 @@ public class Controlador {
                     }
                     
                     break;
+                    
                 case "EncargadoAnotarGanadores_BotonCancelar":
                     // Código correspondiente a EncargadoAnotarGanadores_BotonCancelar
                     System.out.println("EncargadoAnotarGanadores_BotonCancelar");
@@ -820,13 +822,6 @@ public class Controlador {
                     
                 case "ClienteReservarActividades_BotonCancelar":
                 
-//                    try {
-//                        // Código correspondiente a ClienteReservarActividades_BotonCancelar
-//                        c.cargarDatos();
-//                    } catch (ClassNotFoundException ex) {
-//                        Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-                
                     cm.setVisible(true);
                     cra.setVisible(false);
                     cra.limpiar();
@@ -836,13 +831,13 @@ public class Controlador {
                     
                 case "ClienteReservarActividades_BotonReservar":
                     // Código correspondiente a ClienteReservarActividades_BotonReservar
-                    cra.setdia(cra.DiaGetText());
-                    cra.setTipoActividad(cra.ActividadGetItem());
-                    cra.setEstado("Ocupada");
-                    cra.setIdCliente(c.getIdCliente());
-                    cra.setdia(cra.DiaGetText());
-                    cra.setTipoActividad(cra.ActividadGetItem());
-                    
+//                    cra.setdia(cra.DiaGetText());
+//                    cra.setTipoActividad(cra.ActividadGetItem());
+//                    cra.setEstado("Ocupada");
+//                    cra.setIdCliente(c.getIdCliente());
+//                    cra.setdia(cra.DiaGetText());
+//                    cra.setTipoActividad(cra.ActividadGetItem());
+//                    
                     if(!c.esFechaValida(cra.getdia())) 
                         JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Por favor, ingrese una fecha en el formato dd/MM/yyyy.", "Fecha Invalida", JOptionPane.ERROR_MESSAGE);
                     else

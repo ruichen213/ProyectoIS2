@@ -347,12 +347,12 @@ public class Camping {
     
     public ArrayList<String> mostrarActividadPorFecha(String f){
         ArrayList<String> cad = new ArrayList<>();
-        Cliente c = clientes.get(idCliente);
+        Cliente c = clientes.get(4);
             
             for (int i = 0; i < actividades.size(); i++){
                 Actividad a = actividades.get(i);
                 if(c.getId_cliente() == a.getIdCliente()){
-                    if(a.getEstado().equals("Ocupada")){
+                    if(a.getEstado().equals("Libre")){
                         if (a.getFecha().equals(f)) {
                             cad.add(a.getTipoActividad() + ", " + a.getDia() + ", " + a.getHora());
                         }
